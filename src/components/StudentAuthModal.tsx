@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import type { StudentProfile, Category, PreparationMethod } from '../types';
-import { saveStudentProfile } from '../data/mockStudents';
+import { 
+  saveStudentProfile, 
+  findStudentByContact, 
+  getStoredStudents,
+  normalizePhone 
+} from '../data/mockStudents';
 import { 
   X, 
   User, 
@@ -13,7 +18,12 @@ import {
   Clock, 
   Sparkles, 
   Award,
-  ChevronRight
+  ChevronRight,
+  LogIn,
+  UserPlus,
+  ArrowRight,
+  AlertCircle,
+  CheckCircle2
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { BrandLogo } from './BrandLogo';
@@ -23,6 +33,7 @@ interface StudentAuthModalProps {
   onClose: () => void;
   onSuccess: (student: StudentProfile) => void;
   existingStudent: StudentProfile | null;
+  defaultMode?: 'login' | 'register';
 }
 
 const PREPARATION_METHODS: PreparationMethod[] = [
@@ -61,7 +72,19 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
   onClose,
   onSuccess,
   existingStudent,
+  defaultMode = 'login',
 }) => {
+  // Mode: 'login' for returning students, 'register' for new registration / profile update
+  const [authMode, setAuthMode] = useState<'login' | 'register'>(
+    existingStudent ? 'register' : defaultMode
+  );
+
+  // Quick Login state
+  const [loginIdentifier, setLoginIdentifier] = useState('');
+  const [loginError, setLoginError] = useState('');
+  const [loginSuccessNotice, setLoginSuccessNotice] = useState('');
+
+  // Registration / Profile form state
   const [fullName, setFullName] = useState(existingStudent?.fullName || '');
   const [mobileNumber, setMobileNumber] = useState(existingStudent?.mobileNumber || '');
   const [email, setEmail] = useState(existingStudent?.email || '');
@@ -86,30 +109,70 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
   );
 
   const [activeStep, setActiveStep] = useState<1 | 2>(1);
-  const [errorMsg, setErrorMsg] = useState('');
+  const [regErrorMsg, setRegErrorMsg] = useState('');
 
   if (!isOpen) return null;
 
-  const handleNextOrSubmit = (e: React.FormEvent) => {
+  // 1. Quick Returning Student Login Handler
+  const handleQuickLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    setErrorMsg('');
+    setLoginError('');
+    setLoginSuccessNotice('');
+
+    const query = loginIdentifier.trim();
+    if (!query) {
+      setLoginError('Please enter your registered Mobile Number or Email ID.');
+      return;
+    }
+
+    const matched = findStudentByContact(query);
+    if (matched) {
+      setLoginSuccessNotice(`Welcome back, ${matched.fullName}! Unlocking predictor...`);
+      saveStudentProfile(matched); // writes to localStorage for persistence
+      
+      try {
+        confetti({
+          particleCount: 50,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#10b981', '#38bdf8', '#f59e0b'],
+        });
+      } catch (err) {
+        // ignore
+      }
+
+      setTimeout(() => {
+        onSuccess(matched);
+        onClose();
+      }, 400);
+    } else {
+      setLoginError(
+        `No existing student profile found for "${query}". If you are signing in for the first time, click "New Registration" to create your profile.`
+      );
+    }
+  };
+
+  // 2. Full Student Registration Handler
+  const handleRegSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setRegErrorMsg('');
 
     // Step 1 Validation
     if (activeStep === 1) {
       if (!fullName.trim()) {
-        setErrorMsg('Please enter your full name');
+        setRegErrorMsg('Please enter your full name');
         return;
       }
-      if (!mobileNumber.trim() || mobileNumber.replace(/\D/g, '').length < 10) {
-        setErrorMsg('Please enter a valid 10-digit mobile number for login verification');
+      if (!mobileNumber.trim() || normalizePhone(mobileNumber).length < 10) {
+        setRegErrorMsg('Please enter a valid 10-digit mobile number for login verification');
         return;
       }
       if (!email.trim() || !email.includes('@')) {
-        setErrorMsg('Please enter a valid email address');
+        setRegErrorMsg('Please enter a valid email address');
         return;
       }
       if (!bamsCollege.trim()) {
-        setErrorMsg('Please enter your BAMS College / Institute name');
+        setRegErrorMsg('Please enter your BAMS College / Institute name');
         return;
       }
       setActiveStep(2);
@@ -118,13 +181,13 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
 
     // Step 2 Submission
     if (!aiapgetRank || aiapgetRank <= 0) {
-      setErrorMsg('Please enter a valid AIAPGET Rank');
+      setRegErrorMsg('Please enter a valid AIAPGET Rank');
       return;
     }
 
     const newProfile: StudentProfile = {
       id: existingStudent?.id || `std-${Date.now()}`,
-      fullName: fullName.trim(),
+      fullName: fullName.trim().startsWith('Dr.') ? fullName.trim() : `Dr. ${fullName.trim()}`,
       email: email.trim().toLowerCase(),
       mobileNumber: mobileNumber.trim(),
       bamsCollege: bamsCollege.trim(),
@@ -141,7 +204,7 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
       registeredAt: existingStudent?.registeredAt || new Date().toISOString(),
     };
 
-    saveStudentProfile(newProfile);
+    saveStudentProfile(newProfile); // saves to localStorage
     onSuccess(newProfile);
 
     try {
@@ -157,6 +220,9 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
 
     onClose();
   };
+
+  // Demo accounts for quick test
+  const demoAccounts = getStoredStudents().slice(0, 3);
 
   return (
     <div
@@ -190,348 +256,523 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
                 Ayush Gurukulam Student Network
               </span>
               <span className="px-2 py-0.5 rounded-full text-[9px] font-semibold bg-emerald-500/15 text-emerald-300">
-                Verified Sign In
+                Persistent Auth
               </span>
             </div>
             <h3 id="auth-modal-title" className="text-xl sm:text-2xl font-bold text-white font-['Outfit']">
-              {existingStudent ? 'Update Your Student Profile' : 'Student Login & Profile Setup'}
+              {existingStudent
+                ? 'Update Your Student Profile'
+                : authMode === 'login'
+                ? 'Quick Returning Student Sign In'
+                : 'Student Profile Setup & Registration'}
             </h3>
             <p className="text-xs text-slate-300 mt-0.5">
-              Enter your mobile, email, BAMS college background, and exam preparation details for customized AIAPGET college predictions.
+              {authMode === 'login'
+                ? 'Enter your registered Mobile Number or Email to restore your session and bypass the lock screen.'
+                : 'Enter your mobile, email, BAMS college, and AIAPGET rank to unlock the predictor.'}
             </p>
           </div>
         </div>
 
-        {/* Multi-Step Indicator */}
-        <div className="grid grid-cols-2 gap-2 mb-6 p-1 rounded-xl bg-slate-900/60 border border-white/10 text-xs">
-          <button
-            type="button"
-            onClick={() => setActiveStep(1)}
-            className={`py-2 px-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer ${
-              activeStep === 1
-                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <span className="w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center text-[10px]">1</span>
-            <span>Contact & BAMS College</span>
-          </button>
+        {/* Auth Mode Toggle Tabs (Login vs Register) */}
+        {!existingStudent && (
+          <div className="grid grid-cols-2 gap-2 mb-6 p-1 rounded-2xl bg-slate-900/80 border border-white/10 text-xs sm:text-sm">
+            <button
+              type="button"
+              onClick={() => {
+                setAuthMode('login');
+                setLoginError('');
+              }}
+              className={`py-2.5 px-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                authMode === 'login'
+                  ? 'bg-gradient-to-r from-emerald-500/25 to-teal-500/25 text-emerald-300 border border-emerald-500/40 shadow-sm'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <LogIn className="w-4 h-4" />
+              <span>Quick Login (Returning)</span>
+            </button>
 
-          <button
-            type="button"
-            onClick={() => {
-              if (fullName && mobileNumber && email) setActiveStep(2);
-            }}
-            className={`py-2 px-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer ${
-              activeStep === 2
-                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
-                : 'text-slate-400 hover:text-slate-200'
-            }`}
-          >
-            <span className="w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center text-[10px]">2</span>
-            <span>AIAPGET & Prep Strategy</span>
-          </button>
-        </div>
-
-        {/* Error message */}
-        {errorMsg && (
-          <div className="mb-4 p-3 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs font-medium animate-fadeIn">
-            {errorMsg}
+            <button
+              type="button"
+              onClick={() => {
+                setAuthMode('register');
+                setRegErrorMsg('');
+              }}
+              className={`py-2.5 px-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                authMode === 'register'
+                  ? 'bg-gradient-to-r from-emerald-500/25 to-teal-500/25 text-emerald-300 border border-emerald-500/40 shadow-sm'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <UserPlus className="w-4 h-4" />
+              <span>New Registration</span>
+            </button>
           </div>
         )}
 
-        <form onSubmit={handleNextOrSubmit} className="space-y-4">
-          
-          {/* STEP 1: Contact & BAMS College Details */}
-          {activeStep === 1 && (
-            <div className="space-y-4 animate-fadeIn">
-              
-              {/* Full Name */}
-              <div>
-                <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                  <User className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>Full Name (with Dr. prefix) *</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="e.g. Dr. Ananya Sharma"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  required
-                  className="w-full h-11 px-3.5 text-sm rounded-xl glass-input text-white placeholder-slate-500"
-                />
-              </div>
-
-              {/* Mobile Number & Email Row */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                    <Phone className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Mobile Number (Login ID) *</span>
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="e.g. 9876543210"
-                    value={mobileNumber}
-                    onChange={(e) => setMobileNumber(e.target.value)}
-                    required
-                    className="w-full h-11 px-3.5 text-sm font-mono rounded-xl glass-input text-white placeholder-slate-500"
-                  />
-                  <span className="text-[10px] text-slate-400">Used for login and counseling SMS alerts</span>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                    <Mail className="w-3.5 h-3.5 text-teal-400" />
-                    <span>Email Address (Official Login) *</span>
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="e.g. ananya.ayur@gmail.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="w-full h-11 px-3.5 text-sm rounded-xl glass-input text-white placeholder-slate-500"
-                  />
-                  <span className="text-[10px] text-slate-400">Used for seat allotment report delivery</span>
-                </div>
-              </div>
-
-              {/* BAMS College Name */}
-              <div>
-                <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                  <GraduationCap className="w-3.5 h-3.5 text-purple-400" />
-                  <span>Undergraduate (BAMS) College Name *</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="e.g. R.A. Podar Medical College (Ayurvedic), Mumbai"
-                  value={bamsCollege}
-                  onChange={(e) => setBamsCollege(e.target.value)}
-                  required
-                  className="w-full h-11 px-3.5 text-sm rounded-xl glass-input text-white placeholder-slate-500"
-                />
-              </div>
-
-              {/* State of College, Passing Year & Score */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>College State *</span>
-                  </label>
-                  <select
-                    value={bamsState}
-                    onChange={(e) => setBamsState(e.target.value)}
-                    className="w-full h-11 px-3 text-xs rounded-xl glass-input text-white bg-slate-900 border border-white/15 cursor-pointer"
+        {/* TAB 1: QUICK RETURNING STUDENT LOGIN */}
+        {authMode === 'login' && !existingStudent && (
+          <div className="space-y-5 animate-fadeIn">
+            
+            {loginError && (
+              <div className="p-3.5 rounded-2xl bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs flex items-start gap-2.5">
+                <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                <div className="flex-1">
+                  <p className="font-medium">{loginError}</p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (loginIdentifier.includes('@')) {
+                        setEmail(loginIdentifier);
+                      } else if (normalizePhone(loginIdentifier).length >= 10) {
+                        setMobileNumber(loginIdentifier);
+                      }
+                      setAuthMode('register');
+                    }}
+                    className="mt-1.5 text-xs text-amber-300 hover:underline font-bold flex items-center gap-1 cursor-pointer"
                   >
-                    {STATES.map((st) => (
-                      <option key={st} value={st}>
-                        {st}
-                      </option>
-                    ))}
-                  </select>
+                    <span>Click here to register with this details</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
                 </div>
+              </div>
+            )}
 
-                <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Internship / Passing Year</span>
-                  </label>
-                  <select
-                    value={passingYear}
-                    onChange={(e) => setPassingYear(Number(e.target.value))}
-                    className="w-full h-11 px-3 text-xs rounded-xl glass-input text-white bg-slate-900 border border-white/15 cursor-pointer"
-                  >
-                    {[2025, 2024, 2023, 2022, 2021, 2020].map((yr) => (
-                      <option key={yr} value={yr}>
-                        {yr}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+            {loginSuccessNotice && (
+              <div className="p-3.5 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 shrink-0" />
+                <span>{loginSuccessNotice}</span>
+              </div>
+            )}
 
-                <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                    <Award className="w-3.5 h-3.5 text-teal-400" />
-                    <span>BAMS Overall %</span>
-                  </label>
+            <form onSubmit={handleQuickLogin} className="space-y-4">
+              <div>
+                <label className="block text-xs font-semibold text-slate-200 mb-1.5 flex items-center gap-1.5">
+                  <Phone className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Registered Mobile Number or Email ID *</span>
+                </label>
+                <div className="relative">
                   <input
                     type="text"
-                    placeholder="e.g. 68.5%"
-                    value={bamsScore}
-                    onChange={(e) => setBamsScore(e.target.value)}
-                    className="w-full h-11 px-3 text-sm rounded-xl glass-input text-white placeholder-slate-500"
+                    placeholder="e.g. 9823456712 or ananya.ayur@gmail.com"
+                    value={loginIdentifier}
+                    onChange={(e) => {
+                      setLoginIdentifier(e.target.value);
+                      if (loginError) setLoginError('');
+                    }}
+                    autoFocus
+                    required
+                    className="w-full h-12 px-4 text-sm rounded-xl glass-input text-white placeholder-slate-500 focus:outline-none focus:border-emerald-400 font-medium"
                   />
                 </div>
+                <span className="text-[11px] text-slate-400 mt-1 block">
+                  Your session is saved in your browser (`localStorage`) so you stay logged in automatically across reloads.
+                </span>
               </div>
 
-              <div className="pt-2 flex justify-end">
+              <div className="pt-2">
                 <button
                   type="submit"
-                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-300 text-slate-950 font-bold text-xs sm:text-sm flex items-center gap-2 hover:opacity-95 shadow-md cursor-pointer"
+                  className="w-full h-12 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 text-slate-950 font-bold text-sm flex items-center justify-center gap-2 hover:opacity-95 shadow-lg shadow-emerald-500/20 transition-all cursor-pointer"
                 >
-                  <span>Continue to Exam Preparation Details</span>
-                  <ChevronRight className="w-4 h-4" />
+                  <span>Sign In & Unlock College Predictor</span>
+                  <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
+            </form>
 
-            </div>
-          )}
-
-          {/* STEP 2: AIAPGET Preparation & Target Details */}
-          {activeStep === 2 && (
-            <div className="space-y-4 animate-fadeIn">
-              
-              {/* Rank & Category */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1">
-                    Your AIAPGET All India Rank (AIR) *
-                  </label>
-                  <input
-                    type="number"
-                    min="1"
-                    placeholder="e.g. 240"
-                    value={aiapgetRank}
-                    onChange={(e) => setAiapgetRank(e.target.value ? Number(e.target.value) : '')}
-                    required
-                    className="w-full h-11 px-3.5 text-base font-bold font-mono rounded-xl glass-input text-emerald-400 placeholder-slate-500"
-                  />
+            {/* Quick One-Click Demo Logins */}
+            {demoAccounts.length > 0 && (
+              <div className="pt-4 border-t border-white/10">
+                <div className="text-[11px] font-semibold text-slate-400 mb-2 flex items-center gap-1.5">
+                  <Sparkles className="w-3 h-3 text-amber-400" />
+                  <span>Quick Sign In with Registered Student Accounts:</span>
                 </div>
-
-                <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1">
-                    Counseling Category *
-                  </label>
-                  <select
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value as Category)}
-                    className="w-full h-11 px-3 text-sm rounded-xl glass-input text-white bg-slate-900 border border-white/15 cursor-pointer"
-                  >
-                    {(['General', 'OBC', 'SC', 'ST', 'EWS'] as Category[]).map((c) => (
-                      <option key={c} value={c}>
-                        {c}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              {/* How did you prepare for the exam? */}
-              <div>
-                <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                  <BookOpen className="w-3.5 h-3.5 text-amber-400" />
-                  <span>How did you prepare for AIAPGET? *</span>
-                </label>
-                <select
-                  value={prepMethod}
-                  onChange={(e) => setPrepMethod(e.target.value as PreparationMethod)}
-                  className="w-full h-11 px-3.5 text-xs sm:text-sm rounded-xl glass-input text-white bg-slate-900 border border-white/15 cursor-pointer"
-                >
-                  {PREPARATION_METHODS.map((m) => (
-                    <option key={m} value={m}>
-                      {m}
-                    </option>
+                <div className="flex flex-wrap gap-2">
+                  {demoAccounts.map((std) => (
+                    <button
+                      key={std.id}
+                      type="button"
+                      onClick={() => {
+                        setLoginIdentifier(std.mobileNumber);
+                        setLoginSuccessNotice(`Signing in as ${std.fullName}...`);
+                        setTimeout(() => {
+                          saveStudentProfile(std);
+                          onSuccess(std);
+                          onClose();
+                        }, 300);
+                      }}
+                      className="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-emerald-500/15 border border-white/10 hover:border-emerald-500/30 text-xs text-slate-300 hover:text-emerald-300 transition-all cursor-pointer flex items-center gap-1.5"
+                    >
+                      <span className="font-semibold">{std.fullName}</span>
+                      <span className="text-[10px] text-emerald-400 font-mono">(AIR #{std.aiapgetRank})</span>
+                    </button>
                   ))}
-                </select>
-              </div>
-
-              {/* Study Hours & Duration */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-teal-400" />
-                    <span>Average Daily Study Hours</span>
-                  </label>
-                  <select
-                    value={dailyStudyHours}
-                    onChange={(e) => setDailyStudyHours(Number(e.target.value))}
-                    className="w-full h-11 px-3 text-xs rounded-xl glass-input text-white bg-slate-900 border border-white/15 cursor-pointer"
-                  >
-                    {[3, 4, 5, 6, 7, 8, 9, 10, 12].map((hr) => (
-                      <option key={hr} value={hr}>
-                        {hr} hours / day
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-purple-400" />
-                    <span>Preparation Duration</span>
-                  </label>
-                  <select
-                    value={prepDurationMonths}
-                    onChange={(e) => setPrepDurationMonths(Number(e.target.value))}
-                    className="w-full h-11 px-3 text-xs rounded-xl glass-input text-white bg-slate-900 border border-white/15 cursor-pointer"
-                  >
-                    {[3, 6, 9, 12, 18, 24].map((m) => (
-                      <option key={m} value={m}>
-                        {m} months
-                      </option>
-                    ))}
-                  </select>
                 </div>
               </div>
+            )}
 
-              {/* Target Specialty */}
-              <div>
-                <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>Target MD/MS Ayurveda Branch / Specialty</span>
-                </label>
-                <select
-                  value={targetSpecialty}
-                  onChange={(e) => setTargetSpecialty(e.target.value)}
-                  className="w-full h-11 px-3.5 text-xs sm:text-sm rounded-xl glass-input text-white bg-slate-900 border border-white/15 cursor-pointer"
-                >
-                  {SPECIALTIES.map((sp) => (
-                    <option key={sp} value={sp}>
-                      {sp}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Counseling Assistance Checkbox */}
-              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 flex items-start gap-2.5">
-                <input
-                  type="checkbox"
-                  id="assistance-check"
-                  checked={counselingAssistanceRequired}
-                  onChange={(e) => setCounselingAssistanceRequired(e.target.checked)}
-                  className="w-4 h-4 rounded text-emerald-500 focus:ring-emerald-400 mt-0.5 cursor-pointer"
-                />
-                <label htmlFor="assistance-check" className="text-xs text-slate-300 cursor-pointer">
-                  <strong className="text-white block font-medium">Request Free Ayush Gurukulam Choice-Locking Mentorship</strong>
-                  Receive personal guidance on Round 1 and Round 2 choices, security deposit forfeiture prevention, and fee concessions.
-                </label>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="pt-2 flex items-center justify-between gap-3">
+            <div className="text-center pt-2">
+              <p className="text-xs text-slate-400">
+                New to Vedabhyas College Predictor?{' '}
                 <button
                   type="button"
-                  onClick={() => setActiveStep(1)}
-                  className="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-slate-300 cursor-pointer"
+                  onClick={() => setAuthMode('register')}
+                  className="text-emerald-400 hover:text-emerald-300 font-bold underline cursor-pointer"
                 >
-                  ← Back to Contact
+                  Create new student profile
                 </button>
-
-                <button
-                  type="submit"
-                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 text-slate-950 font-bold text-xs sm:text-sm shadow-md hover:opacity-95 transition-all cursor-pointer"
-                >
-                  Save Profile & Unlock Custom Predictions
-                </button>
-              </div>
-
+              </p>
             </div>
-          )}
 
-        </form>
+          </div>
+        )}
+
+        {/* TAB 2: FULL REGISTRATION / PROFILE UPDATE WIZARD */}
+        {(authMode === 'register' || existingStudent) && (
+          <div>
+            {/* Multi-Step Indicator */}
+            <div className="grid grid-cols-2 gap-2 mb-6 p-1 rounded-xl bg-slate-900/60 border border-white/10 text-xs">
+              <button
+                type="button"
+                onClick={() => setActiveStep(1)}
+                className={`py-2 px-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                  activeStep === 1
+                    ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
+                    : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                <span className="w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center text-[10px]">1</span>
+                <span>Contact & BAMS College</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  if (fullName && mobileNumber && email) setActiveStep(2);
+                }}
+                className={`py-2 px-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                  activeStep === 2
+                    ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
+                    : 'text-slate-400 hover:text-slate-200'
+                }`}
+              >
+                <span className="w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center text-[10px]">2</span>
+                <span>AIAPGET & Prep Strategy</span>
+              </button>
+            </div>
+
+            {/* Error message */}
+            {regErrorMsg && (
+              <div className="mb-4 p-3 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs font-medium animate-fadeIn">
+                {regErrorMsg}
+              </div>
+            )}
+
+            <form onSubmit={handleRegSubmit} className="space-y-4">
+              
+              {/* STEP 1: Contact & BAMS College Details */}
+              {activeStep === 1 && (
+                <div className="space-y-4 animate-fadeIn">
+                  
+                  {/* Full Name */}
+                  <div>
+                    <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                      <User className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>Full Name (with Dr. prefix) *</span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="e.g. Dr. Ananya Sharma"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      required
+                      className="w-full h-11 px-3.5 text-sm rounded-xl glass-input text-white placeholder-slate-500"
+                    />
+                  </div>
+
+                  {/* Mobile Number & Email Row */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                        <Phone className="w-3.5 h-3.5 text-amber-400" />
+                        <span>Mobile Number (Login ID) *</span>
+                      </label>
+                      <input
+                        type="tel"
+                        placeholder="e.g. 9876543210"
+                        value={mobileNumber}
+                        onChange={(e) => setMobileNumber(e.target.value)}
+                        required
+                        className="w-full h-11 px-3.5 text-sm font-mono rounded-xl glass-input text-white placeholder-slate-500"
+                      />
+                      <span className="text-[10px] text-slate-400">Used for persistent login & counseling alerts</span>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                        <Mail className="w-3.5 h-3.5 text-teal-400" />
+                        <span>Email Address (Official Login) *</span>
+                      </label>
+                      <input
+                        type="email"
+                        placeholder="e.g. ananya.ayur@gmail.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        className="w-full h-11 px-3.5 text-sm rounded-xl glass-input text-white placeholder-slate-500"
+                      />
+                      <span className="text-[10px] text-slate-400">Used for seat allotment report delivery</span>
+                    </div>
+                  </div>
+
+                  {/* BAMS College Name */}
+                  <div>
+                    <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                      <GraduationCap className="w-3.5 h-3.5 text-purple-400" />
+                      <span>Undergraduate (BAMS) College Name *</span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="e.g. R.A. Podar Medical College (Ayurvedic), Mumbai"
+                      value={bamsCollege}
+                      onChange={(e) => setBamsCollege(e.target.value)}
+                      required
+                      className="w-full h-11 px-3.5 text-sm rounded-xl glass-input text-white placeholder-slate-500"
+                    />
+                  </div>
+
+                  {/* State of College, Passing Year & Score */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div>
+                      <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                        <MapPin className="w-3.5 h-3.5 text-emerald-400" />
+                        <span>College State *</span>
+                      </label>
+                      <select
+                        value={bamsState}
+                        onChange={(e) => setBamsState(e.target.value)}
+                        className="w-full h-11 px-3 text-xs rounded-xl glass-input text-white bg-slate-900 border border-white/15 cursor-pointer"
+                      >
+                        {STATES.map((st) => (
+                          <option key={st} value={st}>
+                            {st}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                        <Calendar className="w-3.5 h-3.5 text-amber-400" />
+                        <span>Internship / Passing Year</span>
+                      </label>
+                      <select
+                        value={passingYear}
+                        onChange={(e) => setPassingYear(Number(e.target.value))}
+                        className="w-full h-11 px-3 text-xs rounded-xl glass-input text-white bg-slate-900 border border-white/15 cursor-pointer"
+                      >
+                        {[2025, 2024, 2023, 2022, 2021, 2020].map((yr) => (
+                          <option key={yr} value={yr}>
+                            {yr}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                        <Award className="w-3.5 h-3.5 text-teal-400" />
+                        <span>BAMS Overall %</span>
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="e.g. 68.5%"
+                        value={bamsScore}
+                        onChange={(e) => setBamsScore(e.target.value)}
+                        className="w-full h-11 px-3 text-sm rounded-xl glass-input text-white placeholder-slate-500"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="pt-2 flex justify-between items-center">
+                    {!existingStudent && (
+                      <button
+                        type="button"
+                        onClick={() => setAuthMode('login')}
+                        className="text-xs text-slate-400 hover:text-emerald-300 underline cursor-pointer"
+                      >
+                        ← Back to Quick Login
+                      </button>
+                    )}
+                    <button
+                      type="submit"
+                      className="ml-auto px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-300 text-slate-950 font-bold text-xs sm:text-sm flex items-center gap-2 hover:opacity-95 shadow-md cursor-pointer"
+                    >
+                      <span>Continue to Exam Preparation Details</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
+
+                </div>
+              )}
+
+              {/* STEP 2: AIAPGET Preparation & Target Details */}
+              {activeStep === 2 && (
+                <div className="space-y-4 animate-fadeIn">
+                  
+                  {/* Rank & Category */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-medium text-slate-300 mb-1">
+                        Your AIAPGET All India Rank (AIR) *
+                      </label>
+                      <input
+                        type="number"
+                        min="1"
+                        placeholder="e.g. 240"
+                        value={aiapgetRank}
+                        onChange={(e) => setAiapgetRank(e.target.value ? Number(e.target.value) : '')}
+                        required
+                        className="w-full h-11 px-3.5 text-base font-bold font-mono rounded-xl glass-input text-emerald-400 placeholder-slate-500"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-medium text-slate-300 mb-1">
+                        Counseling Category *
+                      </label>
+                      <select
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value as Category)}
+                        className="w-full h-11 px-3 text-sm rounded-xl glass-input text-white bg-slate-900 border border-white/15 cursor-pointer"
+                      >
+                        {(['General', 'OBC', 'SC', 'ST', 'EWS'] as Category[]).map((c) => (
+                          <option key={c} value={c}>
+                            {c}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* How did you prepare for the exam? */}
+                  <div>
+                    <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                      <BookOpen className="w-3.5 h-3.5 text-amber-400" />
+                      <span>How did you prepare for AIAPGET? *</span>
+                    </label>
+                    <select
+                      value={prepMethod}
+                      onChange={(e) => setPrepMethod(e.target.value as PreparationMethod)}
+                      className="w-full h-11 px-3.5 text-xs sm:text-sm rounded-xl glass-input text-white bg-slate-900 border border-white/15 cursor-pointer"
+                    >
+                      {PREPARATION_METHODS.map((m) => (
+                        <option key={m} value={m}>
+                          {m}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Study Hours & Duration */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                        <Clock className="w-3.5 h-3.5 text-teal-400" />
+                        <span>Average Daily Study Hours</span>
+                      </label>
+                      <select
+                        value={dailyStudyHours}
+                        onChange={(e) => setDailyStudyHours(Number(e.target.value))}
+                        className="w-full h-11 px-3 text-xs rounded-xl glass-input text-white bg-slate-900 border border-white/15 cursor-pointer"
+                      >
+                        {[3, 4, 5, 6, 7, 8, 9, 10, 12].map((hr) => (
+                          <option key={hr} value={hr}>
+                            {hr} hours / day
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                        <Calendar className="w-3.5 h-3.5 text-purple-400" />
+                        <span>Preparation Duration</span>
+                      </label>
+                      <select
+                        value={prepDurationMonths}
+                        onChange={(e) => setPrepDurationMonths(Number(e.target.value))}
+                        className="w-full h-11 px-3 text-xs rounded-xl glass-input text-white bg-slate-900 border border-white/15 cursor-pointer"
+                      >
+                        {[3, 6, 9, 12, 18, 24].map((m) => (
+                          <option key={m} value={m}>
+                            {m} months
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Target Specialty */}
+                  <div>
+                    <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>Target MD/MS Ayurveda Branch / Specialty</span>
+                    </label>
+                    <select
+                      value={targetSpecialty}
+                      onChange={(e) => setTargetSpecialty(e.target.value)}
+                      className="w-full h-11 px-3.5 text-xs sm:text-sm rounded-xl glass-input text-white bg-slate-900 border border-white/15 cursor-pointer"
+                    >
+                      {SPECIALTIES.map((sp) => (
+                        <option key={sp} value={sp}>
+                          {sp}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Counseling Assistance Checkbox */}
+                  <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 flex items-start gap-2.5">
+                    <input
+                      type="checkbox"
+                      id="assistance-check"
+                      checked={counselingAssistanceRequired}
+                      onChange={(e) => setCounselingAssistanceRequired(e.target.checked)}
+                      className="w-4 h-4 rounded text-emerald-500 focus:ring-emerald-400 mt-0.5 cursor-pointer"
+                    />
+                    <label htmlFor="assistance-check" className="text-xs text-slate-300 cursor-pointer">
+                      <strong className="text-white block font-medium">Request Free Ayush Gurukulam Choice-Locking Mentorship</strong>
+                      Receive personal guidance on Round 1 and Round 2 choices, security deposit forfeiture prevention, and fee concessions.
+                    </label>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="pt-2 flex items-center justify-between gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setActiveStep(1)}
+                      className="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-slate-300 cursor-pointer"
+                    >
+                      ← Back to Contact
+                    </button>
+
+                    <button
+                      type="submit"
+                      className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 text-slate-950 font-bold text-xs sm:text-sm shadow-md hover:opacity-95 transition-all cursor-pointer"
+                    >
+                      Save Profile & Unlock Custom Predictions
+                    </button>
+                  </div>
+
+                </div>
+              )}
+
+            </form>
+          </div>
+        )}
 
       </div>
     </div>

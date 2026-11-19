@@ -89,21 +89,27 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Student Auth / Profile Button */}
             {currentStudent ? (
-              <div className="flex items-center gap-1.5 p-1 pl-3 pr-1.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-xs">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <div className="flex items-center gap-2">
                 <button
                   onClick={onOpenAuth}
-                  className="font-semibold text-emerald-300 hover:underline cursor-pointer"
-                  title="Click to update your BAMS college & preparation data"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-xs text-white transition-all cursor-pointer group shadow-sm"
+                  title="Click to view or update your BAMS college & preparation data"
                 >
-                  {currentStudent.fullName.split(' ')[0]} (AIR #{currentStudent.aiapgetRank})
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                  <span className="font-semibold text-emerald-300 group-hover:text-emerald-200">
+                    {currentStudent.fullName.startsWith('Dr.') ? currentStudent.fullName : `Dr. ${currentStudent.fullName}`}
+                  </span>
+                  <span className="px-1.5 py-0.5 rounded-md bg-emerald-400/20 text-emerald-300 font-mono text-[10px] font-bold">
+                    AIR #{currentStudent.aiapgetRank}
+                  </span>
                 </button>
                 <button
                   onClick={onLogout}
-                  className="p-1 rounded-lg hover:bg-emerald-500/20 text-slate-400 hover:text-white transition-colors cursor-pointer"
-                  title="Logout"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-500/15 hover:bg-rose-500/25 border border-rose-500/30 text-rose-300 hover:text-rose-200 text-xs font-semibold transition-all cursor-pointer shadow-sm"
+                  title="Sign Out & Lock Predictor"
                 >
                   <LogOut className="w-3.5 h-3.5" />
+                  <span>Logout</span>
                 </button>
               </div>
             ) : (
@@ -193,19 +199,29 @@ export const Navbar: React.FC<NavbarProps> = ({
           </a>
 
           {currentStudent ? (
-            <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-between">
-              <div>
-                <span className="text-xs font-bold text-white block">{currentStudent.fullName}</span>
-                <span className="text-[10px] text-emerald-300">AIR #{currentStudent.aiapgetRank} • {currentStudent.bamsCollege}</span>
+            <div className="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-2.5">
+              <div className="flex items-center justify-between">
+                <div>
+                  <span className="text-sm font-bold text-white block">
+                    {currentStudent.fullName.startsWith('Dr.') ? currentStudent.fullName : `Dr. ${currentStudent.fullName}`}
+                  </span>
+                  <span className="text-xs text-emerald-300">
+                    AIR #{currentStudent.aiapgetRank} • {currentStudent.bamsCollege}
+                  </span>
+                </div>
+                <span className="px-2 py-0.5 rounded-full bg-emerald-400/20 text-emerald-300 text-[10px] font-bold">
+                  Active Session
+                </span>
               </div>
               <button
                 onClick={() => {
                   onLogout();
                   setMobileMenuOpen(false);
                 }}
-                className="text-xs text-rose-400 underline font-semibold"
+                className="w-full flex items-center justify-center gap-2 py-2 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/30 text-rose-300 text-xs font-semibold cursor-pointer transition-colors"
               >
-                Sign Out
+                <LogOut className="w-4 h-4" />
+                <span>Logout Session</span>
               </button>
             </div>
           ) : (

@@ -150,6 +150,11 @@ export const initialMockStudents: StudentProfile[] = [
 export const STORAGE_KEY_STUDENTS = 'vedabhyas_registered_students';
 export const STORAGE_KEY_CURRENT_STUDENT = 'vedabhyas_current_student';
 
+export function normalizePhone(phone: string): string {
+  const digits = phone.replace(/\D/g, '');
+  return digits.length >= 10 ? digits.slice(-10) : digits;
+}
+
 export function getStoredStudents(): StudentProfile[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEY_STUDENTS);
@@ -171,9 +176,35 @@ export function getStoredStudents(): StudentProfile[] {
   return initialMockStudents;
 }
 
+export function findStudentByContact(identifier: string): StudentProfile | null {
+  const cleanId = identifier.trim().toLowerCase();
+  if (!cleanId) return null;
+  const cleanDigits = normalizePhone(cleanId);
+  const students = getStoredStudents();
+
+  return (
+    students.find((s) => {
+      // Direct email match
+      if (s.email.toLowerCase().trim() === cleanId) return true;
+      // Phone match (last 10 digits comparison)
+      const studentDigits = normalizePhone(s.mobileNumber);
+      if (cleanDigits.length >= 10 && studentDigits === cleanDigits) return true;
+      // Partial digit fallback if user entered standard 10 digit number
+      if (cleanDigits.length === 10 && studentDigits.includes(cleanDigits)) return true;
+      return false;
+    }) || null
+  );
+}
+
 export function saveStudentProfile(student: StudentProfile): void {
   const currentList = getStoredStudents();
-  const existingIdx = currentList.findIndex((s) => s.id === student.id || s.email === student.email || s.mobileNumber === student.mobileNumber);
+  const studentDigits = normalizePhone(student.mobileNumber);
+  const existingIdx = currentList.findIndex(
+    (s) =>
+      s.id === student.id ||
+      s.email.toLowerCase().trim() === student.email.toLowerCase().trim() ||
+      (studentDigits.length >= 10 && normalizePhone(s.mobileNumber) === studentDigits)
+  );
   
   let updatedList: StudentProfile[];
   if (existingIdx >= 0) {
@@ -195,10 +226,13 @@ export function getCurrentStudent(): StudentProfile | null {
   try {
     const raw = localStorage.getItem(STORAGE_KEY_CURRENT_STUDENT);
     if (raw) {
-      return JSON.parse(raw);
+      const student = JSON.parse(raw);
+      if (student && student.fullName && student.aiapgetRank) {
+        return student;
+      }
     }
   } catch (err) {
-    console.error('Failed to load current student', err);
+    console.error('Failed to load current student from localStorage', err);
   }
   return null;
 }

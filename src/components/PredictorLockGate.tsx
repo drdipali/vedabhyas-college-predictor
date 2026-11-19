@@ -71,23 +71,35 @@ export const PredictorLockGate: React.FC<PredictorLockGateProps> = ({ onOpenAuth
         </div>
 
         {/* Primary Action Button */}
-        <div>
+        <div className="space-y-3">
           <button
             onClick={onOpenAuth}
             className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 text-slate-950 font-bold text-base sm:text-lg tracking-wide hover:opacity-95 shadow-[0_15px_35px_rgba(52,211,153,0.35)] hover:shadow-[0_20px_45px_rgba(52,211,153,0.5)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 inline-flex items-center justify-center gap-2.5 cursor-pointer"
           >
             <Sparkles className="w-5 h-5 text-slate-950" />
-            <span>Sign In / Register with Mobile & Email to Unlock</span>
+            <span>Sign In / Register to Unlock Predictor</span>
             <ChevronRight className="w-5 h-5" />
           </button>
           
-          <div className="flex items-center justify-center gap-4 text-[11px] text-slate-400 mt-4">
+          <div className="flex items-center justify-center gap-2 text-xs text-slate-300">
+            <span>Already registered your profile?</span>
+            <button
+              onClick={onOpenAuth}
+              className="text-emerald-400 hover:text-emerald-300 font-bold underline cursor-pointer"
+            >
+              Quick Sign In with Mobile Number / Email →
+            </button>
+          </div>
+
+          <div className="flex items-center justify-center gap-3 text-[11px] text-slate-400 pt-1 flex-wrap">
             <span className="flex items-center gap-1">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-              <span>100% Free For BAMS Doctors</span>
+              <span>Session Persists Across Refresh</span>
             </span>
             <span>•</span>
-            <span>Verified AIAPGET Counseling Data</span>
+            <span>100% Free For BAMS Doctors</span>
+            <span>•</span>
+            <span>60+ Colleges Official R3 Cutoffs</span>
           </div>
         </div>
 

@@ -42,6 +42,22 @@ export const App: React.FC = () => {
   // States list for filtering
   const availableStates = useMemo(() => getAllStates(), []);
 
+  // Synchronize student session across tabs
+  useEffect(() => {
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'vedabhyas_current_student') {
+        const student = getCurrentStudent();
+        setCurrentStudent(student);
+        if (student) {
+          setRank(student.aiapgetRank);
+          setCategory(student.category);
+        }
+      }
+    };
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
+
   // Compute predictions only if student is authenticated
   const predictions = useMemo(() => {
     if (!currentStudent || !rank || rank <= 0) return [];
@@ -214,6 +230,7 @@ export const App: React.FC = () => {
         onClose={() => setIsAuthModalOpen(false)}
         onSuccess={handleStudentAuthSuccess}
         existingStudent={currentStudent}
+        defaultMode={currentStudent ? 'register' : 'login'}
       />
 
       {/* Restricted Admin Passcode Login Modal */}
