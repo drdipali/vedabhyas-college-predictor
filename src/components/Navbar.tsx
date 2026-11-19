@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import type { StudentProfile } from '../types';
-import { Sparkles, BookOpen, ExternalLink, Menu, X, User, LogOut } from 'lucide-react';
+import { Sparkles, BookOpen, ExternalLink, Menu, X, User, LogOut, Lock } from 'lucide-react';
+import logoImg from '../assets/logo.jpg';
 
 interface NavbarProps {
   onOpenGuide: () => void;
   onOpenAuth: () => void;
+  onOpenAdminLogin: () => void;
   currentStudent: StudentProfile | null;
   onLogout: () => void;
 }
@@ -12,6 +14,7 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ 
   onOpenGuide, 
   onOpenAuth, 
+  onOpenAdminLogin,
   currentStudent,
   onLogout
 }) => {
@@ -23,10 +26,10 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center justify-between h-20">
           
           {/* Brand Logo & Name */}
-          <div className="flex items-center gap-3.5 group cursor-pointer">
-            <div className="relative flex items-center justify-center w-12 h-12 rounded-2xl overflow-hidden bg-slate-900 border border-white/20 shadow-[0_0_20px_rgba(16,185,129,0.3)] group-hover:scale-105 transition-transform duration-300">
+          <div className="flex items-center gap-3.5 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <div className="relative flex items-center justify-center w-12 h-12 rounded-2xl overflow-hidden bg-slate-900 border border-white/20 shadow-[0_0_20px_rgba(16,185,129,0.3)] group-hover:scale-105 transition-transform duration-300 shrink-0">
               <img 
-                src="/logo.jpg" 
+                src={logoImg} 
                 alt="Vedabhyas Logo" 
                 className="w-full h-full object-cover scale-105"
               />
@@ -119,10 +122,27 @@ export const Navbar: React.FC<NavbarProps> = ({
               <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
             </a>
 
+            {/* Admin Portal Button */}
+            <button
+              onClick={onOpenAdminLogin}
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-medium text-amber-300 hover:text-amber-200 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 transition-all cursor-pointer shadow-sm"
+              title="Admin & Faculty Access (Passcode: ayushadmin)"
+            >
+              <Lock className="w-3.5 h-3.5 text-amber-400" />
+              <span>Admin</span>
+            </button>
+
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden">
+          <div className="flex md:hidden items-center gap-2">
+            <button
+              onClick={onOpenAdminLogin}
+              className="p-2 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300"
+              title="Staff Access"
+            >
+              <Lock className="w-4 h-4" />
+            </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
@@ -176,6 +196,17 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <BookOpen className="w-4 h-4 text-emerald-400" />
             <span>Counseling Roadmap & Documents</span>
+          </button>
+
+          <button
+            onClick={() => {
+              onOpenAdminLogin();
+              setMobileMenuOpen(false);
+            }}
+            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-amber-300 bg-amber-500/10 border border-amber-500/30"
+          >
+            <Lock className="w-4 h-4 text-amber-400" />
+            <span>Admin & Staff Portal (Passcode: ayushadmin)</span>
           </button>
 
           <a

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import type { Category, QuotaFilter, InstitutionTypeFilter, PredictionResult, StudentProfile } from './types';
 import { collegesData, getAllStates } from './data/colleges';
 import { predictCollegeChances } from './utils/predictor';
@@ -97,6 +97,18 @@ export const App: React.FC = () => {
     }
   };
 
+  // Support direct URL hash #admin or query param ?admin=true
+  useEffect(() => {
+    const handleUrlHash = () => {
+      if (window.location.hash === '#admin' || window.location.search.includes('admin=true')) {
+        handleOpenAdmin();
+      }
+    };
+    handleUrlHash();
+    window.addEventListener('hashchange', handleUrlHash);
+    return () => window.removeEventListener('hashchange', handleUrlHash);
+  }, [isAdminAuthenticated]);
+
   const handleAdminAuthSuccess = () => {
     setIsAdminAuthenticated(true);
     setIsAdminView(true);
@@ -121,6 +133,7 @@ export const App: React.FC = () => {
       <Navbar 
         onOpenGuide={() => setIsGuideOpen(true)}
         onOpenAuth={() => setIsAuthModalOpen(true)}
+        onOpenAdminLogin={handleOpenAdmin}
         currentStudent={currentStudent}
         onLogout={handleLogout}
       />
@@ -155,7 +168,10 @@ export const App: React.FC = () => {
 
         {/* CONDITION: If student is NOT logged in, show the Lock Gate */}
         {!currentStudent ? (
-          <PredictorLockGate onOpenAuth={() => setIsAuthModalOpen(true)} />
+          <PredictorLockGate 
+            onOpenAuth={() => setIsAuthModalOpen(true)} 
+            onOpenAdminLogin={handleOpenAdmin}
+          />
         ) : (
           /* UNLOCKED: Full Interactive Glassmorphic Predictor Form & Results */
           <>

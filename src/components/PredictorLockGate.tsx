@@ -1,11 +1,12 @@
 import React from 'react';
-import { Lock, UserCheck, ShieldCheck, Sparkles, Building2, Banknote, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { Lock, UserCheck, ShieldCheck, Sparkles, Building2, Banknote, ChevronRight, CheckCircle2, ShieldAlert } from 'lucide-react';
 
 interface PredictorLockGateProps {
   onOpenAuth: () => void;
+  onOpenAdminLogin?: () => void;
 }
 
-export const PredictorLockGate: React.FC<PredictorLockGateProps> = ({ onOpenAuth }) => {
+export const PredictorLockGate: React.FC<PredictorLockGateProps> = ({ onOpenAuth, onOpenAdminLogin }) => {
   return (
     <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 my-10">
       <div className="relative glass-panel rounded-3xl p-8 sm:p-12 border border-emerald-500/30 shadow-[0_25px_60px_-15px_rgba(16,185,129,0.25)] backdrop-blur-2xl text-center overflow-hidden">
@@ -89,6 +90,21 @@ export const PredictorLockGate: React.FC<PredictorLockGateProps> = ({ onOpenAuth
             <span>Verified AIAPGET Counseling Data</span>
           </div>
         </div>
+
+        {/* Dedicated Admin Portal Direct Link */}
+        {onOpenAdminLogin && (
+          <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-center gap-2 text-xs text-slate-400">
+            <span>Faculty or Counselor at Ayush Gurukulam?</span>
+            <button
+              onClick={onOpenAdminLogin}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 hover:text-amber-200 font-semibold transition-all cursor-pointer"
+              title="Passcode: ayushadmin"
+            >
+              <ShieldAlert className="w-3.5 h-3.5 text-amber-400" />
+              <span>Faculty Admin Portal Login</span>
+            </button>
+          </div>
+        )}
 
       </div>
     </div>

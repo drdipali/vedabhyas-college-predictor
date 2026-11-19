@@ -16,6 +16,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import logoImg from '../assets/logo.jpg';
 
 interface StudentAuthModalProps {
   isOpen: boolean;
@@ -181,7 +182,7 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
         {/* Modal Header */}
         <div className="mb-6 flex items-start gap-3.5 pr-8">
           <div className="w-12 h-12 rounded-2xl overflow-hidden bg-slate-900 border border-white/20 shadow-md shrink-0">
-            <img src="/logo.jpg" alt="Vedabhyas" className="w-full h-full object-cover" />
+            <img src={logoImg} alt="Vedabhyas" className="w-full h-full object-cover" />
           </div>
           <div>
             <div className="flex items-center gap-2">

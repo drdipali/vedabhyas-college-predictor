@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShieldCheck, Banknote, Building2, MapPin } from 'lucide-react';
+import logoImg from '../assets/logo.jpg';
 
 export const HeroSection: React.FC = () => {
   return (
@@ -15,8 +16,8 @@ export const HeroSection: React.FC = () => {
           <div className="relative mb-4 group">
             <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl overflow-hidden glass-panel p-1.5 border border-white/20 shadow-[0_0_35px_rgba(16,185,129,0.35)] animate-float">
               <img 
-                src="/logo.jpg" 
-                alt="Vedabhyas" 
+                src={logoImg} 
+                alt="Vedabhyas Logo" 
                 className="w-full h-full object-cover rounded-2xl" 
               />
             </div>
@@ -48,22 +49,22 @@ export const HeroSection: React.FC = () => {
 
         {/* Floating Feature Pills (Antigravity Weightless Layout) */}
         <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 text-xs sm:text-sm text-slate-300">
-          <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl glass-panel border border-white/10 hover:border-emerald-500/30 transition-colors">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900/60 border border-emerald-500/20 shadow-sm backdrop-blur-md">
             <Building2 className="w-4 h-4 text-emerald-400" />
             <span>Govt, Private & Deemed</span>
           </div>
 
-          <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl glass-panel border border-white/10 hover:border-teal-500/30 transition-colors">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900/60 border border-teal-500/20 shadow-sm backdrop-blur-md">
             <MapPin className="w-4 h-4 text-teal-400" />
             <span>15+ States Across India</span>
           </div>
 
-          <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl glass-panel border border-white/10 hover:border-amber-500/30 transition-colors">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900/60 border border-amber-500/20 shadow-sm backdrop-blur-md">
             <Banknote className="w-4 h-4 text-amber-400" />
             <span>₹38k – ₹1.12L/mo Stipends</span>
           </div>
 
-          <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl glass-panel border border-white/10 hover:border-purple-500/30 transition-colors">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900/60 border border-purple-500/20 shadow-sm backdrop-blur-md">
             <ShieldCheck className="w-4 h-4 text-purple-400" />
             <span>AIQ 15%, State 85% & Mgt Quotas</span>
           </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heart, BookOpen, ExternalLink, Lock } from 'lucide-react';
+import logoImg from '../assets/logo.jpg';
 
 interface FooterProps {
   onOpenGuide: () => void;
@@ -17,7 +18,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenAdminLogin })
           <div className="md:col-span-6 space-y-3">
             <div className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-2xl overflow-hidden border border-white/20 bg-slate-900 flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.25)]">
-                <img src="/logo.jpg" alt="Vedabhyas" className="w-full h-full object-cover" />
+                <img src={logoImg} alt="Vedabhyas" className="w-full h-full object-cover" />
               </div>
               <div>
                 <span className="text-[11px] uppercase tracking-[0.25em] font-bold text-emerald-400">
@@ -113,26 +114,26 @@ export const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenAdminLogin })
         </div>
 
         {/* Bottom Bar, Disclaimer & Discreet Admin Access */}
-        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>
             © {new Date().getFullYear()} Ayush Gurukulam • All Rights Reserved. Candidate data is encrypted and confidential.
           </p>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 flex-wrap">
             <div className="flex items-center gap-1 text-slate-400">
               <span>Crafted with</span>
               <Heart className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
               <span>for Ayurvedic Scholars</span>
             </div>
 
-            {/* Discreet Admin Portal access for authorized faculty only */}
+            {/* Clear Staff / Admin Portal Access Button */}
             <button
               onClick={onOpenAdminLogin}
-              className="text-[11px] text-slate-600 hover:text-slate-400 flex items-center gap-1 transition-colors cursor-pointer border-l border-white/10 pl-3"
-              title="Restricted Staff Access"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 hover:text-amber-200 text-xs font-medium transition-all cursor-pointer shadow-sm"
+              title="Restricted Faculty & Counselor Access (Passcode: ayushadmin)"
             >
-              <Lock className="w-3 h-3 text-slate-600 hover:text-amber-400" />
-              <span>Staff Login</span>
+              <Lock className="w-3.5 h-3.5 text-amber-400" />
+              <span>Faculty Admin Portal</span>
             </button>
           </div>
         </div>
