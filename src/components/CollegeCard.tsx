@@ -119,7 +119,7 @@ export const CollegeCard: React.FC<CollegeCardProps> = ({ prediction, onSelect }
         {/* Rank Comparison Metrics */}
         <div className="p-3.5 rounded-2xl bg-slate-900/60 border border-white/10 mb-4 space-y-2">
           <div className="flex items-center justify-between text-xs">
-            <span className="text-slate-400">Closing Cutoff ({prediction.category}):</span>
+            <span className="text-slate-400">AACCC R3 Cutoff ({prediction.category}):</span>
             <span className="font-mono font-bold text-white">AIR #{closingRank}</span>
           </div>
 

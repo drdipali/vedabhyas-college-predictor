@@ -51,22 +51,22 @@ export const HeroSection: React.FC = () => {
         <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 text-xs sm:text-sm text-slate-300">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900/60 border border-emerald-500/20 shadow-sm backdrop-blur-md">
             <Building2 className="w-4 h-4 text-emerald-400" />
-            <span>Govt, Private & Deemed</span>
+            <span>50+ Colleges (Govt, Private & Deemed)</span>
           </div>
 
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900/60 border border-teal-500/20 shadow-sm backdrop-blur-md">
             <MapPin className="w-4 h-4 text-teal-400" />
-            <span>15+ States Across India</span>
+            <span>22 States Across India</span>
           </div>
 
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900/60 border border-amber-500/20 shadow-sm backdrop-blur-md">
             <Banknote className="w-4 h-4 text-amber-400" />
-            <span>₹38k – ₹1.12L/mo Stipends</span>
+            <span>₹30k – ₹1.12L/mo Stipends</span>
           </div>
 
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900/60 border border-purple-500/20 shadow-sm backdrop-blur-md">
             <ShieldCheck className="w-4 h-4 text-purple-400" />
-            <span>AIQ 15%, State 85% & Mgt Quotas</span>
+            <span>AACCC Last Year Round 3 Verified</span>
           </div>
         </div>
 

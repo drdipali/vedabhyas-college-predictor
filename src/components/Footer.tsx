@@ -98,7 +98,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenAdminLogin })
               Candidate Security & Roadmap
             </h5>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Featuring 25+ top Government, Private, and Deemed colleges across 15+ Indian states with real-time Antigravity spatial glassmorphic architecture.
+              Featuring 50+ top Government, Private, and Deemed colleges across 22 Indian states calibrated with official AACCC Round 3 allotment data.
             </p>
             <div className="pt-2 flex flex-wrap gap-2">
               <button

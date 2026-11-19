@@ -42,10 +42,10 @@ export const PredictorLockGate: React.FC<PredictorLockGateProps> = ({ onOpenAuth
           <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 space-y-1">
             <span className="flex items-center gap-1.5 text-xs font-bold text-emerald-300">
               <Building2 className="w-4 h-4 text-emerald-400" />
-              <span>25+ Premier Colleges</span>
+              <span>50+ Premier Colleges</span>
             </span>
             <p className="text-[11px] text-slate-400 leading-snug">
-              Compare All India Quota & State cutoffs across Government, Private, and Deemed colleges.
+              Compare All India Quota & State cutoffs across 22 states using official AACCC Round 3 data.
             </p>
           </div>
 
@@ -55,7 +55,7 @@ export const PredictorLockGate: React.FC<PredictorLockGateProps> = ({ onOpenAuth
               <span>Stipends & Fees</span>
             </span>
             <p className="text-[11px] text-slate-400 leading-snug">
-              Inspect verified stipends (up to ₹1.12L/mo) and annual fee structures across 15+ states.
+              Inspect verified stipends (up to ₹1.12L/mo) and annual fee structures across 22 states.
             </p>
           </div>
 

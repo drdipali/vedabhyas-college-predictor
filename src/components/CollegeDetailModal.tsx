@@ -180,8 +180,9 @@ export const CollegeDetailModal: React.FC<CollegeDetailModalProps> = ({
 
           {/* All Category Cutoffs Breakdown */}
           <div>
-            <h4 className="text-xs uppercase tracking-wider font-semibold text-slate-400 mb-2">
-              Category-Wise AIAPGET Closing Cutoffs
+            <h4 className="text-xs uppercase tracking-wider font-semibold text-slate-400 mb-2 flex items-center justify-between">
+              <span>Official AACCC Last Year (Round 3) Cutoffs</span>
+              <span className="text-[10px] text-emerald-400 font-normal">All India PG Counseling</span>
             </h4>
             <div className="grid grid-cols-5 gap-2 text-center">
               {Object.entries(college.categoryClosingRanks).map(([cat, rankVal]) => {
