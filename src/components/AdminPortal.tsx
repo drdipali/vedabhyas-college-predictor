@@ -20,7 +20,7 @@ import {
   Plus
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import logoImg from '../assets/logo.jpg';
+import { BrandLogo } from './BrandLogo';
 
 interface AdminPortalProps {
   onBackToPredictor: () => void;
@@ -260,7 +260,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToPredictor }) =
 
             <div className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-xl overflow-hidden border border-white/20 bg-slate-900 shrink-0">
-                <img src={logoImg} alt="Vedabhyas" className="w-full h-full object-cover" />
+                <BrandLogo alt="Vedabhyas" className="w-full h-full object-cover" />
               </div>
               <div>
                 <h2 className="text-base sm:text-lg font-bold text-white font-['Outfit'] flex items-center gap-1.5">

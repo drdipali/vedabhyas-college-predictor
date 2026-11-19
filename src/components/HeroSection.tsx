@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShieldCheck, Banknote, Building2, MapPin } from 'lucide-react';
-import logoImg from '../assets/logo.jpg';
+import { BrandLogo } from './BrandLogo';
 
 export const HeroSection: React.FC = () => {
   return (
@@ -15,8 +15,7 @@ export const HeroSection: React.FC = () => {
         <div className="flex flex-col items-center justify-center mb-6">
           <div className="relative mb-4 group">
             <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl overflow-hidden glass-panel p-1.5 border border-white/20 shadow-[0_0_35px_rgba(16,185,129,0.35)] animate-float">
-              <img 
-                src={logoImg} 
+              <BrandLogo 
                 alt="Vedabhyas Logo" 
                 className="w-full h-full object-cover rounded-2xl" 
               />

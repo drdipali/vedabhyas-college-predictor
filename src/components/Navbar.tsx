@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { StudentProfile } from '../types';
-import { Sparkles, BookOpen, ExternalLink, Menu, X, User, LogOut, Lock } from 'lucide-react';
-import logoImg from '../assets/logo.jpg';
+import { Sparkles, BookOpen, ExternalLink, Menu, X, User, LogOut, Lock, MessageCircle } from 'lucide-react';
+import { BrandLogo } from './BrandLogo';
 
 interface NavbarProps {
   onOpenGuide: () => void;
@@ -10,6 +10,9 @@ interface NavbarProps {
   currentStudent: StudentProfile | null;
   onLogout: () => void;
 }
+
+const WHATSAPP_NUMBER = '8208506052';
+const WHATSAPP_URL = `https://wa.me/91${WHATSAPP_NUMBER}?text=Hello%20Ayush%20Gurukulam,%20I%20need%20quick%20help%20with%20AIAPGET%20College%20Predictor.`;
 
 export const Navbar: React.FC<NavbarProps> = ({ 
   onOpenGuide, 
@@ -21,16 +24,15 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full backdrop-blur-xl bg-[#07090e]/80 border-b border-white/10 transition-all">
+    <header className="sticky top-0 z-40 w-full backdrop-blur-xl bg-[#07090e]/85 border-b border-white/10 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
           {/* Brand Logo & Name */}
           <div className="flex items-center gap-3.5 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="relative flex items-center justify-center w-12 h-12 rounded-2xl overflow-hidden bg-slate-900 border border-white/20 shadow-[0_0_20px_rgba(16,185,129,0.3)] group-hover:scale-105 transition-transform duration-300 shrink-0">
-              <img 
-                src={logoImg} 
-                alt="Vedabhyas Logo" 
+              <BrandLogo 
+                alt="Vedabhyas Ayush Gurukulam Logo" 
                 className="w-full h-full object-cover scale-105"
               />
               <div className="absolute -inset-1 rounded-2xl bg-emerald-400/20 blur-sm -z-10 group-hover:bg-emerald-400/40 transition-colors"></div>
@@ -73,6 +75,18 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Right Navigation Actions */}
           <div className="hidden md:flex items-center gap-2.5">
             
+            {/* Direct WhatsApp Quick Help Button */}
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold text-white bg-[#25D366] hover:bg-[#20bd5a] shadow-[0_0_15px_rgba(37,211,102,0.35)] transition-all cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0"
+              title="Quick Help on WhatsApp: 8208506052"
+            >
+              <MessageCircle className="w-4 h-4 fill-white" />
+              <span>Help: {WHATSAPP_NUMBER}</span>
+            </a>
+
             {/* Student Auth / Profile Button */}
             {currentStudent ? (
               <div className="flex items-center gap-1.5 p-1 pl-3 pr-1.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-xs">
@@ -136,6 +150,15 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center gap-2">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg bg-[#25D366] text-white"
+              title="WhatsApp: 8208506052"
+            >
+              <MessageCircle className="w-4 h-4 fill-white" />
+            </a>
             <button
               onClick={onOpenAdminLogin}
               className="p-2 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300"
@@ -158,6 +181,17 @@ export const Navbar: React.FC<NavbarProps> = ({
       {mobileMenuOpen && (
         <div className="md:hidden border-b border-white/10 bg-[#07090e]/95 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-3">
           
+          {/* Mobile WhatsApp Quick Help */}
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-[#25D366]"
+          >
+            <MessageCircle className="w-4 h-4 fill-white" />
+            <span>WhatsApp Quick Help ({WHATSAPP_NUMBER})</span>
+          </a>
+
           {currentStudent ? (
             <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-between">
               <div>

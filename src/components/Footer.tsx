@@ -1,11 +1,14 @@
 import React from 'react';
-import { Heart, BookOpen, ExternalLink, Lock } from 'lucide-react';
-import logoImg from '../assets/logo.jpg';
+import { Heart, BookOpen, ExternalLink, Lock, MessageCircle } from 'lucide-react';
+import { BrandLogo } from './BrandLogo';
 
 interface FooterProps {
   onOpenGuide: () => void;
   onOpenAdminLogin: () => void;
 }
+
+const WHATSAPP_NUMBER = '8208506052';
+const WHATSAPP_URL = `https://wa.me/91${WHATSAPP_NUMBER}?text=Hello%20Ayush%20Gurukulam,%20I%20need%20expert%20AIAPGET%20counseling%20help.`;
 
 export const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenAdminLogin }) => {
   return (
@@ -18,7 +21,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenAdminLogin })
           <div className="md:col-span-6 space-y-3">
             <div className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-2xl overflow-hidden border border-white/20 bg-slate-900 flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.25)]">
-                <img src={logoImg} alt="Vedabhyas" className="w-full h-full object-cover" />
+                <BrandLogo alt="Vedabhyas" className="w-full h-full object-cover" />
               </div>
               <div>
                 <span className="text-[11px] uppercase tracking-[0.25em] font-bold text-emerald-400">
@@ -33,6 +36,19 @@ export const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenAdminLogin })
             <p className="text-xs text-slate-400 max-w-md leading-relaxed">
               Empowering BAMS doctors and Ayurveda scholars across Bharat with spatial data intelligence, clear closing cutoffs, stipends, and fee structures for Government, Private, and Deemed colleges.
             </p>
+
+            {/* WhatsApp Quick Helpline Box */}
+            <div className="pt-2">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/30 text-emerald-300 text-xs font-semibold transition-all group"
+              >
+                <MessageCircle className="w-4 h-4 text-[#25D366] group-hover:scale-110 transition-transform" />
+                <span>Quick WhatsApp Help: <strong>+91 {WHATSAPP_NUMBER}</strong></span>
+              </a>
+            </div>
 
             <div className="flex items-center gap-2 pt-1 text-xs text-emerald-400">
               <span className="text-amber-300 font-serif">सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः</span>
@@ -98,7 +114,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenAdminLogin })
               Candidate Security & Roadmap
             </h5>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Featuring 50+ top Government, Private, and Deemed colleges across 22 Indian states calibrated with official AACCC Round 3 allotment data.
+              Featuring 60+ top Government, Private, and Deemed colleges across 22 Indian states calibrated with official AACCC Round 3 & State Quota allotment data.
             </p>
             <div className="pt-2 flex flex-wrap gap-2">
               <button

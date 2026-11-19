@@ -13,6 +13,7 @@ import { CounselingGuide } from './components/CounselingGuide';
 import { StudentAuthModal } from './components/StudentAuthModal';
 import { AdminPortal } from './components/AdminPortal';
 import { AdminLoginModal } from './components/AdminLoginModal';
+import { CounselorChatbot } from './components/CounselorChatbot';
 import { Footer } from './components/Footer';
 
 export const App: React.FC = () => {
@@ -239,6 +240,9 @@ export const App: React.FC = () => {
         onOpenGuide={() => setIsGuideOpen(true)}
         onOpenAdminLogin={handleOpenAdmin}
       />
+
+      {/* Floating 24/7 AI Counselor Chatbot & WhatsApp Helpline Widget */}
+      <CounselorChatbot />
 
     </div>
   );
