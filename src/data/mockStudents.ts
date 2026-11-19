@@ -184,16 +184,61 @@ export function findStudentByContact(identifier: string): StudentProfile | null 
 
   return (
     students.find((s) => {
-      // Direct email match
       if (s.email.toLowerCase().trim() === cleanId) return true;
-      // Phone match (last 10 digits comparison)
       const studentDigits = normalizePhone(s.mobileNumber);
       if (cleanDigits.length >= 10 && studentDigits === cleanDigits) return true;
-      // Partial digit fallback if user entered standard 10 digit number
       if (cleanDigits.length === 10 && studentDigits.includes(cleanDigits)) return true;
       return false;
     }) || null
   );
+}
+
+export function authenticateStudent(
+  identifier: string,
+  passwordInput: string
+): { student: StudentProfile | null; error?: string } {
+  const cleanId = identifier.trim().toLowerCase();
+  const pwd = passwordInput.trim();
+
+  if (!cleanId) {
+    return { student: null, error: 'Please enter your registered Mobile Number or Email ID.' };
+  }
+  if (!pwd) {
+    return { student: null, error: 'Please enter your account password.' };
+  }
+
+  const cleanDigits = normalizePhone(cleanId);
+  const students = getStoredStudents();
+
+  const matched = students.find((s) => {
+    // Direct email match
+    if (s.email.toLowerCase().trim() === cleanId) return true;
+    // Phone match
+    const studentDigits = normalizePhone(s.mobileNumber);
+    if (cleanDigits.length >= 10 && studentDigits === cleanDigits) return true;
+    if (cleanDigits.length === 10 && studentDigits.includes(cleanDigits)) return true;
+    return false;
+  });
+
+  if (!matched) {
+    return {
+      student: null,
+      error: `No registered account found matching "${identifier.trim()}". Please verify your credentials or click "New Registration" to create an account.`,
+    };
+  }
+
+  // Password verification:
+  if (matched.password) {
+    if (matched.password !== pwd) {
+      return { student: null, error: 'Incorrect password. Please verify and try again.' };
+    }
+  } else {
+    // Legacy stored student without password: set password to current input
+    matched.password = pwd;
+    saveStudentProfile(matched);
+  }
+
+  return { student: matched };
 }
 
 export function saveStudentProfile(student: StudentProfile): void {

@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import type { StudentProfile, Category, PreparationMethod } from '../types';
 import { 
   saveStudentProfile, 
-  findStudentByContact, 
-  getStoredStudents,
+  authenticateStudent, 
   normalizePhone 
 } from '../data/mockStudents';
 import { 
@@ -23,7 +22,10 @@ import {
   UserPlus,
   ArrowRight,
   AlertCircle,
-  CheckCircle2
+  CheckCircle2,
+  KeyRound,
+  Eye,
+  EyeOff
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { BrandLogo } from './BrandLogo';
@@ -81,6 +83,8 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
 
   // Quick Login state
   const [loginIdentifier, setLoginIdentifier] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
   const [loginError, setLoginError] = useState('');
   const [loginSuccessNotice, setLoginSuccessNotice] = useState('');
 
@@ -88,6 +92,8 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
   const [fullName, setFullName] = useState(existingStudent?.fullName || '');
   const [mobileNumber, setMobileNumber] = useState(existingStudent?.mobileNumber || '');
   const [email, setEmail] = useState(existingStudent?.email || '');
+  const [regPassword, setRegPassword] = useState(existingStudent?.password || '');
+  const [showRegPassword, setShowRegPassword] = useState(false);
   const [bamsCollege, setBamsCollege] = useState(existingStudent?.bamsCollege || '');
   const [bamsState, setBamsState] = useState(existingStudent?.bamsState || 'Maharashtra');
   const [passingYear, setPassingYear] = useState<number>(existingStudent?.passingYear || 2024);
@@ -113,22 +119,29 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
 
   if (!isOpen) return null;
 
-  // 1. Quick Returning Student Login Handler
+  // 1. Password-Protected Returning Student Login Handler
   const handleQuickLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setLoginError('');
     setLoginSuccessNotice('');
 
     const query = loginIdentifier.trim();
+    const pwd = loginPassword.trim();
+
     if (!query) {
       setLoginError('Please enter your registered Mobile Number or Email ID.');
       return;
     }
+    if (!pwd) {
+      setLoginError('Please enter your account password.');
+      return;
+    }
 
-    const matched = findStudentByContact(query);
-    if (matched) {
-      setLoginSuccessNotice(`Welcome back, ${matched.fullName}! Unlocking predictor...`);
-      saveStudentProfile(matched); // writes to localStorage for persistence
+    const authResult = authenticateStudent(query, pwd);
+    if (authResult.student) {
+      const student = authResult.student;
+      setLoginSuccessNotice(`Welcome back, ${student.fullName}! Unlocking predictor...`);
+      saveStudentProfile(student); // writes to localStorage for persistent session
       
       try {
         confetti({
@@ -142,17 +155,15 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
       }
 
       setTimeout(() => {
-        onSuccess(matched);
+        onSuccess(student);
         onClose();
-      }, 400);
+      }, 350);
     } else {
-      setLoginError(
-        `No existing student profile found for "${query}". If you are signing in for the first time, click "New Registration" to create your profile.`
-      );
+      setLoginError(authResult.error || 'Authentication failed. Please verify your credentials.');
     }
   };
 
-  // 2. Full Student Registration Handler
+  // 2. Full Student Registration Handler with Required Password
   const handleRegSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setRegErrorMsg('');
@@ -169,6 +180,10 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
       }
       if (!email.trim() || !email.includes('@')) {
         setRegErrorMsg('Please enter a valid email address');
+        return;
+      }
+      if (!regPassword || regPassword.trim().length < 6) {
+        setRegErrorMsg('Please create an account password with at least 6 characters');
         return;
       }
       if (!bamsCollege.trim()) {
@@ -190,6 +205,7 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
       fullName: fullName.trim().startsWith('Dr.') ? fullName.trim() : `Dr. ${fullName.trim()}`,
       email: email.trim().toLowerCase(),
       mobileNumber: mobileNumber.trim(),
+      password: regPassword.trim(),
       bamsCollege: bamsCollege.trim(),
       bamsState,
       passingYear: Number(passingYear),
@@ -220,9 +236,6 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
 
     onClose();
   };
-
-  // Demo accounts for quick test
-  const demoAccounts = getStoredStudents().slice(0, 3);
 
   return (
     <div
@@ -256,20 +269,20 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
                 Ayush Gurukulam Student Network
               </span>
               <span className="px-2 py-0.5 rounded-full text-[9px] font-semibold bg-emerald-500/15 text-emerald-300">
-                Persistent Auth
+                Verified Sign In
               </span>
             </div>
             <h3 id="auth-modal-title" className="text-xl sm:text-2xl font-bold text-white font-['Outfit']">
               {existingStudent
                 ? 'Update Your Student Profile'
                 : authMode === 'login'
-                ? 'Quick Returning Student Sign In'
-                : 'Student Profile Setup & Registration'}
+                ? 'Student Sign In'
+                : 'Student Registration & Profile Setup'}
             </h3>
             <p className="text-xs text-slate-300 mt-0.5">
               {authMode === 'login'
-                ? 'Enter your registered Mobile Number or Email to restore your session and bypass the lock screen.'
-                : 'Enter your mobile, email, BAMS college, and AIAPGET rank to unlock the predictor.'}
+                ? 'Enter your registered Mobile Number or Email ID and password to unlock the college predictor.'
+                : 'Enter your contact, password, BAMS college, and AIAPGET rank to unlock the predictor.'}
             </p>
           </div>
         </div>
@@ -290,7 +303,7 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
               }`}
             >
               <LogIn className="w-4 h-4" />
-              <span>Quick Login (Returning)</span>
+              <span>Sign In (Returning)</span>
             </button>
 
             <button
@@ -311,7 +324,7 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
           </div>
         )}
 
-        {/* TAB 1: QUICK RETURNING STUDENT LOGIN */}
+        {/* TAB 1: PASSWORD-PROTECTED RETURNING STUDENT LOGIN */}
         {authMode === 'login' && !existingStudent && (
           <div className="space-y-5 animate-fadeIn">
             
@@ -332,7 +345,7 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
                     }}
                     className="mt-1.5 text-xs text-amber-300 hover:underline font-bold flex items-center gap-1 cursor-pointer"
                   >
-                    <span>Click here to register with this details</span>
+                    <span>Click here to create a new profile</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -347,27 +360,55 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
             )}
 
             <form onSubmit={handleQuickLogin} className="space-y-4">
+              {/* Identifier Field */}
               <div>
                 <label className="block text-xs font-semibold text-slate-200 mb-1.5 flex items-center gap-1.5">
                   <Phone className="w-3.5 h-3.5 text-emerald-400" />
                   <span>Registered Mobile Number or Email ID *</span>
                 </label>
+                <input
+                  type="text"
+                  placeholder="e.g. 9823456712 or doctor@ayush.org"
+                  value={loginIdentifier}
+                  onChange={(e) => {
+                    setLoginIdentifier(e.target.value);
+                    if (loginError) setLoginError('');
+                  }}
+                  autoFocus
+                  required
+                  className="w-full h-12 px-4 text-sm rounded-xl glass-input text-white placeholder-slate-500 focus:outline-none focus:border-emerald-400 font-medium"
+                />
+              </div>
+
+              {/* Password Field */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-200 mb-1.5 flex items-center gap-1.5">
+                  <KeyRound className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Account Password *</span>
+                </label>
                 <div className="relative">
                   <input
-                    type="text"
-                    placeholder="e.g. 9823456712 or ananya.ayur@gmail.com"
-                    value={loginIdentifier}
+                    type={showLoginPassword ? 'text' : 'password'}
+                    placeholder="Enter your account password"
+                    value={loginPassword}
                     onChange={(e) => {
-                      setLoginIdentifier(e.target.value);
+                      setLoginPassword(e.target.value);
                       if (loginError) setLoginError('');
                     }}
-                    autoFocus
                     required
-                    className="w-full h-12 px-4 text-sm rounded-xl glass-input text-white placeholder-slate-500 focus:outline-none focus:border-emerald-400 font-medium"
+                    className="w-full h-12 px-4 pr-11 text-sm rounded-xl glass-input text-white placeholder-slate-500 focus:outline-none focus:border-emerald-400 font-medium"
                   />
+                  <button
+                    type="button"
+                    onClick={() => setShowLoginPassword(!showLoginPassword)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white p-1 cursor-pointer"
+                    aria-label={showLoginPassword ? 'Hide password' : 'Show password'}
+                  >
+                    {showLoginPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  </button>
                 </div>
                 <span className="text-[11px] text-slate-400 mt-1 block">
-                  Your session is saved in your browser (`localStorage`) so you stay logged in automatically across reloads.
+                  You will stay signed in on this device.
                 </span>
               </div>
 
@@ -376,42 +417,11 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
                   type="submit"
                   className="w-full h-12 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 text-slate-950 font-bold text-sm flex items-center justify-center gap-2 hover:opacity-95 shadow-lg shadow-emerald-500/20 transition-all cursor-pointer"
                 >
-                  <span>Sign In & Unlock College Predictor</span>
+                  <span>Verify Credentials & Unlock Predictor</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             </form>
-
-            {/* Quick One-Click Demo Logins */}
-            {demoAccounts.length > 0 && (
-              <div className="pt-4 border-t border-white/10">
-                <div className="text-[11px] font-semibold text-slate-400 mb-2 flex items-center gap-1.5">
-                  <Sparkles className="w-3 h-3 text-amber-400" />
-                  <span>Quick Sign In with Registered Student Accounts:</span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {demoAccounts.map((std) => (
-                    <button
-                      key={std.id}
-                      type="button"
-                      onClick={() => {
-                        setLoginIdentifier(std.mobileNumber);
-                        setLoginSuccessNotice(`Signing in as ${std.fullName}...`);
-                        setTimeout(() => {
-                          saveStudentProfile(std);
-                          onSuccess(std);
-                          onClose();
-                        }, 300);
-                      }}
-                      className="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-emerald-500/15 border border-white/10 hover:border-emerald-500/30 text-xs text-slate-300 hover:text-emerald-300 transition-all cursor-pointer flex items-center gap-1.5"
-                    >
-                      <span className="font-semibold">{std.fullName}</span>
-                      <span className="text-[10px] text-emerald-400 font-mono">(AIR #{std.aiapgetRank})</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
 
             <div className="text-center pt-2">
               <p className="text-xs text-slate-400">
@@ -444,13 +454,13 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
                 }`}
               >
                 <span className="w-5 h-5 rounded-full bg-slate-800 flex items-center justify-center text-[10px]">1</span>
-                <span>Contact & BAMS College</span>
+                <span>Contact & Security</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => {
-                  if (fullName && mobileNumber && email) setActiveStep(2);
+                  if (fullName && mobileNumber && email && regPassword) setActiveStep(2);
                 }}
                 className={`py-2 px-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer ${
                   activeStep === 2
@@ -472,7 +482,7 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
 
             <form onSubmit={handleRegSubmit} className="space-y-4">
               
-              {/* STEP 1: Contact & BAMS College Details */}
+              {/* STEP 1: Contact, Security & BAMS College Details */}
               {activeStep === 1 && (
                 <div className="space-y-4 animate-fadeIn">
                   
@@ -507,13 +517,13 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
                         required
                         className="w-full h-11 px-3.5 text-sm font-mono rounded-xl glass-input text-white placeholder-slate-500"
                       />
-                      <span className="text-[10px] text-slate-400">Used for persistent login & counseling alerts</span>
+                      <span className="text-[10px] text-slate-400">Used for login & counseling alerts</span>
                     </div>
 
                     <div>
                       <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
                         <Mail className="w-3.5 h-3.5 text-teal-400" />
-                        <span>Email Address (Official Login) *</span>
+                        <span>Email Address (Login ID) *</span>
                       </label>
                       <input
                         type="email"
@@ -523,8 +533,38 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
                         required
                         className="w-full h-11 px-3.5 text-sm rounded-xl glass-input text-white placeholder-slate-500"
                       />
-                      <span className="text-[10px] text-slate-400">Used for seat allotment report delivery</span>
+                      <span className="text-[10px] text-slate-400">Used for allotment reports & notifications</span>
                     </div>
+                  </div>
+
+                  {/* Create Password Field */}
+                  <div>
+                    <label className="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-1.5">
+                      <KeyRound className="w-3.5 h-3.5 text-amber-400" />
+                      <span>Create Account Password (Min. 6 characters) *</span>
+                    </label>
+                    <div className="relative">
+                      <input
+                        type={showRegPassword ? 'text' : 'password'}
+                        placeholder="Enter a secure password (minimum 6 characters)"
+                        value={regPassword}
+                        onChange={(e) => setRegPassword(e.target.value)}
+                        required
+                        minLength={6}
+                        className="w-full h-11 px-3.5 pr-11 text-sm rounded-xl glass-input text-white placeholder-slate-500 font-mono tracking-wider"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setShowRegPassword(!showRegPassword)}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white p-1 cursor-pointer"
+                        aria-label={showRegPassword ? 'Hide password' : 'Show password'}
+                      >
+                        {showRegPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                      </button>
+                    </div>
+                    <span className="text-[10px] text-slate-400 mt-0.5 block">
+                      You will stay signed in on this device.
+                    </span>
                   </div>
 
                   {/* BAMS College Name */}
@@ -603,14 +643,14 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
                         onClick={() => setAuthMode('login')}
                         className="text-xs text-slate-400 hover:text-emerald-300 underline cursor-pointer"
                       >
-                        ← Back to Quick Login
+                        ← Back to Sign In
                       </button>
                     )}
                     <button
                       type="submit"
                       className="ml-auto px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-300 text-slate-950 font-bold text-xs sm:text-sm flex items-center gap-2 hover:opacity-95 shadow-md cursor-pointer"
                     >
-                      <span>Continue to Exam Preparation Details</span>
+                      <span>Continue to AIAPGET Details</span>
                       <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -756,7 +796,7 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
                       onClick={() => setActiveStep(1)}
                       className="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-slate-300 cursor-pointer"
                     >
-                      ← Back to Contact
+                      ← Back to Contact & Password
                     </button>
 
                     <button

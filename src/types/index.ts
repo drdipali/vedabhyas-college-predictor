@@ -69,5 +69,6 @@ export interface StudentProfile {
   prepDurationMonths: number;
   targetSpecialty: string;
   counselingAssistanceRequired: boolean;
+  password?: string;
   registeredAt: string;
 }
