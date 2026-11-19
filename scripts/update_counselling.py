@@ -35,6 +35,7 @@ import urllib.parse
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 UPDATES_FILE = os.path.join(BASE_DIR, 'public', 'data', 'counselling_updates.json')
 SRC_UPDATES_FILE = os.path.join(BASE_DIR, 'src', 'data', 'counselling_updates.json')
+MANUAL_NOTICES_FILE = os.path.join(BASE_DIR, 'public', 'data', 'manual_notices.json')  # READ-ONLY: Never overwrite
 PENDING_PDFS_FILE = os.path.join(BASE_DIR, 'data', 'pending_pdfs.json')
 COLLEGES_FILE = os.path.join(BASE_DIR, 'public', 'data', 'colleges.json')
 MANUAL_CHECK_FILE = os.path.join(BASE_DIR, 'scripts', 'manual_check_needed.md')
@@ -46,7 +47,7 @@ HEADERS = {
     'Accept-Language': 'en-US,en;q=0.9',
 }
 
-# Target portals configuration
+# Target portals configuration - Verified via Live HTTP Audit
 PORTALS = [
     {
         'state': 'Central (AACCC)',
@@ -62,13 +63,14 @@ PORTALS = [
         'selector_hint': 'ayush',
         'keywords': ['ayush', 'pg', 'aiapget', 'selection', 'cap', 'ayurveda', 'merit']
     },
-    {
-        'state': 'Uttar Pradesh',
-        'name': 'UP Ayush Counselling Portal',
-        'url': 'https://upayushcounseling.upsdc.gov.in/',
-        'selector_hint': 'merit',
-        'keywords': ['pg', 'allotment', 'merit', 'ayurveda', 'round', 'counselling']
-    },
+    # [COMMENTED OUT - Live Audit Failed: SSL Handshake Timeout (ECONNRESET) - Awaiting user corrected URL]
+    # {
+    #     'state': 'Uttar Pradesh',
+    #     'name': 'UP Ayush Counselling Portal',
+    #     'url': 'https://upayushcounseling.upsdc.gov.in/',
+    #     'selector_hint': 'merit',
+    #     'keywords': ['pg', 'allotment', 'merit', 'ayurveda', 'round', 'counselling']
+    # },
     {
         'state': 'Karnataka',
         'name': 'Karnataka Examination Authority (KEA)',
@@ -146,11 +148,13 @@ def log_manual_check(state, url, reason):
         print(f"  [ERROR WRITING MANUAL LOG] {e}")
 
 def fetch_html(url, timeout=12):
-    """Fetch HTML content with robust error handling and browser headers."""
+    """Fetch HTML content strictly requiring HTTP 200."""
     req = urllib.request.Request(url, headers=HEADERS)
     ctx = create_ssl_context()
     try:
         with urllib.request.urlopen(req, timeout=timeout, context=ctx) as response:
+            if response.status != 200:
+                raise RuntimeError(f"HTTP {response.status} (Non-200 Status Received)")
             charset = response.headers.get_content_charset() or 'utf-8'
             return response.read().decode(charset, errors='replace')
     except urllib.error.HTTPError as e:
@@ -296,11 +300,23 @@ def run_scraper():
     print("Timestamp:", datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     print("=" * 65)
 
-    # Load existing updates
+    # 1. Read-Only load of manual pinned notices (NEVER overwrite)
+    manual_pinned_notices = []
+    if os.path.exists(MANUAL_NOTICES_FILE):
+        try:
+            with open(MANUAL_NOTICES_FILE, 'r', encoding='utf-8') as f:
+                manual_pinned_notices = json.load(f)
+            print(f"Loaded {len(manual_pinned_notices)} verified manual pinned notices (read-only).")
+        except Exception as e:
+            print("Error reading manual_notices.json:", e)
+
+    # 2. Load existing scraped updates
     existing_data = {
         "last_updated": datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S+05:30'),
         "active_session": "AIAPGET 2026–2027",
-        "monitoring_status": "Active (11 State Portals + Central AACCC)",
+        "monitoring_status": "Active (9 Verified Live Portals + Central AACCC)",
+        "active_portals_count": 0,
+        "total_portals_monitored": len(PORTALS),
         "urgent_ticker": [],
         "updates": []
     }
@@ -314,17 +330,22 @@ def run_scraper():
 
     existing_ids = {u['id'] for u in existing_data.get('updates', [])}
     new_events_count = 0
+    live_active_portals = 0
 
+    # 3. Strictly poll only active portals requiring live HTTP 200 response
     for portal in PORTALS:
         state = portal['state']
         name = portal['name']
         url = portal['url']
-        print(f"\nScanning {state} [{name}]...")
+        print(f"\nScanning {state} [{name}] ({url})...")
 
         try:
             html = fetch_html(url, timeout=10)
+            live_active_portals += 1
+            print(f"  -> HTTP 200 OK. Parsing live page content...")
+
             events = extract_links_and_titles(html, url, portal)
-            print(f"  Found {len(events)} relevant AIAPGET items.")
+            print(f"  Found {len(events)} relevant AIAPGET items from verified live markup.")
 
             for event in events:
                 # Log PDF if found
@@ -335,31 +356,43 @@ def run_scraper():
                     existing_data['updates'].insert(0, event)
                     existing_ids.add(event['id'])
                     new_events_count += 1
-                    print(f"  + New Event Added: {event['title']}")
+                    print(f"  + Live Event Added: {event['title']}")
 
                     if event.get('is_urgent'):
                         push_telegram_alert(event)
 
         except Exception as err:
+            print(f"  -> Portal Check Failed: {err}")
             log_manual_check(state, url, str(err))
 
-    # Update timestamp and active urgent ticker
+    # Update metadata
     now_str = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S+05:30')
     existing_data['last_updated'] = now_str
-    
-    urgent_items = [u for u in existing_data['updates'] if u.get('is_urgent')]
-    ticker_list = [f"🔴 {u['state']}: {u['title']}" for u in urgent_items[:6]]
-    if ticker_list:
-        existing_data['urgent_ticker'] = ticker_list
+    existing_data['active_portals_count'] = live_active_portals
+    existing_data['total_portals_monitored'] = len(PORTALS)
+    existing_data['monitoring_status'] = f"Active ({live_active_portals} Verified Live Portals + Central AACCC)"
+
+    # Build urgent ticker: Manual pinned urgent items FIRST, then live scraped urgent items
+    ticker_list = []
+    for m in manual_pinned_notices:
+        if m.get('is_urgent') or m.get('is_pinned'):
+            ticker_list.append(f"🔴 {m['state']}: {m['title']}")
+
+    for u in existing_data['updates']:
+        if u.get('is_urgent'):
+            item_text = f"🔴 {u['state']}: {u['title']}"
+            if item_text not in ticker_list:
+                ticker_list.append(item_text)
+
+    existing_data['urgent_ticker'] = ticker_list[:6]
 
     # Keep list bounded to latest 50 updates for performance
     existing_data['updates'] = existing_data['updates'][:50]
 
-    # Save to public/data/counselling_updates.json
+    # Save ONLY to counselling_updates.json (NEVER touch manual_notices.json)
     with open(UPDATES_FILE, 'w', encoding='utf-8') as f:
         json.dump(existing_data, f, indent=2)
 
-    # Sync to src/data/counselling_updates.json
     try:
         with open(SRC_UPDATES_FILE, 'w', encoding='utf-8') as f:
             json.dump(existing_data, f, indent=2)
@@ -367,8 +400,9 @@ def run_scraper():
         pass
 
     print("\n" + "=" * 65)
-    print(f"Scrape Complete! {new_events_count} new events incorporated.")
-    print(f"Total Updates in Feed: {len(existing_data['updates'])}")
+    print(f"Scrape Complete! {new_events_count} live events incorporated.")
+    print(f"Active Live Portals: {live_active_portals} / {len(PORTALS)}")
+    print(f"Total Scraped Updates in Feed: {len(existing_data['updates'])}")
     print(f"Last Updated: {existing_data['last_updated']}")
     print("=" * 65)
 

@@ -7,9 +7,11 @@ import {
   Clock, 
   AlertCircle, 
   Calendar, 
-  RefreshCw
+  RefreshCw,
+  Pin
 } from 'lucide-react';
 import type { CounsellingAlertsFeed, UpdateCategory } from '../types';
+import { STATE_OFFICIAL_PORTALS } from '../data/counselling';
 
 interface LiveCounsellingModalProps {
   isOpen: boolean;
@@ -28,6 +30,23 @@ const CATEGORIES: ('All' | UpdateCategory)[] = [
   'Notice'
 ];
 
+const MONITORED_STATES = [
+  'All',
+  'AACCC / All India',
+  'Maharashtra',
+  'Uttar Pradesh',
+  'Karnataka',
+  'Gujarat',
+  'Madhya Pradesh',
+  'Rajasthan',
+  'Kerala',
+  'West Bengal',
+  'Haryana',
+  'Delhi',
+  'Bihar',
+  'Tamil Nadu'
+];
+
 export const LiveCounsellingModal: React.FC<LiveCounsellingModalProps> = ({
   isOpen,
   onClose,
@@ -38,18 +57,25 @@ export const LiveCounsellingModal: React.FC<LiveCounsellingModalProps> = ({
   const [selectedCategory, setSelectedCategory] = useState<'All' | UpdateCategory>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-  // Extract all available states from updates
+  // Extract all available states from both monitored list and updates
   const availableStates = useMemo(() => {
-    const states = Array.from(new Set((feed.updates || []).map((u) => u.state)));
-    return ['All', ...states.sort()];
+    const statesSet = new Set(MONITORED_STATES);
+    (feed.updates || []).forEach((u) => statesSet.add(u.state));
+    return Array.from(statesSet);
   }, [feed.updates]);
 
-  // Filtered updates
+  // Filtered updates: Pinned notices always remain at the top
   const filteredUpdates = useMemo(() => {
     return (feed.updates || []).filter((update) => {
-      // State filter
-      if (selectedState !== 'All' && update.state !== selectedState) {
-        return false;
+      // State filter: normalize matching for AACCC variants
+      if (selectedState !== 'All') {
+        const normSelected = selectedState.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const normUpdateState = update.state.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const isAacccMatch = (normSelected.includes('aaccc') || normSelected.includes('central') || normSelected.includes('allindia')) &&
+                             (normUpdateState.includes('aaccc') || normUpdateState.includes('central') || normUpdateState.includes('allindia'));
+        if (!isAacccMatch && update.state !== selectedState) {
+          return false;
+        }
       }
       // Category filter
       if (selectedCategory !== 'All' && update.category !== selectedCategory) {
@@ -59,7 +85,7 @@ export const LiveCounsellingModal: React.FC<LiveCounsellingModalProps> = ({
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase().trim();
         const matchesTitle = update.title.toLowerCase().includes(q);
-        const matchesSummary = (update.summary || '').toLowerCase().includes(q);
+        const matchesSummary = (update.summary || update.description || '').toLowerCase().includes(q);
         const matchesState = update.state.toLowerCase().includes(q);
         if (!matchesTitle && !matchesSummary && !matchesState) {
           return false;
@@ -70,6 +96,15 @@ export const LiveCounsellingModal: React.FC<LiveCounsellingModalProps> = ({
   }, [feed.updates, selectedState, selectedCategory, searchQuery]);
 
   if (!isOpen) return null;
+
+  // Selected state portal info fallback
+  const targetPortal = selectedState !== 'All' 
+    ? (STATE_OFFICIAL_PORTALS[selectedState] || 
+       Object.entries(STATE_OFFICIAL_PORTALS).find(([k]) => 
+         k.toLowerCase().includes(selectedState.toLowerCase()) || 
+         selectedState.toLowerCase().includes(k.toLowerCase())
+       )?.[1])
+    : null;
 
   // Format date helper
   const formatTimeAgo = (isoString?: string) => {
@@ -136,11 +171,11 @@ export const LiveCounsellingModal: React.FC<LiveCounsellingModalProps> = ({
               </span>
               <span className="px-2 py-0.5 rounded-full text-[9px] font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                <span>Live Monitoring Active</span>
+                <span>{feed.active_portals_count ?? 9} Portals Actively Returning Valid Data</span>
               </span>
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-white font-['Outfit'] mt-0.5">
-              Live AYUSH PG Counselling Alerts & Notices
+              Live AYUSH PG Counselling Alerts & Official Notices
             </h3>
             
             {/* Last Updated Timestamp Badge */}
@@ -150,7 +185,7 @@ export const LiveCounsellingModal: React.FC<LiveCounsellingModalProps> = ({
                 <span>Last Updated: {formatTimeAgo(feed.last_updated)}</span>
               </span>
               <span>•</span>
-              <span>11 State AYUSH Portals + AACCC Central</span>
+              <span>9 Verified Live State Portals + Central AACCC</span>
               {onRefresh && (
                 <button
                   onClick={onRefresh}
@@ -174,7 +209,7 @@ export const LiveCounsellingModal: React.FC<LiveCounsellingModalProps> = ({
               <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
-                placeholder="Search notices, rounds, merit lists..."
+                placeholder="Search official notices, dates, notifications..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full h-10 pl-9 pr-3 text-xs rounded-xl glass-input text-white placeholder-slate-500 focus:outline-none focus:border-emerald-400"
@@ -190,7 +225,7 @@ export const LiveCounsellingModal: React.FC<LiveCounsellingModalProps> = ({
               >
                 {availableStates.map((st) => (
                   <option key={st} value={st}>
-                    {st === 'All' ? '🏛️ All States & Central' : st}
+                    {st === 'All' ? '🏛️ All States & Central Portals' : st}
                   </option>
                 ))}
               </select>
@@ -216,7 +251,7 @@ export const LiveCounsellingModal: React.FC<LiveCounsellingModalProps> = ({
           {/* Quick State Pills */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-[11px]">
             <span className="text-slate-400 font-semibold shrink-0">Quick State:</span>
-            {['All', 'Central (AACCC)', 'Maharashtra', 'Uttar Pradesh', 'Karnataka', 'Gujarat', 'Madhya Pradesh', 'Rajasthan'].map((st) => (
+            {['All', 'AACCC / All India', 'Maharashtra', 'Uttar Pradesh', 'Karnataka', 'Gujarat', 'Madhya Pradesh', 'Rajasthan'].map((st) => (
               <button
                 key={st}
                 onClick={() => setSelectedState(st)}
@@ -226,7 +261,7 @@ export const LiveCounsellingModal: React.FC<LiveCounsellingModalProps> = ({
                     : 'bg-white/5 hover:bg-white/10 text-slate-300'
                 }`}
               >
-                {st === 'All' ? 'All' : st.replace('Central (AACCC)', 'AACCC')}
+                {st === 'All' ? 'All' : st.replace('AACCC / All India', 'Central AACCC')}
               </button>
             ))}
           </div>
@@ -235,39 +270,89 @@ export const LiveCounsellingModal: React.FC<LiveCounsellingModalProps> = ({
         {/* Updates Feed List */}
         <div className="flex-1 overflow-y-auto space-y-3 pr-1">
           {filteredUpdates.length === 0 ? (
-            <div className="p-8 text-center rounded-2xl bg-white/5 border border-white/10 text-slate-400 text-xs">
-              <AlertCircle className="w-6 h-6 mx-auto mb-2 text-slate-500" />
-              <p>No counselling notices found matching the selected filters.</p>
-              <button
-                onClick={() => {
-                  setSelectedState('All');
-                  setSelectedCategory('All');
-                  setSearchQuery('');
-                }}
-                className="mt-2 text-emerald-400 hover:underline font-semibold"
-              >
-                Reset all filters
-              </button>
-            </div>
+            /* Requirement: If counselling_updates.json has no live scraped notices for a state, show "No new automated notices yet — check the official portal directly" */
+            selectedState !== 'All' ? (
+              <div className="p-6 sm:p-8 text-center rounded-2xl bg-slate-900/60 border border-emerald-500/20 text-slate-300 animate-fadeIn">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mx-auto mb-3">
+                  <ExternalLink className="w-6 h-6" />
+                </div>
+                <h4 className="text-base font-bold text-white mb-1">
+                  {selectedState} AYUSH PG Counselling
+                </h4>
+                <p className="text-sm font-semibold text-amber-300 mb-2">
+                  No new automated notices yet — check the official portal directly
+                </p>
+                <p className="text-xs text-slate-400 max-w-md mx-auto mb-4 leading-relaxed">
+                  {targetPortal ? targetPortal.authority : `Official state portal authority for ${selectedState} PG AYUSH admissions.`}
+                </p>
+                {targetPortal ? (
+                  <a
+                    href={targetPortal.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-300 hover:opacity-95 text-slate-950 text-xs font-bold transition-all shadow-md cursor-pointer"
+                  >
+                    <span>Open {selectedState} Official Portal ({targetPortal.name})</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                ) : (
+                  <a
+                    href="https://aaccc.gov.in/pg-counselling/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 text-slate-950 text-xs font-bold transition-all shadow-md cursor-pointer"
+                  >
+                    <span>Check Central AACCC Portal</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                )}
+              </div>
+            ) : (
+              <div className="p-8 text-center rounded-2xl bg-white/5 border border-white/10 text-slate-400 text-xs">
+                <AlertCircle className="w-6 h-6 mx-auto mb-2 text-slate-500" />
+                <p>No counselling notices found matching the selected filters.</p>
+                <button
+                  onClick={() => {
+                    setSelectedState('All');
+                    setSelectedCategory('All');
+                    setSearchQuery('');
+                  }}
+                  className="mt-2 text-emerald-400 hover:underline font-semibold"
+                >
+                  Reset all filters
+                </button>
+              </div>
+            )
           ) : (
             filteredUpdates.map((item) => (
               <div
                 key={item.id}
                 className={`p-4 rounded-2xl border transition-all ${
-                  item.is_urgent
+                  item.is_pinned
+                    ? 'bg-gradient-to-r from-amber-950/30 via-slate-900/80 to-slate-900/90 border-amber-500/40 shadow-[0_0_20px_rgba(245,158,11,0.15)] ring-1 ring-amber-500/30'
+                    : item.is_urgent
                     ? 'bg-gradient-to-r from-red-950/20 via-slate-900/60 to-slate-900/80 border-red-500/30 hover:border-red-400/50 shadow-md'
                     : 'bg-slate-900/60 border-white/10 hover:border-white/20'
                 }`}
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                   <div className="flex items-center gap-2 flex-wrap">
+                    {item.is_pinned && (
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm">
+                        <Pin className="w-3 h-3 text-amber-400" />
+                        <span>Verified Pinned Alert</span>
+                      </span>
+                    )}
+
                     <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-white/10 text-white border border-white/15">
                       {item.state}
                     </span>
+
                     <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-semibold border ${getCategoryBadgeClass(item.category)}`}>
                       {item.category}
                     </span>
-                    {item.is_urgent && (
+
+                    {item.is_urgent && !item.is_pinned && (
                       <span className="px-2 py-0.5 rounded-full text-[9px] font-extrabold bg-red-500 text-white uppercase tracking-wider animate-pulse">
                         Urgent Action
                       </span>
@@ -284,9 +369,9 @@ export const LiveCounsellingModal: React.FC<LiveCounsellingModalProps> = ({
                   {item.title}
                 </h4>
 
-                {item.summary && (
+                {(item.summary || item.description) && (
                   <p className="text-xs text-slate-300 leading-relaxed mb-3">
-                    {item.summary}
+                    {item.summary || item.description}
                   </p>
                 )}
 

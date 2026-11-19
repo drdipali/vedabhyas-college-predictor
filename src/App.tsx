@@ -3,7 +3,7 @@ import type { Category, QuotaFilter, InstitutionTypeFilter, PredictionResult, St
 import { collegesData, getAllStates, getAllBranches } from './data/colleges';
 import { predictCollegeChances } from './utils/predictor';
 import { getCurrentStudent, clearCurrentStudent } from './data/mockStudents';
-import { defaultCounsellingFeed } from './data/counselling';
+import { defaultCounsellingFeed, mergeCounsellingFeeds, manualNotices } from './data/counselling';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { PredictorLockGate } from './components/PredictorLockGate';
@@ -51,18 +51,24 @@ export const App: React.FC = () => {
   const availableStates = useMemo(() => getAllStates(), []);
   const availableBranches = useMemo(() => getAllBranches(), []);
 
-  // Fetch dynamic counselling updates from public/data/counselling_updates.json
+  // Fetch dynamic counselling updates and merge with manual_notices.json
   useEffect(() => {
-    const dataUrl = `${import.meta.env.BASE_URL}data/counselling_updates.json`;
-    fetch(dataUrl)
-      .then((res) => {
-        if (res.ok) return res.json();
-        throw new Error('Bundled fallback');
-      })
-      .then((data: CounsellingAlertsFeed) => {
-        if (data && Array.isArray(data.updates) && data.updates.length > 0) {
-          setCounsellingFeed(data);
-        }
+    const scrapedUrl = `${import.meta.env.BASE_URL}data/counselling_updates.json`;
+    const manualUrl = `${import.meta.env.BASE_URL}data/manual_notices.json`;
+
+    Promise.all([
+      fetch(scrapedUrl).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+      fetch(manualUrl).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+    ])
+      .then(([scrapedData, manualData]) => {
+        const liveManual = Array.isArray(manualData) && manualData.length > 0 
+          ? manualData 
+          : manualNotices;
+        const targetScraped = (scrapedData && typeof scrapedData === 'object')
+          ? (scrapedData as CounsellingAlertsFeed)
+          : defaultCounsellingFeed;
+        const merged = mergeCounsellingFeeds(targetScraped, liveManual);
+        setCounsellingFeed(merged);
       })
       .catch(() => {
         // Fall back gracefully to bundled defaultCounsellingFeed

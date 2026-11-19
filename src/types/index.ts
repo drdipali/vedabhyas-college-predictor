@@ -105,8 +105,10 @@ export interface CounsellingUpdate {
   date: string;
   category: UpdateCategory;
   is_urgent: boolean;
+  is_pinned?: boolean;
   official_link: string;
   summary?: string;
+  description?: string;
   source_portal?: string;
 }
 
@@ -114,6 +116,8 @@ export interface CounsellingAlertsFeed {
   last_updated: string;
   active_session: string;
   monitoring_status?: string;
+  active_portals_count?: number;
+  total_portals_monitored?: number;
   urgent_ticker: string[];
   updates: CounsellingUpdate[];
 }

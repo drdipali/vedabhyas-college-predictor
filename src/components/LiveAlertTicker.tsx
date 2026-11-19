@@ -14,9 +14,7 @@ export const LiveAlertTicker: React.FC<LiveAlertTickerProps> = ({ feed, onOpenUp
   const tickerItems = feed.urgent_ticker && feed.urgent_ticker.length > 0 
     ? feed.urgent_ticker 
     : [
-        "🔴 AACCC PG Round 2 Registration & Choice Locking Active",
-        "🔴 Maharashtra State CET Cell AYUSH PG CAP Round 1 Allotment Published",
-        "🔴 UP AYUSH PG 2026 State Quota Merit List Released"
+        "🔴 AACCC / All India: AIAPGET 2026 Counselling Currently On Hold (Administrative Reasons) — Check official updates on aaccc.gov.in"
       ];
 
   // Auto rotate ticker message every 5.5 seconds
