@@ -140,7 +140,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={onOpenAdminLogin}
               className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-medium text-amber-300 hover:text-amber-200 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 transition-all cursor-pointer shadow-sm"
-              title="Admin & Faculty Access (Passcode: ayushadmin)"
+              title="Admin & Faculty Access"
             >
               <Lock className="w-3.5 h-3.5 text-amber-400" />
               <span>Admin</span>
@@ -240,7 +240,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-amber-300 bg-amber-500/10 border border-amber-500/30"
           >
             <Lock className="w-4 h-4 text-amber-400" />
-            <span>Admin & Staff Portal (Passcode: ayushadmin)</span>
+            <span>Admin & Faculty Portal</span>
           </button>
 
           <a

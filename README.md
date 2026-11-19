@@ -16,7 +16,8 @@
 - **Authentic Metrics**: Closing cutoffs (All India AYUSH & State Quotas across General, OBC, SC, ST, EWS), monthly PG stipends (₹45k–₹1.15L/month), annual tuition fees, hospital bed capacity, and clinical branches.
 - **Strict Verification Gate**: Predictor is locked until candidate verifies their **Mobile Number** and **Email ID**, providing BAMS graduation details and preparation mode.
 - **Hidden & Protected Admin Portal**:
-  - Discreetly accessed via the footer `🔒 Staff Login` (Passcode: `ayushadmin`)
+  - Discreetly accessed via the top navbar or footer `🔒 Faculty Admin Portal`
+  - Secured with custom faculty passcode
   - Real-time candidate lead directory with full student dossiers
   - Instant manual candidate addition (`➕ Add Candidate Lead`)
   - One-click CSV Export for student outreach and counseling follow-ups
@@ -52,5 +53,5 @@ npm run preview
 ---
 
 ## 🔐 Staff Access
-The faculty / counselor management portal is located in the footer under `🔒 Staff Login`.
-- **Default Master Passcode**: `ayushadmin`
+The faculty / counselor management portal is located in the top navigation and footer under `Faculty Admin Portal`.
+- Restricted to authorized Ayush Gurukulam counselors and administrators.

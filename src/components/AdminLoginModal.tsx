@@ -7,7 +7,7 @@ interface AdminLoginModalProps {
   onSuccess: () => void;
 }
 
-const ADMIN_PASSCODE = 'ayushadmin';
+const ADMIN_PASSCODE = '7798660051@iambest';
 
 export const AdminLoginModal: React.FC<AdminLoginModalProps> = ({
   isOpen,
@@ -21,7 +21,7 @@ export const AdminLoginModal: React.FC<AdminLoginModalProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (passcode.trim() === ADMIN_PASSCODE || passcode.trim() === 'admin123') {
+    if (passcode.trim() === ADMIN_PASSCODE) {
       setError(false);
       setPasscode('');
       onSuccess();
@@ -83,7 +83,7 @@ export const AdminLoginModal: React.FC<AdminLoginModalProps> = ({
             </label>
             <input
               type="password"
-              placeholder="Enter passcode (e.g. ayushadmin)"
+              placeholder="Enter admin security passcode"
               value={passcode}
               onChange={(e) => {
                 setPasscode(e.target.value);
@@ -93,9 +93,6 @@ export const AdminLoginModal: React.FC<AdminLoginModalProps> = ({
               required
               className="w-full h-12 px-3.5 text-sm rounded-xl glass-input text-white placeholder-slate-500 font-mono tracking-widest"
             />
-            <span className="text-[10px] text-slate-400 mt-1 block">
-              Default passcode: <code className="text-amber-300 font-mono">ayushadmin</code>
-            </span>
           </div>
 
           <div className="pt-2">

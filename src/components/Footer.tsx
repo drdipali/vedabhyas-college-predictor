@@ -146,7 +146,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenAdminLogin })
             <button
               onClick={onOpenAdminLogin}
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 hover:text-amber-200 text-xs font-medium transition-all cursor-pointer shadow-sm"
-              title="Restricted Faculty & Counselor Access (Passcode: ayushadmin)"
+              title="Restricted Faculty & Counselor Access"
             >
               <Lock className="w-3.5 h-3.5 text-amber-400" />
               <span>Faculty Admin Portal</span>
