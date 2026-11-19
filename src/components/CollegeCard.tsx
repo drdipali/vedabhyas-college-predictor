@@ -192,8 +192,13 @@ export const CollegeCard: React.FC<CollegeCardProps> = ({ prediction, onSelect }
               <Banknote className="w-3 h-3 text-amber-400" />
               <span>Stipend</span>
             </span>
-            <span className="font-bold text-emerald-300 text-xs mt-0.5 font-mono truncate">
-              {college.stipend.split('/')[0]}
+            <span 
+              className={`text-xs mt-0.5 truncate ${
+                college.stipend ? 'font-bold text-emerald-300 font-mono' : 'font-medium text-slate-400 text-[11px]'
+              }`}
+              title={college.stipend ? college.stipend : 'As per College Norms'}
+            >
+              {college.stipend ? college.stipend.split('/')[0] : 'As per Norms'}
             </span>
           </div>
 

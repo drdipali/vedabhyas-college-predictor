@@ -24,7 +24,7 @@ export interface College {
   state: string;
   quota: 'AIQ' | 'State' | 'Deemed/Mgt';
   institutionType: 'Government' | 'Private' | 'Deemed';
-  stipend: string;
+  stipend: string | null;
   stipendAmount: number;
   annualFee: string;
   closingRank: number;

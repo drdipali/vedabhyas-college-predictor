@@ -183,6 +183,13 @@ export const CollegeGrid: React.FC<CollegeGridProps> = ({
         </div>
       )}
 
+      {/* Subtle Footer Disclaimer */}
+      <div className="mt-10 p-4 rounded-2xl bg-white/[0.03] border border-white/5 text-center max-w-3xl mx-auto">
+        <p className="text-[11px] sm:text-xs text-slate-400 leading-relaxed">
+          <span className="font-semibold text-slate-300">Note:</span> Cutoff ranks, fees, and stipends are indicative. Always verify on the official AACCC/State counselling portal or college website before locking choices.
+        </p>
+      </div>
+
     </section>
   );
 };

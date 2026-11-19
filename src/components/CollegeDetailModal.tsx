@@ -147,10 +147,12 @@ export const CollegeDetailModal: React.FC<CollegeDetailModalProps> = ({
                 <Banknote className="w-3 h-3 text-amber-400" />
                 <span>Monthly Stipend</span>
               </span>
-              <p className="text-sm font-bold text-emerald-400 font-mono mt-1">
-                {college.stipend}
+              <p className={`mt-1 ${college.stipend ? 'text-sm font-bold text-emerald-400 font-mono' : 'text-xs font-semibold text-slate-300'}`}>
+                {college.stipend || 'As per College Norms'}
               </p>
-              <span className="text-[10px] text-slate-500">PG Resident Pay</span>
+              <span className="text-[10px] text-slate-500">
+                {college.stipend ? 'PG Resident Pay' : 'Verify with College'}
+              </span>
             </div>
 
             <div className="p-3 rounded-xl bg-slate-900/60 border border-white/10">

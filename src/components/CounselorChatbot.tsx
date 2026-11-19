@@ -97,7 +97,7 @@ export const CounselorChatbot: React.FC = () => {
 
         if (safeColleges.length > 0) {
           const listSafe = safeColleges
-            .map(c => `• **${c.shortName}** (${c.city}, ${c.state}) — Last R3 Cutoff: AIR #${c.closingRank} | Stipend: ${c.stipend.split('/')[0]}`)
+            .map(c => `• **${c.shortName}** (${c.city}, ${c.state}) — Last R3 Cutoff: AIR #${c.closingRank} | Stipend: ${c.stipend ? c.stipend.split('/')[0] : 'As per Norms'}`)
             .join('\n');
 
           let reply = `Based on last year's official AACCC & State allotments, for **AIR #${rank}**:\n\n**High Chance Options:**\n${listSafe}\n`;
