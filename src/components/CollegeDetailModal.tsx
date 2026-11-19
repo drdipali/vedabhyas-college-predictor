@@ -3,13 +3,12 @@ import type { PredictionResult } from '../types';
 import { 
   X, 
   MapPin, 
-  Banknote, 
-  Bed, 
   ExternalLink, 
   GraduationCap, 
-  Activity,
-  Calendar,
-  Receipt
+  ShieldCheck,
+  CheckCircle2,
+  AlertCircle,
+  HelpCircle
 } from 'lucide-react';
 
 interface CollegeDetailModalProps {
@@ -34,30 +33,65 @@ export const CollegeDetailModal: React.FC<CollegeDetailModalProps> = ({
 
   if (!prediction) return null;
 
-  const { college, closingRank, userRank, chance, chanceScore, category, confidence } = prediction;
+  const { college, closingRank, userRank, chance, category } = prediction;
 
   const typeConfig = {
     Government: 'bg-teal-500/15 text-teal-300 border-teal-500/30',
     Private: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
     Deemed: 'bg-purple-500/15 text-purple-300 border-purple-500/30',
-  }[college.institutionType];
+  }[college.institutionType] || 'bg-white/10 text-slate-300 border-white/10';
 
-  const confidenceBadge = {
-    High: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
-    Moderate: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
-    Borderline: 'bg-rose-500/20 text-rose-300 border-rose-500/40',
-  }[confidence || 'Moderate'];
+  const chanceBadgeConfig = {
+    'High Chance': {
+      bg: 'bg-emerald-500/15 border-emerald-500/30 text-emerald-300',
+      pill: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+      icon: CheckCircle2,
+      label: 'High Chance',
+      desc: `Your AIR #${userRank} is within the closing cutoff (#${closingRank}). Favorable allotment probability.`,
+    },
+    'Moderate': {
+      bg: 'bg-teal-500/15 border-teal-500/30 text-teal-300',
+      pill: 'bg-teal-500/20 text-teal-300 border-teal-500/40',
+      icon: CheckCircle2,
+      label: 'Moderate Chance',
+      desc: `Your AIR #${userRank} is close to last year's cutoff (#${closingRank}). Good choice for Round 1 & Round 2.`,
+    },
+    'Borderline': {
+      bg: 'bg-amber-500/15 border-amber-500/30 text-amber-300',
+      pill: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+      icon: AlertCircle,
+      label: 'Borderline Chance',
+      desc: `Your AIR #${userRank} is slightly above the closing cutoff (#${closingRank}). Possible in Mop-Up or Stray Vacancy rounds.`,
+    },
+    'Very Low': {
+      bg: 'bg-rose-500/15 border-rose-500/30 text-rose-300',
+      pill: 'bg-rose-500/20 text-rose-300 border-rose-500/40',
+      icon: HelpCircle,
+      label: 'Very Low Chance',
+      desc: `Your AIR #${userRank} is significantly higher than closing cutoff (#${closingRank}). Keep as an aspirational top-tier preference.`,
+    },
+  }[chance] || {
+    bg: 'bg-slate-800/40 border-slate-700 text-slate-300',
+    pill: 'bg-slate-700/40 text-slate-300 border-slate-600',
+    icon: HelpCircle,
+    label: chance,
+    desc: `Your AIR: #${userRank} | Closing Cutoff: #${closingRank}`,
+  };
+
+  const ChanceIcon = chanceBadgeConfig.icon;
+  const quotaLabel = college.quota_type || college.quota || 'AIQ';
+  const verifyUrl = college.source_url || 'https://aaccc.gov.in/pg-counselling/';
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto backdrop-blur-xl bg-black/70 animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto backdrop-blur-xl bg-black/75 animate-fadeIn"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-2xl rounded-3xl glass-panel border border-white/20 p-6 sm:p-8 bg-[#0c1220]/90 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] max-h-[90vh] overflow-y-auto"
+        className="relative w-full max-w-2xl rounded-3xl glass-panel border border-white/20 p-6 sm:p-8 bg-[#0c1220]/95 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.95)] max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -69,18 +103,18 @@ export const CollegeDetailModal: React.FC<CollegeDetailModalProps> = ({
           <X className="w-5 h-5" />
         </button>
 
-        {/* Header Section */}
+        {/* 1. Header Section: Name, Location, College Type & Quota Type */}
         <div className="pr-10 mb-6">
           <div className="flex flex-wrap items-center gap-2 mb-2">
+            {/* College Type Badge */}
             <span className={`px-2.5 py-0.5 rounded-md text-[11px] font-semibold border ${typeConfig}`}>
-              {college.institutionType === 'Government' ? '🏛️ Government College' : college.institutionType === 'Private' ? '🏫 Private Institution' : '🎓 Deemed University'}
+              {college.college_type ? `${college.college_type} Institute` : college.institutionType === 'Government' ? '🏛️ Government' : college.institutionType === 'Private' ? '🏫 Private' : '🎓 Deemed'}
             </span>
-            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-white/5 text-slate-300 border border-white/10">
-              {college.quota === 'AIQ' ? 'All India Quota (15%)' : college.quota === 'State' ? 'State Quota (85%)' : 'Deemed / Management Quota'}
-            </span>
-            <span className="text-xs text-slate-400 flex items-center gap-1">
-              <Calendar className="w-3.5 h-3.5" />
-              <span>Est. {college.established}</span>
+            
+            {/* Exact Quota Type Badge from JSON (No hardcoded 15%) */}
+            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-white/5 text-slate-200 border border-white/10 flex items-center gap-1">
+              <ShieldCheck className="w-3 h-3 text-emerald-400" />
+              <span>{quotaLabel}</span>
             </span>
           </div>
 
@@ -96,30 +130,57 @@ export const CollegeDetailModal: React.FC<CollegeDetailModalProps> = ({
           </div>
         </div>
 
-        {/* Admission Verdict Banner */}
-        <div className={`p-4 rounded-2xl border mb-6 flex items-center justify-between ${
-          chance === 'High Chance'
-            ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300'
-            : chance === 'Probable'
-            ? 'bg-amber-500/10 border-amber-500/30 text-amber-300'
-            : 'bg-rose-500/10 border-rose-500/30 text-rose-300'
-        }`}>
+        {/* Verified by College Administration Banner */}
+        {college.is_verified && (
+          <div className="mb-5 p-3.5 rounded-2xl bg-emerald-950/40 border border-emerald-500/40 text-emerald-300 text-xs flex items-center justify-between shadow-[0_0_20px_rgba(16,185,129,0.15)]">
+            <div className="flex items-center gap-2.5">
+              <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
+              <div>
+                <span className="font-bold text-white block">✓ Officially Verified by College Administration</span>
+                <span className="text-[11px] text-emerald-300/90">
+                  {college.verified_by ? `Confirmed by ${college.verified_by}. ` : ''}
+                  Fees and stipends have been reviewed and approved.
+                </span>
+              </div>
+            </div>
+            {college.verified_at && (
+              <span className="hidden sm:inline-block text-[10px] text-emerald-400/80 font-mono bg-emerald-500/10 px-2 py-1 rounded-md border border-emerald-500/20">
+                Verified: {new Date(college.verified_at).toLocaleDateString()}
+              </span>
+            )}
+          </div>
+        )}
+
+        {/* Verified Financial Details (if present) */}
+        {(college.annual_fee || college.monthly_stipend) && (
+          <div className="grid grid-cols-2 gap-3 mb-5 p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
+            {college.annual_fee && (
+              <div>
+                <span className="text-[10px] uppercase font-bold text-slate-400 block mb-0.5">Approved Annual Fee</span>
+                <span className="text-sm font-bold text-emerald-400 font-mono">{college.annual_fee}</span>
+              </div>
+            )}
+            {college.monthly_stipend && (
+              <div>
+                <span className="text-[10px] uppercase font-bold text-slate-400 block mb-0.5">Approved Monthly Stipend</span>
+                <span className="text-sm font-bold text-emerald-400 font-mono">{college.monthly_stipend}</span>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* 2. Prediction Assessment (Your Rank vs. Closing Cutoff) - No fake percentages */}
+        <div className={`p-4 rounded-2xl border mb-6 flex items-center justify-between ${chanceBadgeConfig.bg}`}>
           <div>
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-xs uppercase tracking-wider font-bold">Prediction Assessment</span>
-              <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${confidenceBadge}`}>
-                {confidence || 'Moderate'} Confidence
-              </span>
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-white/10">
-                {chanceScore}% Odds
+              <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border flex items-center gap-1 ${chanceBadgeConfig.pill}`}>
+                <ChanceIcon className="w-3 h-3" />
+                <span>{chanceBadgeConfig.label}</span>
               </span>
             </div>
-            <p className="text-sm font-semibold mt-1">
-              {chance === 'High Chance'
-                ? `High Chance of allotment in ${college.shortName} (Your AIR: #${userRank})`
-                : chance === 'Probable'
-                ? `Borderline safe for Round 2 or Mop-Up rounds (Your AIR: #${userRank})`
-                : `Aspirational choice. Keep in upper tier choices. (Your AIR: #${userRank})`}
+            <p className="text-xs sm:text-sm font-medium text-slate-200 mt-1.5 leading-relaxed">
+              {chanceBadgeConfig.desc}
             </p>
           </div>
           <div className="text-right font-mono shrink-0 pl-3">
@@ -128,73 +189,19 @@ export const CollegeDetailModal: React.FC<CollegeDetailModalProps> = ({
           </div>
         </div>
 
-        {/* Institutional Overview */}
         <div className="space-y-6 text-sm text-slate-300">
           
+          {/* 3. Category-wise Closing Cutoffs */}
           <div>
-            <h4 className="text-xs uppercase tracking-wider font-semibold text-slate-400 mb-2">
-              About the Institution
-            </h4>
-            <p className="text-xs sm:text-sm leading-relaxed text-slate-300 bg-white/5 p-3.5 rounded-xl border border-white/5">
-              {college.description}
-            </p>
-          </div>
-
-          {/* Key Metrics Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div className="p-3 rounded-xl bg-slate-900/60 border border-white/10">
-              <span className="text-[11px] text-slate-400 flex items-center gap-1">
-                <Banknote className="w-3 h-3 text-amber-400" />
-                <span>Monthly Stipend</span>
-              </span>
-              <p className={`mt-1 ${college.stipend ? 'text-sm font-bold text-emerald-400 font-mono' : 'text-xs font-semibold text-slate-300'}`}>
-                {college.stipend || 'As per College Norms'}
-              </p>
-              <span className="text-[10px] text-slate-500">
-                {college.stipend ? 'PG Resident Pay' : 'Verify with College'}
+            <div className="mb-2 flex items-center justify-between flex-wrap gap-1">
+              <h4 className="text-xs uppercase tracking-wider font-semibold text-slate-400">
+                Reference Cutoffs — Verify on Official Portal
+              </h4>
+              <span className="text-[10px] text-amber-400 font-mono">
+                Baseline Ranks
               </span>
             </div>
 
-            <div className="p-3 rounded-xl bg-slate-900/60 border border-white/10">
-              <span className="text-[11px] text-slate-400 flex items-center gap-1">
-                <Receipt className="w-3 h-3 text-teal-400" />
-                <span>Annual Tuition Fee</span>
-              </span>
-              <p className="text-sm font-bold text-slate-200 font-mono mt-1">
-                {college.annualFee}
-              </p>
-              <span className="text-[10px] text-slate-500">Govt/Mgt Approved</span>
-            </div>
-
-            <div className="p-3 rounded-xl bg-slate-900/60 border border-white/10">
-              <span className="text-[11px] text-slate-400 flex items-center gap-1">
-                <Bed className="w-3 h-3 text-purple-400" />
-                <span>Hospital Beds</span>
-              </span>
-              <p className="text-sm font-bold text-white font-mono mt-1">
-                {college.hospitalBeds}+ Beds
-              </p>
-              <span className="text-[10px] text-slate-500">In-patient strength</span>
-            </div>
-
-            <div className="p-3 rounded-xl bg-slate-900/60 border border-white/10">
-              <span className="text-[11px] text-slate-400 flex items-center gap-1">
-                <Activity className="w-3 h-3 text-emerald-400" />
-                <span>OPD Footfall</span>
-              </span>
-              <p className="text-sm font-bold text-white font-mono mt-1">
-                ~{college.opdPerDay} / day
-              </p>
-              <span className="text-[10px] text-slate-500">Clinical exposures</span>
-            </div>
-          </div>
-
-          {/* All Category Cutoffs Breakdown */}
-          <div>
-            <h4 className="text-xs uppercase tracking-wider font-semibold text-slate-400 mb-2 flex items-center justify-between">
-              <span>Official AACCC Last Year (Round 3) Cutoffs</span>
-              <span className="text-[10px] text-emerald-400 font-normal">All India PG Counseling</span>
-            </h4>
             <div className="grid grid-cols-5 gap-2 text-center">
               {Object.entries(college.categoryClosingRanks).map(([cat, rankVal]) => {
                 const isUserCat = cat === category;
@@ -213,9 +220,12 @@ export const CollegeDetailModal: React.FC<CollegeDetailModalProps> = ({
                 );
               })}
             </div>
+            <p className="text-[10px] text-slate-500 mt-1.5">
+              * Indicative historical cutoff benchmark. Actual 2026 cutoffs depend on official seat matrix and category reservations.
+            </p>
           </div>
 
-          {/* Top Departments */}
+          {/* 4. Available MD / MS Ayurveda Departments */}
           <div>
             <h4 className="text-xs uppercase tracking-wider font-semibold text-slate-400 mb-2 flex items-center gap-1.5">
               <GraduationCap className="w-4 h-4 text-emerald-400" />
@@ -233,23 +243,35 @@ export const CollegeDetailModal: React.FC<CollegeDetailModalProps> = ({
             </div>
           </div>
 
-          {/* Action buttons */}
+          {/* 5. Action buttons & Official Verification Link */}
           <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
             <a
-              href={college.website}
+              href={verifyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-xs font-semibold text-white border border-white/15 flex items-center justify-center gap-2 transition-colors"
+              className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-300 hover:opacity-95 text-slate-950 text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer"
             >
-              <span>Visit Official Website</span>
-              <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+              <span>Verify Official Fees, Stipend & Seat Matrix</span>
+              <ExternalLink className="w-3.5 h-3.5 text-slate-950" />
             </a>
+
+            {college.website && (
+              <a
+                href={college.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-xs font-semibold text-white border border-white/15 flex items-center justify-center gap-2 transition-colors cursor-pointer"
+              >
+                <span>College Website</span>
+                <ExternalLink className="w-3 h-3 text-slate-400" />
+              </a>
+            )}
 
             <button
               onClick={onClose}
-              className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold transition-all shadow-[0_0_15px_rgba(16,185,129,0.3)] cursor-pointer"
+              className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-semibold border border-white/10 transition-all cursor-pointer"
             >
-              Back to Predictor Results
+              Close
             </button>
           </div>
 

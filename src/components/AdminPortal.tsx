@@ -17,10 +17,12 @@ import {
   FileSpreadsheet, 
   RotateCcw,
   UserPlus,
-  Plus
+  Plus,
+  Building2
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { BrandLogo } from './BrandLogo';
+import { CollegeApprovalsDashboard } from './CollegeApprovalsDashboard';
 
 interface AdminPortalProps {
   onBackToPredictor: () => void;
@@ -58,6 +60,7 @@ const STATES = [
 ];
 
 export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToPredictor }) => {
+  const [activeAdminTab, setActiveAdminTab] = useState<'students' | 'colleges'>('colleges');
   const [students, setStudents] = useState<StudentProfile[]>(() => getStoredStudents());
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedState, setSelectedState] = useState('All');
@@ -270,37 +273,68 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToPredictor }) =
                   </span>
                 </h2>
                 <span className="text-[11px] text-slate-400">
-                  Registered BAMS Student Directory & Live Lead Database
+                  {activeAdminTab === 'colleges'
+                    ? 'College Administrator Submissions & Live Approval Workflow (Supabase)'
+                    : 'Registered BAMS Student Directory & Live Lead Database'}
                 </span>
               </div>
             </div>
           </div>
 
+          {/* Section Navigation Tabs */}
+          <div className="flex items-center rounded-2xl bg-white/5 p-1 border border-white/10">
+            <button
+              onClick={() => setActiveAdminTab('colleges')}
+              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeAdminTab === 'colleges'
+                  ? 'bg-gradient-to-r from-indigo-600 to-indigo-500 text-white shadow-[0_0_15px_rgba(99,102,241,0.4)]'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <Building2 className="w-3.5 h-3.5" />
+              <span>College Approvals</span>
+            </button>
+            <button
+              onClick={() => setActiveAdminTab('students')}
+              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeAdminTab === 'students'
+                  ? 'bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 shadow-[0_0_15px_rgba(16,185,129,0.4)]'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <Users className="w-3.5 h-3.5" />
+              <span>Student Leads ({students.length})</span>
+            </button>
+          </div>
+
           <div className="flex items-center gap-2.5">
-            <button
-              onClick={() => setIsAddModalOpen(true)}
-              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-950 bg-gradient-to-r from-emerald-400 to-teal-300 hover:opacity-95 shadow-md transition-all cursor-pointer"
-            >
-              <Plus className="w-4 h-4" />
-              <span>Add Candidate Lead</span>
-            </button>
+            {activeAdminTab === 'students' && (
+              <>
+                <button
+                  onClick={() => setIsAddModalOpen(true)}
+                  className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-950 bg-gradient-to-r from-emerald-400 to-teal-300 hover:opacity-95 shadow-md transition-all cursor-pointer"
+                >
+                  <Plus className="w-4 h-4" />
+                  <span>Add Candidate</span>
+                </button>
 
-            <button
-              onClick={handleRefresh}
-              className="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white text-xs flex items-center gap-1.5 cursor-pointer"
-              title="Refresh list"
-            >
-              <RotateCcw className="w-3.5 h-3.5 text-slate-400" />
-              <span>Refresh</span>
-            </button>
+                <button
+                  onClick={handleRefresh}
+                  className="p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white text-xs flex items-center gap-1.5 cursor-pointer"
+                  title="Refresh list"
+                >
+                  <RotateCcw className="w-3.5 h-3.5 text-slate-400" />
+                </button>
 
-            <button
-              onClick={handleExportCSV}
-              className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 bg-white/10 hover:bg-white/15 border border-white/15 transition-all cursor-pointer"
-            >
-              <FileSpreadsheet className="w-4 h-4 text-emerald-400" />
-              <span>Export CSV ({filteredStudents.length})</span>
-            </button>
+                <button
+                  onClick={handleExportCSV}
+                  className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 bg-white/10 hover:bg-white/15 border border-white/15 transition-all cursor-pointer"
+                >
+                  <FileSpreadsheet className="w-4 h-4 text-emerald-400" />
+                  <span>Export ({filteredStudents.length})</span>
+                </button>
+              </>
+            )}
           </div>
 
         </div>
@@ -308,8 +342,11 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToPredictor }) =
 
       {/* Main Admin Content Container */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow">
-        
-        {/* Analytics Highlights Bar */}
+        {activeAdminTab === 'colleges' ? (
+          <CollegeApprovalsDashboard />
+        ) : (
+          <>
+            {/* Analytics Highlights Bar */}
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-3.5 mb-8">
           
           <div className="p-4 rounded-2xl glass-panel border border-white/10">
@@ -555,8 +592,9 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToPredictor }) =
             </table>
           </div>
         </div>
-
-      </main>
+      </>
+    )}
+  </main>
 
       {/* Manual Add Candidate Modal */}
       {isAddModalOpen && (

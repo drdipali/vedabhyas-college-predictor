@@ -14,21 +14,14 @@ export const collegesData: College[] = (collegesJson as any[]).map((item) => {
     EWS: item.last_year_closing_rank?.EWS ?? Math.round(closingRank * 1.1),
   };
 
-  const isPrivateOrDeemed = 
-    item.institutionType === 'Private' || 
-    item.institutionType === 'Deemed' || 
-    item.college_type === 'Private' || 
-    item.college_type === 'Deemed' ||
-    item.quota === 'Deemed/Mgt';
-
   return {
     ...item,
     closingRank,
     categoryClosingRanks,
-    stipend: isPrivateOrDeemed ? null : (item.stipend || null),
-    stipendAmount: isPrivateOrDeemed ? 0 : (item.stipendAmount || 0),
     quota: (item.quota || item.quota_type || 'AIQ') as 'AIQ' | 'State' | 'Deemed/Mgt',
+    quota_type: item.quota_type || (item.quota === 'AIQ' ? 'All India Quota (AIQ)' : item.quota === 'State' ? 'State Quota' : 'Deemed / Management'),
     institutionType: (item.institutionType || item.college_type || 'Government') as 'Government' | 'Private' | 'Deemed',
+    college_type: item.college_type || item.institutionType || 'Government',
     type: item.type || (item.institutionType ? `${item.institutionType} Institute` : 'Government Institute'),
     topBranches: item.topBranches || item.branches || ['Kayachikitsa', 'Shalya Tantra', 'Prasuti & Stri Roga'],
   } as College;

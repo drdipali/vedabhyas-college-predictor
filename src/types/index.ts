@@ -4,9 +4,9 @@ export type QuotaFilter = 'All' | 'AIQ' | 'State' | 'Deemed/Mgt';
 
 export type InstitutionTypeFilter = 'All' | 'Government' | 'Private' | 'Deemed';
 
-export type ChanceLevel = 'High Chance' | 'Probable' | 'Tough Competition';
+export type ChanceLevel = 'High Chance' | 'Moderate' | 'Borderline' | 'Very Low';
 
-export type PredictionConfidence = 'High' | 'Moderate' | 'Borderline';
+export type PredictionConfidence = 'High' | 'Moderate' | 'Borderline' | 'Low';
 
 export interface CategoryClosingRanks {
   General: number;
@@ -24,19 +24,11 @@ export interface College {
   state: string;
   quota: 'AIQ' | 'State' | 'Deemed/Mgt';
   institutionType: 'Government' | 'Private' | 'Deemed';
-  stipend: string | null;
-  stipendAmount: number;
-  annualFee: string;
   closingRank: number;
   categoryClosingRanks: CategoryClosingRanks;
-  hospitalBeds: number;
-  opdPerDay: number;
-  established: number;
   type: string;
   topBranches: string[];
-  description: string;
-  website: string;
-  // User Requested Schema Aliases
+  website?: string;
   college_name?: string;
   quota_type?: string;
   college_type?: string;
@@ -48,8 +40,21 @@ export interface College {
     SC?: number;
     ST?: number;
   };
-  fees_approx?: string;
   source_url?: string;
+  ncism_code?: string;
+  is_verified?: boolean;
+  verified_at?: string;
+  verified_by?: string;
+  annual_fee?: string;
+  monthly_stipend?: string;
+  // Optional legacy fields for backward compatibility
+  stipend?: string | null;
+  stipendAmount?: number;
+  annualFee?: string;
+  hospitalBeds?: number;
+  opdPerDay?: number;
+  established?: number;
+  description?: string;
 }
 
 export interface PredictionResult {
@@ -59,8 +64,8 @@ export interface PredictionResult {
   userRank: number;
   rankDelta: number;
   chance: ChanceLevel;
-  confidence: PredictionConfidence;
-  chanceScore: number;
+  confidence?: PredictionConfidence;
+  chanceScore?: number;
 }
 
 export type PreparationMethod = 
@@ -120,4 +125,37 @@ export interface CounsellingAlertsFeed {
   total_portals_monitored?: number;
   urgent_ticker: string[];
   updates: CounsellingUpdate[];
+}
+
+export type SubmissionStatus = 'pending' | 'approved' | 'rejected';
+
+export interface CollegeSubmission {
+  id: string;
+  submitted_by_user_id?: string;
+  college_name: string;
+  ncism_code?: string;
+  state: string;
+  college_type: string;
+  quota_type: string;
+  departments: string[];
+  annual_fee?: string;
+  monthly_stipend?: string;
+  contact_person_name: string;
+  designation: string;
+  contact_phone: string;
+  official_email: string;
+  proof_url?: string;
+  status: SubmissionStatus;
+  admin_notes?: string;
+  created_at: string;
+  updated_at?: string;
+}
+
+export interface CollegeAdminProfile {
+  id: string;
+  email: string;
+  collegeName?: string;
+  contactPersonName?: string;
+  designation?: string;
+  phone?: string;
 }

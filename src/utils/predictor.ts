@@ -93,28 +93,20 @@ export function predictCollegeChances(
 
       let chance: ChanceLevel;
       let confidence: PredictionConfidence;
-      let chanceScore: number;
 
-      // High Chance / High Confidence: User's rank is <= last year's closing rank
+      // Simple, clear rank comparison (High Chance, Moderate, Borderline, Very Low)
       if (userRank <= closingRank) {
         chance = 'High Chance';
         confidence = 'High';
-        const bonus = Math.min(24, Math.round((rankDelta / closingRank) * 40));
-        chanceScore = Math.min(99, 75 + bonus);
-      } 
-      // Moderate / Probable / Medium Confidence: Within 18% margin of last year cutoff
-      else if (userRank <= Math.round(closingRank * 1.18)) {
-        chance = 'Probable';
+      } else if (userRank <= Math.round(closingRank * 1.15)) {
+        chance = 'Moderate';
         confidence = 'Moderate';
-        const overRatio = (userRank - closingRank) / (closingRank * 0.18);
-        chanceScore = Math.max(40, Math.round(74 - overRatio * 34));
-      } 
-      // Borderline / Tough Competition: Greater than 18% margin
-      else {
-        chance = 'Tough Competition';
+      } else if (userRank <= Math.round(closingRank * 1.35)) {
+        chance = 'Borderline';
         confidence = 'Borderline';
-        const overRatio = (userRank - closingRank) / closingRank;
-        chanceScore = Math.max(5, Math.round(39 - overRatio * 20));
+      } else {
+        chance = 'Very Low';
+        confidence = 'Low';
       }
 
       return {
@@ -125,22 +117,22 @@ export function predictCollegeChances(
         rankDelta,
         chance,
         confidence,
-        chanceScore,
       };
     })
     .sort((a, b) => {
-      // Priority sorting: High Chance first, then score, then closing rank
+      // Priority sorting: High Chance first, then rank delta, then closing rank
       const chanceWeight: Record<ChanceLevel, number> = {
-        'High Chance': 3,
-        'Probable': 2,
-        'Tough Competition': 1,
+        'High Chance': 4,
+        'Moderate': 3,
+        'Borderline': 2,
+        'Very Low': 1,
       };
 
       if (chanceWeight[a.chance] !== chanceWeight[b.chance]) {
         return chanceWeight[b.chance] - chanceWeight[a.chance];
       }
-      if (b.chanceScore !== a.chanceScore) {
-        return b.chanceScore - a.chanceScore;
+      if (b.rankDelta !== a.rankDelta) {
+        return b.rankDelta - a.rankDelta;
       }
       return a.closingRank - b.closingRank;
     });

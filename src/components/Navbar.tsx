@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { StudentProfile } from '../types';
-import { Sparkles, BookOpen, ExternalLink, Menu, X, User, LogOut, Lock, MessageCircle, BellRing } from 'lucide-react';
+import { Sparkles, BookOpen, ExternalLink, Menu, X, User, LogOut, Lock, MessageCircle, BellRing, Building2 } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 
 interface NavbarProps {
@@ -8,6 +8,7 @@ interface NavbarProps {
   onOpenAuth: () => void;
   onOpenAdminLogin: () => void;
   onOpenLiveAlerts: () => void;
+  onOpenCollegePortal: () => void;
   currentStudent: StudentProfile | null;
   onLogout: () => void;
   activeAlertCount?: number;
@@ -21,6 +22,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenAuth, 
   onOpenAdminLogin,
   onOpenLiveAlerts,
+  onOpenCollegePortal,
   currentStudent,
   onLogout,
   activeAlertCount = 12
@@ -168,6 +170,16 @@ export const Navbar: React.FC<NavbarProps> = ({
               <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
             </a>
 
+            {/* For Colleges / Update Data Button */}
+            <button
+              onClick={onOpenCollegePortal}
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold text-indigo-300 hover:text-white bg-indigo-500/15 hover:bg-indigo-500/25 border border-indigo-500/30 hover:border-indigo-400/50 shadow-[0_0_15px_rgba(99,102,241,0.25)] transition-all cursor-pointer"
+              title="For AYUSH Colleges & Universities: Submit Official Fees, Stipends & Seat Matrix"
+            >
+              <Building2 className="w-4 h-4 text-indigo-400" />
+              <span>For Colleges / Update Data</span>
+            </button>
+
             {/* Admin Portal Button */}
             <button
               onClick={onOpenAdminLogin}
@@ -292,6 +304,17 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <BookOpen className="w-4 h-4 text-emerald-400" />
             <span>Counseling Roadmap & Documents</span>
+          </button>
+
+          <button
+            onClick={() => {
+              onOpenCollegePortal();
+              setMobileMenuOpen(false);
+            }}
+            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-indigo-200 bg-indigo-500/20 border border-indigo-500/40"
+          >
+            <Building2 className="w-4 h-4 text-indigo-400" />
+            <span>For Colleges / Update Data</span>
           </button>
 
           <button

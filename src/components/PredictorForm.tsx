@@ -20,8 +20,8 @@ interface PredictorFormProps {
   searchQuery: string;
   setSearchQuery: (query: string) => void;
   availableStates: string[];
-  sortBy: 'chance' | 'stipend' | 'rank' | 'beds';
-  setSortBy: (sort: 'chance' | 'stipend' | 'rank' | 'beds') => void;
+  sortBy: 'chance' | 'rank' | 'name';
+  setSortBy: (sort: 'chance' | 'rank' | 'name') => void;
   onPredict: () => void;
 }
 
@@ -259,7 +259,7 @@ export const PredictorForm: React.FC<PredictorFormProps> = ({
                         : 'text-slate-400 hover:text-slate-200'
                     }`}
                   >
-                    {q === 'All' ? 'All Quotas' : q === 'AIQ' ? 'AIQ (15%)' : q === 'State' ? 'State Quota (85%)' : 'Deemed / Management'}
+                    {q === 'All' ? 'All Quotas' : q === 'AIQ' ? 'AIQ' : q === 'State' ? 'State Quota' : 'Deemed / Management'}
                   </button>
                 ))}
               </div>
@@ -362,9 +362,8 @@ export const PredictorForm: React.FC<PredictorFormProps> = ({
                     className="w-full h-10 px-3 text-xs rounded-xl glass-input text-white bg-slate-900 border border-white/15 cursor-pointer"
                   >
                     <option value="chance">Best Admission Chance</option>
-                    <option value="stipend">Highest Monthly Stipend</option>
                     <option value="rank">Lowest Closing Rank (Top Tier)</option>
-                    <option value="beds">Hospital Bed Capacity</option>
+                    <option value="name">College Name (A–Z)</option>
                   </select>
                 </div>
 

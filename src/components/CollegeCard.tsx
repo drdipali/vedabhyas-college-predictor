@@ -2,15 +2,12 @@ import React from 'react';
 import type { PredictionResult } from '../types';
 import { 
   MapPin, 
-  Banknote, 
-  Bed, 
   CheckCircle2, 
   AlertCircle, 
   HelpCircle, 
   ArrowUpRight,
   Shield,
-  GraduationCap,
-  Receipt
+  GraduationCap
 } from 'lucide-react';
 
 interface CollegeCardProps {
@@ -19,9 +16,9 @@ interface CollegeCardProps {
 }
 
 export const CollegeCard: React.FC<CollegeCardProps> = ({ prediction, onSelect }) => {
-  const { college, closingRank, userRank, rankDelta, chance, chanceScore, confidence } = prediction;
+  const { college, closingRank, userRank, rankDelta, chance } = prediction;
 
-  // Chance styling configuration
+  // Simple rank comparison styling configuration (High Chance, Moderate, Borderline, Very Low)
   const chanceConfig = {
     'High Chance': {
       border: 'border-emerald-500/30 hover:border-emerald-400/60',
@@ -30,39 +27,34 @@ export const CollegeCard: React.FC<CollegeCardProps> = ({ prediction, onSelect }
       icon: CheckCircle2,
       label: 'High Chance',
     },
-    'Probable': {
+    'Moderate': {
+      border: 'border-teal-500/30 hover:border-teal-400/60',
+      glow: 'shadow-[0_20px_45px_-12px_rgba(20,184,166,0.18)]',
+      badgeBg: 'bg-teal-500/15 text-teal-300 border-teal-500/40',
+      icon: CheckCircle2,
+      label: 'Moderate',
+    },
+    'Borderline': {
       border: 'border-amber-500/30 hover:border-amber-400/60',
       glow: 'shadow-[0_20px_45px_-12px_rgba(245,158,11,0.18)]',
       badgeBg: 'bg-amber-500/15 text-amber-300 border-amber-500/40',
       icon: AlertCircle,
-      label: 'Moderate / Borderline',
+      label: 'Borderline',
     },
-    'Tough Competition': {
+    'Very Low': {
       border: 'border-slate-700/50 hover:border-rose-500/40',
       glow: 'shadow-[0_20px_45px_-12px_rgba(0,0,0,0.5)]',
       badgeBg: 'bg-rose-500/15 text-rose-300 border-rose-500/40',
       icon: HelpCircle,
-      label: 'Borderline / Tough',
+      label: 'Very Low',
     },
-  }[chance];
-
-  const confidenceConfig = {
-    High: {
-      label: 'High Confidence',
-      badge: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
-      dot: 'bg-emerald-400',
-    },
-    Moderate: {
-      label: 'Moderate Confidence',
-      badge: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
-      dot: 'bg-amber-400',
-    },
-    Borderline: {
-      label: 'Borderline Chance',
-      badge: 'bg-rose-500/20 text-rose-300 border-rose-500/40',
-      dot: 'bg-rose-400',
-    },
-  }[confidence || 'Moderate'];
+  }[chance] || {
+    border: 'border-slate-700/50 hover:border-slate-600',
+    glow: 'shadow-none',
+    badgeBg: 'bg-slate-500/15 text-slate-300 border-slate-500/40',
+    icon: HelpCircle,
+    label: chance,
+  };
 
   const typeConfig = {
     Government: {
@@ -75,11 +67,15 @@ export const CollegeCard: React.FC<CollegeCardProps> = ({ prediction, onSelect }
     },
     Deemed: {
       tag: 'bg-purple-500/15 text-purple-300 border-purple-500/30',
-      label: '🎓 Deemed Univ',
+      label: '🎓 Deemed',
     },
-  }[college.institutionType];
+  }[college.institutionType] || {
+    tag: 'bg-white/10 text-slate-300 border-white/10',
+    label: college.college_type || college.institutionType,
+  };
 
   const ChanceIcon = chanceConfig.icon;
+  const quotaLabel = college.quota_type || college.quota || 'AIQ';
 
   return (
     <div
@@ -100,29 +96,31 @@ export const CollegeCard: React.FC<CollegeCardProps> = ({ prediction, onSelect }
       <div>
         <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
           
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1.5 flex-wrap">
             {/* Institution Type Badge */}
             <span className={`px-2 py-0.5 rounded-lg text-[10px] font-semibold border ${typeConfig.tag}`}>
               {typeConfig.label}
             </span>
 
-            {/* Quota Tag */}
+            {/* Quota Tag (Exact quota_type from JSON, no hardcoded 15%) */}
             <div className="flex items-center gap-1 px-2 py-0.5 rounded-lg bg-white/5 border border-white/10 text-[10px] font-medium text-slate-300">
               <Shield className="w-2.5 h-2.5 text-emerald-400" />
-              <span>{college.quota}</span>
+              <span>{quotaLabel}</span>
             </div>
+
+            {/* Subtle Verified by College Badge */}
+            {college.is_verified && (
+              <span className="flex items-center gap-1 px-2 py-0.5 rounded-lg text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-[0_0_12px_rgba(16,185,129,0.3)]">
+                <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                <span>✓ Verified by College</span>
+              </span>
+            )}
           </div>
 
-          {/* Chance & Confidence Badges */}
-          <div className="flex items-center gap-1.5">
-            <span className={`hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold border ${confidenceConfig.badge}`}>
-              <span className={`w-1.5 h-1.5 rounded-full ${confidenceConfig.dot}`} />
-              <span>{confidenceConfig.label}</span>
-            </span>
-            <div className={`flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${chanceConfig.badgeBg} shadow-sm`}>
-              <ChanceIcon className="w-3 h-3" />
-              <span>{chanceConfig.label}</span>
-            </div>
+          {/* Simple Rank Comparison Verdict Badge */}
+          <div className={`flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${chanceConfig.badgeBg} shadow-sm`}>
+            <ChanceIcon className="w-3 h-3" />
+            <span>{chanceConfig.label}</span>
           </div>
         </div>
 
@@ -143,94 +141,54 @@ export const CollegeCard: React.FC<CollegeCardProps> = ({ prediction, onSelect }
         {/* Rank Comparison Metrics */}
         <div className="p-3.5 rounded-2xl bg-slate-900/60 border border-white/10 mb-4 space-y-2">
           <div className="flex items-center justify-between text-xs">
-            <span className="text-slate-400">AACCC R3 Cutoff ({prediction.category}):</span>
+            <span className="text-slate-400">Reference Cutoff ({prediction.category}):</span>
             <span className="font-mono font-bold text-white">AIR #{closingRank}</span>
           </div>
 
           <div className="flex items-center justify-between text-xs">
             <span className="text-slate-400">Your AIAPGET Rank:</span>
             <span className="font-mono font-bold text-emerald-400">
-              AIR #{userRank} {rankDelta >= 0 ? `(+${rankDelta} safe)` : `(${rankDelta})`}
+              AIR #{userRank} {rankDelta >= 0 ? `(+${rankDelta} within cutoff)` : `(${rankDelta} above cutoff)`}
             </span>
           </div>
 
-          <div className="flex items-center justify-between text-xs pt-0.5 border-t border-white/5">
-            <span className="text-slate-400">Prediction Confidence:</span>
+          <div className="flex items-center justify-between text-xs pt-1.5 border-t border-white/5">
+            <span className="text-slate-400">Prediction Assessment:</span>
             <span className={`font-semibold text-xs flex items-center gap-1 ${
-              confidence === 'High' ? 'text-emerald-400' : confidence === 'Moderate' ? 'text-amber-400' : 'text-rose-400'
+              chance === 'High Chance' ? 'text-emerald-300' : chance === 'Moderate' ? 'text-teal-300' : chance === 'Borderline' ? 'text-amber-300' : 'text-rose-300'
             }`}>
-              <span className={`w-1.5 h-1.5 rounded-full ${confidenceConfig.dot}`} />
-              <span>{confidenceConfig.label}</span>
-            </span>
-          </div>
-
-          {/* Progress / Margin Bar */}
-          <div className="pt-1">
-            <div className="flex items-center justify-between text-[11px] mb-1">
-              <span className="text-slate-400">Admission Probability</span>
-              <span className="font-mono font-semibold text-slate-300">{chanceScore}%</span>
-            </div>
-            <div className="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
-              <div
-                className={`h-full rounded-full transition-all duration-700 ${
-                  chance === 'High Chance'
-                    ? 'bg-gradient-to-r from-emerald-500 to-teal-400'
-                    : chance === 'Probable'
-                    ? 'bg-gradient-to-r from-amber-500 to-yellow-400'
-                    : 'bg-gradient-to-r from-rose-500 to-pink-500'
-                }`}
-                style={{ width: `${chanceScore}%` }}
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Stipend, Annual Fee & Bed Strength */}
-        <div className="grid grid-cols-3 gap-2 mb-4 text-xs">
-          <div className="p-2 rounded-xl bg-white/5 border border-white/5 flex flex-col justify-center">
-            <span className="text-slate-400 flex items-center gap-1 text-[10px]">
-              <Banknote className="w-3 h-3 text-amber-400" />
-              <span>Stipend</span>
-            </span>
-            <span 
-              className={`text-xs mt-0.5 truncate ${
-                college.stipend ? 'font-bold text-emerald-300 font-mono' : 'font-medium text-slate-400 text-[11px]'
-              }`}
-              title={college.stipend ? college.stipend : 'As per College Norms'}
-            >
-              {college.stipend ? college.stipend.split('/')[0] : 'As per Norms'}
-            </span>
-          </div>
-
-          <div className="p-2 rounded-xl bg-white/5 border border-white/5 flex flex-col justify-center">
-            <span className="text-slate-400 flex items-center gap-1 text-[10px]">
-              <Receipt className="w-3 h-3 text-teal-400" />
-              <span>Annual Fee</span>
-            </span>
-            <span className="font-bold text-slate-200 text-xs mt-0.5 font-mono truncate">
-              {college.annualFee.split('/')[0]}
-            </span>
-          </div>
-
-          <div className="p-2 rounded-xl bg-white/5 border border-white/5 flex flex-col justify-center">
-            <span className="text-slate-400 flex items-center gap-1 text-[10px]">
-              <Bed className="w-3 h-3 text-purple-400" />
-              <span>Beds</span>
-            </span>
-            <span className="font-bold text-white text-xs mt-0.5 font-mono">
-              {college.hospitalBeds}+
+              <ChanceIcon className="w-3 h-3" />
+              <span>{chanceConfig.label}</span>
             </span>
           </div>
         </div>
+
+        {/* Verified Fees & Stipend (if approved through College Portal) */}
+        {(college.annual_fee || college.monthly_stipend) && (
+          <div className="p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/30 mb-4 flex items-center justify-between text-[11px] shadow-sm">
+            {college.annual_fee && (
+              <div>
+                <span className="text-slate-400 block text-[9px] uppercase font-semibold">Verified Annual Fee</span>
+                <span className="text-emerald-300 font-bold font-mono">{college.annual_fee}</span>
+              </div>
+            )}
+            {college.monthly_stipend && (
+              <div className="text-right">
+                <span className="text-slate-400 block text-[9px] uppercase font-semibold">Verified Monthly Stipend</span>
+                <span className="text-emerald-300 font-bold font-mono">{college.monthly_stipend}</span>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Top Clinical Specialties Chips */}
         <div className="space-y-1.5 mb-5">
           <span className="text-[11px] font-medium text-slate-400 flex items-center gap-1">
             <GraduationCap className="w-3 h-3 text-emerald-400" />
-            <span>Notable PG Specializations:</span>
+            <span>Available MD / MS Departments:</span>
           </span>
           <div className="flex flex-wrap gap-1.5">
-            {college.topBranches.slice(0, 3).map((branch) => (
+            {college.topBranches.slice(0, 4).map((branch) => (
               <span
                 key={branch}
                 className="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-[10px] text-slate-300 font-medium"
@@ -238,9 +196,9 @@ export const CollegeCard: React.FC<CollegeCardProps> = ({ prediction, onSelect }
                 {branch}
               </span>
             ))}
-            {college.topBranches.length > 3 && (
+            {college.topBranches.length > 4 && (
               <span className="px-1.5 py-0.5 rounded-md bg-white/5 text-[10px] text-slate-400">
-                +{college.topBranches.length - 3} more
+                +{college.topBranches.length - 4} more
               </span>
             )}
           </div>
@@ -257,7 +215,7 @@ export const CollegeCard: React.FC<CollegeCardProps> = ({ prediction, onSelect }
           }}
           className="w-full py-2.5 px-3 rounded-xl bg-white/5 hover:bg-emerald-500/20 hover:text-emerald-300 border border-white/10 hover:border-emerald-500/40 text-xs font-semibold text-slate-200 flex items-center justify-center gap-1.5 transition-all group-hover:bg-emerald-500/15"
         >
-          <span>View Profile, Fees & Cutoffs</span>
+          <span>View Reference Cutoffs & Details</span>
           <ArrowUpRight className="w-3.5 h-3.5" />
         </button>
       </div>

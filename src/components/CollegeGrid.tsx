@@ -75,8 +75,9 @@ export const CollegeGrid: React.FC<CollegeGridProps> = ({
 
   // Calculate statistics
   const highChanceCount = predictions.filter((p) => p.chance === 'High Chance').length;
-  const probableCount = predictions.filter((p) => p.chance === 'Probable').length;
-  const toughCount = predictions.filter((p) => p.chance === 'Tough Competition').length;
+  const moderateCount = predictions.filter((p) => p.chance === 'Moderate').length;
+  const borderlineCount = predictions.filter((p) => p.chance === 'Borderline').length;
+  const veryLowCount = predictions.filter((p) => p.chance === 'Very Low').length;
 
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -127,27 +128,39 @@ export const CollegeGrid: React.FC<CollegeGridProps> = ({
           </button>
 
           <button
-            onClick={() => setSelectedChanceFilter('Probable')}
+            onClick={() => setSelectedChanceFilter('Moderate')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-              selectedChanceFilter === 'Probable'
+              selectedChanceFilter === 'Moderate'
                 ? 'bg-amber-400 text-slate-950 font-bold shadow-[0_0_15px_rgba(245,158,11,0.4)]'
                 : 'bg-amber-500/10 text-amber-300 border border-amber-500/30 hover:bg-amber-500/20'
             }`}
           >
             <AlertCircle className="w-3.5 h-3.5" />
-            <span>Probable ({probableCount})</span>
+            <span>Moderate ({moderateCount})</span>
           </button>
 
           <button
-            onClick={() => setSelectedChanceFilter('Tough Competition')}
+            onClick={() => setSelectedChanceFilter('Borderline')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-              selectedChanceFilter === 'Tough Competition'
+              selectedChanceFilter === 'Borderline'
+                ? 'bg-orange-500 text-white font-bold shadow-[0_0_15px_rgba(249,115,22,0.4)]'
+                : 'bg-orange-500/10 text-orange-300 border border-orange-500/30 hover:bg-orange-500/20'
+            }`}
+          >
+            <HelpCircle className="w-3.5 h-3.5" />
+            <span>Borderline ({borderlineCount})</span>
+          </button>
+
+          <button
+            onClick={() => setSelectedChanceFilter('Very Low')}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+              selectedChanceFilter === 'Very Low'
                 ? 'bg-rose-500 text-white font-bold shadow-[0_0_15px_rgba(244,63,94,0.4)]'
                 : 'bg-rose-500/10 text-rose-300 border border-rose-500/30 hover:bg-rose-500/20'
             }`}
           >
-            <HelpCircle className="w-3.5 h-3.5" />
-            <span>Aspirational ({toughCount})</span>
+            <AlertCircle className="w-3.5 h-3.5" />
+            <span>Very Low ({veryLowCount})</span>
           </button>
 
         </div>

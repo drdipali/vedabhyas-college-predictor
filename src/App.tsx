@@ -17,7 +17,10 @@ import { AdminLoginModal } from './components/AdminLoginModal';
 import { CounselorChatbot } from './components/CounselorChatbot';
 import { LiveAlertTicker } from './components/LiveAlertTicker';
 import { LiveCounsellingModal } from './components/LiveCounsellingModal';
+import { CollegePortalModal } from './components/CollegePortalModal';
 import { Footer } from './components/Footer';
+import { getLiveApprovedColleges } from './lib/supabase';
+import type { College } from './types';
 
 export const App: React.FC = () => {
   // Student authentication profile state
@@ -33,6 +36,21 @@ export const App: React.FC = () => {
   const [counsellingFeed, setCounsellingFeed] = useState<CounsellingAlertsFeed>(defaultCounsellingFeed);
   const [isLiveAlertsOpen, setIsLiveAlertsOpen] = useState(false);
 
+  // College Administrator Portal state
+  const [isCollegePortalOpen, setIsCollegePortalOpen] = useState(false);
+  const [approvedLiveColleges, setApprovedLiveColleges] = useState<Partial<College>[]>([]);
+
+  const loadApprovedColleges = async () => {
+    try {
+      const list = await getLiveApprovedColleges();
+      setApprovedLiveColleges(list);
+    } catch {}
+  };
+
+  useEffect(() => {
+    loadApprovedColleges();
+  }, []);
+
   // Predictor state variables - Initialized from student profile when logged in
   const [rank, setRank] = useState<number | ''>(currentStudent?.aiapgetRank ?? 240);
   const [category, setCategory] = useState<Category>(currentStudent?.category ?? 'General');
@@ -41,7 +59,7 @@ export const App: React.FC = () => {
   const [stateFilter, setStateFilter] = useState<string>('All');
   const [branchFilter, setBranchFilter] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [sortBy, setSortBy] = useState<'chance' | 'stipend' | 'rank' | 'beds'>('chance');
+  const [sortBy, setSortBy] = useState<'chance' | 'rank' | 'name'>('chance');
 
   // Modal states
   const [selectedCollege, setSelectedCollege] = useState<PredictionResult | null>(null);
@@ -91,12 +109,44 @@ export const App: React.FC = () => {
     return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
 
+  // Merge verified approved colleges into live list
+  const allColleges = useMemo<College[]>(() => {
+    if (approvedLiveColleges.length === 0) return collegesData;
+    const map = new Map<string, College>();
+    collegesData.forEach((c) => map.set(c.id, { ...c }));
+    approvedLiveColleges.forEach((ac) => {
+      if (ac.id && map.has(ac.id)) {
+        map.set(ac.id, { ...map.get(ac.id)!, ...ac, is_verified: true } as College);
+      } else if (ac.id && ac.name) {
+        map.set(ac.id, {
+          ...ac,
+          closingRank: ac.closingRank || 3500,
+          categoryClosingRanks: ac.categoryClosingRanks || {
+            General: 3500,
+            OBC: 3900,
+            EWS: 3700,
+            SC: 5200,
+            ST: 6500,
+          },
+          quota: ac.quota || 'AIQ',
+          quota_type: ac.quota_type || 'State Quota',
+          institutionType: ac.institutionType || 'Private',
+          college_type: ac.college_type || 'Private',
+          type: ac.type || 'Private Institute',
+          topBranches: ac.topBranches || ac.branches || ['Kayachikitsa', 'Shalya Tantra'],
+          is_verified: true,
+        } as College);
+      }
+    });
+    return Array.from(map.values());
+  }, [approvedLiveColleges]);
+
   // Compute predictions only if student is authenticated
   const predictions = useMemo(() => {
     if (!currentStudent || !rank || rank <= 0) return [];
     
     const results = predictCollegeChances(
-      collegesData,
+      allColleges,
       rank,
       category,
       quotaFilter,
@@ -108,14 +158,11 @@ export const App: React.FC = () => {
 
     // Custom sorting
     return [...results].sort((a, b) => {
-      if (sortBy === 'stipend') {
-        return b.college.stipendAmount - a.college.stipendAmount;
-      }
       if (sortBy === 'rank') {
         return a.closingRank - b.closingRank;
       }
-      if (sortBy === 'beds') {
-        return b.college.hospitalBeds - a.college.hospitalBeds;
+      if (sortBy === 'name') {
+        return a.college.name.localeCompare(b.college.name);
       }
       return 0;
     });
@@ -167,7 +214,14 @@ export const App: React.FC = () => {
 
   // If Admin View is active and authenticated, render the Admin Portal
   if (isAdminView && isAdminAuthenticated) {
-    return <AdminPortal onBackToPredictor={() => setIsAdminView(false)} />;
+    return (
+      <AdminPortal 
+        onBackToPredictor={() => {
+          setIsAdminView(false);
+          loadApprovedColleges();
+        }} 
+      />
+    );
   }
 
   return (
@@ -186,6 +240,7 @@ export const App: React.FC = () => {
         onOpenAuth={() => setIsAuthModalOpen(true)}
         onOpenAdminLogin={handleOpenAdmin}
         onOpenLiveAlerts={() => setIsLiveAlertsOpen(true)}
+        onOpenCollegePortal={() => setIsCollegePortalOpen(true)}
         currentStudent={currentStudent}
         onLogout={handleLogout}
         activeAlertCount={counsellingFeed.updates.length}
@@ -283,6 +338,13 @@ export const App: React.FC = () => {
         onSuccess={handleStudentAuthSuccess}
         existingStudent={currentStudent}
         defaultMode={currentStudent ? 'register' : 'login'}
+      />
+
+      {/* College Administrator Portal Modal */}
+      <CollegePortalModal
+        isOpen={isCollegePortalOpen}
+        onClose={() => setIsCollegePortalOpen(false)}
+        onSubmissionSuccess={loadApprovedColleges}
       />
 
       {/* Restricted Admin Passcode Login Modal */}
