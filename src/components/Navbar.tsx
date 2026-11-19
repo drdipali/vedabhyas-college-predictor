@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import type { StudentProfile } from '../types';
-import { Sparkles, BookOpen, ExternalLink, Menu, X, User, LogOut, Lock, MessageCircle } from 'lucide-react';
+import { Sparkles, BookOpen, ExternalLink, Menu, X, User, LogOut, Lock, MessageCircle, BellRing } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 
 interface NavbarProps {
   onOpenGuide: () => void;
   onOpenAuth: () => void;
   onOpenAdminLogin: () => void;
+  onOpenLiveAlerts: () => void;
   currentStudent: StudentProfile | null;
   onLogout: () => void;
+  activeAlertCount?: number;
 }
 
 const WHATSAPP_NUMBER = '8208506052';
@@ -18,8 +20,10 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenGuide, 
   onOpenAuth, 
   onOpenAdminLogin,
+  onOpenLiveAlerts,
   currentStudent,
-  onLogout
+  onLogout,
+  activeAlertCount = 12
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -58,13 +62,16 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Center Badges / Live Counseling Status */}
           <div className="hidden xl:flex items-center gap-3">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/60 border border-white/10 text-xs font-medium text-slate-300 shadow-inner">
+            <button
+              onClick={onOpenLiveAlerts}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/60 hover:bg-slate-900 border border-white/10 hover:border-emerald-500/40 text-xs font-medium text-slate-300 shadow-inner cursor-pointer transition-colors"
+            >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span>AACCC AIAPGET Session 2024–25</span>
-            </div>
+              <span>AIAPGET 2026 Live Updates</span>
+            </button>
 
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-medium text-amber-300">
               <Sparkles className="w-3.5 h-3.5 text-amber-400" />
@@ -75,6 +82,25 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Right Navigation Actions */}
           <div className="hidden md:flex items-center gap-2.5">
             
+            {/* Live AIAPGET 2026 Alerts Button */}
+            <button
+              onClick={onOpenLiveAlerts}
+              className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold text-rose-300 hover:text-white bg-rose-500/15 hover:bg-rose-500/25 border border-rose-500/30 hover:border-rose-400/50 shadow-[0_0_15px_rgba(244,63,94,0.25)] transition-all cursor-pointer relative"
+              title="View Live AIAPGET 2026 Counselling Alerts & Portal Updates"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
+              </span>
+              <BellRing className="w-3.5 h-3.5 text-rose-400" />
+              <span>Live Alerts 2026</span>
+              {activeAlertCount > 0 && (
+                <span className="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-rose-500 text-white font-mono">
+                  {activeAlertCount}
+                </span>
+              )}
+            </button>
+
             {/* Direct WhatsApp Quick Help Button */}
             <a
               href={WHATSAPP_URL}
@@ -155,7 +181,15 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex md:hidden items-center gap-1.5">
+            <button
+              onClick={onOpenLiveAlerts}
+              className="p-2 rounded-lg bg-rose-500/20 border border-rose-500/40 text-rose-300 relative"
+              title="Live AIAPGET 2026 Alerts"
+            >
+              <BellRing className="w-4 h-4 text-rose-400" />
+              <span className="absolute -top-1 -right-1 w-2 h-2 bg-rose-500 rounded-full animate-ping" />
+            </button>
             <a
               href={WHATSAPP_URL}
               target="_blank"
@@ -186,6 +220,18 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="md:hidden border-b border-white/10 bg-[#07090e]/95 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-3">
+          
+          {/* Mobile Live Alerts Button */}
+          <button
+            onClick={() => {
+              onOpenLiveAlerts();
+              setMobileMenuOpen(false);
+            }}
+            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-rose-200 bg-rose-500/20 border border-rose-500/40 shadow-sm"
+          >
+            <BellRing className="w-4 h-4 text-rose-400" />
+            <span>🔴 Live AIAPGET 2026 Counselling Alerts ({activeAlertCount})</span>
+          </button>
           
           {/* Mobile WhatsApp Quick Help */}
           <a

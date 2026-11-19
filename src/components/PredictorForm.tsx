@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { Category, QuotaFilter, InstitutionTypeFilter } from '../types';
-import { Search, SlidersHorizontal, Sparkles, ChevronRight, Hash, Users, MapPin, Building2, Landmark, GraduationCap } from 'lucide-react';
+import { Search, SlidersHorizontal, Sparkles, ChevronRight, Hash, Users, MapPin, Building2, Landmark, GraduationCap, Stethoscope } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 interface PredictorFormProps {
@@ -14,6 +14,9 @@ interface PredictorFormProps {
   setInstitutionTypeFilter: (type: InstitutionTypeFilter) => void;
   stateFilter: string;
   setStateFilter: (state: string) => void;
+  branchFilter: string;
+  setBranchFilter: (branch: string) => void;
+  availableBranches: string[];
   searchQuery: string;
   setSearchQuery: (query: string) => void;
   availableStates: string[];
@@ -36,6 +39,9 @@ export const PredictorForm: React.FC<PredictorFormProps> = ({
   setInstitutionTypeFilter,
   stateFilter,
   setStateFilter,
+  branchFilter,
+  setBranchFilter,
+  availableBranches,
   searchQuery,
   setSearchQuery,
   availableStates,
@@ -265,25 +271,32 @@ export const PredictorForm: React.FC<PredictorFormProps> = ({
                 className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-emerald-300 transition-colors cursor-pointer"
               >
                 <SlidersHorizontal className="w-3.5 h-3.5" />
-                <span>{showAdvancedFilters ? 'Hide State & Specialty Filters' : `Filter by State (${availableStates.length}) & Specialty`}</span>
+                <span>
+                  {showAdvancedFilters 
+                    ? 'Hide Advanced Filters' 
+                    : `Filter by State (${availableStates.length}), Branch (${availableBranches.length}) & Sort`}
+                </span>
+                {(branchFilter !== 'All' || stateFilter !== 'All' || searchQuery) && (
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse ml-1" />
+                )}
               </button>
             </div>
 
             {/* Expandable Advanced Filters */}
             {showAdvancedFilters && (
-              <div className="mt-4 pt-4 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-3 animate-fadeIn">
+              <div className="mt-4 pt-4 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 animate-fadeIn">
                 
                 {/* Search query input */}
                 <div>
                   <label htmlFor="search-input" className="block text-xs text-slate-400 mb-1">
-                    Search Specialty, City or College
+                    Search Keyword / City / College
                   </label>
                   <div className="relative">
                     <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
                     <input
                       id="search-input"
                       type="text"
-                      placeholder="e.g. SDM, Panchakarma, Pune..."
+                      placeholder="e.g. Pune, SDM, IPGT..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       className="w-full h-10 pl-8 pr-3 text-xs rounded-xl glass-input text-white placeholder-slate-500"
@@ -308,6 +321,29 @@ export const PredictorForm: React.FC<PredictorFormProps> = ({
                       {availableStates.map((st) => (
                         <option key={st} value={st}>
                           {st}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* Branch / Specialty Dropdown */}
+                <div>
+                  <label htmlFor="branch-select" className="block text-xs text-slate-400 mb-1">
+                    MD / MS Ayurveda Branch
+                  </label>
+                  <div className="relative">
+                    <Stethoscope className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-emerald-400 pointer-events-none" />
+                    <select
+                      id="branch-select"
+                      value={branchFilter}
+                      onChange={(e) => setBranchFilter(e.target.value)}
+                      className="w-full h-10 pl-8 pr-3 text-xs rounded-xl glass-input text-white bg-slate-900 border border-white/15 cursor-pointer"
+                    >
+                      <option value="All">All Branches (All Specialities)</option>
+                      {availableBranches.map((br) => (
+                        <option key={br} value={br}>
+                          {br}
                         </option>
                       ))}
                     </select>

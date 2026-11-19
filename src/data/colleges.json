@@ -31,7 +31,26 @@
       "Dravyaguna Vijnana"
     ],
     "description": "Highest rated Ayurvedic Faculty in Bharat under BHU. Premier trauma center, Sir Sunderlal Hospital, highest AIAPGET closing cutoffs (Rank #1-4).",
-    "website": "https://bhu.ac.in/ims/ayurveda"
+    "website": "https://bhu.ac.in/ims/ayurveda",
+    "college_name": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+    "quota_type": "National Institute",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Stree Roga-Prasuti Tantra",
+      "Kayachikitsa",
+      "Kaumarabhritya",
+      "Dravyaguna Vijnana"
+    ],
+    "last_year_closing_rank": {
+      "UR": 121,
+      "OBC": 161,
+      "EWS": 245,
+      "SC": 828,
+      "ST": 1450
+    },
+    "fees_approx": "₹22,000 / year",
+    "source_url": "https://bhu.ac.in/ims/ayurveda"
   },
   {
     "id": "aiia-delhi",
@@ -65,7 +84,26 @@
       "Kaumarabhritya"
     ],
     "description": "Apex Autonomous National Institute under Ministry of Ayush, Sarita Vihar. NABH accredited modern tertiary hospital with ultra-modern clinical and diagnostic facilities.",
-    "website": "https://aiia.gov.in"
+    "website": "https://aiia.gov.in",
+    "college_name": "All India Institute of Ayurveda (AIIA)",
+    "quota_type": "National Institute",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Panchakarma",
+      "Stree Roga-Prasuti Tantra",
+      "Kaumarabhritya"
+    ],
+    "last_year_closing_rank": {
+      "UR": 142,
+      "OBC": 228,
+      "EWS": 195,
+      "SC": 560,
+      "ST": 1650
+    },
+    "fees_approx": "₹28,500 / year",
+    "source_url": "https://aiia.gov.in"
   },
   {
     "id": "nia-jaipur",
@@ -99,7 +137,26 @@
       "Kaumarabhritya"
     ],
     "description": "Deemed under De-novo Category, Ministry of Ayush. Renowned clinical excellence, high patient density, and cutting-edge Shalya & Panchakarma departments.",
-    "website": "https://nia.nic.in"
+    "website": "https://nia.nic.in",
+    "college_name": "National Institute of Ayurveda (Deemed to be University)",
+    "quota_type": "National Institute",
+    "college_type": "Govt",
+    "branches": [
+      "Panchakarma",
+      "Shalya Tantra",
+      "Stree Roga-Prasuti Tantra",
+      "Kayachikitsa",
+      "Kaumarabhritya"
+    ],
+    "last_year_closing_rank": {
+      "UR": 328,
+      "OBC": 398,
+      "EWS": 273,
+      "SC": 560,
+      "ST": 1840
+    },
+    "fees_approx": "₹38,000 / year",
+    "source_url": "https://nia.nic.in"
   },
   {
     "id": "itra-jamnagar",
@@ -133,7 +190,26 @@
       "Rasashastra"
     ],
     "description": "First Institute of National Importance (INI) in Ayurveda, designated by Parliament of India. Legendary clinical teaching hospital and WHO Collaborating Centre.",
-    "website": "https://itra.edu.in"
+    "website": "https://itra.edu.in",
+    "college_name": "Institute of Teaching and Research in Ayurveda (ITRA)",
+    "quota_type": "National Institute",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Panchakarma",
+      "Rasashastra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 405,
+      "OBC": 449,
+      "EWS": 393,
+      "SC": 564,
+      "ST": 3223
+    },
+    "fees_approx": "₹25,000 / year",
+    "source_url": "https://itra.edu.in"
   },
   {
     "id": "aiia-goa",
@@ -167,7 +243,26 @@
       "Agada Tantra"
     ],
     "description": "New satellite campus of AIIA in Dhargal, Pernem, North Goa. World-class medical tourism infrastructure, high clinical stipend, and AYUSH wellness facilities.",
-    "website": "https://aiia.gov.in"
+    "website": "https://aiia.gov.in",
+    "college_name": "All India Institute of Ayurveda, North Goa",
+    "quota_type": "National Institute",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Rasashastra",
+      "Roganidana",
+      "Agada Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 404,
+      "OBC": 470,
+      "EWS": 430,
+      "SC": 568,
+      "ST": 1720
+    },
+    "fees_approx": "₹30,000 / year",
+    "source_url": "https://aiia.gov.in"
   },
   {
     "id": "neiah-shillong",
@@ -201,7 +296,26 @@
       "Kriya Sharira"
     ],
     "description": "Apex Autonomous Central Institute serving the North Eastern region under Ministry of Ayush, Mawdiangdiang, Shillong. Extensive herbarium and clinical beds.",
-    "website": "https://neiah.nic.in"
+    "website": "https://neiah.nic.in",
+    "college_name": "North Eastern Institute of Ayurveda & Homoeopathy",
+    "quota_type": "National Institute",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Swasthavritta and Yoga",
+      "Agada Tantra",
+      "Rachana Sharira",
+      "Kriya Sharira"
+    ],
+    "last_year_closing_rank": {
+      "UR": 767,
+      "OBC": 744,
+      "EWS": 882,
+      "SC": 1540,
+      "ST": 2200
+    },
+    "fees_approx": "₹24,000 / year",
+    "source_url": "https://neiah.nic.in"
   },
   {
     "id": "podar-mumbai",
@@ -235,7 +349,26 @@
       "Agada Tantra"
     ],
     "description": "Maharashtra's oldest and premier Government Ayurvedic College, Worli. Exceptional emergency & surgical caseload (M.A. Podar Hospital).",
-    "website": "https://rapodar.org"
+    "website": "https://rapodar.org",
+    "college_name": "R. A. Podar Ayurvedic Medical College & Hospital",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Stree Roga-Prasuti Tantra",
+      "Kayachikitsa",
+      "Shalakya Tantra",
+      "Agada Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 149,
+      "OBC": 300,
+      "EWS": 220,
+      "SC": 881,
+      "ST": 2150
+    },
+    "fees_approx": "₹45,000 / year",
+    "source_url": "https://rapodar.org"
   },
   {
     "id": "cbpacs-delhi",
@@ -269,7 +402,26 @@
       "Kriya Sharira"
     ],
     "description": "Premier Delhi State Govt Ayurvedic hospital complex in Khera Dabar, Najafgarh. Delhi Central PG stipend scale with massive clinical ward turnout.",
-    "website": "https://cbpacs.delhi.gov.in"
+    "website": "https://cbpacs.delhi.gov.in",
+    "college_name": "Ch. Brahm Prakash Ayurved Charak Sansthan",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Panchakarma",
+      "Kayachikitsa",
+      "Swasthavritta and Yoga",
+      "Roganidana",
+      "Kriya Sharira"
+    ],
+    "last_year_closing_rank": {
+      "UR": 461,
+      "OBC": 536,
+      "EWS": 526,
+      "SC": 1124,
+      "ST": 2645
+    },
+    "fees_approx": "₹32,000 / year",
+    "source_url": "https://cbpacs.delhi.gov.in"
   },
   {
     "id": "gac-nanded",
@@ -303,7 +455,26 @@
       "Kaumarabhritya"
     ],
     "description": "Highly reputed Maharashtra Government college situated in Vazirabad, Nanded. Excellent patient flow in Marathwada region with dedicated PG residency blocks.",
-    "website": "https://gacnanded.org"
+    "website": "https://gacnanded.org",
+    "college_name": "Government Ayurved College & Hospital, Nanded",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Kayachikitsa",
+      "Swasthavritta and Yoga",
+      "Kriya Sharira",
+      "Kaumarabhritya"
+    ],
+    "last_year_closing_rank": {
+      "UR": 432,
+      "OBC": 449,
+      "EWS": 519,
+      "SC": 1219,
+      "ST": 2450
+    },
+    "fees_approx": "₹42,000 / year",
+    "source_url": "https://gacnanded.org"
   },
   {
     "id": "gac-osmanabad",
@@ -337,7 +508,26 @@
       "Kayachikitsa"
     ],
     "description": "Maharashtra State Govt Institution renowned for rigorous clinical training in Shalya Tantra and Dravyaguna research in southern Marathwada.",
-    "website": "https://gacosmanabad.ac.in"
+    "website": "https://gacosmanabad.ac.in",
+    "college_name": "Government Ayurved College, Osmanabad (Dharashiv)",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Agada Tantra",
+      "Dravyaguna Vijnana",
+      "Rasashastra",
+      "Kayachikitsa"
+    ],
+    "last_year_closing_rank": {
+      "UR": 420,
+      "OBC": 425,
+      "EWS": 460,
+      "SC": 1350,
+      "ST": 2600
+    },
+    "fees_approx": "₹42,000 / year",
+    "source_url": "https://gacosmanabad.ac.in"
   },
   {
     "id": "gac-nagpur",
@@ -371,7 +561,26 @@
       "Rachana Sharira"
     ],
     "description": "Located at Sakkardara Square, Raje Raghuji Nagar, Nagpur. Premier Vidarbha government institution with 300-bed hospital and extensive toxicology labs.",
-    "website": "https://gacnagpur.org"
+    "website": "https://gacnagpur.org",
+    "college_name": "Government Ayurved College & Hospital, Nagpur",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Agada Tantra and Vidhi Vaidyaka",
+      "Ayurveda Samhita",
+      "Rasashastra",
+      "Rachana Sharira"
+    ],
+    "last_year_closing_rank": {
+      "UR": 359,
+      "OBC": 532,
+      "EWS": 410,
+      "SC": 1290,
+      "ST": 2550
+    },
+    "fees_approx": "₹43,500 / year",
+    "source_url": "https://gacnagpur.org"
   },
   {
     "id": "akhandanand-ahmedabad",
@@ -405,7 +614,26 @@
       "Ayurveda Samhita"
     ],
     "description": "Premier Gujarat Government college located near Bhadra, Ahmedabad with hospital at SMIAS Kolavada Gandhinagar. Strong surgical & Panchakarma departments.",
-    "website": "https://gaac.gujarat.gov.in"
+    "website": "https://gaac.gujarat.gov.in",
+    "college_name": "Government Akhandanand Ayurved College, Ahmedabad",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Panchakarma",
+      "Shalakya Tantra",
+      "Ayurveda Samhita"
+    ],
+    "last_year_closing_rank": {
+      "UR": 349,
+      "OBC": 460,
+      "EWS": 630,
+      "SC": 1420,
+      "ST": 2750
+    },
+    "fees_approx": "₹18,000 / year",
+    "source_url": "https://gaac.gujarat.gov.in"
   },
   {
     "id": "gac-vadodara",
@@ -439,7 +667,26 @@
       "Shalya Tantra"
     ],
     "description": "Dhanwantari Marg, Panigate Ajwa Road, Vadodara. Historic research institute with GMP certified pharmacy and advanced Rasashastra manufacturing units.",
-    "website": "https://gacvadodara.org"
+    "website": "https://gacvadodara.org",
+    "college_name": "Government Ayurveda College, Vadodara",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Rasashastra & Bhaishajya Kalpana",
+      "Dravyaguna Vijnana",
+      "Ayurveda Samhita",
+      "Kayachikitsa",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 573,
+      "OBC": 640,
+      "EWS": 572,
+      "SC": 1510,
+      "ST": 2800
+    },
+    "fees_approx": "₹18,000 / year",
+    "source_url": "https://gacvadodara.org"
   },
   {
     "id": "gac-trivandrum",
@@ -473,7 +720,26 @@
       "Kayachikitsa"
     ],
     "description": "One of Asia's oldest Ayurvedic colleges located on MG Road. Recognized for authentic Kerala Panchakarma, Marma Chikitsa, and ophthalmic Shalakya treatments.",
-    "website": "https://gactvm.org"
+    "website": "https://gactvm.org",
+    "college_name": "Government Ayurveda College, Thiruvananthapuram",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Shalakya Tantra",
+      "Stree Roga-Prasuti Tantra",
+      "Kaumarabhritya",
+      "Kayachikitsa"
+    ],
+    "last_year_closing_rank": {
+      "UR": 460,
+      "OBC": 806,
+      "EWS": 680,
+      "SC": 2825,
+      "ST": 5660
+    },
+    "fees_approx": "₹34,000 / year",
+    "source_url": "https://gactvm.org"
   },
   {
     "id": "gac-kannur",
@@ -507,7 +773,26 @@
       "Shalya Tantra"
     ],
     "description": "Located at Pariyaram, Kannur. Government tertiary referral center with specialized diagnostics, pathology labs, and Rasashastra research center.",
-    "website": "https://gackannur.ac.in"
+    "website": "https://gackannur.ac.in",
+    "college_name": "Government Ayurveda College, Kannur",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Roganidana-Vikritivijnana",
+      "Kriya Sharira",
+      "Rasashastra",
+      "Shalakya Tantra",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 943,
+      "OBC": 963,
+      "EWS": 894,
+      "SC": 2588,
+      "ST": 5390
+    },
+    "fees_approx": "₹34,000 / year",
+    "source_url": "https://gackannur.ac.in"
   },
   {
     "id": "gac-tripunithura",
@@ -541,7 +826,26 @@
       "Shalya Tantra"
     ],
     "description": "Puthiyakavu, Tripunithura, Ernakulam. Renowned Kerala institution for Prasuti & Stri Roga clinical cases and authentic Netra & ENT treatments.",
-    "website": "https://ayurvedacollege.tripunithura.kerala.gov.in"
+    "website": "https://ayurvedacollege.tripunithura.kerala.gov.in",
+    "college_name": "Govt. Ayurveda College, Tripunithura, Ernakulam",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalakya Tantra",
+      "Swasthavritta and Yoga",
+      "Rasashastra",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 632,
+      "OBC": 820,
+      "EWS": 952,
+      "SC": 2219,
+      "ST": 4850
+    },
+    "fees_approx": "₹34,000 / year",
+    "source_url": "https://ayurvedacollege.tripunithura.kerala.gov.in"
   },
   {
     "id": "kottakkal-malappuram",
@@ -575,7 +879,26 @@
       "Dravyaguna Vijnana"
     ],
     "description": "Edarikode, Kottakkal, Malappuram. Affiliated with Arya Vaidya Sala Kottakkal. Global pinnacle of classical Ashtavaidya Ayurveda knowledge and Panchakarma therapies.",
-    "website": "https://kottakkalayurvedacollege.ac.in"
+    "website": "https://kottakkalayurvedacollege.ac.in",
+    "college_name": "Vaidyaratnam P.S. Varier Ayurveda College, Kottakkal",
+    "quota_type": "AIQ",
+    "college_type": "Govt-Aided",
+    "branches": [
+      "Panchakarma",
+      "Shalya Tantra",
+      "Ayurveda Samhita",
+      "Swasthavritta and Yoga",
+      "Dravyaguna Vijnana"
+    ],
+    "last_year_closing_rank": {
+      "UR": 642,
+      "OBC": 850,
+      "EWS": 780,
+      "SC": 3011,
+      "ST": 5580
+    },
+    "fees_approx": "₹36,000 / year",
+    "source_url": "https://kottakkalayurvedacollege.ac.in"
   },
   {
     "id": "vaidyaratnam-thrissur",
@@ -609,7 +932,26 @@
       "Kaumarbhritya"
     ],
     "description": "Thaikattussery, Ollur, Thrissur. Founded by the revered Eledath Thaikkattu Mooss Ashtavaidyan family. Prestigious heritage with rigorous clinical teaching hospital.",
-    "website": "https://vaidyaratnamcollege.in"
+    "website": "https://vaidyaratnamcollege.in",
+    "college_name": "Vaidyaratnam Ayurveda College, Ollur, Thrissur",
+    "quota_type": "AIQ",
+    "college_type": "Govt-Aided",
+    "branches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Dravyaguna",
+      "Shalya Tantra",
+      "Kaumarbhritya"
+    ],
+    "last_year_closing_rank": {
+      "UR": 570,
+      "OBC": 750,
+      "EWS": 690,
+      "SC": 2400,
+      "ST": 4600
+    },
+    "fees_approx": "₹36,000 / year",
+    "source_url": "https://vaidyaratnamcollege.in"
   },
   {
     "id": "sac-lucknow",
@@ -643,7 +985,26 @@
       "Rachana Sharira"
     ],
     "description": "Tulsidas Marg, Tudiyaganj, Lucknow. Flagship Uttar Pradesh Government postgraduate institution with large IPD bed capacity and extensive clinical branches.",
-    "website": "https://saclucknow.in"
+    "website": "https://saclucknow.in",
+    "college_name": "State Ayurvedic College & Hospital, Lucknow",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Kaumarabhritya",
+      "Rasashastra",
+      "Kayachikitsa",
+      "Rachana Sharira"
+    ],
+    "last_year_closing_rank": {
+      "UR": 647,
+      "OBC": 720,
+      "EWS": 680,
+      "SC": 1851,
+      "ST": 3200
+    },
+    "fees_approx": "₹28,000 / year",
+    "source_url": "https://saclucknow.in"
   },
   {
     "id": "gac-varanasi",
@@ -677,7 +1038,26 @@
       "Rasashastra"
     ],
     "description": "Located at Chaukaghat, Varanasi. State Government PG center with high patient OPD footfall and traditional Ayurvedic clinical wards.",
-    "website": "https://gacvaranasi.edu.in"
+    "website": "https://gacvaranasi.edu.in",
+    "college_name": "Govt. Ayurveda College, Chaukaghat, Varanasi",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Panchakarma",
+      "Roganidana",
+      "Ayurveda Samhita",
+      "Rasashastra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 582,
+      "OBC": 660,
+      "EWS": 610,
+      "SC": 1499,
+      "ST": 2950
+    },
+    "fees_approx": "₹27,000 / year",
+    "source_url": "https://gacvaranasi.edu.in"
   },
   {
     "id": "lalit-hari-pilibhit",
@@ -711,7 +1091,26 @@
       "Panchakarma"
     ],
     "description": "Near Sadar Tehsil, Dalchand, Pilibhit, UP. Historic government institute famous for extensive botanical gardens and classical Dravyaguna research.",
-    "website": "https://lalithari.up.gov.in"
+    "website": "https://lalithari.up.gov.in",
+    "college_name": "Lalit Hari State PG Ayurveda College, Pilibhit",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Dravyaguna Vijnana",
+      "Rasashastra",
+      "Ayurveda Samhita",
+      "Kayachikitsa",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 682,
+      "OBC": 761,
+      "EWS": 710,
+      "SC": 1980,
+      "ST": 3450
+    },
+    "fees_approx": "₹26,000 / year",
+    "source_url": "https://lalithari.up.gov.in"
   },
   {
     "id": "rishikul-haridwar",
@@ -745,7 +1144,26 @@
       "Stree Roga-Prasuti Tantra"
     ],
     "description": "Centenary campus near Rishikul Maidan, Haridwar. High patient load from Uttarakhand foothills, specialized Panchakarma and surgical Ksharasutra units.",
-    "website": "https://uau.ac.in/rishikul"
+    "website": "https://uau.ac.in/rishikul",
+    "college_name": "Rishikul Govt. PG Ayurvedic College & Hospital, Haridwar",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Shalakya Tantra",
+      "Panchakarma",
+      "Stree Roga-Prasuti Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 654,
+      "OBC": 683,
+      "EWS": 659,
+      "SC": 1760,
+      "ST": 3100
+    },
+    "fees_approx": "₹38,000 / year",
+    "source_url": "https://uau.ac.in/rishikul"
   },
   {
     "id": "gurukul-haridwar",
@@ -779,7 +1197,26 @@
       "Samhita"
     ],
     "description": "Historic Gurukul Kangri Ayurveda campus on Haridwar bypass. Strong classical orientation combined with modern university hospital facilities.",
-    "website": "https://uau.ac.in"
+    "website": "https://uau.ac.in",
+    "college_name": "Uttarakhand Ayurved University Gurukul Campus",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Panchakarma",
+      "Dravyaguna",
+      "Kayachikitsa",
+      "Samhita"
+    ],
+    "last_year_closing_rank": {
+      "UR": 350,
+      "OBC": 371,
+      "EWS": 480,
+      "SC": 1820,
+      "ST": 3300
+    },
+    "fees_approx": "₹38,000 / year",
+    "source_url": "https://uau.ac.in"
   },
   {
     "id": "gac-patna",
@@ -813,7 +1250,26 @@
       "Agada Tantra"
     ],
     "description": "Kadamkuan, Near Budhamurti, Patna. Bihar's apex Government Ayurvedic hospital with large clinical department registrations and active emergency duties.",
-    "website": "https://gacpatna.bihar.gov.in"
+    "website": "https://gacpatna.bihar.gov.in",
+    "college_name": "Government Ayurvedic College & Hospital, Patna",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kaumarabhritya",
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Swasthavritta and Yoga",
+      "Agada Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 653,
+      "OBC": 699,
+      "EWS": 620,
+      "SC": 1680,
+      "ST": 3100
+    },
+    "fees_approx": "₹18,000 / year",
+    "source_url": "https://gacpatna.bihar.gov.in"
   },
   {
     "id": "pk-sharma-bhopal",
@@ -847,7 +1303,26 @@
       "Panchakarma"
     ],
     "description": "Science Hills, Nehru Nagar, Kolar Bypass Road, Bhopal. Modern 310-bed hospital, specialized Panchakarma theatre, and research laboratories.",
-    "website": "https://klsacbhopal.edu.in"
+    "website": "https://klsacbhopal.edu.in",
+    "college_name": "Pt. Khushilal Sharma Govt. Autonomous Ayurved College",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Kayachikitsa",
+      "Swasthavritta and Yoga",
+      "Rasashastra",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 675,
+      "OBC": 727,
+      "EWS": 725,
+      "SC": 1550,
+      "ST": 2850
+    },
+    "fees_approx": "₹38,000 / year",
+    "source_url": "https://klsacbhopal.edu.in"
   },
   {
     "id": "gac-gwalior",
@@ -881,7 +1356,26 @@
       "Shalya Tantra"
     ],
     "description": "Amkho, Lashkar, Gwalior. Heritage institution catering to the Gwalior-Chambal region with specialized clinical training and pathology wards.",
-    "website": "https://gacgwalior.mp.gov.in"
+    "website": "https://gacgwalior.mp.gov.in",
+    "college_name": "Govt. Ayurved College and Hospital, Gwalior",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kriya Sharira",
+      "Kayachikitsa",
+      "Panchakarma",
+      "Dravyaguna",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 727,
+      "OBC": 928,
+      "EWS": 810,
+      "SC": 1950,
+      "ST": 3400
+    },
+    "fees_approx": "₹35,000 / year",
+    "source_url": "https://gacgwalior.mp.gov.in"
   },
   {
     "id": "dhanwantari-ujjain",
@@ -915,7 +1409,26 @@
       "Panchakarma"
     ],
     "description": "Located in the holy city of Ujjain, Mangalnath Road. Highly esteemed for traditional clinical procedures, medicinal herbarium, and clinical internships.",
-    "website": "https://gdacujjain.mp.gov.in"
+    "website": "https://gdacujjain.mp.gov.in",
+    "college_name": "Govt. Dhanwantari Ayurved College & Hospital, Ujjain",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Dravyaguna Vijnana",
+      "Rachana Sharira",
+      "Kayachikitsa",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 751,
+      "OBC": 750,
+      "EWS": 820,
+      "SC": 1164,
+      "ST": 3500
+    },
+    "fees_approx": "₹36,000 / year",
+    "source_url": "https://gdacujjain.mp.gov.in"
   },
   {
     "id": "gac-rewa",
@@ -949,7 +1462,26 @@
       "Panchakarma"
     ],
     "description": "Nipaniya, Rewa, Madhya Pradesh. Central regional Ayurveda healthcare institute offering robust classical curriculum and residential clinical rotations.",
-    "website": "https://gacrewa.mp.gov.in"
+    "website": "https://gacrewa.mp.gov.in",
+    "college_name": "Government Autonomous Ayurved College, Rewa",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Ayurveda Samhita and Siddhanta",
+      "Kayachikitsa",
+      "Dravyaguna",
+      "Shalya",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 848,
+      "OBC": 910,
+      "EWS": 880,
+      "SC": 2100,
+      "ST": 3600
+    },
+    "fees_approx": "₹34,000 / year",
+    "source_url": "https://gacrewa.mp.gov.in"
   },
   {
     "id": "mmm-udaipur",
@@ -983,7 +1515,26 @@
       "Roganidana"
     ],
     "description": "Radaji Circle, Ambamata, Udaipur. Rajasthan's premier State Government PG college known for excellence in ENT-Shalakya and pediatric Kaumarbhritya.",
-    "website": "https://mmmgac.rajasthan.gov.in"
+    "website": "https://mmmgac.rajasthan.gov.in",
+    "college_name": "Madan Mohan Malviya Govt. Ayurved College, Udaipur",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kaumarabhritya",
+      "Shalya Tantra",
+      "Shalakya Tantra",
+      "Ayurveda Samhita",
+      "Roganidana"
+    ],
+    "last_year_closing_rank": {
+      "UR": 532,
+      "OBC": 589,
+      "EWS": 429,
+      "SC": 1490,
+      "ST": 2900
+    },
+    "fees_approx": "₹26,000 / year",
+    "source_url": "https://mmmgac.rajasthan.gov.in"
   },
   {
     "id": "dsrrau-jodhpur",
@@ -1017,7 +1568,26 @@
       "Swasthavritta and Yoga"
     ],
     "description": "PGIA, Nagaur Road, Karwar, Jodhpur. State Ayurveda University university teaching hospital with state-of-the-art multi-specialty clinical infrastructure.",
-    "website": "https://dsrrau.info"
+    "website": "https://dsrrau.info",
+    "college_name": "University College of Ayurveda, DSRRAU Jodhpur",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Panchakarma",
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Swasthavritta and Yoga"
+    ],
+    "last_year_closing_rank": {
+      "UR": 616,
+      "OBC": 720,
+      "EWS": 640,
+      "SC": 1914,
+      "ST": 3350
+    },
+    "fees_approx": "₹38,000 / year",
+    "source_url": "https://dsrrau.info"
   },
   {
     "id": "gamc-bangalore",
@@ -1051,7 +1621,26 @@
       "Panchakarma"
     ],
     "description": "Dhanwantari Road, near Anand Rao Circle, Bengaluru. Prestigious state institute with Sri Jayachamarajendra Institute of Indian Medicine (300 beds).",
-    "website": "https://gamcbangalore.karnataka.gov.in"
+    "website": "https://gamcbangalore.karnataka.gov.in",
+    "college_name": "Government Ayurveda Medical College, Bangalore",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Dravyaguna Vijnana",
+      "Roganidana",
+      "Rasashastra",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 783,
+      "OBC": 860,
+      "EWS": 790,
+      "SC": 2131,
+      "ST": 3650
+    },
+    "fees_approx": "₹45,000 / year",
+    "source_url": "https://gamcbangalore.karnataka.gov.in"
   },
   {
     "id": "gamc-mysuru",
@@ -1085,7 +1674,26 @@
       "Shalya Tantra"
     ],
     "description": "New Sayyaji Rao Road, Vishweshwariah Circle, Mysuru. Century-old royal institution established under the patronage of Maharaja of Mysore.",
-    "website": "https://gamcmysore.org"
+    "website": "https://gamcmysore.org",
+    "college_name": "Government Ayurveda Medical College & Hospital, Mysuru",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Ayurveda Samhita and Siddhanta",
+      "Kayachikitsa",
+      "Swasthavritta and Yoga",
+      "Dravyaguna",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 658,
+      "OBC": 903,
+      "EWS": 750,
+      "SC": 2250,
+      "ST": 3800
+    },
+    "fees_approx": "₹42,000 / year",
+    "source_url": "https://gamcmysore.org"
   },
   {
     "id": "taranath-bellary",
@@ -1119,7 +1727,26 @@
       "Shalya Tantra"
     ],
     "description": "Dr. Rajkumar Road, Ballari, Karnataka. Landmark North Karnataka institution renowned for traditional Panchakarma clinics and clinical training.",
-    "website": "https://tgamcbellary.karnataka.gov.in"
+    "website": "https://tgamcbellary.karnataka.gov.in",
+    "college_name": "Taranath Government Ayurvedic Medical College, Ballari",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Rasashastra",
+      "Dravyaguna Vijnana",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 587,
+      "OBC": 757,
+      "EWS": 1028,
+      "SC": 2159,
+      "ST": 3900
+    },
+    "fees_approx": "₹40,000 / year",
+    "source_url": "https://tgamcbellary.karnataka.gov.in"
   },
   {
     "id": "sv-tirupati",
@@ -1153,7 +1780,26 @@
       "Kayachikitsa"
     ],
     "description": "Administered by Tirumala Tirupati Devasthanams (TTD). World-renowned pilgrimage healthcare center with modern Ayurvedic clinical wards.",
-    "website": "https://svayurvediccollege.edu.in"
+    "website": "https://svayurvediccollege.edu.in",
+    "college_name": "Sri Venkateswara Ayurvedic College, Tirupati",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kaumarabhritya",
+      "Shalya Tantra",
+      "Panchakarma",
+      "Rasashastra",
+      "Kayachikitsa"
+    ],
+    "last_year_closing_rank": {
+      "UR": 474,
+      "OBC": 580,
+      "EWS": 510,
+      "SC": 1650,
+      "ST": 3100
+    },
+    "fees_approx": "₹28,000 / year",
+    "source_url": "https://svayurvediccollege.edu.in"
   },
   {
     "id": "nrs-vijayawada",
@@ -1187,7 +1833,26 @@
       "Shalya Tantra"
     ],
     "description": "MG Road, Vijayawada, Andhra Pradesh. Historic coastal Andhra government institution with active outpatient and specialized inpatient wards.",
-    "website": "https://nrsgac.ap.gov.in"
+    "website": "https://nrsgac.ap.gov.in",
+    "college_name": "Dr. N.R.S. Government Ayurvedic College, Vijayawada",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Dravyaguna Vijnana",
+      "Rasashastra",
+      "Panchakarma",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 540,
+      "OBC": 965,
+      "EWS": 780,
+      "SC": 1950,
+      "ST": 3400
+    },
+    "fees_approx": "₹26,000 / year",
+    "source_url": "https://nrsgac.ap.gov.in"
   },
   {
     "id": "brkr-hyderabad",
@@ -1221,7 +1886,26 @@
       "Ayurveda Samhita"
     ],
     "description": "Opposite ESI Hospital, SR Nagar, Hyderabad. Premier Telangana state Ayurvedic teaching hospital with comprehensive MD/MS branches.",
-    "website": "https://brkr.telangana.gov.in"
+    "website": "https://brkr.telangana.gov.in",
+    "college_name": "Dr. B.R.K.R. Govt. Ayurvedic Medical College, Hyderabad",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Dravyaguna Vijnana",
+      "Shalakya Tantra",
+      "Ayurveda Samhita"
+    ],
+    "last_year_closing_rank": {
+      "UR": 827,
+      "OBC": 999,
+      "EWS": 870,
+      "SC": 2200,
+      "ST": 3900
+    },
+    "fees_approx": "₹30,000 / year",
+    "source_url": "https://brkr.telangana.gov.in"
   },
   {
     "id": "gopabandhu-puri",
@@ -1255,7 +1939,26 @@
       "Shalya Tantra"
     ],
     "description": "VIP Road, Puri-2, Odisha. Historic coastal center with specialized maritime Ayurveda research and coastal herb formulations.",
-    "website": "https://gam.odisha.gov.in"
+    "website": "https://gam.odisha.gov.in",
+    "college_name": "Gopabandhu Ayurveda Mahavidyalaya, Puri",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Rasashastra & Bhaishajya Kalpana",
+      "Stree Roga-Prasuti Tantra",
+      "Panchakarma",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 716,
+      "OBC": 995,
+      "EWS": 850,
+      "SC": 2350,
+      "ST": 6538
+    },
+    "fees_approx": "₹25,000 / year",
+    "source_url": "https://gam.odisha.gov.in"
   },
   {
     "id": "gac-balangir",
@@ -1289,7 +1992,26 @@
       "Shalya Tantra"
     ],
     "description": "Tulasi Nagar, Balangir, Western Odisha. Renowned for clinical diagnostics in chronic tribal pathology and regional pharmacological surveys.",
-    "website": "https://gacbalangir.odisha.gov.in"
+    "website": "https://gacbalangir.odisha.gov.in",
+    "college_name": "Government Ayurvedic College & Hospital, Balangir",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Roganidana-Vikritivijnana",
+      "Ayurveda Samhita and Siddhanta",
+      "Kayachikitsa",
+      "Dravyaguna",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 728,
+      "OBC": 920,
+      "EWS": 969,
+      "SC": 2663,
+      "ST": 4200
+    },
+    "fees_approx": "₹24,000 / year",
+    "source_url": "https://gacbalangir.odisha.gov.in"
   },
   {
     "id": "gac-guwahati",
@@ -1323,7 +2045,26 @@
       "Rachana Sharira"
     ],
     "description": "PO Gauhati University, Jalukbari, Guwahati. Premier Government Ayurvedic medical college in Northeast India with rich biodiversity research.",
-    "website": "https://gacassam.nic.in"
+    "website": "https://gacassam.nic.in",
+    "college_name": "Government Ayurvedic College, Guwahati",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Ayurveda Samhita",
+      "Stree Roga-Prasuti Tantra",
+      "Rachana Sharira"
+    ],
+    "last_year_closing_rank": {
+      "UR": 945,
+      "OBC": 892,
+      "EWS": 1058,
+      "SC": 2550,
+      "ST": 5655
+    },
+    "fees_approx": "₹22,000 / year",
+    "source_url": "https://gacassam.nic.in"
   },
   {
     "id": "gac-patiala",
@@ -1357,7 +2098,26 @@
       "Shalya Tantra"
     ],
     "description": "Premier Punjab Government Ayurveda institution. Dedicated botanical research conservatory, active inpatient beds, and clinical rotations.",
-    "website": "https://gacpatiala.punjab.gov.in"
+    "website": "https://gacpatiala.punjab.gov.in",
+    "college_name": "Government Ayurvedic College & Hospital, Patiala",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Dravyaguna Vijnana",
+      "Kayachikitsa",
+      "Rasashastra",
+      "Panchakarma",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 791,
+      "OBC": 890,
+      "EWS": 820,
+      "SC": 2300,
+      "ST": 3950
+    },
+    "fees_approx": "₹35,000 / year",
+    "source_url": "https://gacpatiala.punjab.gov.in"
   },
   {
     "id": "skgac-kurukshetra",
@@ -1391,7 +2151,26 @@
       "Rasashastra"
     ],
     "description": "Sector 8, Kurukshetra, Haryana. Constituent college of Shri Krishna AYUSH University, offering comprehensive clinical MD/MS branches.",
-    "website": "https://skau.ac.in"
+    "website": "https://skau.ac.in",
+    "college_name": "Shri Krishna Govt. Ayurvedic College & Hospital, Kurukshetra",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kaumarabhritya",
+      "Kayachikitsa",
+      "Shalakya Tantra",
+      "Swasthavritta and Yoga",
+      "Rasashastra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 846,
+      "OBC": 867,
+      "EWS": 831,
+      "SC": 1789,
+      "ST": 4800
+    },
+    "fees_approx": "₹32,000 / year",
+    "source_url": "https://skau.ac.in"
   },
   {
     "id": "bkgac-sonipat",
@@ -1425,7 +2204,26 @@
       "Samhita"
     ],
     "description": "Khanpur Kalan, Sonipat, Haryana. Constituent of Bhagat Phool Singh Mahila Vishwavidyalaya. Renowned all-women Ayurvedic medical institution.",
-    "website": "https://bpsmv.ac.in"
+    "website": "https://bpsmv.ac.in",
+    "college_name": "Shri Maru Singh Memorial Institute of Ayurved (BPSMV)",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Kaumarbhritya",
+      "Dravyaguna",
+      "Samhita"
+    ],
+    "last_year_closing_rank": {
+      "UR": 671,
+      "OBC": 768,
+      "EWS": 720,
+      "SC": 1850,
+      "ST": 3400
+    },
+    "fees_approx": "₹34,000 / year",
+    "source_url": "https://bpsmv.ac.in"
   },
   {
     "id": "npa-raipur",
@@ -1459,7 +2257,26 @@
       "Rachana Sharira"
     ],
     "description": "GE Road, Raipur, Chhattisgarh. Premier government center with extensive ethnic tribal pharmacology and high clinical inpatient capacity.",
-    "website": "https://gacraipur.cg.nic.in"
+    "website": "https://gacraipur.cg.nic.in",
+    "college_name": "Shri Narayan Prasad Awasthi Govt. Ayurveda College, Raipur",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Kaumarabhritya",
+      "Kayachikitsa",
+      "Kriya Sharira",
+      "Rachana Sharira"
+    ],
+    "last_year_closing_rank": {
+      "UR": 665,
+      "OBC": 553,
+      "EWS": 690,
+      "SC": 1850,
+      "ST": 5053
+    },
+    "fees_approx": "₹24,000 / year",
+    "source_url": "https://gacraipur.cg.nic.in"
   },
   {
     "id": "rg-paprola",
@@ -1493,7 +2310,26 @@
       "Rasashastra"
     ],
     "description": "Paprola, Dist. Kangra, Himachal Pradesh. Elite Himalayan center known for high-altitude ethnobotany, panchakarma therapies, and surgery.",
-    "website": "https://paprolaayurveda.org"
+    "website": "https://paprolaayurveda.org",
+    "college_name": "Rajiv Gandhi Govt. Post Graduate Ayurvedic College, Paprola",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Agada Tantra",
+      "Roganidana",
+      "Rasashastra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 475,
+      "OBC": 1030,
+      "EWS": 962,
+      "SC": 2150,
+      "ST": 3850
+    },
+    "fees_approx": "₹36,000 / year",
+    "source_url": "https://paprolaayurveda.org"
   },
   {
     "id": "ipgaer-kolkata",
@@ -1527,7 +2363,26 @@
       "Samhita"
     ],
     "description": "294/3/1 APC Road, Kolkata. Premier post-graduate research institute in West Bengal affiliated to WBUHS with state-of-the-art diagnostic labs.",
-    "website": "https://ipgaer.wb.gov.in"
+    "website": "https://ipgaer.wb.gov.in",
+    "college_name": "Institute of Post-Graduate Ayurved Education and Research",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Dravyaguna Vijnana",
+      "Roganidana",
+      "Panchakarma",
+      "Samhita"
+    ],
+    "last_year_closing_rank": {
+      "UR": 840,
+      "OBC": 784,
+      "EWS": 860,
+      "SC": 2450,
+      "ST": 4100
+    },
+    "fees_approx": "₹25,000 / year",
+    "source_url": "https://ipgaer.wb.gov.in"
   },
   {
     "id": "bvdu-pune",
@@ -1561,7 +2416,26 @@
       "Kayachikitsa"
     ],
     "description": "Pune-Satara Road, Dhankawadi, Pune. One of India's highest ranked Deemed Ayurvedic colleges with 360-bed NABH multi-speciality hospital.",
-    "website": "https://coayurved.bharatividyapeeth.edu"
+    "website": "https://coayurved.bharatividyapeeth.edu",
+    "college_name": "Bharati Vidyapeeth Deemed University, College of Ayurved",
+    "quota_type": "Deemed",
+    "college_type": "Deemed",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Kaumarabhritya",
+      "Panchakarma",
+      "Kayachikitsa"
+    ],
+    "last_year_closing_rank": {
+      "UR": 7640,
+      "OBC": 7886,
+      "EWS": 5011,
+      "SC": 7149,
+      "ST": 9800
+    },
+    "fees_approx": "₹4,50,000 / year",
+    "source_url": "https://coayurved.bharatividyapeeth.edu"
   },
   {
     "id": "dypatil-pune",
@@ -1595,7 +2469,26 @@
       "Panchakarma"
     ],
     "description": "Sant Tukaram Nagar, Pimpri, Pune. Cutting-edge clinical infrastructure, 400-bed hospital, high stipend, and extensive surgery & ICU training.",
-    "website": "https://ayurved.dpu.edu.in"
+    "website": "https://ayurved.dpu.edu.in",
+    "college_name": "Dr. D.Y. Patil College of Ayurved & Research Centre, Pimpri",
+    "quota_type": "Deemed",
+    "college_type": "Deemed",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Kaumarabhritya",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 8371,
+      "OBC": 8423,
+      "EWS": 7802,
+      "SC": 8420,
+      "ST": 11500
+    },
+    "fees_approx": "₹4,85,000 / year",
+    "source_url": "https://ayurved.dpu.edu.in"
   },
   {
     "id": "dypatil-mumbai",
@@ -1629,7 +2522,26 @@
       "Dravyaguna Vijnana"
     ],
     "description": "Sector 7, Nerul, Navi Mumbai. Metropolitan tertiary care hospital with modern laparoscopic and classical Ksharasutra surgical theatres.",
-    "website": "https://dypatil.edu/schools/ayurveda"
+    "website": "https://dypatil.edu/schools/ayurveda",
+    "college_name": "Padamshri Dr. D.Y. Patil College of Ayurved, Navi Mumbai",
+    "quota_type": "Deemed",
+    "college_type": "Deemed",
+    "branches": [
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Kaumarabhritya",
+      "Shalakya Tantra",
+      "Dravyaguna Vijnana"
+    ],
+    "last_year_closing_rank": {
+      "UR": 8618,
+      "OBC": 8656,
+      "EWS": 6089,
+      "SC": 9850,
+      "ST": 12500
+    },
+    "fees_approx": "₹4,60,000 / year",
+    "source_url": "https://dypatil.edu/schools/ayurveda"
   },
   {
     "id": "kle-belagavi",
@@ -1663,7 +2575,26 @@
       "Rasayana & Vajikarana"
     ],
     "description": "Shahapur, Belagavi, Karnataka. Over 90 years of educational heritage, AYUSH-NABH hospital, high-tech pharmacy, and international student exchange.",
-    "website": "https://klesbmkam.edu.in"
+    "website": "https://klesbmkam.edu.in",
+    "college_name": "KLE University Shri B.M. Kankanawadi Ayurved Mahavidyalaya",
+    "quota_type": "Deemed",
+    "college_type": "Deemed",
+    "branches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Rasayana & Vajikarana"
+    ],
+    "last_year_closing_rank": {
+      "UR": 8703,
+      "OBC": 8026,
+      "EWS": 7501,
+      "SC": 7263,
+      "ST": 10500
+    },
+    "fees_approx": "₹3,90,000 / year",
+    "source_url": "https://klesbmkam.edu.in"
   },
   {
     "id": "mgac-wardha",
@@ -1697,7 +2628,26 @@
       "Panchakarma"
     ],
     "description": "Salod Hirapur, Wardha. Constituent of DMIHER (Deemed to be University). Large rural tertiary referral center with modern clinical exposure.",
-    "website": "https://dmiher.edu.in/mgacrc"
+    "website": "https://dmiher.edu.in/mgacrc",
+    "college_name": "Mahatma Gandhi Ayurved College Hospital & Research Centre",
+    "quota_type": "Deemed",
+    "college_type": "Deemed",
+    "branches": [
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Stree Roga-Prasuti Tantra",
+      "Kaumarabhritya",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 7816,
+      "OBC": 7684,
+      "EWS": 7200,
+      "SC": 10540,
+      "ST": 13500
+    },
+    "fees_approx": "₹3,25,000 / year",
+    "source_url": "https://dmiher.edu.in/mgacrc"
   },
   {
     "id": "amrita-kerala",
@@ -1731,7 +2681,26 @@
       "Panchakarma"
     ],
     "description": "Vallikkavu, Clappana, Kollam, Kerala. Part of Amrita Vishwa Vidyapeetham. Super-specialty Ayurvedic clinical practice combined with modern diagnostics.",
-    "website": "https://amrita.edu/school/ayurveda"
+    "website": "https://amrita.edu/school/ayurveda",
+    "college_name": "Amrita School of Ayurveda, Amrita Vishwa Vidyapeetham",
+    "quota_type": "Deemed",
+    "college_type": "Deemed",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Kaumarabhritya",
+      "Kayachikitsa",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 8099,
+      "OBC": 10429,
+      "EWS": 9857,
+      "SC": 13772,
+      "ST": 15500
+    },
+    "fees_approx": "₹4,10,000 / year",
+    "source_url": "https://amrita.edu/school/ayurveda"
   },
   {
     "id": "sjsac-chennai",
@@ -1765,7 +2734,26 @@
       "Rasashastra"
     ],
     "description": "Nazerathpet, Chennai-Bangalore High Road, Chennai. Affiliated to Sri Chandrasekharendra Saraswathi Viswa Mahavidyalaya. Renowned Panchakarma & Shalya departments.",
-    "website": "https://sjsach.org.in"
+    "website": "https://sjsach.org.in",
+    "college_name": "Sri Jayendra Saraswathi Ayurveda College and Hospital",
+    "quota_type": "Deemed",
+    "college_type": "Deemed",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Panchakarma",
+      "Rasashastra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 8351,
+      "OBC": 6610,
+      "EWS": 8464,
+      "SC": 11200,
+      "ST": 14800
+    },
+    "fees_approx": "₹3,50,000 / year",
+    "source_url": "https://sjsach.org.in"
   },
   {
     "id": "patanjali-haridwar",
@@ -1799,7 +2787,26 @@
       "Swasthavritta"
     ],
     "description": "Maharishi Dayanand Gram, Haridwar. High patient volume from all states of Bharat, expansive Panchakarma complex, and advanced Ayurvedic drug testing labs.",
-    "website": "https://patanjaliayurved.org"
+    "website": "https://patanjaliayurved.org",
+    "college_name": "Patanjali Bhartiya Ayurvigyan Evam Anusandhan Sansthan",
+    "quota_type": "Deemed",
+    "college_type": "Private",
+    "branches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Shalya Tantra",
+      "Dravyaguna Vijnana",
+      "Swasthavritta"
+    ],
+    "last_year_closing_rank": {
+      "UR": 3850,
+      "OBC": 4600,
+      "EWS": 4200,
+      "SC": 6800,
+      "ST": 8900
+    },
+    "fees_approx": "₹3,75,000 / year",
+    "source_url": "https://patanjaliayurved.org"
   },
   {
     "id": "sac-lucknow-state",
@@ -1833,7 +2840,26 @@
       "Ras Shastra"
     ],
     "description": "Official UP State Quota Seat Allotment (AP01). Features Stree Roga (UROP #180, BCOP #327), Kayachikitsa (UROP #304, SCOP #1770), Rasashastra (#1001), and STOP (#6482).",
-    "website": "https://saclucknow.in"
+    "website": "https://saclucknow.in",
+    "college_name": "State Ayurvedic College & Hospital, Lucknow (UP State Quota - AP01)",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Prasuti Tantra Evam Stree Roga",
+      "Kaya Chikitsa",
+      "Kaumar Bhritta",
+      "Samhita Evam Siddhant",
+      "Ras Shastra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 1120,
+      "OBC": 1621,
+      "EWS": 1247,
+      "SC": 3477,
+      "ST": 6482
+    },
+    "fees_approx": "₹28,000 / year",
+    "source_url": "https://saclucknow.in"
   },
   {
     "id": "gac-varanasi-state",
@@ -1867,7 +2893,26 @@
       "Ras Shastra"
     ],
     "description": "Official UP State Quota Seat Allotment (AP03). Top clinical cutoffs include Shalya Tantra (UROP #172, BCOP #609), Stree Roga (#326), Panchakarma (#507), and Samhita (#1188).",
-    "website": "https://gacvaranasi.edu.in"
+    "website": "https://gacvaranasi.edu.in",
+    "college_name": "Government Ayurveda College, Chaukaghat, Varanasi (UP State Quota - AP03)",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Prasuti Tantra Evam Stree Roga",
+      "Panchakarma",
+      "Roga Nidan",
+      "Ras Shastra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 1189,
+      "OBC": 1656,
+      "EWS": 874,
+      "SC": 3629,
+      "ST": 5800
+    },
+    "fees_approx": "₹27,000 / year",
+    "source_url": "https://gacvaranasi.edu.in"
   },
   {
     "id": "lalit-hari-pilibhit-state",
@@ -1901,7 +2946,26 @@
       "Panchakarma"
     ],
     "description": "Official UP State Quota Seat Allotment (AP02). Specialized in Dravyaguna (UROP #1167–#1347, EWOP #1354, BCOP #1503–#1703, SCOP #4044).",
-    "website": "https://lalithari.up.gov.in"
+    "website": "https://lalithari.up.gov.in",
+    "college_name": "Lalit Hari State PG Ayurveda College, Pilibhit (UP State Quota - AP02)",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Dravyaguna Vijnana",
+      "Rasashastra",
+      "Ayurveda Samhita",
+      "Kayachikitsa",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 1347,
+      "OBC": 1703,
+      "EWS": 1354,
+      "SC": 4044,
+      "ST": 6200
+    },
+    "fees_approx": "₹26,000 / year",
+    "source_url": "https://lalithari.up.gov.in"
   },
   {
     "id": "skau-iasr-kurukshetra-state",
@@ -1935,7 +2999,26 @@
       "Kayachikitsa"
     ],
     "description": "Official Shri Krishna AYUSH University State Allotment. Features Prasuti (UR IP #83, EWS #263, BCA #617), Panchkarma (UR IP #182), Shalya (UR #312), Kayachikitsa (#496), and SCD IP up to #13904.",
-    "website": "https://skau.ac.in"
+    "website": "https://skau.ac.in",
+    "college_name": "Institute For Ayurved Studies And Research, Kurukshetra (Haryana State Quota)",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Prasuti Evum Stri Roga",
+      "Panchkarma",
+      "Shalya Tantra",
+      "Kaumarbhritya",
+      "Kayachikitsa"
+    ],
+    "last_year_closing_rank": {
+      "UR": 1101,
+      "OBC": 2387,
+      "EWS": 1639,
+      "SC": 4954,
+      "ST": 6500
+    },
+    "fees_approx": "₹32,000 / year",
+    "source_url": "https://skau.ac.in"
   },
   {
     "id": "msm-sonipat-state",
@@ -1969,7 +3052,26 @@
       "Ayurveda Samhita"
     ],
     "description": "Official Haryana State Quota Allotment for Women. Kayachikitsa closing at UR #692 (UR IP #3083, SCD #6980) and Dravyaguna at UR #1278 (BCA #4811).",
-    "website": "https://bpsmv.ac.in"
+    "website": "https://bpsmv.ac.in",
+    "college_name": "MSM Institute of Ayurveda, BPSMV Khanpur Kalan (Haryana State Quota)",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Dravyaguna Vigyan",
+      "Panchakarma",
+      "Kaumarbhritya",
+      "Ayurveda Samhita"
+    ],
+    "last_year_closing_rank": {
+      "UR": 1278,
+      "OBC": 4811,
+      "EWS": 2400,
+      "SC": 6980,
+      "ST": 7500
+    },
+    "fees_approx": "₹34,000 / year",
+    "source_url": "https://bpsmv.ac.in"
   },
   {
     "id": "sdach-chandigarh",
@@ -2003,7 +3105,26 @@
       "Kayachikitsa"
     ],
     "description": "Sector 46-B, Chandigarh. Affiliated with Shri Krishna AYUSH University. Allotments in Prasuti Tantra (AIQ #1848, UR #1973–#2769), Rog Nidan (#2953–#4920), and Dravyaguna (#3305–#6247).",
-    "website": "https://sdach.ac.in"
+    "website": "https://sdach.ac.in",
+    "college_name": "Shri Dhanwantry Ayurvedic College & Hospital, Sector 46, Chandigarh",
+    "quota_type": "AIQ",
+    "college_type": "Private",
+    "branches": [
+      "Prasuti Evum Stri Roga",
+      "Roga Nidan",
+      "Dravyaguna Vigyan",
+      "Ayurveda Samhita & Siddhant",
+      "Kayachikitsa"
+    ],
+    "last_year_closing_rank": {
+      "UR": 1973,
+      "OBC": 4205,
+      "EWS": 3305,
+      "SC": 6247,
+      "ST": 8500
+    },
+    "fees_approx": "₹2,80,000 / year",
+    "source_url": "https://sdach.ac.in"
   },
   {
     "id": "baba-mastnath-rohtak",
@@ -2037,6 +3158,521 @@
       "Kriya Sharir"
     ],
     "description": "Asthal Bohar, Rohtak, Haryana. Full AIQ, State, and Management seats from SKAU Counseling: Panchakarma (#2855–#7851), Kayachikitsa (#3514–#6066), Agada Tantra (#4867–#10419), and Rachana (#11686–#12308).",
-    "website": "https://bmu.ac.in/ayurveda"
+    "website": "https://bmu.ac.in/ayurveda",
+    "college_name": "Baba Mastnath Ayurvedic College & Hospital, Asthal Bohar, Rohtak",
+    "quota_type": "Deemed",
+    "college_type": "Private",
+    "branches": [
+      "Panchakarma",
+      "Kayachikitsa",
+      "Shalakya Netra",
+      "Agada Tantra",
+      "Kriya Sharir"
+    ],
+    "last_year_closing_rank": {
+      "UR": 4325,
+      "OBC": 7852,
+      "EWS": 6077,
+      "SC": 12308,
+      "ST": 16104
+    },
+    "fees_approx": "₹3,10,000 / year",
+    "source_url": "https://bmu.ac.in/ayurveda"
+  },
+  {
+    "id": "tibbia-delhi",
+    "name": "Ayurvedic & Unani Tibbia College, University of Delhi",
+    "shortName": "A&U Tibbia College Delhi",
+    "city": "Karol Bagh, New Delhi",
+    "state": "Delhi",
+    "quota": "State",
+    "institutionType": "Government",
+    "stipend": "₹95,000 / month",
+    "stipendAmount": 95000,
+    "annualFee": "₹16,500 / year",
+    "categoryClosingRanks": {
+      "General": 285,
+      "OBC": 412,
+      "SC": 890,
+      "ST": 2100,
+      "EWS": 360
+    },
+    "hospitalBeds": 300,
+    "opdPerDay": 1800,
+    "established": 1921,
+    "type": "Delhi University Affiliated Govt College",
+    "topBranches": [
+      "Kriya Sharir",
+      "Dravyaguna",
+      "Kayachikitsa",
+      "Ayurveda Samhita & Siddhanta"
+    ],
+    "description": "Historic national heritage college inaugurated by Mahatma Gandhi. High clinical OPD in central Karol Bagh Delhi.",
+    "website": "https://autc.delhi.gov.in",
+    "college_name": "Ayurvedic & Unani Tibbia College, University of Delhi",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Kriya Sharir",
+      "Dravyaguna",
+      "Kayachikitsa",
+      "Ayurveda Samhita & Siddhanta"
+    ],
+    "last_year_closing_rank": {
+      "UR": 285,
+      "OBC": 412,
+      "EWS": 360,
+      "SC": 890,
+      "ST": 2100
+    },
+    "fees_approx": "₹16,500 / year",
+    "source_url": "https://autc.delhi.gov.in"
+  },
+  {
+    "id": "ymt-navi-mumbai",
+    "name": "YMT Ayurvedic Medical College & Hospital",
+    "shortName": "YMT Kharghar Navi Mumbai",
+    "city": "Navi Mumbai",
+    "state": "Maharashtra",
+    "quota": "State",
+    "institutionType": "Private",
+    "stipend": "₹28,000 / month",
+    "stipendAmount": 28000,
+    "annualFee": "₹3,45,000 / year",
+    "categoryClosingRanks": {
+      "General": 3450,
+      "OBC": 4820,
+      "SC": 6900,
+      "ST": 11200,
+      "EWS": 3980
+    },
+    "hospitalBeds": 280,
+    "opdPerDay": 650,
+    "established": 1989,
+    "type": "MUHS Nashik Affiliated Private College",
+    "topBranches": [
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Panchakarma",
+      "Stri Roga",
+      "Rasa Shastra"
+    ],
+    "description": "Premier private Ayurvedic college in Mumbai metropolitan region under MUHS Nashik with extensive clinical exposure.",
+    "website": "https://ymtayurved.org",
+    "college_name": "YMT Ayurvedic Medical College & Hospital",
+    "quota_type": "State",
+    "college_type": "Private",
+    "branches": [
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Panchakarma",
+      "Stri Roga",
+      "Rasa Shastra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 3450,
+      "OBC": 4820,
+      "EWS": 3980,
+      "SC": 6900,
+      "ST": 11200
+    },
+    "fees_approx": "₹3,45,000 / year",
+    "source_url": "https://ymtayurved.org"
+  },
+  {
+    "id": "hadapsar-pune",
+    "name": "Sumatibhai Shah Ayurved Mahavidyalaya, Malwadi, Hadapsar",
+    "shortName": "SSAM Hadapsar Pune",
+    "city": "Pune",
+    "state": "Maharashtra",
+    "quota": "State",
+    "institutionType": "Government",
+    "stipend": "₹45,000 / month",
+    "stipendAmount": 45000,
+    "annualFee": "₹65,000 / year",
+    "categoryClosingRanks": {
+      "General": 1820,
+      "OBC": 2450,
+      "SC": 4900,
+      "ST": 8500,
+      "EWS": 2200
+    },
+    "hospitalBeds": 310,
+    "opdPerDay": 920,
+    "established": 1955,
+    "type": "Govt-Aided Maharashtra State Quota",
+    "topBranches": [
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Prasuti Tantra",
+      "Dravyaguna",
+      "Samhita"
+    ],
+    "description": "Reputed government-aided Ayurvedic college in Pune with Sane Guruji Hospital and high clinical research output.",
+    "website": "https://ssam.in",
+    "college_name": "Sumatibhai Shah Ayurved Mahavidyalaya, Malwadi, Hadapsar",
+    "quota_type": "State",
+    "college_type": "Govt-Aided",
+    "branches": [
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Prasuti Tantra",
+      "Dravyaguna",
+      "Samhita"
+    ],
+    "last_year_closing_rank": {
+      "UR": 1820,
+      "OBC": 2450,
+      "EWS": 2200,
+      "SC": 4900,
+      "ST": 8500
+    },
+    "fees_approx": "₹65,000 / year",
+    "source_url": "https://ssam.in"
+  },
+  {
+    "id": "jhansi-up",
+    "name": "Bundelkhand Government Ayurvedic College & Hospital",
+    "shortName": "Bundelkhand GAC Jhansi",
+    "city": "Jhansi",
+    "state": "Uttar Pradesh",
+    "quota": "State",
+    "institutionType": "Government",
+    "stipend": "₹68,000 / month",
+    "stipendAmount": 68000,
+    "annualFee": "₹19,000 / year",
+    "categoryClosingRanks": {
+      "General": 1420,
+      "OBC": 1850,
+      "SC": 4250,
+      "ST": 7900,
+      "EWS": 1650
+    },
+    "hospitalBeds": 220,
+    "opdPerDay": 750,
+    "established": 1934,
+    "type": "UP State Quota Govt College",
+    "topBranches": [
+      "Kayachikitsa",
+      "Dravyaguna",
+      "Roga Nidana",
+      "Shalya Tantra"
+    ],
+    "description": "Historical government Ayurvedic institution serving Bundelkhand region under UP State AYUSH counseling.",
+    "website": "https://bgachjhansi.org",
+    "college_name": "Bundelkhand Government Ayurvedic College & Hospital",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Dravyaguna",
+      "Roga Nidana",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 1420,
+      "OBC": 1850,
+      "EWS": 1650,
+      "SC": 4250,
+      "ST": 7900
+    },
+    "fees_approx": "₹19,000 / year",
+    "source_url": "https://bgachjhansi.org"
+  },
+  {
+    "id": "yenepoya-mangalore",
+    "name": "Yenepoya Ayurveda Medical College & Hospital (Deemed)",
+    "shortName": "Yenepoya Ayurveda Mangalore",
+    "city": "Mangalore",
+    "state": "Karnataka",
+    "quota": "Deemed/Mgt",
+    "institutionType": "Deemed",
+    "stipend": "₹35,000 / month",
+    "stipendAmount": 35000,
+    "annualFee": "₹4,20,000 / year",
+    "categoryClosingRanks": {
+      "General": 8450,
+      "OBC": 9200,
+      "SC": 12500,
+      "ST": 15600,
+      "EWS": 8700
+    },
+    "hospitalBeds": 260,
+    "opdPerDay": 580,
+    "established": 2015,
+    "type": "Deemed to be University",
+    "topBranches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Shalya Tantra",
+      "Kaumarbhritya"
+    ],
+    "description": "Modern multi-disciplinary Deemed University campus in coastal Karnataka with NABH accredited hospital.",
+    "website": "https://yenepoya.edu.in",
+    "college_name": "Yenepoya Ayurveda Medical College & Hospital (Deemed)",
+    "quota_type": "Deemed",
+    "college_type": "Deemed",
+    "branches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Shalya Tantra",
+      "Kaumarbhritya"
+    ],
+    "last_year_closing_rank": {
+      "UR": 8450,
+      "OBC": 9200,
+      "EWS": 8700,
+      "SC": 12500,
+      "ST": 15600
+    },
+    "fees_approx": "₹4,20,000 / year",
+    "source_url": "https://yenepoya.edu.in"
+  },
+  {
+    "id": "sheth-jp-bhavnagar",
+    "name": "Sheth J.P. Government Ayurved College",
+    "shortName": "Sheth JP GAC Bhavnagar",
+    "city": "Bhavnagar",
+    "state": "Gujarat",
+    "quota": "State",
+    "institutionType": "Government",
+    "stipend": "₹64,000 / month",
+    "stipendAmount": 64000,
+    "annualFee": "₹14,500 / year",
+    "categoryClosingRanks": {
+      "General": 890,
+      "OBC": 1420,
+      "SC": 3800,
+      "ST": 6500,
+      "EWS": 1150
+    },
+    "hospitalBeds": 240,
+    "opdPerDay": 700,
+    "established": 1968,
+    "type": "Gujarat State Quota Govt College",
+    "topBranches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Dravyaguna",
+      "Kaumarbhritya"
+    ],
+    "description": "Reputed Gujarat state government college under Gujarat Ayurved University and ACPUGMEC state counseling.",
+    "website": "https://shethjpgovtayurved.org",
+    "college_name": "Sheth J.P. Government Ayurved College",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Dravyaguna",
+      "Kaumarbhritya"
+    ],
+    "last_year_closing_rank": {
+      "UR": 890,
+      "OBC": 1420,
+      "EWS": 1150,
+      "SC": 3800,
+      "ST": 6500
+    },
+    "fees_approx": "₹14,500 / year",
+    "source_url": "https://shethjpgovtayurved.org"
+  },
+  {
+    "id": "rewa-mp",
+    "name": "Government Autonomous Ayurved College & Hospital, Rewa",
+    "shortName": "Govt Ayurved Rewa",
+    "city": "Rewa",
+    "state": "Madhya Pradesh",
+    "quota": "State",
+    "institutionType": "Government",
+    "stipend": "₹62,000 / month",
+    "stipendAmount": 62000,
+    "annualFee": "₹24,000 / year",
+    "categoryClosingRanks": {
+      "General": 1280,
+      "OBC": 1750,
+      "SC": 3950,
+      "ST": 6200,
+      "EWS": 1480
+    },
+    "hospitalBeds": 210,
+    "opdPerDay": 620,
+    "established": 1971,
+    "type": "MP Online State Quota Govt College",
+    "topBranches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Shalya Tantra",
+      "Roga Nidana"
+    ],
+    "description": "Government Ayurvedic institution under MP Online AYUSH counseling with high regional patient intake.",
+    "website": "https://gaacrewa.org",
+    "college_name": "Government Autonomous Ayurved College & Hospital, Rewa",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Shalya Tantra",
+      "Roga Nidana"
+    ],
+    "last_year_closing_rank": {
+      "UR": 1280,
+      "OBC": 1750,
+      "EWS": 1480,
+      "SC": 3950,
+      "ST": 6200
+    },
+    "fees_approx": "₹24,000 / year",
+    "source_url": "https://gaacrewa.org"
+  },
+  {
+    "id": "shyamadas-kolkata",
+    "name": "Institute of Post Graduate Ayurvedic Education & Research (IPGAE&R), Shyamadas",
+    "shortName": "IPGAER Shyamadas Kolkata",
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "quota": "State",
+    "institutionType": "Government",
+    "stipend": "₹55,000 / month",
+    "stipendAmount": 55000,
+    "annualFee": "₹12,000 / year",
+    "categoryClosingRanks": {
+      "General": 940,
+      "OBC": 1390,
+      "SC": 3100,
+      "ST": 5800,
+      "EWS": 1180
+    },
+    "hospitalBeds": 200,
+    "opdPerDay": 800,
+    "established": 1976,
+    "type": "West Bengal WBMCC State Govt College",
+    "topBranches": [
+      "Kayachikitsa",
+      "Dravyaguna",
+      "Rasa Shastra",
+      "Panchakarma"
+    ],
+    "description": "Premier post-graduate research institute in West Bengal affiliated to West Bengal University of Health Sciences (WBUHS).",
+    "website": "https://ipgaer.org",
+    "college_name": "Institute of Post Graduate Ayurvedic Education & Research (IPGAE&R), Shyamadas",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Dravyaguna",
+      "Rasa Shastra",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 940,
+      "OBC": 1390,
+      "EWS": 1180,
+      "SC": 3100,
+      "ST": 5800
+    },
+    "fees_approx": "₹12,000 / year",
+    "source_url": "https://ipgaer.org"
+  },
+  {
+    "id": "sgt-gurugram",
+    "name": "Faculty of Indian Medical System, SGT University",
+    "shortName": "SGT University Gurugram",
+    "city": "Gurugram",
+    "state": "Haryana",
+    "quota": "Deemed/Mgt",
+    "institutionType": "Private",
+    "stipend": "₹32,000 / month",
+    "stipendAmount": 32000,
+    "annualFee": "₹3,95,000 / year",
+    "categoryClosingRanks": {
+      "General": 5200,
+      "OBC": 6800,
+      "SC": 9800,
+      "ST": 13400,
+      "EWS": 5600
+    },
+    "hospitalBeds": 350,
+    "opdPerDay": 1100,
+    "established": 2013,
+    "type": "Private University (NCR Region)",
+    "topBranches": [
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Prasuti Tantra",
+      "Panchakarma",
+      "Dravyaguna"
+    ],
+    "description": "Multi-specialty 800+ bed hospital campus in Gurugram NCR with advanced Panchakarma and surgical operation theatres.",
+    "website": "https://sgtuniversity.ac.in",
+    "college_name": "Faculty of Indian Medical System, SGT University",
+    "quota_type": "Deemed",
+    "college_type": "Private",
+    "branches": [
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Prasuti Tantra",
+      "Panchakarma",
+      "Dravyaguna"
+    ],
+    "last_year_closing_rank": {
+      "UR": 5200,
+      "OBC": 6800,
+      "EWS": 5600,
+      "SC": 9800,
+      "ST": 13400
+    },
+    "fees_approx": "₹3,95,000 / year",
+    "source_url": "https://sgtuniversity.ac.in"
+  },
+  {
+    "id": "siwan-bihar",
+    "name": "Dayanand Ayurvedic Medical College & Hospital",
+    "shortName": "Dayanand AMC Siwan",
+    "city": "Siwan",
+    "state": "Bihar",
+    "quota": "State",
+    "institutionType": "Government",
+    "stipend": "₹42,000 / month",
+    "stipendAmount": 42000,
+    "annualFee": "₹38,000 / year",
+    "categoryClosingRanks": {
+      "General": 2100,
+      "OBC": 2900,
+      "SC": 5400,
+      "ST": 8200,
+      "EWS": 2400
+    },
+    "hospitalBeds": 180,
+    "opdPerDay": 520,
+    "established": 1972,
+    "type": "Bihar State BCECEB Quota College",
+    "topBranches": [
+      "Kayachikitsa",
+      "Dravyaguna",
+      "Rasa Shastra",
+      "Samhita"
+    ],
+    "description": "Govt-aided heritage institution under Kameshwar Singh Darbhanga Sanskrit University and BCECEB Bihar counseling.",
+    "website": "https://damcsiwan.org",
+    "college_name": "Dayanand Ayurvedic Medical College & Hospital",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Dravyaguna",
+      "Rasa Shastra",
+      "Samhita"
+    ],
+    "last_year_closing_rank": {
+      "UR": 2100,
+      "OBC": 2900,
+      "EWS": 2400,
+      "SC": 5400,
+      "ST": 8200
+    },
+    "fees_approx": "₹38,000 / year",
+    "source_url": "https://damcsiwan.org"
   }
 ]

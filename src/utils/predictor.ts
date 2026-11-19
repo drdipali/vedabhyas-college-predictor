@@ -1,7 +1,15 @@
-import type { College, Category, PredictionResult, ChanceLevel, QuotaFilter, InstitutionTypeFilter } from '../types';
+import type { 
+  College, 
+  Category, 
+  PredictionResult, 
+  ChanceLevel, 
+  PredictionConfidence, 
+  QuotaFilter, 
+  InstitutionTypeFilter 
+} from '../types';
 
 /**
- * Predict admission chances for a student based on AIAPGET rank, category, and filters
+ * Predict admission chances for a student based on AIAPGET rank, category, branch and filters
  */
 export function predictCollegeChances(
   colleges: College[],
@@ -10,13 +18,15 @@ export function predictCollegeChances(
   quotaFilter: QuotaFilter = 'All',
   institutionTypeFilter: InstitutionTypeFilter = 'All',
   stateFilter: string = 'All',
-  searchQuery: string = ''
+  searchQuery: string = '',
+  branchFilter: string = 'All'
 ): PredictionResult[] {
   if (!userRank || userRank <= 0) {
     return [];
   }
 
   const query = searchQuery.trim().toLowerCase();
+  const branchQuery = branchFilter.trim().toLowerCase();
 
   return colleges
     .filter((college) => {
@@ -35,6 +45,25 @@ export function predictCollegeChances(
         return false;
       }
 
+      // Branch filter (e.g. Kayachikitsa, Shalya, Panchakarma, etc.)
+      if (branchFilter !== 'All' && branchQuery) {
+        const branches = college.topBranches || college.branches || [];
+        // Split options like "Prasuti Tantra / Stri Roga" into tokens
+        const tokens = branchQuery
+          .split(/[\/\&]/)
+          .map((t) => t.trim().toLowerCase().replace(/[^a-z0-9]/g, ''))
+          .filter(Boolean);
+
+        const hasBranch = branches.some((b) => {
+          const normBranch = b.toLowerCase().replace(/[^a-z0-9]/g, '');
+          return tokens.some((token) => normBranch.includes(token));
+        });
+
+        if (!hasBranch) {
+          return false;
+        }
+      }
+
       // Search query (name, city, state, branch, type)
       if (query) {
         const matchesName = college.name.toLowerCase().includes(query);
@@ -42,7 +71,8 @@ export function predictCollegeChances(
         const matchesCity = college.city.toLowerCase().includes(query);
         const matchesState = college.state.toLowerCase().includes(query);
         const matchesType = college.type.toLowerCase().includes(query);
-        const matchesBranch = college.topBranches.some((b) =>
+        const branches = college.topBranches || college.branches || [];
+        const matchesBranch = branches.some((b) =>
           b.toLowerCase().includes(query)
         );
         if (!matchesName && !matchesShort && !matchesCity && !matchesState && !matchesType && !matchesBranch) {
@@ -55,26 +85,34 @@ export function predictCollegeChances(
     .map((college) => {
       // Category closing rank
       const closingRank =
-        college.categoryClosingRanks?.[category] ?? college.closingRank;
+        college.categoryClosingRanks?.[category] ?? 
+        college.last_year_closing_rank?.[category === 'General' ? 'UR' : category] ?? 
+        college.closingRank;
+        
       const rankDelta = closingRank - userRank;
 
       let chance: ChanceLevel;
+      let confidence: PredictionConfidence;
       let chanceScore: number;
 
-      // Rule: If user's rank is lower than or equal to closing rank, categorize as "High Chance"
+      // High Chance / High Confidence: User's rank is <= last year's closing rank
       if (userRank <= closingRank) {
         chance = 'High Chance';
-        // Between 75% and 99%
+        confidence = 'High';
         const bonus = Math.min(24, Math.round((rankDelta / closingRank) * 40));
         chanceScore = Math.min(99, 75 + bonus);
-      } else if (userRank <= Math.round(closingRank * 1.18)) {
+      } 
+      // Moderate / Probable / Medium Confidence: Within 18% margin of last year cutoff
+      else if (userRank <= Math.round(closingRank * 1.18)) {
         chance = 'Probable';
-        // Between 40% and 74%
+        confidence = 'Moderate';
         const overRatio = (userRank - closingRank) / (closingRank * 0.18);
         chanceScore = Math.max(40, Math.round(74 - overRatio * 34));
-      } else {
+      } 
+      // Borderline / Tough Competition: Greater than 18% margin
+      else {
         chance = 'Tough Competition';
-        // Below 40%
+        confidence = 'Borderline';
         const overRatio = (userRank - closingRank) / closingRank;
         chanceScore = Math.max(5, Math.round(39 - overRatio * 20));
       }
@@ -86,6 +124,7 @@ export function predictCollegeChances(
         userRank,
         rankDelta,
         chance,
+        confidence,
         chanceScore,
       };
     })
@@ -100,7 +139,9 @@ export function predictCollegeChances(
       if (chanceWeight[a.chance] !== chanceWeight[b.chance]) {
         return chanceWeight[b.chance] - chanceWeight[a.chance];
       }
-
-      return b.chanceScore - a.chanceScore;
+      if (b.chanceScore !== a.chanceScore) {
+        return b.chanceScore - a.chanceScore;
+      }
+      return a.closingRank - b.closingRank;
     });
 }

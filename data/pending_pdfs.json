@@ -1,0 +1,29 @@
+[
+  {
+    "id": "pdf-up-merit-v3",
+    "state": "Uttar Pradesh",
+    "title": "ADMINUG-ALLOCATION_MERIT_REPORT_PG_V3.pdf",
+    "detected_at": "2026-11-19T06:16:00Z",
+    "status": "extracted",
+    "source_url": "https://upayushcounseling.upsdc.gov.in/",
+    "notes": "State Ayurvedic College Lucknow (AP01), GAC Varanasi (AP03), Lalit Hari Pilibhit (AP02) cutoffs extracted into colleges.json"
+  },
+  {
+    "id": "pdf-skau-haryana-merit",
+    "state": "Haryana",
+    "title": "SKAU_Kurukshetra_PG_Round2_Allocation.pdf",
+    "detected_at": "2026-11-19T06:16:00Z",
+    "status": "extracted",
+    "source_url": "https://skau.ac.in/",
+    "notes": "IASR Kurukshetra, MSM Sonipat, SDAC Chandigarh, Baba Mastnath cutoffs extracted into colleges.json"
+  },
+  {
+    "id": "pdf-aaccc-r3-allotment",
+    "state": "Central (AACCC)",
+    "title": "AACCC_PG_Round3_Allotment_Result_2025.pdf",
+    "detected_at": "2026-11-19T05:53:00Z",
+    "status": "extracted",
+    "source_url": "https://aaccc.gov.in/pg-counselling/",
+    "notes": "53 central, national institute, and deemed university seat allotments integrated into colleges.json"
+  }
+]

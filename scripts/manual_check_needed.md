@@ -1,0 +1,19 @@
+# AIAPGET Counselling Portals - Manual Inspection Log
+
+This log is automatically maintained by `scripts/update_counselling.py`.
+Whenever a state counselling portal blocks automated scrapers (e.g. Cloudflare, CAPTCHA, SSL handshake failure, or WAF block), the URL and error reason are safely logged below without crashing the automated updater.
+
+---
+
+| Date & Time | State / Portal | Target URL | Issue Detected | Action Required |
+|-------------|----------------|------------|----------------|-----------------|
+| 2026-11-19 17:45:00 | MP Online | https://ayush.mponline.gov.in/ | Cloudflare JS Challenge (HTTP 403) | Periodic manual inspection for PDF downloads |
+| 2026-11-19 17:45:00 | Rajasthan RajAyush | https://rajayushcounselling.com/ | Dynamic AJAX rendered table | Review Round 2 schedule and allotment lists |
+| 2026-11-19 17:45:00 | KEA Karnataka | https://cetonline.karnataka.gov.in/kea/ | Occasional rate-limiting | Verify PGET Ayurveda option entry link |
+
+---
+
+### Recommended Verification Protocol
+1. Open the target official state portal in a standard browser.
+2. If a new allotment or seat matrix PDF is published, download it and place in `.user_uploaded/` or upload via the admin portal.
+3. Run `python scripts/update_counselling.py` or trigger GitHub Actions to synchronize `counselling_updates.json`.

@@ -34,13 +34,19 @@ export const CollegeDetailModal: React.FC<CollegeDetailModalProps> = ({
 
   if (!prediction) return null;
 
-  const { college, closingRank, userRank, chance, chanceScore, category } = prediction;
+  const { college, closingRank, userRank, chance, chanceScore, category, confidence } = prediction;
 
   const typeConfig = {
     Government: 'bg-teal-500/15 text-teal-300 border-teal-500/30',
     Private: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
     Deemed: 'bg-purple-500/15 text-purple-300 border-purple-500/30',
   }[college.institutionType];
+
+  const confidenceBadge = {
+    High: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+    Moderate: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+    Borderline: 'bg-rose-500/20 text-rose-300 border-rose-500/40',
+  }[confidence || 'Moderate'];
 
   return (
     <div 
@@ -99,13 +105,16 @@ export const CollegeDetailModal: React.FC<CollegeDetailModalProps> = ({
             : 'bg-rose-500/10 border-rose-500/30 text-rose-300'
         }`}>
           <div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <span className="text-xs uppercase tracking-wider font-bold">Prediction Assessment</span>
+              <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${confidenceBadge}`}>
+                {confidence || 'Moderate'} Confidence
+              </span>
               <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-white/10">
                 {chanceScore}% Odds
               </span>
             </div>
-            <p className="text-sm font-semibold mt-0.5">
+            <p className="text-sm font-semibold mt-1">
               {chance === 'High Chance'
                 ? `High Chance of allotment in ${college.shortName} (Your AIR: #${userRank})`
                 : chance === 'Probable'
@@ -113,7 +122,7 @@ export const CollegeDetailModal: React.FC<CollegeDetailModalProps> = ({
                 : `Aspirational choice. Keep in upper tier choices. (Your AIR: #${userRank})`}
             </p>
           </div>
-          <div className="text-right font-mono">
+          <div className="text-right font-mono shrink-0 pl-3">
             <div className="text-[11px] text-slate-400">Closing Cutoff</div>
             <div className="text-base font-bold text-white">#{closingRank}</div>
           </div>

@@ -19,7 +19,7 @@ interface CollegeCardProps {
 }
 
 export const CollegeCard: React.FC<CollegeCardProps> = ({ prediction, onSelect }) => {
-  const { college, closingRank, userRank, rankDelta, chance, chanceScore } = prediction;
+  const { college, closingRank, userRank, rankDelta, chance, chanceScore, confidence } = prediction;
 
   // Chance styling configuration
   const chanceConfig = {
@@ -35,16 +35,34 @@ export const CollegeCard: React.FC<CollegeCardProps> = ({ prediction, onSelect }
       glow: 'shadow-[0_20px_45px_-12px_rgba(245,158,11,0.18)]',
       badgeBg: 'bg-amber-500/15 text-amber-300 border-amber-500/40',
       icon: AlertCircle,
-      label: 'Probable / Borderline',
+      label: 'Moderate / Borderline',
     },
     'Tough Competition': {
       border: 'border-slate-700/50 hover:border-rose-500/40',
       glow: 'shadow-[0_20px_45px_-12px_rgba(0,0,0,0.5)]',
       badgeBg: 'bg-rose-500/15 text-rose-300 border-rose-500/40',
       icon: HelpCircle,
-      label: 'Tough Competition',
+      label: 'Borderline / Tough',
     },
   }[chance];
+
+  const confidenceConfig = {
+    High: {
+      label: 'High Confidence',
+      badge: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+      dot: 'bg-emerald-400',
+    },
+    Moderate: {
+      label: 'Moderate Confidence',
+      badge: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+      dot: 'bg-amber-400',
+    },
+    Borderline: {
+      label: 'Borderline Chance',
+      badge: 'bg-rose-500/20 text-rose-300 border-rose-500/40',
+      dot: 'bg-rose-400',
+    },
+  }[confidence || 'Moderate'];
 
   const typeConfig = {
     Government: {
@@ -95,10 +113,16 @@ export const CollegeCard: React.FC<CollegeCardProps> = ({ prediction, onSelect }
             </div>
           </div>
 
-          {/* Chance Badge */}
-          <div className={`flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${chanceConfig.badgeBg} shadow-sm`}>
-            <ChanceIcon className="w-3 h-3" />
-            <span>{chanceConfig.label}</span>
+          {/* Chance & Confidence Badges */}
+          <div className="flex items-center gap-1.5">
+            <span className={`hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold border ${confidenceConfig.badge}`}>
+              <span className={`w-1.5 h-1.5 rounded-full ${confidenceConfig.dot}`} />
+              <span>{confidenceConfig.label}</span>
+            </span>
+            <div className={`flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${chanceConfig.badgeBg} shadow-sm`}>
+              <ChanceIcon className="w-3 h-3" />
+              <span>{chanceConfig.label}</span>
+            </div>
           </div>
         </div>
 
@@ -127,6 +151,16 @@ export const CollegeCard: React.FC<CollegeCardProps> = ({ prediction, onSelect }
             <span className="text-slate-400">Your AIAPGET Rank:</span>
             <span className="font-mono font-bold text-emerald-400">
               AIR #{userRank} {rankDelta >= 0 ? `(+${rankDelta} safe)` : `(${rankDelta})`}
+            </span>
+          </div>
+
+          <div className="flex items-center justify-between text-xs pt-0.5 border-t border-white/5">
+            <span className="text-slate-400">Prediction Confidence:</span>
+            <span className={`font-semibold text-xs flex items-center gap-1 ${
+              confidence === 'High' ? 'text-emerald-400' : confidence === 'Moderate' ? 'text-amber-400' : 'text-rose-400'
+            }`}>
+              <span className={`w-1.5 h-1.5 rounded-full ${confidenceConfig.dot}`} />
+              <span>{confidenceConfig.label}</span>
             </span>
           </div>
 

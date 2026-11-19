@@ -6,6 +6,8 @@ export type InstitutionTypeFilter = 'All' | 'Government' | 'Private' | 'Deemed';
 
 export type ChanceLevel = 'High Chance' | 'Probable' | 'Tough Competition';
 
+export type PredictionConfidence = 'High' | 'Moderate' | 'Borderline';
+
 export interface CategoryClosingRanks {
   General: number;
   OBC: number;
@@ -34,6 +36,20 @@ export interface College {
   topBranches: string[];
   description: string;
   website: string;
+  // User Requested Schema Aliases
+  college_name?: string;
+  quota_type?: string;
+  college_type?: string;
+  branches?: string[];
+  last_year_closing_rank?: {
+    UR?: number;
+    OBC?: number;
+    EWS?: number;
+    SC?: number;
+    ST?: number;
+  };
+  fees_approx?: string;
+  source_url?: string;
 }
 
 export interface PredictionResult {
@@ -43,6 +59,7 @@ export interface PredictionResult {
   userRank: number;
   rankDelta: number;
   chance: ChanceLevel;
+  confidence: PredictionConfidence;
   chanceScore: number;
 }
 
@@ -71,4 +88,32 @@ export interface StudentProfile {
   counselingAssistanceRequired: boolean;
   password?: string;
   registeredAt: string;
+}
+
+export type UpdateCategory = 
+  | 'Registration' 
+  | 'Choice Filling' 
+  | 'Result' 
+  | 'Schedule Change' 
+  | 'Seat Matrix' 
+  | 'Notice';
+
+export interface CounsellingUpdate {
+  id: string;
+  state: string;
+  title: string;
+  date: string;
+  category: UpdateCategory;
+  is_urgent: boolean;
+  official_link: string;
+  summary?: string;
+  source_portal?: string;
+}
+
+export interface CounsellingAlertsFeed {
+  last_updated: string;
+  active_session: string;
+  monitoring_status?: string;
+  urgent_ticker: string[];
+  updates: CounsellingUpdate[];
 }

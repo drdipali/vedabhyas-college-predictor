@@ -1,0 +1,124 @@
+{
+  "last_updated": "2026-11-19T17:45:00+05:30",
+  "active_session": "AIAPGET 2026–2027",
+  "monitoring_status": "Active (11 State Portals + Central AACCC)",
+  "urgent_ticker": [
+    "🔴 AACCC PG Round 2 Registration & Choice Locking active till 11:55 PM (aaccc.gov.in)",
+    "🔴 Maharashtra CET Cell AYUSH PG 2026 CAP Round 1 Provisional Selection List Published",
+    "🔴 UP AYUSH PG 2026 Merit List & Document Verification Schedule Released - Report by Nov 25",
+    "🔴 Karnataka KEA PGET Ayurveda Round 1 Option Entry & Verification Slip Download Active",
+    "🔴 Gujarat ACPUGMEC Round 2 Online Pin Purchase & Document Verification Open"
+  ],
+  "updates": [
+    {
+      "id": "aaccc-2026-r2-choice-locking",
+      "state": "Central (AACCC)",
+      "title": "AACCC AIAPGET PG Round 2 Choice Locking & Verification Active",
+      "date": "2026-11-18",
+      "category": "Choice Filling",
+      "is_urgent": true,
+      "official_link": "https://aaccc.gov.in/pg-counselling/",
+      "summary": "Eligible candidates can lock PG choices for 15% All India Quota, Central Universities (IMS BHU, AIIA, NIA, ITRA), and Deemed Universities. Choice locking window closes at 11:55 PM.",
+      "source_portal": "https://aaccc.gov.in"
+    },
+    {
+      "id": "maha-2026-cap-r1-result",
+      "state": "Maharashtra",
+      "title": "Maharashtra State CET Cell AYUSH PG CAP Round 1 Allotment Released",
+      "date": "2026-11-17",
+      "category": "Result",
+      "is_urgent": true,
+      "official_link": "https://cetcell.mahacet.org/",
+      "summary": "Provisional selection list for MD/MS Ayurveda across Govt, Govt-Aided, and Private Ayurvedic Colleges published. Physical joining with original documents active till Nov 24.",
+      "source_portal": "https://cetcell.mahacet.org"
+    },
+    {
+      "id": "up-2026-merit-list",
+      "state": "Uttar Pradesh",
+      "title": "UP AYUSH PG 2026 State Merit List for SAC Lucknow, GAC Varanasi & LHS Pilibhit",
+      "date": "2026-11-17",
+      "category": "Registration",
+      "is_urgent": true,
+      "official_link": "https://upayushcounseling.upsdc.gov.in/",
+      "summary": "Combined state merit ranking published for 85% State Quota seats across Uttar Pradesh. Security fee deposit window open for choice-filling eligibility.",
+      "source_portal": "https://upayushcounseling.upsdc.gov.in"
+    },
+    {
+      "id": "kea-2026-option-entry",
+      "state": "Karnataka",
+      "title": "Karnataka KEA PGET Ayurveda Round 1 Option Entry Window Open",
+      "date": "2026-11-16",
+      "category": "Choice Filling",
+      "is_urgent": false,
+      "official_link": "https://cetonline.karnataka.gov.in/kea/",
+      "summary": "KEA opens online portal for PGET Ayurveda choice filling for Govt Ayurveda Medical College Bengaluru, Mysore, SDM Udupi, and Hassan. Verification slip mandatory.",
+      "source_portal": "https://cetonline.karnataka.gov.in/kea"
+    },
+    {
+      "id": "guj-2026-seat-matrix",
+      "state": "Gujarat",
+      "title": "Gujarat ACPUGMEC AYUSH PG Revised Seat Matrix & Round 2 Schedule",
+      "date": "2026-11-15",
+      "category": "Seat Matrix",
+      "is_urgent": false,
+      "official_link": "https://www.medadmgujarat.org/",
+      "summary": "Detailed branch-wise seat matrix published for Govt Akhandanand Ahmedabad, Govt Ayurved College Vadodara, and Bhavnagar. PIN purchase active.",
+      "source_portal": "https://www.medadmgujarat.org"
+    },
+    {
+      "id": "raj-2026-registration-extended",
+      "state": "Rajasthan",
+      "title": "Rajasthan DSRRAU AYUSH PG 2026 Counselling Registration Notification",
+      "date": "2026-11-14",
+      "category": "Schedule Change",
+      "is_urgent": false,
+      "official_link": "https://rajayushcounselling.com/",
+      "summary": "Dr. S.R. Rajasthan Ayurved University Jodhpur issues schedule for State Quota counseling across MMM Udaipur and DSRRAU. Document verification dates notified.",
+      "source_portal": "https://rajayushcounselling.com"
+    },
+    {
+      "id": "mp-2026-first-round-allotment",
+      "state": "Madhya Pradesh",
+      "title": "MP Online Ayush PG 2026 Round 1 Allotment List & Cutoff Marks",
+      "date": "2026-11-13",
+      "category": "Result",
+      "is_urgent": false,
+      "official_link": "https://ayush.mponline.gov.in/",
+      "summary": "Directorate of Ayush MP releases Round 1 opening and closing ranks for Govt Autonomous Colleges at Bhopal, Ujjain, Gwalior, Jabalpur, and Rewa.",
+      "source_portal": "https://ayush.mponline.gov.in"
+    },
+    {
+      "id": "kerala-2026-category-list",
+      "state": "Kerala",
+      "title": "CEE Kerala AIAPGET PG Ayurveda 2026 Provisional Category List",
+      "date": "2026-11-12",
+      "category": "Registration",
+      "is_urgent": false,
+      "official_link": "https://cee.kerala.gov.in/",
+      "summary": "Commissioner for Entrance Examinations Kerala publishes communal category lists for MD/MS Ayurveda seats in Govt AMC Thiruvananthapuram, Tripunithura, and Kottakkal.",
+      "source_portal": "https://cee.kerala.gov.in"
+    },
+    {
+      "id": "wb-2026-seat-matrix",
+      "state": "West Bengal",
+      "title": "WBMCC AYUSH PG 2026 Information Bulletin & Verification Guidelines",
+      "date": "2026-11-11",
+      "category": "Notice",
+      "is_urgent": false,
+      "official_link": "https://wbmcc.nic.in/",
+      "summary": "West Bengal Medical Counselling Committee releases notification for J.B. Roy State Ayurvedic Medical College and IPGAE&R Shyamadas Kolkata seat distribution.",
+      "source_portal": "https://wbmcc.nic.in"
+    },
+    {
+      "id": "skau-haryana-merit",
+      "state": "Haryana",
+      "title": "SKAU Kurukshetra AYUSH PG Round 2 Allocation Merit Report Published",
+      "date": "2026-11-10",
+      "category": "Result",
+      "is_urgent": false,
+      "official_link": "https://skau.ac.in/",
+      "summary": "Official merit report released for IASR Kurukshetra, MSM Sonipat, and SDAC Chandigarh across UR, BCA, BCB, and EWS categories.",
+      "source_portal": "https://skau.ac.in"
+    }
+  ]
+}
