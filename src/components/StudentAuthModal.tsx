@@ -40,7 +40,7 @@ interface StudentAuthModalProps {
 
 const PREPARATION_METHODS: PreparationMethod[] = [
   'Self-Study & Standard Samhitas',
-  'Ayush Gurukulam Coaching',
+  'Vedabhyas Coaching',
   'External Coaching Institute',
   'Online Test Series & Q-Bank',
   'Combined Group Study & Mentorship'
@@ -101,7 +101,7 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
   const [aiapgetRank, setAiapgetRank] = useState<number | ''>(existingStudent?.aiapgetRank || 240);
   const [category, setCategory] = useState<Category>(existingStudent?.category || 'General');
   const [prepMethod, setPrepMethod] = useState<PreparationMethod>(
-    existingStudent?.prepMethod || 'Ayush Gurukulam Coaching'
+    existingStudent?.prepMethod || 'Vedabhyas Coaching'
   );
   const [dailyStudyHours, setDailyStudyHours] = useState<number>(existingStudent?.dailyStudyHours || 7);
   const [prepDurationMonths, setPrepDurationMonths] = useState<number>(
@@ -266,7 +266,7 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
           <div>
             <div className="flex items-center gap-2">
               <span className="text-[11px] uppercase tracking-wider font-bold text-emerald-400">
-                Ayush Gurukulam Student Network
+                Vedabhyas Student Network
               </span>
               <span className="px-2 py-0.5 rounded-full text-[9px] font-semibold bg-emerald-500/15 text-emerald-300">
                 Verified Sign In
@@ -784,7 +784,7 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
                       className="w-4 h-4 rounded text-emerald-500 focus:ring-emerald-400 mt-0.5 cursor-pointer"
                     />
                     <label htmlFor="assistance-check" className="text-xs text-slate-300 cursor-pointer">
-                      <strong className="text-white block font-medium">Request Free Ayush Gurukulam Choice-Locking Mentorship</strong>
+                      <strong className="text-white block font-medium">Request Free Vedabhyas Choice-Locking Mentorship</strong>
                       Receive personal guidance on Round 1 and Round 2 choices, security deposit forfeiture prevention, and fee concessions.
                     </label>
                   </div>

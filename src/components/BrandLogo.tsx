@@ -9,7 +9,7 @@ interface BrandLogoProps {
 
 export const BrandLogo: React.FC<BrandLogoProps> = ({ 
   className = "w-full h-full object-cover",
-  alt = "Vedabhyas Ayush Gurukulam"
+  alt = "Vedabhyas"
 }) => {
   const [currentSrc, setCurrentSrc] = useState<string>(logoImg || LOGO_DATA_URI);
   const [hasError, setHasError] = useState(false);

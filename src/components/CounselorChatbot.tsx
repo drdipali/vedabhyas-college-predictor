@@ -25,13 +25,13 @@ interface ChatMessage {
 }
 
 const WHATSAPP_NUMBER = '8208506052';
-const WHATSAPP_URL = `https://wa.me/91${WHATSAPP_NUMBER}?text=Hello%20Ayush%20Gurukulam,%20I%20need%20expert%20AIAPGET%20counseling%20guidance%20for%20my%20rank.`;
+const WHATSAPP_URL = `https://wa.me/91${WHATSAPP_NUMBER}?text=Hello%20Vedabhyas,%20I%20need%20expert%20AIAPGET%20counseling%20guidance%20for%20my%20rank.`;
 
 const INITIAL_MESSAGES: ChatMessage[] = [
   {
     id: 'welcome-1',
     sender: 'bot',
-    text: `Namaste! 🙏 I am your **Vedabhyas AI Counselor** from **Ayush Gurukulam**.\n\nI have access to official last-year **AACCC Round 3 & State Quota seat allotments** across 60+ Ayurvedic colleges in India. How can I assist you with your MD/MS AIAPGET counseling?`,
+    text: `Namaste! 🙏 I am your **Vedabhyas AI Counselor**.\n\nI have access to official last-year **AACCC Round 3 & State Quota seat allotments** across 60+ Ayurvedic colleges in India. How can I assist you with your MD/MS AIAPGET counseling?`,
     timestamp: 'Just now',
   },
 ];
@@ -116,7 +116,7 @@ export const CounselorChatbot: React.FC = () => {
             action: {
               type: 'whatsapp',
               label: `Get Custom Choice-List for AIR #${rank}`,
-              url: `https://wa.me/91${WHATSAPP_NUMBER}?text=Hello%20Ayush%20Gurukulam,%20my%20AIAPGET%20Rank%20is%20${rank}.%20Please%20guide%20me%20with%20my%20choice-filling%20list.`,
+              url: `https://wa.me/91${WHATSAPP_NUMBER}?text=Hello%20Vedabhyas,%20my%20AIAPGET%20Rank%20is%20${rank}.%20Please%20guide%20me%20with%20my%20choice-filling%20list.`,
             },
           };
         } else {
@@ -313,7 +313,7 @@ export const CounselorChatbot: React.FC = () => {
                   </span>
                 </div>
                 <p className="text-[11px] text-slate-400 flex items-center gap-1">
-                  <span>Ayush Gurukulam</span>
+                  <span>Vedabhyas</span>
                   <span>•</span>
                   <span className="text-amber-400 font-medium">60+ Colleges R3 Data</span>
                 </p>

@@ -8,7 +8,7 @@ interface FooterProps {
 }
 
 const WHATSAPP_NUMBER = '8208506052';
-const WHATSAPP_URL = `https://wa.me/91${WHATSAPP_NUMBER}?text=Hello%20Ayush%20Gurukulam,%20I%20need%20expert%20AIAPGET%20counseling%20help.`;
+const WHATSAPP_URL = `https://wa.me/91${WHATSAPP_NUMBER}?text=Hello%20Vedabhyas,%20I%20need%20expert%20AIAPGET%20counseling%20help.`;
 
 export const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenAdminLogin }) => {
   return (
@@ -25,7 +25,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenAdminLogin })
               </div>
               <div>
                 <span className="text-[11px] uppercase tracking-[0.25em] font-bold text-emerald-400">
-                  Ayush Gurukulam
+                  AIAPGET 2026
                 </span>
                 <h4 className="text-lg font-bold text-white font-['Outfit']">
                   Vedabhyas College Predictor
@@ -132,7 +132,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenAdminLogin })
         {/* Bottom Bar, Disclaimer & Discreet Admin Access */}
         <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>
-            © {new Date().getFullYear()} Ayush Gurukulam • All Rights Reserved. Candidate data is encrypted and confidential.
+            © {new Date().getFullYear()} Vedabhyas • All Rights Reserved. Candidate data is encrypted and confidential.
           </p>
 
           <div className="flex items-center gap-4 flex-wrap">

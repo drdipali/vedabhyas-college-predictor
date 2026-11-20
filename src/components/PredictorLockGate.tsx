@@ -65,7 +65,7 @@ export const PredictorLockGate: React.FC<PredictorLockGateProps> = ({ onOpenAuth
               <span>Choice-Locking Mentorship</span>
             </span>
             <p className="text-[11px] text-slate-400 leading-snug">
-              Get personalized Ayush Gurukulam counseling guidance for Round 1, Round 2, and Mop-Up.
+              Get personalized Vedabhyas counseling guidance for Round 1, Round 2, and Mop-Up.
             </p>
           </div>
         </div>
@@ -106,7 +106,7 @@ export const PredictorLockGate: React.FC<PredictorLockGateProps> = ({ onOpenAuth
         {/* Dedicated Admin Portal Direct Link */}
         {onOpenAdminLogin && (
           <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-center gap-2 text-xs text-slate-400">
-            <span>Faculty or Counselor at Ayush Gurukulam?</span>
+            <span>Faculty or Counselor at Vedabhyas?</span>
             <button
               onClick={onOpenAdminLogin}
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 hover:text-amber-200 font-semibold transition-all cursor-pointer"

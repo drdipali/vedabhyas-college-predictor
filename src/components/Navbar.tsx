@@ -15,7 +15,7 @@ interface NavbarProps {
 }
 
 const WHATSAPP_NUMBER = '8208506052';
-const WHATSAPP_URL = `https://wa.me/91${WHATSAPP_NUMBER}?text=Hello%20Ayush%20Gurukulam,%20I%20need%20quick%20help%20with%20AIAPGET%20College%20Predictor.`;
+const WHATSAPP_URL = `https://wa.me/91${WHATSAPP_NUMBER}?text=Hello%20Vedabhyas,%20I%20need%20quick%20help%20with%20AIAPGET%20College%20Predictor.`;
 
 export const Navbar: React.FC<NavbarProps> = ({ 
   onOpenGuide, 
@@ -38,7 +38,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center gap-3.5 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="relative flex items-center justify-center w-12 h-12 rounded-2xl overflow-hidden bg-slate-900 border border-white/20 shadow-[0_0_20px_rgba(16,185,129,0.3)] group-hover:scale-105 transition-transform duration-300 shrink-0">
               <BrandLogo 
-                alt="Vedabhyas Ayush Gurukulam Logo" 
+                alt="Vedabhyas Logo" 
                 className="w-full h-full object-cover scale-105"
               />
               <div className="absolute -inset-1 rounded-2xl bg-emerald-400/20 blur-sm -z-10 group-hover:bg-emerald-400/40 transition-colors"></div>
@@ -47,7 +47,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-[11px] uppercase tracking-[0.26em] font-bold text-emerald-400">
-                  Ayush Gurukulam
+                  AIAPGET 2026
                 </span>
                 <span className="inline-flex items-center px-1.5 py-0.2 rounded-full text-[9px] font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
                   Official

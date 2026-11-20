@@ -366,7 +366,7 @@ export const App: React.FC = () => {
         onClose={() => setIsGuideOpen(false)}
       />
 
-      {/* Ayush Gurukulam Footer with Discreet Staff Access */}
+      {/* Vedabhyas Footer with Discreet Staff Access */}
       <Footer 
         onOpenGuide={() => setIsGuideOpen(true)}
         onOpenAdminLogin={handleOpenAdmin}

@@ -785,7 +785,7 @@ export const CollegePortalModal: React.FC<CollegePortalModalProps> = ({
                       <span>4. Mandatory Phone Verification Contact</span>
                     </h4>
                     <p className="text-[11px] text-slate-300 leading-relaxed">
-                      To prevent unauthorized updates, our Ayush Gurukulam faculty will telephone this official contact before publishing your data to students.
+                      To prevent unauthorized updates, our Vedabhyas faculty will telephone this official contact before publishing your data to students.
                     </p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

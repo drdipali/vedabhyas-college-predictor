@@ -59,13 +59,13 @@ export const AdminLoginModal: React.FC<AdminLoginModalProps> = ({
               Restricted Staff Area
             </span>
             <h3 className="text-xl font-bold text-white font-['Outfit']">
-              Ayush Gurukulam Admin
+              Vedabhyas Admin
             </h3>
           </div>
         </div>
 
         <p className="text-xs text-slate-300 mb-5 leading-relaxed">
-          Access to student phone numbers, emails, and counseling dossiers is strictly restricted to authorized Ayush Gurukulam faculty.
+          Access to student phone numbers, emails, and counseling dossiers is strictly restricted to authorized Vedabhyas faculty.
         </p>
 
         {error && (

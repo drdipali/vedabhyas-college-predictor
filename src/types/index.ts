@@ -70,7 +70,7 @@ export interface PredictionResult {
 
 export type PreparationMethod = 
   | 'Self-Study & Standard Samhitas'
-  | 'Ayush Gurukulam Coaching'
+  | 'Vedabhyas Coaching'
   | 'External Coaching Institute'
   | 'Online Test Series & Q-Bank'
   | 'Combined Group Study & Mentorship';

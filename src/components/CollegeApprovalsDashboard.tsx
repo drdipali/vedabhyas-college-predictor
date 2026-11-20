@@ -329,7 +329,7 @@ export const CollegeApprovalsDashboard: React.FC<CollegeApprovalsDashboardProps>
 
             const whatsappUrl = `https://wa.me/91${sub.contact_phone}?text=Hello%20Dr.%20${encodeURIComponent(
               sub.contact_person_name
-            )},%20this%20is%20Ayush%20Gurukulam%20following%20up%20on%20your%20data%20submission%20for%20${encodeURIComponent(
+            )},%20this%20is%20Vedabhyas%20following%20up%20on%20your%20data%20submission%20for%20${encodeURIComponent(
               sub.college_name
             )}%20on%20Vedabhyas%20College%20Predictor.`;
 

@@ -30,7 +30,7 @@ interface AdminPortalProps {
 
 const PREPARATION_METHODS: PreparationMethod[] = [
   'Self-Study & Standard Samhitas',
-  'Ayush Gurukulam Coaching',
+  'Vedabhyas Coaching',
   'External Coaching Institute',
   'Online Test Series & Q-Bank',
   'Combined Group Study & Mentorship'
@@ -78,7 +78,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToPredictor }) =
   const [newScore, setNewScore] = useState('70%');
   const [newRank, setNewRank] = useState<number | ''>(320);
   const [newCategory, setNewCategory] = useState<Category>('General');
-  const [newPrepMethod, setNewPrepMethod] = useState<PreparationMethod>('Ayush Gurukulam Coaching');
+  const [newPrepMethod, setNewPrepMethod] = useState<PreparationMethod>('Vedabhyas Coaching');
   const [newDailyHours, setNewDailyHours] = useState<number>(7);
   const [newDuration, setNewDuration] = useState<number>(12);
   const [newSpecialty, setNewSpecialty] = useState('Kayachikitsa (Internal Medicine)');
@@ -163,7 +163,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToPredictor }) =
     students.forEach((s) => {
       prepCounts[s.prepMethod] = (prepCounts[s.prepMethod] || 0) + 1;
     });
-    const topPrep = Object.entries(prepCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || 'Ayush Gurukulam Coaching';
+    const topPrep = Object.entries(prepCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || 'Vedabhyas Coaching';
 
     return { total, avgRank, topSpecialty, assistanceReq, topPrep };
   }, [students]);
@@ -267,7 +267,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToPredictor }) =
               </div>
               <div>
                 <h2 className="text-base sm:text-lg font-bold text-white font-['Outfit'] flex items-center gap-1.5">
-                  Ayush Gurukulam
+                  Vedabhyas
                   <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
                     Admin Portal
                   </span>
@@ -442,7 +442,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToPredictor }) =
               className="h-11 px-3 text-xs rounded-xl glass-input text-white bg-slate-900 border border-white/15 cursor-pointer max-w-[200px]"
             >
               <option value="All">All Preparation Modes</option>
-              <option value="Ayush Gurukulam Coaching">Ayush Gurukulam</option>
+              <option value="Vedabhyas Coaching">Vedabhyas</option>
               <option value="Self-Study & Standard Samhitas">Self-Study</option>
               <option value="Online Test Series & Q-Bank">Online Test Series</option>
               <option value="External Coaching Institute">External Coaching</option>
@@ -947,7 +947,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToPredictor }) =
                   </span>
                   <span className="text-slate-300 text-[11px]">
                     {selectedStudent.counselingAssistanceRequired 
-                      ? 'Candidate requested free Ayush Gurukulam choice filling guidance.' 
+                      ? 'Candidate requested free Vedabhyas choice filling guidance.' 
                       : 'Candidate opting for independent counseling.'}
                   </span>
                 </div>

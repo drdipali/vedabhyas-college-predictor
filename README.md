@@ -1,5 +1,5 @@
 # 🌿 Vedabhyas College Predictor (वेदअभ्यास)
-### Powered by Ayush Gurukulam
+### Powered by Vedabhyas
 
 > An AIAPGET (Ayurveda PG - MD / MS) admission predictor and student counseling management portal for BAMS graduates across India.
 
@@ -54,4 +54,4 @@ npm run preview
 
 ## 🔐 Staff Access
 The faculty / counselor management portal is located in the top navigation and footer under `Faculty Admin Portal`.
-- Restricted to authorized Ayush Gurukulam counselors and administrators.
+- Restricted to authorized Vedabhyas counselors and administrators.
