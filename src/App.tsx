@@ -49,6 +49,7 @@ export const App: React.FC = () => {
   // Student Preference List & Missing College Crowdsourcing state
   const [isPreferencesOpen, setIsPreferencesOpen] = useState(false);
   const [isAddMissingOpen, setIsAddMissingOpen] = useState(false);
+  const [addMissingInitialName, setAddMissingInitialName] = useState('');
   const [studentPreferences, setStudentPreferences] = useState<StudentPreference[]>([]);
 
   const loadPreferences = async () => {
@@ -403,7 +404,10 @@ export const App: React.FC = () => {
                 category={category}
                 onAddToPreference={handleAddToPreference}
                 preferenceCollegeIds={studentPreferences.map((p) => p.college_id).filter(Boolean) as string[]}
-                onOpenAddMissing={() => setIsAddMissingOpen(true)}
+                onOpenAddMissing={() => {
+                  setAddMissingInitialName('');
+                  setIsAddMissingOpen(true);
+                }}
               />
             </div>
           </>
@@ -439,7 +443,11 @@ export const App: React.FC = () => {
         isOpen={isPreferencesOpen}
         onClose={() => setIsPreferencesOpen(false)}
         currentStudent={currentStudent}
-        onOpenAddMissing={() => setIsAddMissingOpen(true)}
+        liveColleges={allColleges}
+        onOpenAddMissing={(initialName?: string) => {
+          setAddMissingInitialName(initialName || '');
+          setIsAddMissingOpen(true);
+        }}
         onOpenAuth={() => setIsAuthModalOpen(true)}
         onPreferencesUpdated={loadPreferences}
       />
@@ -447,8 +455,12 @@ export const App: React.FC = () => {
       {/* Add Missing College Modal (Crowdsourced Verification) */}
       <AddMissingCollegeModal
         isOpen={isAddMissingOpen}
-        onClose={() => setIsAddMissingOpen(false)}
+        onClose={() => {
+          setIsAddMissingOpen(false);
+          setAddMissingInitialName('');
+        }}
         currentStudent={currentStudent}
+        initialCollegeName={addMissingInitialName}
         onSuccess={() => {
           loadPreferences();
           loadApprovedColleges();

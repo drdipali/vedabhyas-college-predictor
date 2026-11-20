@@ -18,6 +18,7 @@ interface AddMissingCollegeModalProps {
   isOpen: boolean;
   onClose: () => void;
   currentStudent: StudentProfile | null;
+  initialCollegeName?: string;
   onSuccess?: () => void;
   onOpenAuth?: () => void;
 }
@@ -34,16 +35,24 @@ export const AddMissingCollegeModal: React.FC<AddMissingCollegeModalProps> = ({
   isOpen,
   onClose,
   currentStudent,
+  initialCollegeName = '',
   onSuccess,
   onOpenAuth,
 }) => {
   const [collegeCode, setCollegeCode] = useState('');
-  const [collegeName, setCollegeName] = useState('');
+  const [collegeName, setCollegeName] = useState(initialCollegeName);
   const [state, setState] = useState(currentStudent?.bamsState || 'Maharashtra');
   const [collegeType, setCollegeType] = useState('Government');
   const [quotaType, setQuotaType] = useState('State Quota');
   const [branch, setBranch] = useState(currentStudent?.targetSpecialty?.split('(')[0].trim() || 'Kayachikitsa');
   const [notes, setNotes] = useState('');
+
+  // Update initial college name when passed
+  React.useEffect(() => {
+    if (isOpen && initialCollegeName) {
+      setCollegeName(initialCollegeName);
+    }
+  }, [isOpen, initialCollegeName]);
 
   const [loading, setLoading] = useState(false);
   const [statusResult, setStatusResult] = useState<{
@@ -267,11 +276,12 @@ export const AddMissingCollegeModal: React.FC<AddMissingCollegeModalProps> = ({
                   setCollegeCode(e.target.value.toUpperCase());
                   if (errorMsg) setErrorMsg(null);
                 }}
-                className="w-full h-11 px-3.5 text-sm rounded-xl glass-input text-white font-mono placeholder-slate-500 uppercase focus:border-emerald-400"
+                className="w-full h-11 px-3.5 text-sm rounded-xl glass-input text-white font-mono placeholder-slate-500 uppercase focus:border-emerald-400 tracking-wider"
               />
-              <span className="text-[10px] text-slate-400 mt-1 block">
-                We automatically verify against existing AACCC codes and combine multiple student requests.
-              </span>
+              <div className="mt-1.5 flex items-start gap-1.5 text-[11px] text-amber-300 font-medium bg-amber-500/10 px-2.5 py-1.5 rounded-lg border border-amber-500/20">
+                <AlertCircle className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                <span>Please check and enter the exact College Code from the official AACCC / State Counselling portal.</span>
+              </div>
             </div>
 
             {/* College Name */}

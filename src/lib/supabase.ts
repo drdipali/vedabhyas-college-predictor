@@ -881,6 +881,33 @@ export const removeStudentPreference = async (
   return true;
 };
 
+export const updateStudentPreferenceBranch = async (
+  userId: string,
+  prefId: string,
+  newBranch: string
+): Promise<boolean> => {
+  const localList = getLocalPreferences(userId);
+  const item = localList.find((p) => p.id === prefId);
+  if (item) {
+    item.branch = newBranch;
+    saveLocalPreferences(localList);
+  }
+
+  if (isSupabaseConfigured()) {
+    try {
+      await supabase
+        .from('student_preferences')
+        .update({ branch: newBranch })
+        .eq('id', prefId)
+        .eq('user_id', userId);
+    } catch (err) {
+      console.warn('Failed to update preference branch in Supabase:', err);
+    }
+  }
+
+  return true;
+};
+
 // -----------------------------------------------------------------------------
 // SMART MISSING COLLEGE SUBMISSION & VERIFICATION
 // -----------------------------------------------------------------------------
