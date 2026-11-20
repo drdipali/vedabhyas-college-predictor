@@ -499,3 +499,47 @@ export const getLiveApprovedColleges = async (): Promise<Partial<College>[]> => 
     return [];
   }
 };
+
+// -----------------------------------------------------------------------------
+// PASSWORD RESET & RECOVERY HELPERS
+// -----------------------------------------------------------------------------
+export const resetPasswordForEmail = async (
+  email: string
+): Promise<{ success: boolean; error: string | null }> => {
+  const cleanEmail = email.trim().toLowerCase();
+  const redirectTo = window.location.origin + import.meta.env.BASE_URL;
+
+  if (isSupabaseConfigured()) {
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(cleanEmail, {
+        redirectTo,
+      });
+      if (error) return { success: false, error: error.message };
+      return { success: true, error: null };
+    } catch (err: any) {
+      return { success: false, error: err.message || 'Failed to send password reset email' };
+    }
+  }
+
+  // Fallback in demo/mock mode
+  console.log(`[Vedabhyas Auth] Password reset link dispatched to ${cleanEmail} with redirectTo: ${redirectTo}`);
+  return { success: true, error: null };
+};
+
+export const updateAccountPassword = async (
+  newPassword: string
+): Promise<{ success: boolean; error: string | null }> => {
+  if (isSupabaseConfigured()) {
+    try {
+      const { error } = await supabase.auth.updateUser({
+        password: newPassword,
+      });
+      if (error) return { success: false, error: error.message };
+      return { success: true, error: null };
+    } catch (err: any) {
+      return { success: false, error: err.message || 'Failed to update password' };
+    }
+  }
+
+  return { success: true, error: null };
+};

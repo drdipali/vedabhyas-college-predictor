@@ -25,10 +25,12 @@ import {
   CheckCircle2,
   KeyRound,
   Eye,
-  EyeOff
+  EyeOff,
+  ArrowLeft
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { BrandLogo } from './BrandLogo';
+import { supabase, resetPasswordForEmail, isSupabaseConfigured } from '../lib/supabase';
 
 interface StudentAuthModalProps {
   isOpen: boolean;
@@ -87,6 +89,13 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
   const [showLoginPassword, setShowLoginPassword] = useState(false);
   const [loginError, setLoginError] = useState('');
   const [loginSuccessNotice, setLoginSuccessNotice] = useState('');
+
+  // Forgot Password state
+  const [isForgotPasswordView, setIsForgotPasswordView] = useState(false);
+  const [resetEmail, setResetEmail] = useState('');
+  const [resetLoading, setResetLoading] = useState(false);
+  const [resetSuccessNotice, setResetSuccessNotice] = useState('');
+  const [resetErrorMsg, setResetErrorMsg] = useState('');
 
   // Registration / Profile form state
   const [fullName, setFullName] = useState(existingStudent?.fullName || '');
@@ -160,6 +169,45 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
       }, 350);
     } else {
       setLoginError(authResult.error || 'Authentication failed. Please verify your credentials.');
+    }
+  };
+
+  // 1b. Forgot Password Request Handler
+  const handleResetPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setResetErrorMsg('');
+    setResetSuccessNotice('');
+
+    const targetEmail = resetEmail.trim().toLowerCase();
+    if (!targetEmail || !targetEmail.includes('@')) {
+      setResetErrorMsg('Please enter a valid email address.');
+      return;
+    }
+
+    setResetLoading(true);
+    try {
+      const redirectTo = window.location.origin + import.meta.env.BASE_URL;
+      let errorMsg: string | null = null;
+
+      if (isSupabaseConfigured()) {
+        const { error } = await supabase.auth.resetPasswordForEmail(targetEmail, {
+          redirectTo,
+        });
+        if (error) errorMsg = error.message;
+      } else {
+        const res = await resetPasswordForEmail(targetEmail);
+        if (!res.success) errorMsg = res.error;
+      }
+
+      setResetLoading(false);
+      if (errorMsg) {
+        setResetErrorMsg(errorMsg);
+      } else {
+        setResetSuccessNotice('Password reset link sent! Please check your inbox (and spam folder).');
+      }
+    } catch (err: any) {
+      setResetLoading(false);
+      setResetErrorMsg(err.message || 'Failed to send reset link. Please try again.');
     }
   };
 
@@ -275,18 +323,109 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
             <h3 id="auth-modal-title" className="text-xl sm:text-2xl font-bold text-white font-['Outfit']">
               {existingStudent
                 ? 'Update Your Student Profile'
+                : isForgotPasswordView
+                ? 'Reset Account Password'
                 : authMode === 'login'
                 ? 'Student Sign In'
                 : 'Student Registration & Profile Setup'}
             </h3>
             <p className="text-xs text-slate-300 mt-0.5">
-              {authMode === 'login'
+              {isForgotPasswordView
+                ? 'Enter your registered email address to receive an official recovery link.'
+                : authMode === 'login'
                 ? 'Enter your registered Mobile Number or Email ID and password to unlock the college predictor.'
                 : 'Enter your contact, password, BAMS college, and AIAPGET rank to unlock the predictor.'}
             </p>
           </div>
         </div>
 
+        {/* FORGOT PASSWORD RESET REQUEST VIEW */}
+        {isForgotPasswordView ? (
+          <div className="space-y-5 animate-fadeIn">
+            {resetErrorMsg && (
+              <div className="p-3.5 rounded-2xl bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs flex items-start gap-2.5">
+                <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                <p className="font-medium">{resetErrorMsg}</p>
+              </div>
+            )}
+
+            {resetSuccessNotice ? (
+              <div className="space-y-4">
+                <div className="p-4 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs sm:text-sm flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-400 mt-0.5" />
+                  <div>
+                    <p className="font-semibold">{resetSuccessNotice}</p>
+                    <p className="text-xs text-emerald-300/80 mt-1">
+                      Check your email inbox and spam folder for the link to choose your new password.
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsForgotPasswordView(false);
+                    setResetSuccessNotice('');
+                  }}
+                  className="w-full h-11 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-xs transition-colors cursor-pointer"
+                >
+                  Return to Sign In
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleResetPassword} className="space-y-4">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-200 mb-1.5 flex items-center gap-1.5">
+                    <Mail className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>Registered Student Email ID *</span>
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="e.g. doctor@ayush.org"
+                    value={resetEmail}
+                    onChange={(e) => {
+                      setResetEmail(e.target.value);
+                      if (resetErrorMsg) setResetErrorMsg('');
+                    }}
+                    autoFocus
+                    required
+                    className="w-full h-12 px-4 text-sm rounded-xl glass-input text-white placeholder-slate-500 focus:outline-none focus:border-emerald-400 font-medium"
+                  />
+                </div>
+
+                <div className="pt-2 flex flex-col gap-2.5">
+                  <button
+                    type="submit"
+                    disabled={resetLoading}
+                    className="w-full h-12 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 text-slate-950 font-bold text-sm flex items-center justify-center gap-2 hover:opacity-95 shadow-lg shadow-emerald-500/20 transition-all disabled:opacity-50 cursor-pointer min-h-[44px]"
+                  >
+                    {resetLoading ? (
+                      <span>Sending Reset Link...</span>
+                    ) : (
+                      <>
+                        <span>Send Password Reset Link</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsForgotPasswordView(false);
+                      setResetErrorMsg('');
+                    }}
+                    className="w-full py-2.5 rounded-xl text-xs text-slate-400 hover:text-white transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+                  >
+                    <ArrowLeft className="w-3.5 h-3.5" />
+                    <span>Back to Sign In</span>
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        ) : (
+          <>
         {/* Auth Mode Toggle Tabs (Login vs Register) */}
         {!existingStudent && (
           <div className="grid grid-cols-2 gap-2 mb-6 p-1 rounded-2xl bg-slate-900/80 border border-white/10 text-xs sm:text-sm">
@@ -407,9 +546,25 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
                     {showLoginPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
                 </div>
-                <span className="text-[11px] text-slate-400 mt-1 block">
-                  You will stay signed in on this device.
-                </span>
+                <div className="flex items-center justify-between mt-1.5">
+                  <span className="text-[11px] text-slate-400">
+                    You will stay signed in on this device.
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsForgotPasswordView(true);
+                      setResetErrorMsg('');
+                      setResetSuccessNotice('');
+                      if (loginIdentifier.includes('@')) {
+                        setResetEmail(loginIdentifier);
+                      }
+                    }}
+                    className="text-xs text-emerald-400 hover:text-emerald-300 hover:underline font-semibold cursor-pointer"
+                  >
+                    Forgot Password?
+                  </button>
+                </div>
               </div>
 
               <div className="pt-2">
@@ -813,6 +968,8 @@ export const StudentAuthModal: React.FC<StudentAuthModalProps> = ({
             </form>
           </div>
         )}
+        </>
+      )}
 
       </div>
     </div>

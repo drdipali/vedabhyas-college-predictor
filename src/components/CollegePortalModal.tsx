@@ -14,7 +14,9 @@ import {
   Send, 
   LogOut, 
   ChevronRight,
-  Sparkles
+  Sparkles,
+  ArrowLeft,
+  KeyRound
 } from 'lucide-react';
 import { 
   signInCollegeAdmin, 
@@ -22,7 +24,10 @@ import {
   signOutCollegeAdmin, 
   getActiveCollegeAdmin,
   submitCollegeData,
-  fetchSubmissionsByUser
+  fetchSubmissionsByUser,
+  resetPasswordForEmail,
+  supabase,
+  isSupabaseConfigured
 } from '../lib/supabase';
 import type { CollegeSubmission, CollegeAdminProfile } from '../types';
 import { COMMON_AYUSH_BRANCHES } from '../data/colleges';
@@ -58,6 +63,13 @@ export const CollegePortalModal: React.FC<CollegePortalModalProps> = ({
   const [contactNameInput, setContactNameInput] = useState('');
   const [designationInput, setDesignationInput] = useState('Principal / PG In-Charge');
   const [phoneInput, setPhoneInput] = useState('');
+
+  // Forgot Password state
+  const [isForgotPasswordView, setIsForgotPasswordView] = useState(false);
+  const [resetEmail, setResetEmail] = useState('');
+  const [resetLoading, setResetLoading] = useState(false);
+  const [resetSuccessNotice, setResetSuccessNotice] = useState('');
+  const [resetErrorMsg, setResetErrorMsg] = useState('');
 
   // Active view for logged in user: 'form' | 'tracker' | 'confirmation'
   const [activeTab, setActiveTab] = useState<'form' | 'tracker'>('form');
@@ -169,6 +181,44 @@ export const CollegePortalModal: React.FC<CollegePortalModalProps> = ({
       setContactPhone(user.phone || '');
       setOfficialEmail(user.email || '');
       loadUserSubmissions(user.id, user.email);
+    }
+  };
+
+  const handleResetPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setResetErrorMsg('');
+    setResetSuccessNotice('');
+
+    const targetEmail = resetEmail.trim().toLowerCase();
+    if (!targetEmail || !targetEmail.includes('@')) {
+      setResetErrorMsg('Please enter a valid official email address.');
+      return;
+    }
+
+    setResetLoading(true);
+    try {
+      const redirectTo = window.location.origin + import.meta.env.BASE_URL;
+      let errorMsg: string | null = null;
+
+      if (isSupabaseConfigured()) {
+        const { error } = await supabase.auth.resetPasswordForEmail(targetEmail, {
+          redirectTo,
+        });
+        if (error) errorMsg = error.message;
+      } else {
+        const res = await resetPasswordForEmail(targetEmail);
+        if (!res.success) errorMsg = res.error;
+      }
+
+      setResetLoading(false);
+      if (errorMsg) {
+        setResetErrorMsg(errorMsg);
+      } else {
+        setResetSuccessNotice('Password reset link sent! Please check your inbox (and spam folder).');
+      }
+    } catch (err: any) {
+      setResetLoading(false);
+      setResetErrorMsg(err.message || 'Failed to send reset email. Please try again.');
     }
   };
 
@@ -295,6 +345,115 @@ export const CollegePortalModal: React.FC<CollegePortalModalProps> = ({
           {!currentUser ? (
             <div className="max-w-md mx-auto py-3">
               
+              {isForgotPasswordView ? (
+                <div className="space-y-4 animate-fadeIn">
+                  <div className="flex items-center gap-2 mb-1">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsForgotPasswordView(false);
+                        setResetSuccessNotice('');
+                        setResetErrorMsg('');
+                      }}
+                      className="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer flex items-center gap-1 text-xs"
+                    >
+                      <ArrowLeft className="w-4 h-4" />
+                      <span>Back to College Sign In</span>
+                    </button>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-slate-900/80 border border-white/10 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-indigo-500/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400 shrink-0">
+                      <KeyRound className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-white font-['Outfit']">
+                        Reset College Administrator Password
+                      </h4>
+                      <p className="text-xs text-slate-400">
+                        Enter your official institution email to receive a password recovery link.
+                      </p>
+                    </div>
+                  </div>
+
+                  {resetErrorMsg && (
+                    <div className="p-3 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4 shrink-0" />
+                      <span>{resetErrorMsg}</span>
+                    </div>
+                  )}
+
+                  {resetSuccessNotice ? (
+                    <div className="space-y-4">
+                      <div className="p-4 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs sm:text-sm flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-400 mt-0.5" />
+                        <div>
+                          <p className="font-semibold">{resetSuccessNotice}</p>
+                          <p className="text-xs text-emerald-300/80 mt-1">
+                            Click the link in your email to choose your new password.
+                          </p>
+                        </div>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setIsForgotPasswordView(false);
+                          setResetSuccessNotice('');
+                        }}
+                        className="w-full h-11 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-xs transition-colors cursor-pointer"
+                      >
+                        Return to College Sign In
+                      </button>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleResetPassword} className="space-y-4">
+                      <div>
+                        <label className="block text-xs font-medium text-slate-300 mb-1.5 flex items-center gap-1.5">
+                          <Mail className="w-3.5 h-3.5 text-indigo-400" />
+                          <span>Official Institutional Email *</span>
+                        </label>
+                        <input
+                          type="email"
+                          required
+                          autoFocus
+                          placeholder="principal@ayurvedacollege.edu.in"
+                          value={resetEmail}
+                          onChange={(e) => {
+                            setResetEmail(e.target.value);
+                            if (resetErrorMsg) setResetErrorMsg('');
+                          }}
+                          className="w-full h-11 px-3.5 text-sm rounded-xl glass-input text-white placeholder-slate-500"
+                        />
+                      </div>
+
+                      <div className="pt-2 flex flex-col gap-2">
+                        <button
+                          type="submit"
+                          disabled={resetLoading}
+                          className="w-full h-12 rounded-xl font-bold text-sm bg-gradient-to-r from-indigo-500 to-teal-400 hover:opacity-95 text-slate-950 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(99,102,241,0.4)] transition-all cursor-pointer disabled:opacity-50 min-h-[44px]"
+                        >
+                          {resetLoading ? 'Sending Reset Link...' : 'Send Password Reset Link'}
+                          <ChevronRight className="w-4 h-4" />
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setIsForgotPasswordView(false);
+                            setResetErrorMsg('');
+                          }}
+                          className="w-full py-2.5 rounded-xl text-xs text-slate-400 hover:text-white transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+                        >
+                          <ArrowLeft className="w-3.5 h-3.5" />
+                          <span>Back to Sign In</span>
+                        </button>
+                      </div>
+                    </form>
+                  )}
+                </div>
+              ) : (
+                <>
               {/* Tab Selector */}
               <div className="flex rounded-xl bg-white/5 p-1 mb-6 border border-white/10">
                 <button
@@ -359,6 +518,20 @@ export const CollegePortalModal: React.FC<CollegePortalModalProps> = ({
                       onChange={(e) => setPassword(e.target.value)}
                       className="w-full h-11 px-3.5 text-sm rounded-xl glass-input text-white placeholder-slate-500"
                     />
+                    <div className="flex items-center justify-end mt-1.5">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setIsForgotPasswordView(true);
+                          setResetErrorMsg('');
+                          setResetSuccessNotice('');
+                          if (email) setResetEmail(email);
+                        }}
+                        className="text-xs text-indigo-400 hover:text-indigo-300 hover:underline font-semibold cursor-pointer"
+                      >
+                        Forgot Password?
+                      </button>
+                    </div>
                   </div>
 
                   <div className="pt-2">
@@ -492,6 +665,8 @@ export const CollegePortalModal: React.FC<CollegePortalModalProps> = ({
                     </button>
                   </div>
                 </form>
+              )}
+                </>
               )}
 
             </div>

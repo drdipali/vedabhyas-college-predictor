@@ -18,8 +18,9 @@ import { CounselorChatbot } from './components/CounselorChatbot';
 import { LiveAlertTicker } from './components/LiveAlertTicker';
 import { LiveCounsellingModal } from './components/LiveCounsellingModal';
 import { CollegePortalModal } from './components/CollegePortalModal';
+import { SetNewPasswordModal } from './components/SetNewPasswordModal';
 import { Footer } from './components/Footer';
-import { getLiveApprovedColleges } from './lib/supabase';
+import { getLiveApprovedColleges, supabase } from './lib/supabase';
 import type { College } from './types';
 
 export const App: React.FC = () => {
@@ -39,6 +40,31 @@ export const App: React.FC = () => {
   // College Administrator Portal state
   const [isCollegePortalOpen, setIsCollegePortalOpen] = useState(false);
   const [approvedLiveColleges, setApprovedLiveColleges] = useState<Partial<College>[]>([]);
+
+  // Password Recovery state
+  const [isSetNewPasswordOpen, setIsSetNewPasswordOpen] = useState(false);
+
+  // Listen for Supabase PASSWORD_RECOVERY auth event
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
+      if (event === 'PASSWORD_RECOVERY') {
+        setIsSetNewPasswordOpen(true);
+      }
+    });
+
+    // Also check URL hash directly on initial mount (e.g. #access_token=...&type=recovery)
+    const checkHashForRecovery = () => {
+      const hash = window.location.hash;
+      if (hash && (hash.includes('type=recovery') || (hash.includes('access_token=') && hash.includes('recovery')))) {
+        setIsSetNewPasswordOpen(true);
+      }
+    };
+    checkHashForRecovery();
+
+    return () => {
+      subscription?.unsubscribe();
+    };
+  }, []);
 
   const loadApprovedColleges = async () => {
     try {
@@ -345,6 +371,25 @@ export const App: React.FC = () => {
         isOpen={isCollegePortalOpen}
         onClose={() => setIsCollegePortalOpen(false)}
         onSubmissionSuccess={loadApprovedColleges}
+      />
+
+      {/* Password Recovery: Set New Password Modal */}
+      <SetNewPasswordModal
+        isOpen={isSetNewPasswordOpen}
+        onClose={() => {
+          setIsSetNewPasswordOpen(false);
+          // Clean recovery hash if present
+          if (window.location.hash.includes('type=recovery')) {
+            history.replaceState(null, '', window.location.pathname);
+          }
+        }}
+        onSuccess={() => {
+          setIsSetNewPasswordOpen(false);
+          // If student profile is saved or user is authenticated, refresh state
+          const student = getCurrentStudent();
+          if (student) setCurrentStudent(student);
+          loadApprovedColleges();
+        }}
       />
 
       {/* Restricted Admin Passcode Login Modal */}
