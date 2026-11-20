@@ -1,0 +1,3118 @@
+[
+  {
+    "id": "bhu-varanasi",
+    "name": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+    "shortName": "IMS BHU Varanasi",
+    "city": "Varanasi",
+    "state": "Uttar Pradesh",
+    "category": "General",
+    "closingRank": 121,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 121,
+      "OBC": 161,
+      "SC": 828,
+      "ST": 1450,
+      "EWS": 245
+    },
+    "type": "Apex Central Institute",
+    "topBranches": [
+      "Shalya Tantra",
+      "Stree Roga-Prasuti Tantra",
+      "Kayachikitsa",
+      "Kaumarabhritya",
+      "Dravyaguna Vijnana"
+    ],
+    "website": "https://bhu.ac.in/ims/ayurveda",
+    "college_name": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+    "quota_type": "National Institute",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Stree Roga-Prasuti Tantra",
+      "Kayachikitsa",
+      "Kaumarabhritya",
+      "Dravyaguna Vijnana"
+    ],
+    "last_year_closing_rank": {
+      "UR": 121,
+      "OBC": 161,
+      "EWS": 245,
+      "SC": 828,
+      "ST": 1450
+    },
+    "source_url": "https://bhu.ac.in/ims/ayurveda"
+  },
+  {
+    "id": "aiia-delhi",
+    "name": "All India Institute of Ayurveda (AIIA)",
+    "shortName": "AIIA New Delhi",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "category": "General",
+    "closingRank": 142,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 142,
+      "OBC": 228,
+      "SC": 560,
+      "ST": 1650,
+      "EWS": 195
+    },
+    "type": "Apex Central Institute",
+    "topBranches": [
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Panchakarma",
+      "Stree Roga-Prasuti Tantra",
+      "Kaumarabhritya"
+    ],
+    "website": "https://aiia.gov.in",
+    "college_name": "All India Institute of Ayurveda (AIIA)",
+    "quota_type": "National Institute",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Panchakarma",
+      "Stree Roga-Prasuti Tantra",
+      "Kaumarabhritya"
+    ],
+    "last_year_closing_rank": {
+      "UR": 142,
+      "OBC": 228,
+      "EWS": 195,
+      "SC": 560,
+      "ST": 1650
+    },
+    "source_url": "https://aiia.gov.in"
+  },
+  {
+    "id": "nia-jaipur",
+    "name": "National Institute of Ayurveda (Deemed to be University)",
+    "shortName": "NIA Jaipur",
+    "city": "Jaipur",
+    "state": "Rajasthan",
+    "category": "General",
+    "closingRank": 328,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 328,
+      "OBC": 398,
+      "SC": 560,
+      "ST": 1840,
+      "EWS": 273
+    },
+    "type": "National Institute (Deemed)",
+    "topBranches": [
+      "Panchakarma",
+      "Shalya Tantra",
+      "Stree Roga-Prasuti Tantra",
+      "Kayachikitsa",
+      "Kaumarabhritya"
+    ],
+    "website": "https://nia.nic.in",
+    "college_name": "National Institute of Ayurveda (Deemed to be University)",
+    "quota_type": "National Institute",
+    "college_type": "Govt",
+    "branches": [
+      "Panchakarma",
+      "Shalya Tantra",
+      "Stree Roga-Prasuti Tantra",
+      "Kayachikitsa",
+      "Kaumarabhritya"
+    ],
+    "last_year_closing_rank": {
+      "UR": 328,
+      "OBC": 398,
+      "EWS": 273,
+      "SC": 560,
+      "ST": 1840
+    },
+    "source_url": "https://nia.nic.in"
+  },
+  {
+    "id": "itra-jamnagar",
+    "name": "Institute of Teaching and Research in Ayurveda (ITRA)",
+    "shortName": "ITRA Jamnagar",
+    "city": "Jamnagar",
+    "state": "Gujarat",
+    "category": "General",
+    "closingRank": 405,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 405,
+      "OBC": 449,
+      "SC": 564,
+      "ST": 3223,
+      "EWS": 393
+    },
+    "type": "Institute of National Importance (INI)",
+    "topBranches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Panchakarma",
+      "Rasashastra"
+    ],
+    "website": "https://itra.edu.in",
+    "college_name": "Institute of Teaching and Research in Ayurveda (ITRA)",
+    "quota_type": "National Institute",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Panchakarma",
+      "Rasashastra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 405,
+      "OBC": 449,
+      "EWS": 393,
+      "SC": 564,
+      "ST": 3223
+    },
+    "source_url": "https://itra.edu.in"
+  },
+  {
+    "id": "aiia-goa",
+    "name": "All India Institute of Ayurveda, North Goa",
+    "shortName": "AIIA North Goa",
+    "city": "Pernem",
+    "state": "Goa",
+    "category": "General",
+    "closingRank": 404,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 404,
+      "OBC": 470,
+      "SC": 568,
+      "ST": 1720,
+      "EWS": 430
+    },
+    "type": "Apex Central Institute",
+    "topBranches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Rasashastra",
+      "Roganidana",
+      "Agada Tantra"
+    ],
+    "website": "https://aiia.gov.in",
+    "college_name": "All India Institute of Ayurveda, North Goa",
+    "quota_type": "National Institute",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Rasashastra",
+      "Roganidana",
+      "Agada Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 404,
+      "OBC": 470,
+      "EWS": 430,
+      "SC": 568,
+      "ST": 1720
+    },
+    "source_url": "https://aiia.gov.in"
+  },
+  {
+    "id": "neiah-shillong",
+    "name": "North Eastern Institute of Ayurveda & Homoeopathy",
+    "shortName": "NEIAH Shillong",
+    "city": "Shillong",
+    "state": "Meghalaya",
+    "category": "General",
+    "closingRank": 767,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 767,
+      "OBC": 744,
+      "SC": 1540,
+      "ST": 2200,
+      "EWS": 882
+    },
+    "type": "Apex Central Institute",
+    "topBranches": [
+      "Shalya Tantra",
+      "Swasthavritta and Yoga",
+      "Agada Tantra",
+      "Rachana Sharira",
+      "Kriya Sharira"
+    ],
+    "website": "https://neiah.nic.in",
+    "college_name": "North Eastern Institute of Ayurveda & Homoeopathy",
+    "quota_type": "National Institute",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Swasthavritta and Yoga",
+      "Agada Tantra",
+      "Rachana Sharira",
+      "Kriya Sharira"
+    ],
+    "last_year_closing_rank": {
+      "UR": 767,
+      "OBC": 744,
+      "EWS": 882,
+      "SC": 1540,
+      "ST": 2200
+    },
+    "source_url": "https://neiah.nic.in"
+  },
+  {
+    "id": "podar-mumbai",
+    "name": "R. A. Podar Ayurvedic Medical College & Hospital",
+    "shortName": "Podar Ayurved Mumbai",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "category": "General",
+    "closingRank": 149,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 149,
+      "OBC": 300,
+      "SC": 881,
+      "ST": 2150,
+      "EWS": 220
+    },
+    "type": "State Government (Maharashtra)",
+    "topBranches": [
+      "Shalya Tantra",
+      "Stree Roga-Prasuti Tantra",
+      "Kayachikitsa",
+      "Shalakya Tantra",
+      "Agada Tantra"
+    ],
+    "website": "https://rapodar.org",
+    "college_name": "R. A. Podar Ayurvedic Medical College & Hospital",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Stree Roga-Prasuti Tantra",
+      "Kayachikitsa",
+      "Shalakya Tantra",
+      "Agada Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 149,
+      "OBC": 300,
+      "EWS": 220,
+      "SC": 881,
+      "ST": 2150
+    },
+    "source_url": "https://rapodar.org"
+  },
+  {
+    "id": "cbpacs-delhi",
+    "name": "Ch. Brahm Prakash Ayurved Charak Sansthan",
+    "shortName": "CBPACS Khera Dabar Delhi",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "category": "General",
+    "closingRank": 461,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 461,
+      "OBC": 536,
+      "SC": 1124,
+      "ST": 2645,
+      "EWS": 526
+    },
+    "type": "Autonomous Govt of NCT Delhi",
+    "topBranches": [
+      "Panchakarma",
+      "Kayachikitsa",
+      "Swasthavritta and Yoga",
+      "Roganidana",
+      "Kriya Sharira"
+    ],
+    "website": "https://cbpacs.delhi.gov.in",
+    "college_name": "Ch. Brahm Prakash Ayurved Charak Sansthan",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Panchakarma",
+      "Kayachikitsa",
+      "Swasthavritta and Yoga",
+      "Roganidana",
+      "Kriya Sharira"
+    ],
+    "last_year_closing_rank": {
+      "UR": 461,
+      "OBC": 536,
+      "EWS": 526,
+      "SC": 1124,
+      "ST": 2645
+    },
+    "source_url": "https://cbpacs.delhi.gov.in"
+  },
+  {
+    "id": "gac-nanded",
+    "name": "Government Ayurved College & Hospital, Nanded",
+    "shortName": "GAC Nanded",
+    "city": "Nanded",
+    "state": "Maharashtra",
+    "category": "General",
+    "closingRank": 432,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 432,
+      "OBC": 449,
+      "SC": 1219,
+      "ST": 2450,
+      "EWS": 519
+    },
+    "type": "State Government (Maharashtra)",
+    "topBranches": [
+      "Stree Roga-Prasuti Tantra",
+      "Kayachikitsa",
+      "Swasthavritta and Yoga",
+      "Kriya Sharira",
+      "Kaumarabhritya"
+    ],
+    "website": "https://gacnanded.org",
+    "college_name": "Government Ayurved College & Hospital, Nanded",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Kayachikitsa",
+      "Swasthavritta and Yoga",
+      "Kriya Sharira",
+      "Kaumarabhritya"
+    ],
+    "last_year_closing_rank": {
+      "UR": 432,
+      "OBC": 449,
+      "EWS": 519,
+      "SC": 1219,
+      "ST": 2450
+    },
+    "source_url": "https://gacnanded.org"
+  },
+  {
+    "id": "gac-osmanabad",
+    "name": "Government Ayurved College, Osmanabad (Dharashiv)",
+    "shortName": "GAC Osmanabad",
+    "city": "Osmanabad",
+    "state": "Maharashtra",
+    "category": "General",
+    "closingRank": 420,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 420,
+      "OBC": 425,
+      "SC": 1350,
+      "ST": 2600,
+      "EWS": 460
+    },
+    "type": "State Government (Maharashtra)",
+    "topBranches": [
+      "Shalya Tantra",
+      "Agada Tantra",
+      "Dravyaguna Vijnana",
+      "Rasashastra",
+      "Kayachikitsa"
+    ],
+    "website": "https://gacosmanabad.ac.in",
+    "college_name": "Government Ayurved College, Osmanabad (Dharashiv)",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Agada Tantra",
+      "Dravyaguna Vijnana",
+      "Rasashastra",
+      "Kayachikitsa"
+    ],
+    "last_year_closing_rank": {
+      "UR": 420,
+      "OBC": 425,
+      "EWS": 460,
+      "SC": 1350,
+      "ST": 2600
+    },
+    "source_url": "https://gacosmanabad.ac.in"
+  },
+  {
+    "id": "gac-nagpur",
+    "name": "Government Ayurved College & Hospital, Nagpur",
+    "shortName": "GAC Nagpur",
+    "city": "Nagpur",
+    "state": "Maharashtra",
+    "category": "General",
+    "closingRank": 359,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 359,
+      "OBC": 532,
+      "SC": 1290,
+      "ST": 2550,
+      "EWS": 410
+    },
+    "type": "State Government (Maharashtra)",
+    "topBranches": [
+      "Kayachikitsa",
+      "Agada Tantra and Vidhi Vaidyaka",
+      "Ayurveda Samhita",
+      "Rasashastra",
+      "Rachana Sharira"
+    ],
+    "website": "https://gacnagpur.org",
+    "college_name": "Government Ayurved College & Hospital, Nagpur",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Agada Tantra and Vidhi Vaidyaka",
+      "Ayurveda Samhita",
+      "Rasashastra",
+      "Rachana Sharira"
+    ],
+    "last_year_closing_rank": {
+      "UR": 359,
+      "OBC": 532,
+      "EWS": 410,
+      "SC": 1290,
+      "ST": 2550
+    },
+    "source_url": "https://gacnagpur.org"
+  },
+  {
+    "id": "akhandanand-ahmedabad",
+    "name": "Government Akhandanand Ayurved College, Ahmedabad",
+    "shortName": "Akhandanand Ahmedabad",
+    "city": "Ahmedabad",
+    "state": "Gujarat",
+    "category": "General",
+    "closingRank": 349,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 349,
+      "OBC": 460,
+      "SC": 1420,
+      "ST": 2750,
+      "EWS": 630
+    },
+    "type": "State Government (Gujarat)",
+    "topBranches": [
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Panchakarma",
+      "Shalakya Tantra",
+      "Ayurveda Samhita"
+    ],
+    "website": "https://gaac.gujarat.gov.in",
+    "college_name": "Government Akhandanand Ayurved College, Ahmedabad",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Panchakarma",
+      "Shalakya Tantra",
+      "Ayurveda Samhita"
+    ],
+    "last_year_closing_rank": {
+      "UR": 349,
+      "OBC": 460,
+      "EWS": 630,
+      "SC": 1420,
+      "ST": 2750
+    },
+    "source_url": "https://gaac.gujarat.gov.in"
+  },
+  {
+    "id": "gac-vadodara",
+    "name": "Government Ayurveda College, Vadodara",
+    "shortName": "GAC Vadodara",
+    "city": "Vadodara",
+    "state": "Gujarat",
+    "category": "General",
+    "closingRank": 573,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 573,
+      "OBC": 640,
+      "SC": 1510,
+      "ST": 2800,
+      "EWS": 572
+    },
+    "type": "State Government (Gujarat)",
+    "topBranches": [
+      "Rasashastra & Bhaishajya Kalpana",
+      "Dravyaguna Vijnana",
+      "Ayurveda Samhita",
+      "Kayachikitsa",
+      "Shalya Tantra"
+    ],
+    "website": "https://gacvadodara.org",
+    "college_name": "Government Ayurveda College, Vadodara",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Rasashastra & Bhaishajya Kalpana",
+      "Dravyaguna Vijnana",
+      "Ayurveda Samhita",
+      "Kayachikitsa",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 573,
+      "OBC": 640,
+      "EWS": 572,
+      "SC": 1510,
+      "ST": 2800
+    },
+    "source_url": "https://gacvadodara.org"
+  },
+  {
+    "id": "gac-trivandrum",
+    "name": "Government Ayurveda College, Thiruvananthapuram",
+    "shortName": "GAC Thiruvananthapuram",
+    "city": "Thiruvananthapuram",
+    "state": "Kerala",
+    "category": "General",
+    "closingRank": 460,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 460,
+      "OBC": 806,
+      "SC": 2825,
+      "ST": 5660,
+      "EWS": 680
+    },
+    "type": "State Government (Kerala)",
+    "topBranches": [
+      "Shalya Tantra",
+      "Shalakya Tantra",
+      "Stree Roga-Prasuti Tantra",
+      "Kaumarabhritya",
+      "Kayachikitsa"
+    ],
+    "website": "https://gactvm.org",
+    "college_name": "Government Ayurveda College, Thiruvananthapuram",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Shalakya Tantra",
+      "Stree Roga-Prasuti Tantra",
+      "Kaumarabhritya",
+      "Kayachikitsa"
+    ],
+    "last_year_closing_rank": {
+      "UR": 460,
+      "OBC": 806,
+      "EWS": 680,
+      "SC": 2825,
+      "ST": 5660
+    },
+    "source_url": "https://gactvm.org"
+  },
+  {
+    "id": "gac-kannur",
+    "name": "Government Ayurveda College, Kannur",
+    "shortName": "GAC Kannur",
+    "city": "Kannur",
+    "state": "Kerala",
+    "category": "General",
+    "closingRank": 943,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 943,
+      "OBC": 963,
+      "SC": 2588,
+      "ST": 5390,
+      "EWS": 894
+    },
+    "type": "State Government (Kerala)",
+    "topBranches": [
+      "Roganidana-Vikritivijnana",
+      "Kriya Sharira",
+      "Rasashastra",
+      "Shalakya Tantra",
+      "Shalya Tantra"
+    ],
+    "website": "https://gackannur.ac.in",
+    "college_name": "Government Ayurveda College, Kannur",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Roganidana-Vikritivijnana",
+      "Kriya Sharira",
+      "Rasashastra",
+      "Shalakya Tantra",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 943,
+      "OBC": 963,
+      "EWS": 894,
+      "SC": 2588,
+      "ST": 5390
+    },
+    "source_url": "https://gackannur.ac.in"
+  },
+  {
+    "id": "gac-tripunithura",
+    "name": "Govt. Ayurveda College, Tripunithura, Ernakulam",
+    "shortName": "GAC Tripunithura",
+    "city": "Ernakulam",
+    "state": "Kerala",
+    "category": "General",
+    "closingRank": 632,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 632,
+      "OBC": 820,
+      "SC": 2219,
+      "ST": 4850,
+      "EWS": 952
+    },
+    "type": "State Government (Kerala)",
+    "topBranches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalakya Tantra",
+      "Swasthavritta and Yoga",
+      "Rasashastra",
+      "Shalya Tantra"
+    ],
+    "website": "https://ayurvedacollege.tripunithura.kerala.gov.in",
+    "college_name": "Govt. Ayurveda College, Tripunithura, Ernakulam",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalakya Tantra",
+      "Swasthavritta and Yoga",
+      "Rasashastra",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 632,
+      "OBC": 820,
+      "EWS": 952,
+      "SC": 2219,
+      "ST": 4850
+    },
+    "source_url": "https://ayurvedacollege.tripunithura.kerala.gov.in"
+  },
+  {
+    "id": "kottakkal-malappuram",
+    "name": "Vaidyaratnam P.S. Varier Ayurveda College, Kottakkal",
+    "shortName": "VPSV Kottakkal",
+    "city": "Malappuram",
+    "state": "Kerala",
+    "category": "General",
+    "closingRank": 642,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 642,
+      "OBC": 850,
+      "SC": 3011,
+      "ST": 5580,
+      "EWS": 780
+    },
+    "type": "Government Aided (Kerala)",
+    "topBranches": [
+      "Panchakarma",
+      "Shalya Tantra",
+      "Ayurveda Samhita",
+      "Swasthavritta and Yoga",
+      "Dravyaguna Vijnana"
+    ],
+    "website": "https://kottakkalayurvedacollege.ac.in",
+    "college_name": "Vaidyaratnam P.S. Varier Ayurveda College, Kottakkal",
+    "quota_type": "AIQ",
+    "college_type": "Govt-Aided",
+    "branches": [
+      "Panchakarma",
+      "Shalya Tantra",
+      "Ayurveda Samhita",
+      "Swasthavritta and Yoga",
+      "Dravyaguna Vijnana"
+    ],
+    "last_year_closing_rank": {
+      "UR": 642,
+      "OBC": 850,
+      "EWS": 780,
+      "SC": 3011,
+      "ST": 5580
+    },
+    "source_url": "https://kottakkalayurvedacollege.ac.in"
+  },
+  {
+    "id": "vaidyaratnam-thrissur",
+    "name": "Vaidyaratnam Ayurveda College, Ollur, Thrissur",
+    "shortName": "Vaidyaratnam Thrissur",
+    "city": "Thrissur",
+    "state": "Kerala",
+    "category": "General",
+    "closingRank": 570,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 570,
+      "OBC": 750,
+      "SC": 2400,
+      "ST": 4600,
+      "EWS": 690
+    },
+    "type": "Government Aided (Kerala)",
+    "topBranches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Dravyaguna",
+      "Shalya Tantra",
+      "Kaumarbhritya"
+    ],
+    "website": "https://vaidyaratnamcollege.in",
+    "college_name": "Vaidyaratnam Ayurveda College, Ollur, Thrissur",
+    "quota_type": "AIQ",
+    "college_type": "Govt-Aided",
+    "branches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Dravyaguna",
+      "Shalya Tantra",
+      "Kaumarbhritya"
+    ],
+    "last_year_closing_rank": {
+      "UR": 570,
+      "OBC": 750,
+      "EWS": 690,
+      "SC": 2400,
+      "ST": 4600
+    },
+    "source_url": "https://vaidyaratnamcollege.in"
+  },
+  {
+    "id": "sac-lucknow",
+    "name": "State Ayurvedic College & Hospital, Lucknow",
+    "shortName": "State Ayurved Lucknow",
+    "city": "Lucknow",
+    "state": "Uttar Pradesh",
+    "category": "General",
+    "closingRank": 647,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 647,
+      "OBC": 720,
+      "SC": 1851,
+      "ST": 3200,
+      "EWS": 680
+    },
+    "type": "State Government (UP)",
+    "topBranches": [
+      "Stree Roga-Prasuti Tantra",
+      "Kaumarabhritya",
+      "Rasashastra",
+      "Kayachikitsa",
+      "Rachana Sharira"
+    ],
+    "website": "https://saclucknow.in",
+    "college_name": "State Ayurvedic College & Hospital, Lucknow",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Kaumarabhritya",
+      "Rasashastra",
+      "Kayachikitsa",
+      "Rachana Sharira"
+    ],
+    "last_year_closing_rank": {
+      "UR": 647,
+      "OBC": 720,
+      "EWS": 680,
+      "SC": 1851,
+      "ST": 3200
+    },
+    "source_url": "https://saclucknow.in"
+  },
+  {
+    "id": "gac-varanasi",
+    "name": "Govt. Ayurveda College, Chaukaghat, Varanasi",
+    "shortName": "GAC Varanasi",
+    "city": "Varanasi",
+    "state": "Uttar Pradesh",
+    "category": "General",
+    "closingRank": 582,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 582,
+      "OBC": 660,
+      "SC": 1499,
+      "ST": 2950,
+      "EWS": 610
+    },
+    "type": "State Government (UP)",
+    "topBranches": [
+      "Stree Roga-Prasuti Tantra",
+      "Panchakarma",
+      "Roganidana",
+      "Ayurveda Samhita",
+      "Rasashastra"
+    ],
+    "website": "https://gacvaranasi.edu.in",
+    "college_name": "Govt. Ayurveda College, Chaukaghat, Varanasi",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Panchakarma",
+      "Roganidana",
+      "Ayurveda Samhita",
+      "Rasashastra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 582,
+      "OBC": 660,
+      "EWS": 610,
+      "SC": 1499,
+      "ST": 2950
+    },
+    "source_url": "https://gacvaranasi.edu.in"
+  },
+  {
+    "id": "lalit-hari-pilibhit",
+    "name": "Lalit Hari State PG Ayurveda College, Pilibhit",
+    "shortName": "Lalit Hari Pilibhit",
+    "city": "Pilibhit",
+    "state": "Uttar Pradesh",
+    "category": "General",
+    "closingRank": 682,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 682,
+      "OBC": 761,
+      "SC": 1980,
+      "ST": 3450,
+      "EWS": 710
+    },
+    "type": "State Government (UP)",
+    "topBranches": [
+      "Dravyaguna Vijnana",
+      "Rasashastra",
+      "Ayurveda Samhita",
+      "Kayachikitsa",
+      "Panchakarma"
+    ],
+    "website": "https://lalithari.up.gov.in",
+    "college_name": "Lalit Hari State PG Ayurveda College, Pilibhit",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Dravyaguna Vijnana",
+      "Rasashastra",
+      "Ayurveda Samhita",
+      "Kayachikitsa",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 682,
+      "OBC": 761,
+      "EWS": 710,
+      "SC": 1980,
+      "ST": 3450
+    },
+    "source_url": "https://lalithari.up.gov.in"
+  },
+  {
+    "id": "rishikul-haridwar",
+    "name": "Rishikul Govt. PG Ayurvedic College & Hospital, Haridwar",
+    "shortName": "Rishikul Haridwar",
+    "city": "Haridwar",
+    "state": "Uttarakhand",
+    "category": "General",
+    "closingRank": 654,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 654,
+      "OBC": 683,
+      "SC": 1760,
+      "ST": 3100,
+      "EWS": 659
+    },
+    "type": "State Government (Uttarakhand)",
+    "topBranches": [
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Shalakya Tantra",
+      "Panchakarma",
+      "Stree Roga-Prasuti Tantra"
+    ],
+    "website": "https://uau.ac.in/rishikul",
+    "college_name": "Rishikul Govt. PG Ayurvedic College & Hospital, Haridwar",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Shalakya Tantra",
+      "Panchakarma",
+      "Stree Roga-Prasuti Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 654,
+      "OBC": 683,
+      "EWS": 659,
+      "SC": 1760,
+      "ST": 3100
+    },
+    "source_url": "https://uau.ac.in/rishikul"
+  },
+  {
+    "id": "gurukul-haridwar",
+    "name": "Uttarakhand Ayurved University Gurukul Campus",
+    "shortName": "Gurukul Ayurved Haridwar",
+    "city": "Haridwar",
+    "state": "Uttarakhand",
+    "category": "General",
+    "closingRank": 350,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 350,
+      "OBC": 371,
+      "SC": 1820,
+      "ST": 3300,
+      "EWS": 480
+    },
+    "type": "State University Campus",
+    "topBranches": [
+      "Shalya Tantra",
+      "Panchakarma",
+      "Dravyaguna",
+      "Kayachikitsa",
+      "Samhita"
+    ],
+    "website": "https://uau.ac.in",
+    "college_name": "Uttarakhand Ayurved University Gurukul Campus",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Panchakarma",
+      "Dravyaguna",
+      "Kayachikitsa",
+      "Samhita"
+    ],
+    "last_year_closing_rank": {
+      "UR": 350,
+      "OBC": 371,
+      "EWS": 480,
+      "SC": 1820,
+      "ST": 3300
+    },
+    "source_url": "https://uau.ac.in"
+  },
+  {
+    "id": "gac-patna",
+    "name": "Government Ayurvedic College & Hospital, Patna",
+    "shortName": "GAC Patna",
+    "city": "Patna",
+    "state": "Bihar",
+    "category": "General",
+    "closingRank": 653,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 653,
+      "OBC": 699,
+      "SC": 1680,
+      "ST": 3100,
+      "EWS": 620
+    },
+    "type": "State Government (Bihar)",
+    "topBranches": [
+      "Kaumarabhritya",
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Swasthavritta and Yoga",
+      "Agada Tantra"
+    ],
+    "website": "https://gacpatna.bihar.gov.in",
+    "college_name": "Government Ayurvedic College & Hospital, Patna",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kaumarabhritya",
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Swasthavritta and Yoga",
+      "Agada Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 653,
+      "OBC": 699,
+      "EWS": 620,
+      "SC": 1680,
+      "ST": 3100
+    },
+    "source_url": "https://gacpatna.bihar.gov.in"
+  },
+  {
+    "id": "pk-sharma-bhopal",
+    "name": "Pt. Khushilal Sharma Govt. Autonomous Ayurved College",
+    "shortName": "PK Sharma Bhopal",
+    "city": "Bhopal",
+    "state": "Madhya Pradesh",
+    "category": "General",
+    "closingRank": 675,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 675,
+      "OBC": 727,
+      "SC": 1550,
+      "ST": 2850,
+      "EWS": 725
+    },
+    "type": "State Government Autonomous (MP)",
+    "topBranches": [
+      "Stree Roga-Prasuti Tantra",
+      "Kayachikitsa",
+      "Swasthavritta and Yoga",
+      "Rasashastra",
+      "Panchakarma"
+    ],
+    "website": "https://klsacbhopal.edu.in",
+    "college_name": "Pt. Khushilal Sharma Govt. Autonomous Ayurved College",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Kayachikitsa",
+      "Swasthavritta and Yoga",
+      "Rasashastra",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 675,
+      "OBC": 727,
+      "EWS": 725,
+      "SC": 1550,
+      "ST": 2850
+    },
+    "source_url": "https://klsacbhopal.edu.in"
+  },
+  {
+    "id": "gac-gwalior",
+    "name": "Govt. Ayurved College and Hospital, Gwalior",
+    "shortName": "GAC Gwalior",
+    "city": "Gwalior",
+    "state": "Madhya Pradesh",
+    "category": "General",
+    "closingRank": 727,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 727,
+      "OBC": 928,
+      "SC": 1950,
+      "ST": 3400,
+      "EWS": 810
+    },
+    "type": "State Government (MP)",
+    "topBranches": [
+      "Kriya Sharira",
+      "Kayachikitsa",
+      "Panchakarma",
+      "Dravyaguna",
+      "Shalya Tantra"
+    ],
+    "website": "https://gacgwalior.mp.gov.in",
+    "college_name": "Govt. Ayurved College and Hospital, Gwalior",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kriya Sharira",
+      "Kayachikitsa",
+      "Panchakarma",
+      "Dravyaguna",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 727,
+      "OBC": 928,
+      "EWS": 810,
+      "SC": 1950,
+      "ST": 3400
+    },
+    "source_url": "https://gacgwalior.mp.gov.in"
+  },
+  {
+    "id": "dhanwantari-ujjain",
+    "name": "Govt. Dhanwantari Ayurved College & Hospital, Ujjain",
+    "shortName": "Dhanwantari Ujjain",
+    "city": "Ujjain",
+    "state": "Madhya Pradesh",
+    "category": "General",
+    "closingRank": 751,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 751,
+      "OBC": 750,
+      "SC": 1164,
+      "ST": 3500,
+      "EWS": 820
+    },
+    "type": "State Government (MP)",
+    "topBranches": [
+      "Stree Roga-Prasuti Tantra",
+      "Dravyaguna Vijnana",
+      "Rachana Sharira",
+      "Kayachikitsa",
+      "Panchakarma"
+    ],
+    "website": "https://gdacujjain.mp.gov.in",
+    "college_name": "Govt. Dhanwantari Ayurved College & Hospital, Ujjain",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Dravyaguna Vijnana",
+      "Rachana Sharira",
+      "Kayachikitsa",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 751,
+      "OBC": 750,
+      "EWS": 820,
+      "SC": 1164,
+      "ST": 3500
+    },
+    "source_url": "https://gdacujjain.mp.gov.in"
+  },
+  {
+    "id": "gac-rewa",
+    "name": "Government Autonomous Ayurved College, Rewa",
+    "shortName": "GAC Rewa",
+    "city": "Rewa",
+    "state": "Madhya Pradesh",
+    "category": "General",
+    "closingRank": 848,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 848,
+      "OBC": 910,
+      "SC": 2100,
+      "ST": 3600,
+      "EWS": 880
+    },
+    "type": "State Government Autonomous (MP)",
+    "topBranches": [
+      "Ayurveda Samhita and Siddhanta",
+      "Kayachikitsa",
+      "Dravyaguna",
+      "Shalya",
+      "Panchakarma"
+    ],
+    "website": "https://gacrewa.mp.gov.in",
+    "college_name": "Government Autonomous Ayurved College, Rewa",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Ayurveda Samhita and Siddhanta",
+      "Kayachikitsa",
+      "Dravyaguna",
+      "Shalya",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 848,
+      "OBC": 910,
+      "EWS": 880,
+      "SC": 2100,
+      "ST": 3600
+    },
+    "source_url": "https://gacrewa.mp.gov.in"
+  },
+  {
+    "id": "mmm-udaipur",
+    "name": "Madan Mohan Malviya Govt. Ayurved College, Udaipur",
+    "shortName": "MMM Udaipur",
+    "city": "Udaipur",
+    "state": "Rajasthan",
+    "category": "General",
+    "closingRank": 532,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 532,
+      "OBC": 589,
+      "SC": 1490,
+      "ST": 2900,
+      "EWS": 429
+    },
+    "type": "State Government (Rajasthan)",
+    "topBranches": [
+      "Kaumarabhritya",
+      "Shalya Tantra",
+      "Shalakya Tantra",
+      "Ayurveda Samhita",
+      "Roganidana"
+    ],
+    "website": "https://mmmgac.rajasthan.gov.in",
+    "college_name": "Madan Mohan Malviya Govt. Ayurved College, Udaipur",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kaumarabhritya",
+      "Shalya Tantra",
+      "Shalakya Tantra",
+      "Ayurveda Samhita",
+      "Roganidana"
+    ],
+    "last_year_closing_rank": {
+      "UR": 532,
+      "OBC": 589,
+      "EWS": 429,
+      "SC": 1490,
+      "ST": 2900
+    },
+    "source_url": "https://mmmgac.rajasthan.gov.in"
+  },
+  {
+    "id": "dsrrau-jodhpur",
+    "name": "University College of Ayurveda, DSRRAU Jodhpur",
+    "shortName": "DSRRAU Jodhpur",
+    "city": "Jodhpur",
+    "state": "Rajasthan",
+    "category": "General",
+    "closingRank": 616,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 616,
+      "OBC": 720,
+      "SC": 1914,
+      "ST": 3350,
+      "EWS": 640
+    },
+    "type": "State University College",
+    "topBranches": [
+      "Stree Roga-Prasuti Tantra",
+      "Panchakarma",
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Swasthavritta and Yoga"
+    ],
+    "website": "https://dsrrau.info",
+    "college_name": "University College of Ayurveda, DSRRAU Jodhpur",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Panchakarma",
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Swasthavritta and Yoga"
+    ],
+    "last_year_closing_rank": {
+      "UR": 616,
+      "OBC": 720,
+      "EWS": 640,
+      "SC": 1914,
+      "ST": 3350
+    },
+    "source_url": "https://dsrrau.info"
+  },
+  {
+    "id": "gamc-bangalore",
+    "name": "Government Ayurveda Medical College, Bangalore",
+    "shortName": "GAMC Bengaluru",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "category": "General",
+    "closingRank": 783,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 783,
+      "OBC": 860,
+      "SC": 2131,
+      "ST": 3650,
+      "EWS": 790
+    },
+    "type": "State Government (Karnataka)",
+    "topBranches": [
+      "Shalya Tantra",
+      "Dravyaguna Vijnana",
+      "Roganidana",
+      "Rasashastra",
+      "Panchakarma"
+    ],
+    "website": "https://gamcbangalore.karnataka.gov.in",
+    "college_name": "Government Ayurveda Medical College, Bangalore",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Dravyaguna Vijnana",
+      "Roganidana",
+      "Rasashastra",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 783,
+      "OBC": 860,
+      "EWS": 790,
+      "SC": 2131,
+      "ST": 3650
+    },
+    "source_url": "https://gamcbangalore.karnataka.gov.in"
+  },
+  {
+    "id": "gamc-mysuru",
+    "name": "Government Ayurveda Medical College & Hospital, Mysuru",
+    "shortName": "GAMC Mysuru",
+    "city": "Mysuru",
+    "state": "Karnataka",
+    "category": "General",
+    "closingRank": 658,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 658,
+      "OBC": 903,
+      "SC": 2250,
+      "ST": 3800,
+      "EWS": 750
+    },
+    "type": "State Government (Karnataka)",
+    "topBranches": [
+      "Ayurveda Samhita and Siddhanta",
+      "Kayachikitsa",
+      "Swasthavritta and Yoga",
+      "Dravyaguna",
+      "Shalya Tantra"
+    ],
+    "website": "https://gamcmysore.org",
+    "college_name": "Government Ayurveda Medical College & Hospital, Mysuru",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Ayurveda Samhita and Siddhanta",
+      "Kayachikitsa",
+      "Swasthavritta and Yoga",
+      "Dravyaguna",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 658,
+      "OBC": 903,
+      "EWS": 750,
+      "SC": 2250,
+      "ST": 3800
+    },
+    "source_url": "https://gamcmysore.org"
+  },
+  {
+    "id": "taranath-bellary",
+    "name": "Taranath Government Ayurvedic Medical College, Ballari",
+    "shortName": "Taranath Ballari",
+    "city": "Ballari",
+    "state": "Karnataka",
+    "category": "General",
+    "closingRank": 587,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 587,
+      "OBC": 757,
+      "SC": 2159,
+      "ST": 3900,
+      "EWS": 1028
+    },
+    "type": "State Government (Karnataka)",
+    "topBranches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Rasashastra",
+      "Dravyaguna Vijnana",
+      "Shalya Tantra"
+    ],
+    "website": "https://tgamcbellary.karnataka.gov.in",
+    "college_name": "Taranath Government Ayurvedic Medical College, Ballari",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Rasashastra",
+      "Dravyaguna Vijnana",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 587,
+      "OBC": 757,
+      "EWS": 1028,
+      "SC": 2159,
+      "ST": 3900
+    },
+    "source_url": "https://tgamcbellary.karnataka.gov.in"
+  },
+  {
+    "id": "sv-tirupati",
+    "name": "Sri Venkateswara Ayurvedic College, Tirupati",
+    "shortName": "SV Ayurvedic Tirupati",
+    "city": "Tirupati",
+    "state": "Andhra Pradesh",
+    "category": "General",
+    "closingRank": 474,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 474,
+      "OBC": 580,
+      "SC": 1650,
+      "ST": 3100,
+      "EWS": 510
+    },
+    "type": "TTD Managed / State Govt",
+    "topBranches": [
+      "Kaumarabhritya",
+      "Shalya Tantra",
+      "Panchakarma",
+      "Rasashastra",
+      "Kayachikitsa"
+    ],
+    "website": "https://svayurvediccollege.edu.in",
+    "college_name": "Sri Venkateswara Ayurvedic College, Tirupati",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kaumarabhritya",
+      "Shalya Tantra",
+      "Panchakarma",
+      "Rasashastra",
+      "Kayachikitsa"
+    ],
+    "last_year_closing_rank": {
+      "UR": 474,
+      "OBC": 580,
+      "EWS": 510,
+      "SC": 1650,
+      "ST": 3100
+    },
+    "source_url": "https://svayurvediccollege.edu.in"
+  },
+  {
+    "id": "nrs-vijayawada",
+    "name": "Dr. N.R.S. Government Ayurvedic College, Vijayawada",
+    "shortName": "Dr NRS Vijayawada",
+    "city": "Vijayawada",
+    "state": "Andhra Pradesh",
+    "category": "General",
+    "closingRank": 540,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 540,
+      "OBC": 965,
+      "SC": 1950,
+      "ST": 3400,
+      "EWS": 780
+    },
+    "type": "State Government (AP)",
+    "topBranches": [
+      "Kayachikitsa",
+      "Dravyaguna Vijnana",
+      "Rasashastra",
+      "Panchakarma",
+      "Shalya Tantra"
+    ],
+    "website": "https://nrsgac.ap.gov.in",
+    "college_name": "Dr. N.R.S. Government Ayurvedic College, Vijayawada",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Dravyaguna Vijnana",
+      "Rasashastra",
+      "Panchakarma",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 540,
+      "OBC": 965,
+      "EWS": 780,
+      "SC": 1950,
+      "ST": 3400
+    },
+    "source_url": "https://nrsgac.ap.gov.in"
+  },
+  {
+    "id": "brkr-hyderabad",
+    "name": "Dr. B.R.K.R. Govt. Ayurvedic Medical College, Hyderabad",
+    "shortName": "BRKR Hyderabad",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "category": "General",
+    "closingRank": 827,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 827,
+      "OBC": 999,
+      "SC": 2200,
+      "ST": 3900,
+      "EWS": 870
+    },
+    "type": "State Government (Telangana)",
+    "topBranches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Dravyaguna Vijnana",
+      "Shalakya Tantra",
+      "Ayurveda Samhita"
+    ],
+    "website": "https://brkr.telangana.gov.in",
+    "college_name": "Dr. B.R.K.R. Govt. Ayurvedic Medical College, Hyderabad",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Dravyaguna Vijnana",
+      "Shalakya Tantra",
+      "Ayurveda Samhita"
+    ],
+    "last_year_closing_rank": {
+      "UR": 827,
+      "OBC": 999,
+      "EWS": 870,
+      "SC": 2200,
+      "ST": 3900
+    },
+    "source_url": "https://brkr.telangana.gov.in"
+  },
+  {
+    "id": "gopabandhu-puri",
+    "name": "Gopabandhu Ayurveda Mahavidyalaya, Puri",
+    "shortName": "Gopabandhu Puri",
+    "city": "Puri",
+    "state": "Odisha",
+    "category": "General",
+    "closingRank": 716,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 716,
+      "OBC": 995,
+      "SC": 2350,
+      "ST": 6538,
+      "EWS": 850
+    },
+    "type": "State Government (Odisha)",
+    "topBranches": [
+      "Kayachikitsa",
+      "Rasashastra & Bhaishajya Kalpana",
+      "Stree Roga-Prasuti Tantra",
+      "Panchakarma",
+      "Shalya Tantra"
+    ],
+    "website": "https://gam.odisha.gov.in",
+    "college_name": "Gopabandhu Ayurveda Mahavidyalaya, Puri",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Rasashastra & Bhaishajya Kalpana",
+      "Stree Roga-Prasuti Tantra",
+      "Panchakarma",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 716,
+      "OBC": 995,
+      "EWS": 850,
+      "SC": 2350,
+      "ST": 6538
+    },
+    "source_url": "https://gam.odisha.gov.in"
+  },
+  {
+    "id": "gac-balangir",
+    "name": "Government Ayurvedic College & Hospital, Balangir",
+    "shortName": "GAC Balangir",
+    "city": "Balangir",
+    "state": "Odisha",
+    "category": "General",
+    "closingRank": 728,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 728,
+      "OBC": 920,
+      "SC": 2663,
+      "ST": 4200,
+      "EWS": 969
+    },
+    "type": "State Government (Odisha)",
+    "topBranches": [
+      "Roganidana-Vikritivijnana",
+      "Ayurveda Samhita and Siddhanta",
+      "Kayachikitsa",
+      "Dravyaguna",
+      "Shalya Tantra"
+    ],
+    "website": "https://gacbalangir.odisha.gov.in",
+    "college_name": "Government Ayurvedic College & Hospital, Balangir",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Roganidana-Vikritivijnana",
+      "Ayurveda Samhita and Siddhanta",
+      "Kayachikitsa",
+      "Dravyaguna",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 728,
+      "OBC": 920,
+      "EWS": 969,
+      "SC": 2663,
+      "ST": 4200
+    },
+    "source_url": "https://gacbalangir.odisha.gov.in"
+  },
+  {
+    "id": "gac-guwahati",
+    "name": "Government Ayurvedic College, Guwahati",
+    "shortName": "GAC Guwahati",
+    "city": "Guwahati",
+    "state": "Assam",
+    "category": "General",
+    "closingRank": 945,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 945,
+      "OBC": 892,
+      "SC": 2550,
+      "ST": 5655,
+      "EWS": 1058
+    },
+    "type": "State Government (Assam)",
+    "topBranches": [
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Ayurveda Samhita",
+      "Stree Roga-Prasuti Tantra",
+      "Rachana Sharira"
+    ],
+    "website": "https://gacassam.nic.in",
+    "college_name": "Government Ayurvedic College, Guwahati",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Ayurveda Samhita",
+      "Stree Roga-Prasuti Tantra",
+      "Rachana Sharira"
+    ],
+    "last_year_closing_rank": {
+      "UR": 945,
+      "OBC": 892,
+      "EWS": 1058,
+      "SC": 2550,
+      "ST": 5655
+    },
+    "source_url": "https://gacassam.nic.in"
+  },
+  {
+    "id": "gac-patiala",
+    "name": "Government Ayurvedic College & Hospital, Patiala",
+    "shortName": "GAC Patiala",
+    "city": "Patiala",
+    "state": "Punjab",
+    "category": "General",
+    "closingRank": 791,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 791,
+      "OBC": 890,
+      "SC": 2300,
+      "ST": 3950,
+      "EWS": 820
+    },
+    "type": "State Government (Punjab)",
+    "topBranches": [
+      "Dravyaguna Vijnana",
+      "Kayachikitsa",
+      "Rasashastra",
+      "Panchakarma",
+      "Shalya Tantra"
+    ],
+    "website": "https://gacpatiala.punjab.gov.in",
+    "college_name": "Government Ayurvedic College & Hospital, Patiala",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Dravyaguna Vijnana",
+      "Kayachikitsa",
+      "Rasashastra",
+      "Panchakarma",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 791,
+      "OBC": 890,
+      "EWS": 820,
+      "SC": 2300,
+      "ST": 3950
+    },
+    "source_url": "https://gacpatiala.punjab.gov.in"
+  },
+  {
+    "id": "skgac-kurukshetra",
+    "name": "Shri Krishna Govt. Ayurvedic College & Hospital, Kurukshetra",
+    "shortName": "SKGAC Kurukshetra",
+    "city": "Kurukshetra",
+    "state": "Haryana",
+    "category": "General",
+    "closingRank": 846,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 846,
+      "OBC": 867,
+      "SC": 1789,
+      "ST": 4800,
+      "EWS": 831
+    },
+    "type": "State Government (Haryana)",
+    "topBranches": [
+      "Kaumarabhritya",
+      "Kayachikitsa",
+      "Shalakya Tantra",
+      "Swasthavritta and Yoga",
+      "Rasashastra"
+    ],
+    "website": "https://skau.ac.in",
+    "college_name": "Shri Krishna Govt. Ayurvedic College & Hospital, Kurukshetra",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kaumarabhritya",
+      "Kayachikitsa",
+      "Shalakya Tantra",
+      "Swasthavritta and Yoga",
+      "Rasashastra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 846,
+      "OBC": 867,
+      "EWS": 831,
+      "SC": 1789,
+      "ST": 4800
+    },
+    "source_url": "https://skau.ac.in"
+  },
+  {
+    "id": "bkgac-sonipat",
+    "name": "Shri Maru Singh Memorial Institute of Ayurved (BPSMV)",
+    "shortName": "MSM Institute Sonipat",
+    "city": "Sonipat",
+    "state": "Haryana",
+    "category": "General",
+    "closingRank": 671,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 671,
+      "OBC": 768,
+      "SC": 1850,
+      "ST": 3400,
+      "EWS": 720
+    },
+    "type": "State University (Women Only)",
+    "topBranches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Kaumarbhritya",
+      "Dravyaguna",
+      "Samhita"
+    ],
+    "website": "https://bpsmv.ac.in",
+    "college_name": "Shri Maru Singh Memorial Institute of Ayurved (BPSMV)",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Kaumarbhritya",
+      "Dravyaguna",
+      "Samhita"
+    ],
+    "last_year_closing_rank": {
+      "UR": 671,
+      "OBC": 768,
+      "EWS": 720,
+      "SC": 1850,
+      "ST": 3400
+    },
+    "source_url": "https://bpsmv.ac.in"
+  },
+  {
+    "id": "npa-raipur",
+    "name": "Shri Narayan Prasad Awasthi Govt. Ayurveda College, Raipur",
+    "shortName": "NPA GAC Raipur",
+    "city": "Raipur",
+    "state": "Chhattisgarh",
+    "category": "General",
+    "closingRank": 665,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 665,
+      "OBC": 553,
+      "SC": 1850,
+      "ST": 5053,
+      "EWS": 690
+    },
+    "type": "State Government (Chhattisgarh)",
+    "topBranches": [
+      "Shalya Tantra",
+      "Kaumarabhritya",
+      "Kayachikitsa",
+      "Kriya Sharira",
+      "Rachana Sharira"
+    ],
+    "website": "https://gacraipur.cg.nic.in",
+    "college_name": "Shri Narayan Prasad Awasthi Govt. Ayurveda College, Raipur",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Kaumarabhritya",
+      "Kayachikitsa",
+      "Kriya Sharira",
+      "Rachana Sharira"
+    ],
+    "last_year_closing_rank": {
+      "UR": 665,
+      "OBC": 553,
+      "EWS": 690,
+      "SC": 1850,
+      "ST": 5053
+    },
+    "source_url": "https://gacraipur.cg.nic.in"
+  },
+  {
+    "id": "rg-paprola",
+    "name": "Rajiv Gandhi Govt. Post Graduate Ayurvedic College, Paprola",
+    "shortName": "RG Paprola",
+    "city": "Kangra",
+    "state": "Himachal Pradesh",
+    "category": "General",
+    "closingRank": 475,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 475,
+      "OBC": 1030,
+      "SC": 2150,
+      "ST": 3850,
+      "EWS": 962
+    },
+    "type": "State Government (HP)",
+    "topBranches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Agada Tantra",
+      "Roganidana",
+      "Rasashastra"
+    ],
+    "website": "https://paprolaayurveda.org",
+    "college_name": "Rajiv Gandhi Govt. Post Graduate Ayurvedic College, Paprola",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Agada Tantra",
+      "Roganidana",
+      "Rasashastra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 475,
+      "OBC": 1030,
+      "EWS": 962,
+      "SC": 2150,
+      "ST": 3850
+    },
+    "source_url": "https://paprolaayurveda.org"
+  },
+  {
+    "id": "ipgaer-kolkata",
+    "name": "Institute of Post-Graduate Ayurved Education and Research",
+    "shortName": "IPGAE&R Kolkata",
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "category": "General",
+    "closingRank": 840,
+    "quota": "AIQ",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 840,
+      "OBC": 784,
+      "SC": 2450,
+      "ST": 4100,
+      "EWS": 860
+    },
+    "type": "State Government (West Bengal)",
+    "topBranches": [
+      "Kayachikitsa",
+      "Dravyaguna Vijnana",
+      "Roganidana",
+      "Panchakarma",
+      "Samhita"
+    ],
+    "website": "https://ipgaer.wb.gov.in",
+    "college_name": "Institute of Post-Graduate Ayurved Education and Research",
+    "quota_type": "AIQ",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Dravyaguna Vijnana",
+      "Roganidana",
+      "Panchakarma",
+      "Samhita"
+    ],
+    "last_year_closing_rank": {
+      "UR": 840,
+      "OBC": 784,
+      "EWS": 860,
+      "SC": 2450,
+      "ST": 4100
+    },
+    "source_url": "https://ipgaer.wb.gov.in"
+  },
+  {
+    "id": "bvdu-pune",
+    "name": "Bharati Vidyapeeth Deemed University, College of Ayurved",
+    "shortName": "BVDU Pune",
+    "city": "Pune",
+    "state": "Maharashtra",
+    "category": "General",
+    "closingRank": 7640,
+    "quota": "Deemed/Mgt",
+    "institutionType": "Deemed",
+    "categoryClosingRanks": {
+      "General": 7640,
+      "OBC": 7886,
+      "SC": 7149,
+      "ST": 9800,
+      "EWS": 5011
+    },
+    "type": "NAAC A+ Deemed University",
+    "topBranches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Kaumarabhritya",
+      "Panchakarma",
+      "Kayachikitsa"
+    ],
+    "website": "https://coayurved.bharatividyapeeth.edu",
+    "college_name": "Bharati Vidyapeeth Deemed University, College of Ayurved",
+    "quota_type": "Deemed",
+    "college_type": "Deemed",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Kaumarabhritya",
+      "Panchakarma",
+      "Kayachikitsa"
+    ],
+    "last_year_closing_rank": {
+      "UR": 7640,
+      "OBC": 7886,
+      "EWS": 5011,
+      "SC": 7149,
+      "ST": 9800
+    },
+    "source_url": "https://coayurved.bharatividyapeeth.edu"
+  },
+  {
+    "id": "dypatil-pune",
+    "name": "Dr. D.Y. Patil College of Ayurved & Research Centre, Pimpri",
+    "shortName": "DY Patil Pune",
+    "city": "Pune",
+    "state": "Maharashtra",
+    "category": "General",
+    "closingRank": 8371,
+    "quota": "Deemed/Mgt",
+    "institutionType": "Deemed",
+    "categoryClosingRanks": {
+      "General": 8371,
+      "OBC": 8423,
+      "SC": 8420,
+      "ST": 11500,
+      "EWS": 7802
+    },
+    "type": "NAAC A++ Deemed University",
+    "topBranches": [
+      "Stree Roga-Prasuti Tantra",
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Kaumarabhritya",
+      "Panchakarma"
+    ],
+    "website": "https://ayurved.dpu.edu.in",
+    "college_name": "Dr. D.Y. Patil College of Ayurved & Research Centre, Pimpri",
+    "quota_type": "Deemed",
+    "college_type": "Deemed",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Kaumarabhritya",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 8371,
+      "OBC": 8423,
+      "EWS": 7802,
+      "SC": 8420,
+      "ST": 11500
+    },
+    "source_url": "https://ayurved.dpu.edu.in"
+  },
+  {
+    "id": "dypatil-mumbai",
+    "name": "Padamshri Dr. D.Y. Patil College of Ayurved, Navi Mumbai",
+    "shortName": "DY Patil Navi Mumbai",
+    "city": "Navi Mumbai",
+    "state": "Maharashtra",
+    "category": "General",
+    "closingRank": 8618,
+    "quota": "Deemed/Mgt",
+    "institutionType": "Deemed",
+    "categoryClosingRanks": {
+      "General": 8618,
+      "OBC": 8656,
+      "SC": 9850,
+      "ST": 12500,
+      "EWS": 6089
+    },
+    "type": "NAAC A+ Deemed University",
+    "topBranches": [
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Kaumarabhritya",
+      "Shalakya Tantra",
+      "Dravyaguna Vijnana"
+    ],
+    "website": "https://dypatil.edu/schools/ayurveda",
+    "college_name": "Padamshri Dr. D.Y. Patil College of Ayurved, Navi Mumbai",
+    "quota_type": "Deemed",
+    "college_type": "Deemed",
+    "branches": [
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Kaumarabhritya",
+      "Shalakya Tantra",
+      "Dravyaguna Vijnana"
+    ],
+    "last_year_closing_rank": {
+      "UR": 8618,
+      "OBC": 8656,
+      "EWS": 6089,
+      "SC": 9850,
+      "ST": 12500
+    },
+    "source_url": "https://dypatil.edu/schools/ayurveda"
+  },
+  {
+    "id": "kle-belagavi",
+    "name": "KLE University Shri B.M. Kankanawadi Ayurved Mahavidyalaya",
+    "shortName": "KLE Belagavi",
+    "city": "Belagavi",
+    "state": "Karnataka",
+    "category": "General",
+    "closingRank": 8703,
+    "quota": "Deemed/Mgt",
+    "institutionType": "Deemed",
+    "categoryClosingRanks": {
+      "General": 8703,
+      "OBC": 8026,
+      "SC": 7263,
+      "ST": 10500,
+      "EWS": 7501
+    },
+    "type": "NAAC A+ Deemed University",
+    "topBranches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Rasayana & Vajikarana"
+    ],
+    "website": "https://klesbmkam.edu.in",
+    "college_name": "KLE University Shri B.M. Kankanawadi Ayurved Mahavidyalaya",
+    "quota_type": "Deemed",
+    "college_type": "Deemed",
+    "branches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Rasayana & Vajikarana"
+    ],
+    "last_year_closing_rank": {
+      "UR": 8703,
+      "OBC": 8026,
+      "EWS": 7501,
+      "SC": 7263,
+      "ST": 10500
+    },
+    "source_url": "https://klesbmkam.edu.in"
+  },
+  {
+    "id": "mgac-wardha",
+    "name": "Mahatma Gandhi Ayurved College Hospital & Research Centre",
+    "shortName": "MGAC Wardha",
+    "city": "Wardha",
+    "state": "Maharashtra",
+    "category": "General",
+    "closingRank": 7816,
+    "quota": "Deemed/Mgt",
+    "institutionType": "Deemed",
+    "categoryClosingRanks": {
+      "General": 7816,
+      "OBC": 7684,
+      "SC": 10540,
+      "ST": 13500,
+      "EWS": 7200
+    },
+    "type": "Datta Meghe Institute (Deemed)",
+    "topBranches": [
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Stree Roga-Prasuti Tantra",
+      "Kaumarabhritya",
+      "Panchakarma"
+    ],
+    "website": "https://dmiher.edu.in/mgacrc",
+    "college_name": "Mahatma Gandhi Ayurved College Hospital & Research Centre",
+    "quota_type": "Deemed",
+    "college_type": "Deemed",
+    "branches": [
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Stree Roga-Prasuti Tantra",
+      "Kaumarabhritya",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 7816,
+      "OBC": 7684,
+      "EWS": 7200,
+      "SC": 10540,
+      "ST": 13500
+    },
+    "source_url": "https://dmiher.edu.in/mgacrc"
+  },
+  {
+    "id": "amrita-kerala",
+    "name": "Amrita School of Ayurveda, Amrita Vishwa Vidyapeetham",
+    "shortName": "Amrita Ayurveda Kollam",
+    "city": "Kollam",
+    "state": "Kerala",
+    "category": "General",
+    "closingRank": 8099,
+    "quota": "Deemed/Mgt",
+    "institutionType": "Deemed",
+    "categoryClosingRanks": {
+      "General": 8099,
+      "OBC": 10429,
+      "SC": 13772,
+      "ST": 15500,
+      "EWS": 9857
+    },
+    "type": "NAAC A++ Deemed University",
+    "topBranches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Kaumarabhritya",
+      "Kayachikitsa",
+      "Panchakarma"
+    ],
+    "website": "https://amrita.edu/school/ayurveda",
+    "college_name": "Amrita School of Ayurveda, Amrita Vishwa Vidyapeetham",
+    "quota_type": "Deemed",
+    "college_type": "Deemed",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Kaumarabhritya",
+      "Kayachikitsa",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 8099,
+      "OBC": 10429,
+      "EWS": 9857,
+      "SC": 13772,
+      "ST": 15500
+    },
+    "source_url": "https://amrita.edu/school/ayurveda"
+  },
+  {
+    "id": "sjsac-chennai",
+    "name": "Sri Jayendra Saraswathi Ayurveda College and Hospital",
+    "shortName": "SJSAC Chennai",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "category": "General",
+    "closingRank": 8351,
+    "quota": "Deemed/Mgt",
+    "institutionType": "Deemed",
+    "categoryClosingRanks": {
+      "General": 8351,
+      "OBC": 6610,
+      "SC": 11200,
+      "ST": 14800,
+      "EWS": 8464
+    },
+    "type": "SCSVMV Deemed University",
+    "topBranches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Panchakarma",
+      "Rasashastra"
+    ],
+    "website": "https://sjsach.org.in",
+    "college_name": "Sri Jayendra Saraswathi Ayurveda College and Hospital",
+    "quota_type": "Deemed",
+    "college_type": "Deemed",
+    "branches": [
+      "Stree Roga-Prasuti Tantra",
+      "Shalya Tantra",
+      "Kayachikitsa",
+      "Panchakarma",
+      "Rasashastra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 8351,
+      "OBC": 6610,
+      "EWS": 8464,
+      "SC": 11200,
+      "ST": 14800
+    },
+    "source_url": "https://sjsach.org.in"
+  },
+  {
+    "id": "patanjali-haridwar",
+    "name": "Patanjali Bhartiya Ayurvigyan Evam Anusandhan Sansthan",
+    "shortName": "Patanjali Haridwar",
+    "city": "Haridwar",
+    "state": "Uttarakhand",
+    "category": "General",
+    "closingRank": 3850,
+    "quota": "Deemed/Mgt",
+    "institutionType": "Private",
+    "categoryClosingRanks": {
+      "General": 3850,
+      "OBC": 4600,
+      "SC": 6800,
+      "ST": 8900,
+      "EWS": 4200
+    },
+    "type": "Premier Private University",
+    "topBranches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Shalya Tantra",
+      "Dravyaguna Vijnana",
+      "Swasthavritta"
+    ],
+    "website": "https://patanjaliayurved.org",
+    "college_name": "Patanjali Bhartiya Ayurvigyan Evam Anusandhan Sansthan",
+    "quota_type": "Deemed",
+    "college_type": "Private",
+    "branches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Shalya Tantra",
+      "Dravyaguna Vijnana",
+      "Swasthavritta"
+    ],
+    "last_year_closing_rank": {
+      "UR": 3850,
+      "OBC": 4600,
+      "EWS": 4200,
+      "SC": 6800,
+      "ST": 8900
+    },
+    "source_url": "https://patanjaliayurved.org"
+  },
+  {
+    "id": "sac-lucknow-state",
+    "name": "State Ayurvedic College & Hospital, Lucknow (UP State Quota - AP01)",
+    "shortName": "State Ayurved Lucknow (UP State)",
+    "city": "Lucknow",
+    "state": "Uttar Pradesh",
+    "category": "General",
+    "closingRank": 1120,
+    "quota": "State",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 1120,
+      "OBC": 1621,
+      "SC": 3477,
+      "ST": 6482,
+      "EWS": 1247
+    },
+    "type": "UP State AYUSH Counseling (85%)",
+    "topBranches": [
+      "Prasuti Tantra Evam Stree Roga",
+      "Kaya Chikitsa",
+      "Kaumar Bhritta",
+      "Samhita Evam Siddhant",
+      "Ras Shastra"
+    ],
+    "website": "https://saclucknow.in",
+    "college_name": "State Ayurvedic College & Hospital, Lucknow (UP State Quota - AP01)",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Prasuti Tantra Evam Stree Roga",
+      "Kaya Chikitsa",
+      "Kaumar Bhritta",
+      "Samhita Evam Siddhant",
+      "Ras Shastra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 1120,
+      "OBC": 1621,
+      "EWS": 1247,
+      "SC": 3477,
+      "ST": 6482
+    },
+    "source_url": "https://saclucknow.in"
+  },
+  {
+    "id": "gac-varanasi-state",
+    "name": "Government Ayurveda College, Chaukaghat, Varanasi (UP State Quota - AP03)",
+    "shortName": "GAC Varanasi (UP State)",
+    "city": "Varanasi",
+    "state": "Uttar Pradesh",
+    "category": "General",
+    "closingRank": 1189,
+    "quota": "State",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 1189,
+      "OBC": 1656,
+      "SC": 3629,
+      "ST": 5800,
+      "EWS": 874
+    },
+    "type": "UP State AYUSH Counseling (85%)",
+    "topBranches": [
+      "Shalya Tantra",
+      "Prasuti Tantra Evam Stree Roga",
+      "Panchakarma",
+      "Roga Nidan",
+      "Ras Shastra"
+    ],
+    "website": "https://gacvaranasi.edu.in",
+    "college_name": "Government Ayurveda College, Chaukaghat, Varanasi (UP State Quota - AP03)",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Shalya Tantra",
+      "Prasuti Tantra Evam Stree Roga",
+      "Panchakarma",
+      "Roga Nidan",
+      "Ras Shastra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 1189,
+      "OBC": 1656,
+      "EWS": 874,
+      "SC": 3629,
+      "ST": 5800
+    },
+    "source_url": "https://gacvaranasi.edu.in"
+  },
+  {
+    "id": "lalit-hari-pilibhit-state",
+    "name": "Lalit Hari State PG Ayurveda College, Pilibhit (UP State Quota - AP02)",
+    "shortName": "Lalit Hari Pilibhit (UP State)",
+    "city": "Pilibhit",
+    "state": "Uttar Pradesh",
+    "category": "General",
+    "closingRank": 1347,
+    "quota": "State",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 1347,
+      "OBC": 1703,
+      "SC": 4044,
+      "ST": 6200,
+      "EWS": 1354
+    },
+    "type": "UP State AYUSH Counseling (85%)",
+    "topBranches": [
+      "Dravyaguna Vijnana",
+      "Rasashastra",
+      "Ayurveda Samhita",
+      "Kayachikitsa",
+      "Panchakarma"
+    ],
+    "website": "https://lalithari.up.gov.in",
+    "college_name": "Lalit Hari State PG Ayurveda College, Pilibhit (UP State Quota - AP02)",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Dravyaguna Vijnana",
+      "Rasashastra",
+      "Ayurveda Samhita",
+      "Kayachikitsa",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 1347,
+      "OBC": 1703,
+      "EWS": 1354,
+      "SC": 4044,
+      "ST": 6200
+    },
+    "source_url": "https://lalithari.up.gov.in"
+  },
+  {
+    "id": "skau-iasr-kurukshetra-state",
+    "name": "Institute For Ayurved Studies And Research, Kurukshetra (Haryana State Quota)",
+    "shortName": "IASR Kurukshetra (Haryana State)",
+    "city": "Kurukshetra",
+    "state": "Haryana",
+    "category": "General",
+    "closingRank": 1101,
+    "quota": "State",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 1101,
+      "OBC": 2387,
+      "SC": 4954,
+      "ST": 6500,
+      "EWS": 1639
+    },
+    "type": "Haryana State AYUSH Counseling (85%)",
+    "topBranches": [
+      "Prasuti Evum Stri Roga",
+      "Panchkarma",
+      "Shalya Tantra",
+      "Kaumarbhritya",
+      "Kayachikitsa"
+    ],
+    "website": "https://skau.ac.in",
+    "college_name": "Institute For Ayurved Studies And Research, Kurukshetra (Haryana State Quota)",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Prasuti Evum Stri Roga",
+      "Panchkarma",
+      "Shalya Tantra",
+      "Kaumarbhritya",
+      "Kayachikitsa"
+    ],
+    "last_year_closing_rank": {
+      "UR": 1101,
+      "OBC": 2387,
+      "EWS": 1639,
+      "SC": 4954,
+      "ST": 6500
+    },
+    "source_url": "https://skau.ac.in"
+  },
+  {
+    "id": "msm-sonipat-state",
+    "name": "MSM Institute of Ayurveda, BPSMV Khanpur Kalan (Haryana State Quota)",
+    "shortName": "MSM Institute Sonipat (Haryana State)",
+    "city": "Sonipat",
+    "state": "Haryana",
+    "category": "General",
+    "closingRank": 1278,
+    "quota": "State",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 1278,
+      "OBC": 4811,
+      "SC": 6980,
+      "ST": 7500,
+      "EWS": 2400
+    },
+    "type": "Haryana State (Women Only)",
+    "topBranches": [
+      "Kayachikitsa",
+      "Dravyaguna Vigyan",
+      "Panchakarma",
+      "Kaumarbhritya",
+      "Ayurveda Samhita"
+    ],
+    "website": "https://bpsmv.ac.in",
+    "college_name": "MSM Institute of Ayurveda, BPSMV Khanpur Kalan (Haryana State Quota)",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Dravyaguna Vigyan",
+      "Panchakarma",
+      "Kaumarbhritya",
+      "Ayurveda Samhita"
+    ],
+    "last_year_closing_rank": {
+      "UR": 1278,
+      "OBC": 4811,
+      "EWS": 2400,
+      "SC": 6980,
+      "ST": 7500
+    },
+    "source_url": "https://bpsmv.ac.in"
+  },
+  {
+    "id": "sdach-chandigarh",
+    "name": "Shri Dhanwantry Ayurvedic College & Hospital, Sector 46, Chandigarh",
+    "shortName": "SDAC&H Chandigarh",
+    "city": "Chandigarh",
+    "state": "Chandigarh",
+    "category": "General",
+    "closingRank": 1973,
+    "quota": "AIQ",
+    "institutionType": "Private",
+    "categoryClosingRanks": {
+      "General": 1973,
+      "OBC": 4205,
+      "SC": 6247,
+      "ST": 8500,
+      "EWS": 3305
+    },
+    "type": "Premier Chandigarh Institution",
+    "topBranches": [
+      "Prasuti Evum Stri Roga",
+      "Roga Nidan",
+      "Dravyaguna Vigyan",
+      "Ayurveda Samhita & Siddhant",
+      "Kayachikitsa"
+    ],
+    "website": "https://sdach.ac.in",
+    "college_name": "Shri Dhanwantry Ayurvedic College & Hospital, Sector 46, Chandigarh",
+    "quota_type": "AIQ",
+    "college_type": "Private",
+    "branches": [
+      "Prasuti Evum Stri Roga",
+      "Roga Nidan",
+      "Dravyaguna Vigyan",
+      "Ayurveda Samhita & Siddhant",
+      "Kayachikitsa"
+    ],
+    "last_year_closing_rank": {
+      "UR": 1973,
+      "OBC": 4205,
+      "EWS": 3305,
+      "SC": 6247,
+      "ST": 8500
+    },
+    "source_url": "https://sdach.ac.in"
+  },
+  {
+    "id": "baba-mastnath-rohtak",
+    "name": "Baba Mastnath Ayurvedic College & Hospital, Asthal Bohar, Rohtak",
+    "shortName": "Baba Mastnath Rohtak",
+    "city": "Rohtak",
+    "state": "Haryana",
+    "category": "General",
+    "closingRank": 4325,
+    "quota": "Deemed/Mgt",
+    "institutionType": "Private",
+    "categoryClosingRanks": {
+      "General": 4325,
+      "OBC": 7852,
+      "SC": 12308,
+      "ST": 16104,
+      "EWS": 6077
+    },
+    "type": "Private University College",
+    "topBranches": [
+      "Panchakarma",
+      "Kayachikitsa",
+      "Shalakya Netra",
+      "Agada Tantra",
+      "Kriya Sharir"
+    ],
+    "website": "https://bmu.ac.in/ayurveda",
+    "college_name": "Baba Mastnath Ayurvedic College & Hospital, Asthal Bohar, Rohtak",
+    "quota_type": "Deemed",
+    "college_type": "Private",
+    "branches": [
+      "Panchakarma",
+      "Kayachikitsa",
+      "Shalakya Netra",
+      "Agada Tantra",
+      "Kriya Sharir"
+    ],
+    "last_year_closing_rank": {
+      "UR": 4325,
+      "OBC": 7852,
+      "EWS": 6077,
+      "SC": 12308,
+      "ST": 16104
+    },
+    "source_url": "https://bmu.ac.in/ayurveda"
+  },
+  {
+    "id": "tibbia-delhi",
+    "name": "Ayurvedic & Unani Tibbia College, University of Delhi",
+    "shortName": "A&U Tibbia College Delhi",
+    "city": "Karol Bagh, New Delhi",
+    "state": "Delhi",
+    "quota": "State",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 285,
+      "OBC": 412,
+      "SC": 890,
+      "ST": 2100,
+      "EWS": 360
+    },
+    "type": "Delhi University Affiliated Govt College",
+    "topBranches": [
+      "Kriya Sharir",
+      "Dravyaguna",
+      "Kayachikitsa",
+      "Ayurveda Samhita & Siddhanta"
+    ],
+    "website": "https://autc.delhi.gov.in",
+    "college_name": "Ayurvedic & Unani Tibbia College, University of Delhi",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Kriya Sharir",
+      "Dravyaguna",
+      "Kayachikitsa",
+      "Ayurveda Samhita & Siddhanta"
+    ],
+    "last_year_closing_rank": {
+      "UR": 285,
+      "OBC": 412,
+      "EWS": 360,
+      "SC": 890,
+      "ST": 2100
+    },
+    "source_url": "https://autc.delhi.gov.in"
+  },
+  {
+    "id": "ymt-navi-mumbai",
+    "name": "YMT Ayurvedic Medical College & Hospital",
+    "shortName": "YMT Kharghar Navi Mumbai",
+    "city": "Navi Mumbai",
+    "state": "Maharashtra",
+    "quota": "State",
+    "institutionType": "Private",
+    "categoryClosingRanks": {
+      "General": 3450,
+      "OBC": 4820,
+      "SC": 6900,
+      "ST": 11200,
+      "EWS": 3980
+    },
+    "type": "MUHS Nashik Affiliated Private College",
+    "topBranches": [
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Panchakarma",
+      "Stri Roga",
+      "Rasa Shastra"
+    ],
+    "website": "https://ymtayurved.org",
+    "college_name": "YMT Ayurvedic Medical College & Hospital",
+    "quota_type": "State",
+    "college_type": "Private",
+    "branches": [
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Panchakarma",
+      "Stri Roga",
+      "Rasa Shastra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 3450,
+      "OBC": 4820,
+      "EWS": 3980,
+      "SC": 6900,
+      "ST": 11200
+    },
+    "source_url": "https://ymtayurved.org"
+  },
+  {
+    "id": "hadapsar-pune",
+    "name": "Sumatibhai Shah Ayurved Mahavidyalaya, Malwadi, Hadapsar",
+    "shortName": "SSAM Hadapsar Pune",
+    "city": "Pune",
+    "state": "Maharashtra",
+    "quota": "State",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 1820,
+      "OBC": 2450,
+      "SC": 4900,
+      "ST": 8500,
+      "EWS": 2200
+    },
+    "type": "Govt-Aided Maharashtra State Quota",
+    "topBranches": [
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Prasuti Tantra",
+      "Dravyaguna",
+      "Samhita"
+    ],
+    "website": "https://ssam.in",
+    "college_name": "Sumatibhai Shah Ayurved Mahavidyalaya, Malwadi, Hadapsar",
+    "quota_type": "State",
+    "college_type": "Govt-Aided",
+    "branches": [
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Prasuti Tantra",
+      "Dravyaguna",
+      "Samhita"
+    ],
+    "last_year_closing_rank": {
+      "UR": 1820,
+      "OBC": 2450,
+      "EWS": 2200,
+      "SC": 4900,
+      "ST": 8500
+    },
+    "source_url": "https://ssam.in"
+  },
+  {
+    "id": "jhansi-up",
+    "name": "Bundelkhand Government Ayurvedic College & Hospital",
+    "shortName": "Bundelkhand GAC Jhansi",
+    "city": "Jhansi",
+    "state": "Uttar Pradesh",
+    "quota": "State",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 1420,
+      "OBC": 1850,
+      "SC": 4250,
+      "ST": 7900,
+      "EWS": 1650
+    },
+    "type": "UP State Quota Govt College",
+    "topBranches": [
+      "Kayachikitsa",
+      "Dravyaguna",
+      "Roga Nidana",
+      "Shalya Tantra"
+    ],
+    "website": "https://bgachjhansi.org",
+    "college_name": "Bundelkhand Government Ayurvedic College & Hospital",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Dravyaguna",
+      "Roga Nidana",
+      "Shalya Tantra"
+    ],
+    "last_year_closing_rank": {
+      "UR": 1420,
+      "OBC": 1850,
+      "EWS": 1650,
+      "SC": 4250,
+      "ST": 7900
+    },
+    "source_url": "https://bgachjhansi.org"
+  },
+  {
+    "id": "yenepoya-mangalore",
+    "name": "Yenepoya Ayurveda Medical College & Hospital (Deemed)",
+    "shortName": "Yenepoya Ayurveda Mangalore",
+    "city": "Mangalore",
+    "state": "Karnataka",
+    "quota": "Deemed/Mgt",
+    "institutionType": "Deemed",
+    "categoryClosingRanks": {
+      "General": 8450,
+      "OBC": 9200,
+      "SC": 12500,
+      "ST": 15600,
+      "EWS": 8700
+    },
+    "type": "Deemed to be University",
+    "topBranches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Shalya Tantra",
+      "Kaumarbhritya"
+    ],
+    "website": "https://yenepoya.edu.in",
+    "college_name": "Yenepoya Ayurveda Medical College & Hospital (Deemed)",
+    "quota_type": "Deemed",
+    "college_type": "Deemed",
+    "branches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Shalya Tantra",
+      "Kaumarbhritya"
+    ],
+    "last_year_closing_rank": {
+      "UR": 8450,
+      "OBC": 9200,
+      "EWS": 8700,
+      "SC": 12500,
+      "ST": 15600
+    },
+    "source_url": "https://yenepoya.edu.in"
+  },
+  {
+    "id": "sheth-jp-bhavnagar",
+    "name": "Sheth J.P. Government Ayurved College",
+    "shortName": "Sheth JP GAC Bhavnagar",
+    "city": "Bhavnagar",
+    "state": "Gujarat",
+    "quota": "State",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 890,
+      "OBC": 1420,
+      "SC": 3800,
+      "ST": 6500,
+      "EWS": 1150
+    },
+    "type": "Gujarat State Quota Govt College",
+    "topBranches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Dravyaguna",
+      "Kaumarbhritya"
+    ],
+    "website": "https://shethjpgovtayurved.org",
+    "college_name": "Sheth J.P. Government Ayurved College",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Dravyaguna",
+      "Kaumarbhritya"
+    ],
+    "last_year_closing_rank": {
+      "UR": 890,
+      "OBC": 1420,
+      "EWS": 1150,
+      "SC": 3800,
+      "ST": 6500
+    },
+    "source_url": "https://shethjpgovtayurved.org"
+  },
+  {
+    "id": "rewa-mp",
+    "name": "Government Autonomous Ayurved College & Hospital, Rewa",
+    "shortName": "Govt Ayurved Rewa",
+    "city": "Rewa",
+    "state": "Madhya Pradesh",
+    "quota": "State",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 1280,
+      "OBC": 1750,
+      "SC": 3950,
+      "ST": 6200,
+      "EWS": 1480
+    },
+    "type": "MP Online State Quota Govt College",
+    "topBranches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Shalya Tantra",
+      "Roga Nidana"
+    ],
+    "website": "https://gaacrewa.org",
+    "college_name": "Government Autonomous Ayurved College & Hospital, Rewa",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Panchakarma",
+      "Shalya Tantra",
+      "Roga Nidana"
+    ],
+    "last_year_closing_rank": {
+      "UR": 1280,
+      "OBC": 1750,
+      "EWS": 1480,
+      "SC": 3950,
+      "ST": 6200
+    },
+    "source_url": "https://gaacrewa.org"
+  },
+  {
+    "id": "shyamadas-kolkata",
+    "name": "Institute of Post Graduate Ayurvedic Education & Research (IPGAE&R), Shyamadas",
+    "shortName": "IPGAER Shyamadas Kolkata",
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "quota": "State",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 940,
+      "OBC": 1390,
+      "SC": 3100,
+      "ST": 5800,
+      "EWS": 1180
+    },
+    "type": "West Bengal WBMCC State Govt College",
+    "topBranches": [
+      "Kayachikitsa",
+      "Dravyaguna",
+      "Rasa Shastra",
+      "Panchakarma"
+    ],
+    "website": "https://ipgaer.org",
+    "college_name": "Institute of Post Graduate Ayurvedic Education & Research (IPGAE&R), Shyamadas",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Dravyaguna",
+      "Rasa Shastra",
+      "Panchakarma"
+    ],
+    "last_year_closing_rank": {
+      "UR": 940,
+      "OBC": 1390,
+      "EWS": 1180,
+      "SC": 3100,
+      "ST": 5800
+    },
+    "source_url": "https://ipgaer.org"
+  },
+  {
+    "id": "sgt-gurugram",
+    "name": "Faculty of Indian Medical System, SGT University",
+    "shortName": "SGT University Gurugram",
+    "city": "Gurugram",
+    "state": "Haryana",
+    "quota": "Deemed/Mgt",
+    "institutionType": "Private",
+    "categoryClosingRanks": {
+      "General": 5200,
+      "OBC": 6800,
+      "SC": 9800,
+      "ST": 13400,
+      "EWS": 5600
+    },
+    "type": "Private University (NCR Region)",
+    "topBranches": [
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Prasuti Tantra",
+      "Panchakarma",
+      "Dravyaguna"
+    ],
+    "website": "https://sgtuniversity.ac.in",
+    "college_name": "Faculty of Indian Medical System, SGT University",
+    "quota_type": "Deemed",
+    "college_type": "Private",
+    "branches": [
+      "Kayachikitsa",
+      "Shalya Tantra",
+      "Prasuti Tantra",
+      "Panchakarma",
+      "Dravyaguna"
+    ],
+    "last_year_closing_rank": {
+      "UR": 5200,
+      "OBC": 6800,
+      "EWS": 5600,
+      "SC": 9800,
+      "ST": 13400
+    },
+    "source_url": "https://sgtuniversity.ac.in"
+  },
+  {
+    "id": "siwan-bihar",
+    "name": "Dayanand Ayurvedic Medical College & Hospital",
+    "shortName": "Dayanand AMC Siwan",
+    "city": "Siwan",
+    "state": "Bihar",
+    "quota": "State",
+    "institutionType": "Government",
+    "categoryClosingRanks": {
+      "General": 2100,
+      "OBC": 2900,
+      "SC": 5400,
+      "ST": 8200,
+      "EWS": 2400
+    },
+    "type": "Bihar State BCECEB Quota College",
+    "topBranches": [
+      "Kayachikitsa",
+      "Dravyaguna",
+      "Rasa Shastra",
+      "Samhita"
+    ],
+    "website": "https://damcsiwan.org",
+    "college_name": "Dayanand Ayurvedic Medical College & Hospital",
+    "quota_type": "State",
+    "college_type": "Govt",
+    "branches": [
+      "Kayachikitsa",
+      "Dravyaguna",
+      "Rasa Shastra",
+      "Samhita"
+    ],
+    "last_year_closing_rank": {
+      "UR": 2100,
+      "OBC": 2900,
+      "EWS": 2400,
+      "SC": 5400,
+      "ST": 8200
+    },
+    "source_url": "https://damcsiwan.org"
+  }
+]
