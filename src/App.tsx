@@ -154,12 +154,13 @@ export const App: React.FC = () => {
 
   // Fetch dynamic counselling updates and merge with manual_notices.json
   useEffect(() => {
-    const scrapedUrl = `${import.meta.env.BASE_URL}data/counselling_updates.json`;
-    const manualUrl = `${import.meta.env.BASE_URL}data/manual_notices.json`;
+    const cacheBuster = `?t=${Date.now()}`;
+    const scrapedUrl = `${import.meta.env.BASE_URL}data/counselling_updates.json${cacheBuster}`;
+    const manualUrl = `${import.meta.env.BASE_URL}data/manual_notices.json${cacheBuster}`;
 
     Promise.all([
-      fetch(scrapedUrl).then((r) => (r.ok ? r.json() : null)).catch(() => null),
-      fetch(manualUrl).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+      fetch(scrapedUrl, { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+      fetch(manualUrl, { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)).catch(() => null),
     ])
       .then(([scrapedData, manualData]) => {
         const liveManual = Array.isArray(manualData) && manualData.length > 0 
@@ -513,7 +514,11 @@ export const App: React.FC = () => {
       />
 
       {/* Floating 24/7 AI Counselor Chatbot & WhatsApp Helpline Widget */}
-      <CounselorChatbot />
+      <CounselorChatbot 
+        currentStudent={currentStudent}
+        preferences={studentPreferences}
+        feed={counsellingFeed}
+      />
 
     </div>
   );

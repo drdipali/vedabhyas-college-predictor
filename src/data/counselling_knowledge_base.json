@@ -1,0 +1,217 @@
+{
+  "last_updated": "2026-11-20T20:00:00+05:30",
+  "version": "2026.2",
+  "aaccc_central": {
+    "title": "AACCC Central Counselling (AIQ 15% & Central / Deemed Universities)",
+    "scope_and_quotas": "15% All India Quota (AIQ) seats in Government and Government-Aided Ayurveda, Unani, Siddha, and Homoeopathy colleges across all states; 100% seats in Central Universities and National Institutes (AIIA New Delhi, NIA Jaipur, ITRA Jamnagar, IMS BHU Varanasi, NEIAH Shillong); and 100% seats in Deemed Universities with ZERO domicile restrictions (open to candidates nationwide on merit).",
+    "fees_and_security_deposit": {
+      "aiq_govt_central_national": {
+        "non_refundable_registration_fee": "₹2,000 (UR / OBC-NCL / EWS) or ₹1,000 (SC / ST / PwBD)",
+        "refundable_security_deposit": "₹20,000",
+        "total_payable": "₹22,000 (UR/OBC/EWS) or ₹21,000 (SC/ST/PwBD)"
+      },
+      "deemed_universities": {
+        "non_refundable_registration_fee": "₹5,000 (All Categories)",
+        "refundable_security_deposit": "₹50,000",
+        "total_payable": "₹55,000"
+      },
+      "refund_rule": "Refundable security deposit is strictly refunded to the original source bank account / card used during payment. Candidates MUST NOT use cyber café or third-party debit/credit cards, as refunds can take 30–90 days after counselling completion and go directly to the payer card."
+    },
+    "exit_and_forfeiture_rules": {
+      "round_1": "Free Exit allowed. If allotted a seat, candidates can choose not to join without any penalty or forfeiture of security deposit. Candidates who report and join can submit willingess for Round 2 Upgradation.",
+      "round_2": "NO Free Exit. If allotted a seat in Round 2 and candidate does not join or withdraws after joining, the security deposit is FORFEITED. Candidates who joined in R2 can participate in R3 only if they withdraw/surrender at least 3 days prior to commencement of Round 3 with forfeiture of security deposit.",
+      "round_3": "Mandatory joining. If allotted a seat in Round 3, joining is compulsory. Non-joining or resignation after allotment leads to Forfeiture of Security Deposit AND 1-Year Debarment from all Central (AACCC) and State AYUSH PG counselling processes.",
+      "stray_vacancy_round": "Strictly for non-admitted candidates. No fresh registration for stray vacancy; choice-filling is mandatory. Allotted candidates MUST report. Failure to report leads to forfeiture of security deposit and 1-year debarment from all AYUSH PG admissions."
+    },
+    "seat_conversion_algorithm": "In Round 3, unfilled reserved seats are dynamically de-reserved according to the official conversion algorithm: Unfilled ST seats → converted to SC; Unfilled SC seats → converted to UR; Unfilled OBC-NCL and EWS seats → converted to UR; Unfilled PwBD seats → converted to respective parent caste category.",
+    "latest_official_circular_2026": {
+      "date": "2026-11-20",
+      "subject": "Hon'ble High Court of Delhi Directions - AACCC PG Ayurveda Round 1 Treated as Round 2",
+      "details": "Pursuant to the order of the Hon'ble High Court of Delhi, AACCC PG Ayurveda Round 1 is now formally treated as Round 2. Key directions: 1) Previously registered candidates do not need to register again; 2) Choices submitted in R1 are automatically fetched and available for modification; 3) Choice modification is open for newly added seats; 4) Fresh merit allotment will be processed strictly as per the revised NTA AIAPGET merit list.",
+      "schedule": "Registration & Choice Filling LIVE: Nov 20–22, 2026. Reporting: Nov 25–29, 2026."
+    },
+    "official_links": {
+      "portal": "https://aaccc.gov.in/pg-counselling/",
+      "bulletin": "https://aaccc.gov.in/information-bulletin-pg/",
+      "schedule": "https://aaccc.gov.in/counselling-schedule-pg/",
+      "news_events": "https://aaccc.gov.in/news-events-pg/"
+    }
+  },
+  "states": {
+    "Maharashtra": {
+      "authority_name": "State Common Entrance Test Cell, Maharashtra",
+      "official_portal": "https://cetcell.mahacet.org/",
+      "domicile_eligibility": "BAMS from an institution situated in Maharashtra OR candidate domicile of Maharashtra with completed rotatory internship.",
+      "quota_types": "85% State Quota in Government / Govt-Aided / Municipal Corporation Colleges, 85% Institutional Quota in Private Unaided Colleges, 15% Institutional / NRI Quota.",
+      "security_deposit": "₹10,000 for Government/Aided, ₹50,000 for Private Un-aided Ayurveda colleges (Verify in 2026 State Information Bulletin).",
+      "free_exit_and_forfeiture": "Free Exit allowed in CAP Round 1 without penalty. In CAP Round 2, non-joining forfeits security deposit. Cancellation after CAP Round 2 cut-off date incurs penalty of tuition fees for entire course duration.",
+      "upgradation_rules": "Status retention form available. If status retention is NOT filled, candidate is automatically considered for upgradation in subsequent rounds. Upon allotment of upgraded seat, previous seat is automatically cancelled.",
+      "bond_policy": "1-year mandatory rural / government service bond for Government/Govt-Aided Ayurvedic colleges, or ₹50,000 to ₹5,00,000 bond penalty as per DMER Maharashtra regulations.",
+      "last_verified_date": "2026-11-20"
+    },
+    "Uttar Pradesh": {
+      "authority_name": "Department of AYUSH, Government of Uttar Pradesh (UP AYUSH Counselling)",
+      "official_portal": "https://upayushcounseling.upsdc.gov.in/",
+      "domicile_eligibility": "UP Domicile candidates eligible for Government Ayurveda colleges. Non-domicile candidates are eligible for Private Un-aided colleges under Open Quota.",
+      "quota_types": "85% State Quota (Govt), 100% Private College Quota (Open for All India).",
+      "security_deposit": "₹20,000 for Govt AYUSH seats; ₹50,000 for Private AYUSH seats (Refundable).",
+      "free_exit_and_forfeiture": "Round 1 free exit allowed. Round 2 non-reporting forfeits ₹20,000 / ₹50,000 deposit. Resignation after Round 2 attracts seat cancellation penalty.",
+      "upgradation_rules": "Candidates opting for Round 2 upgradation must join Round 1 seat first and pay fees at nodal centre.",
+      "bond_policy": "2-year compulsory government service bond or ₹10,00,000 penalty for Government Ayurveda PG seats (Verify in 2026 State Information Bulletin).",
+      "last_verified_date": "2026-11-20"
+    },
+    "Karnataka": {
+      "authority_name": "Karnataka Examinations Authority (KEA)",
+      "official_portal": "https://cetonline.karnataka.gov.in/kea/",
+      "domicile_eligibility": "Karnataka domicile / BAMS from Karnataka for Government & Govt-quota seats; Open Quota seats in Private colleges open to All India candidates.",
+      "quota_types": "G (Govt), Q (Private Govt Quota), P (Private Management Quota), O (Open Quota).",
+      "security_deposit": "Verify in 2026 State Information Bulletin.",
+      "free_exit_and_forfeiture": "Choice 1, Choice 2, Choice 3, Choice 4 system. Choice 1 mandatory reporting. Choice 2 upgradation. Choice 4 exit. Penalty applies if Choice 1 or 2 is defaulted.",
+      "upgradation_rules": "KEA 4-choice entry system governs round-to-round movement.",
+      "bond_policy": "Compulsory 1-year public service bond for all Government quota post-graduate degree holders in Karnataka.",
+      "last_verified_date": "2026-11-20"
+    },
+    "Gujarat": {
+      "authority_name": "Admission Committee for Professional Post-Graduate Medical Courses (ACPUGMEC)",
+      "official_portal": "https://www.medadmgujarat.org/",
+      "domicile_eligibility": "BAMS from Gujarat universities and domicile of Gujarat for State Quota.",
+      "quota_types": "75% State Quota in Government / Grant-in-Aid, 15% Management Quota in Private Colleges.",
+      "security_deposit": "PIN purchase + refundable token tuition fee at designated bank branches (Verify in 2026 State Information Bulletin).",
+      "free_exit_and_forfeiture": "Round 1 non-reporting allows participation in subsequent rounds. Round 2 non-joining forfeits token deposit.",
+      "upgradation_rules": "Online consent for re-shuffling in Round 2.",
+      "bond_policy": "Mandatory government rural service bond for Govt Ayurveda colleges (Akhandanand, Govt Ayurved College Vadodara).",
+      "last_verified_date": "2026-11-20"
+    },
+    "Madhya Pradesh": {
+      "authority_name": "MP Online AYUSH Counselling (Directorate of AYUSH, MP)",
+      "official_portal": "https://ayush.mponline.gov.in/",
+      "domicile_eligibility": "MP Domicile mandatory for Government Ayurvedic colleges (Govt Ayurved College Gwalior, Bhopal, Jabalpur, Rewa, Ujjain, Indore).",
+      "quota_types": "85% State Quota (Govt & Private).",
+      "security_deposit": "₹5,000 for Govt, ₹25,000 for Private AYUSH seats (Verify in 2026 State Information Bulletin).",
+      "free_exit_and_forfeiture": "Round 1 free exit without forfeiture. Round 2 exit without joining forfeits security deposit.",
+      "upgradation_rules": "Upgradation option can be submitted online during reporting.",
+      "bond_policy": "1-year compulsory service bond or ₹5,00,000 penalty for PG degree holders in Government Ayurvedic colleges.",
+      "last_verified_date": "2026-11-20"
+    },
+    "Rajasthan": {
+      "authority_name": "Dr. Sarvepalli Radhakrishnan Rajasthan Ayurved University (DSRRAU Jodhpur)",
+      "official_portal": "https://rajayushcounselling.com/",
+      "domicile_eligibility": "Rajasthan Domicile candidates eligible for State Quota Govt seats (MMM Govt Udaipur, DSRRAU Jodhpur constituent colleges).",
+      "quota_types": "85% State Quota (Govt), 15% Management Quota in Private Institutions.",
+      "security_deposit": "₹25,000 for Government, ₹50,000 for Private institutions (Refundable).",
+      "free_exit_and_forfeiture": "Free exit in Round 1. Non-joining in Round 2 forfeits security deposit.",
+      "upgradation_rules": "Offline / online choice upgradation allowed if admitted in Round 1.",
+      "bond_policy": "2-year service bond for Government Ayurvedic college PG seats (Verify in 2026 State Information Bulletin).",
+      "last_verified_date": "2026-11-20"
+    },
+    "Kerala": {
+      "authority_name": "Commissioner for Entrance Examinations (CEE Kerala)",
+      "official_portal": "https://cee.kerala.gov.in/",
+      "domicile_eligibility": "Keralite origin candidates only eligible for State Quota seats (Govt Ayurveda College Thiruvananthapuram, Tripunithura, Kannur).",
+      "quota_types": "State Merit, SEBC, SC, ST, Service Quota.",
+      "security_deposit": "Verify in 2026 State Information Bulletin.",
+      "free_exit_and_forfeiture": "Strict centralised allotment process (CAP). Failure to join leads to cancellation of allotment.",
+      "upgradation_rules": "Higher options remain live until candidate deletes them.",
+      "bond_policy": "Compulsory rural/government service bond for Government Ayurvedic colleges in Kerala.",
+      "last_verified_date": "2026-11-20"
+    },
+    "Tamil Nadu": {
+      "authority_name": "Directorate of Indian Medicine and Homoeopathy, Tamil Nadu",
+      "official_portal": "https://health.tn.gov.in/",
+      "domicile_eligibility": "Nativity certificate from Tamil Nadu mandatory for State Quota Government seats.",
+      "quota_types": "State Quota in Govt Siddha/Ayurveda colleges, Management Quota in Self-Financing colleges.",
+      "security_deposit": "₹5,000 to ₹25,000 (Verify in 2026 State Information Bulletin).",
+      "free_exit_and_forfeiture": "Round 1 free exit allowed. Round 2 exit after allotment leads to processing fee forfeiture.",
+      "upgradation_rules": "Upgradation allowed in subsequent offline/online rounds.",
+      "bond_policy": "Service bond applicable for Govt Ayurveda / Siddha college post-graduates.",
+      "last_verified_date": "2026-11-20"
+    },
+    "West Bengal": {
+      "authority_name": "West Bengal Medical Counselling Committee (WBMCC)",
+      "official_portal": "https://wbmcc.nic.in/",
+      "domicile_eligibility": "West Bengal domicile / BAMS from WB for Government seats (JB Roy State Ayurvedic Medical College Kolkata).",
+      "quota_types": "85% State Quota, In-service Quota.",
+      "security_deposit": "Verify in 2026 State Information Bulletin.",
+      "free_exit_and_forfeiture": "Round 1 free exit. Round 2 allotment non-joining forfeits security deposit.",
+      "upgradation_rules": "Opt-in for Round 2 upgradation during physical reporting.",
+      "bond_policy": "Discontinuation bond of ₹1,00,000 to ₹5,00,000 for leaving seat after cut-off date.",
+      "last_verified_date": "2026-11-20"
+    },
+    "Bihar": {
+      "authority_name": "Bihar Combined Entrance Competitive Examination Board (BCECEB)",
+      "official_portal": "https://bceceboard.bihar.gov.in/",
+      "domicile_eligibility": "Bihar permanent resident / domicile certificate mandatory for State Quota seats (Govt Ayurvedic College Patna, Begusarai).",
+      "quota_types": "85% State Quota (Govt & Private).",
+      "security_deposit": "₹10,000 for Govt, ₹25,000 for Private AYUSH seats (Verify in 2026 State Information Bulletin).",
+      "free_exit_and_forfeiture": "Free exit in Round 1. Security deposit forfeited if Round 2 allotted seat is not joined.",
+      "upgradation_rules": "Willingness for upgradation submitted online during provisional seat allotment check.",
+      "bond_policy": "3-year compulsory service bond or ₹15,00,000 penalty for Bihar Govt Ayurveda PG seats.",
+      "last_verified_date": "2026-11-20"
+    },
+    "Delhi": {
+      "authority_name": "Faculty of Ayurvedic & Unani Medicines, University of Delhi (DU)",
+      "official_portal": "https://fmsc.ac.in/",
+      "domicile_eligibility": "50% Delhi University Quota (BAMS from DU: A&U Tibbia College) + 50% All India Quota (administered via AACCC).",
+      "quota_types": "DU Institutional Quota (50%) & Central AIQ (50%).",
+      "security_deposit": "Governed by DU FMSC rules / AACCC norms.",
+      "free_exit_and_forfeiture": "Follows standard central AACCC / DU guidelines.",
+      "upgradation_rules": "Round 2 upgradation available for institutional candidates.",
+      "bond_policy": "Surety bond as per University of Delhi post-graduate medical statutes.",
+      "last_verified_date": "2026-11-20"
+    },
+    "Haryana": {
+      "authority_name": "Shri Krishna AYUSH University, Kurukshetra (SKAU)",
+      "official_portal": "https://skau.ac.in/",
+      "domicile_eligibility": "Haryana Resident Certificate mandatory for Government seats (Shri Krishna Govt Ayurvedic College Kurukshetra).",
+      "quota_types": "85% State Quota in Government & Private AYUSH colleges, 15% Management Quota in Private Colleges.",
+      "security_deposit": "₹10,000 for Govt, ₹50,000 for Private colleges (Verify in 2026 State Information Bulletin).",
+      "free_exit_and_forfeiture": "Free exit in Round 1. Non-joining in Round 2 forfeits security deposit.",
+      "upgradation_rules": "Online choice modification allowed for Round 2.",
+      "bond_policy": "Service bond applicable as per Haryana AYUSH Department regulations.",
+      "last_verified_date": "2026-11-20"
+    },
+    "Punjab": {
+      "authority_name": "Guru Ravidas Ayurved University, Hoshiarpur (GRAU)",
+      "official_portal": "https://graupunjab.org/",
+      "domicile_eligibility": "Punjab domicile / residence certificate mandatory for 85% State Quota seats (Govt Ayurvedic College Patiala).",
+      "quota_types": "85% State Quota, 15% Management Quota.",
+      "security_deposit": "Verify in 2026 State Information Bulletin.",
+      "free_exit_and_forfeiture": "Round 1 free exit. Round 2 default forfeits security deposit.",
+      "upgradation_rules": "Upgradation allowed in subsequent rounds upon reporting.",
+      "bond_policy": "Government service bond for Patiala Govt Ayurvedic College as per Punjab Govt rules.",
+      "last_verified_date": "2026-11-20"
+    }
+  },
+  "general_faqs": [
+    {
+      "id": "faq-choice-locking-strategy",
+      "topic": "Strategy",
+      "question": "What is the best step-by-step choice filling and locking strategy for AIAPGET?",
+      "answer": "1. **Hierarchy First**: List Premier National Institutes (AIIA New Delhi, NIA Jaipur, ITRA Jamnagar, IMS BHU) at the top regardless of your rank, because counseling uses top-to-bottom algorithms and higher options never hurt chances.\n2. **State Top Govt Colleges**: Add top state government colleges (e.g. Podar Mumbai, GAC Nanded, MMM Udaipur, GAC Varanasi) as your second tier.\n3. **Branch Specificity**: Prioritize your desired clinical specialty (e.g., Kayachikitsa, Shalya Tantra, Prasuti & Stri Roga) across multiple colleges over accepting a non-preferred branch in a slightly better college.\n4. **Safety Net**: Include 3–5 safe options whose last-year closing rank is at least 15–20% higher than your AIAPGET rank.\n5. **Save & Lock**: Keep saving choices regularly. Official portals auto-lock choices on the deadline, but it is always safest to download and print the locked choices acknowledgement slip."
+    },
+    {
+      "id": "faq-aaccc-vs-state",
+      "topic": "Comparison",
+      "question": "What is the key difference between AACCC Central Counselling and State Counselling?",
+      "answer": "• **AACCC Central (15% AIQ & 100% Central/Deemed)**: Conducted by Ministry of Ayush on aaccc.gov.in. Zero state domicile restrictions for AIQ Govt, National Institutes, and Deemed universities. Requires Central format category certificates.\n• **State Quota (85% State Seats)**: Conducted by respective State CET/AYUSH boards (e.g., Maharashtra CET Cell, UP Ayush, KEA Karnataka). Generally reserves 85% of Govt seats strictly for domicile holders of that state, with state-specific category reservations and bonds."
+    },
+    {
+      "id": "faq-category-certificate-formats",
+      "topic": "Documents",
+      "question": "What is the difference between Central vs. State OBC-NCL and EWS certificate formats?",
+      "answer": "• **Central Format**: Mandatory for AACCC AIQ and National Institutes (AIIA, NIA, BHU, ITRA). The certificate MUST explicitly state that the caste is recognized as backward under the Central List of OBCs, and non-creamy layer status must be valid for the current financial year (issued on or after April 1). State-specific formats or Tehsildar certificates stating 'State OBC' are rejected during AACCC reporting.\n• **EWS Format**: Central EWS certificate must conform to Central DoPT guidelines (family income below ₹8 Lakhs and land criteria). State-specific EWS certificates might not be accepted by Central universities."
+    },
+    {
+      "id": "faq-document-checklist",
+      "topic": "Documents",
+      "question": "What is the complete Document Checklist required for AIAPGET PG reporting?",
+      "answer": "Keep 3 sets of self-attested photocopies and original documents:\n1. AIAPGET 2026 Admit Card issued by NTA\n2. AIAPGET 2026 Score / Rank Card\n3. BAMS 1st, 2nd, 3rd, and Final Year Marksheets\n4. BAMS Provisional / Permanent Degree Certificate\n5. 1-Year Compulsory Rotatory Internship Completion Certificate\n6. Permanent / Provisional Registration Certificate from NCISM / State Board of Ayurvedic & Unani Systems of Medicine\n7. Class 10th / High School Certificate (DOB verification)\n8. Class 12th / Intermediate Marksheet & Certificate\n9. Category Certificate (Central OBC-NCL / SC / ST / EWS / PwBD) if applicable\n10. Domicile / Nativity Certificate (mandatory for State Quota)\n11. Valid Govt Photo ID (Aadhaar Card, Passport, Voter ID, Driving Licence)\n12. 6–8 Passport-size Photographs matching the AIAPGET application form\n13. Provisional Allotment Letter downloaded from AACCC / State Portal"
+    },
+    {
+      "id": "faq-reporting-and-relieving",
+      "topic": "Reporting",
+      "question": "What are the rules for physical reporting and getting a Relieving Letter during Upgradation?",
+      "answer": "• **Physical Reporting**: When allotted a seat in Round 1 or 2, you MUST physically report to the allotted college within the scheduled reporting window with all original documents, tuition fees, and medical fitness certificates.\n• **Willingness for Upgradation**: Inform the college admission authority during reporting that you wish to opt for Round 2/3 upgradation and obtain the official Joined / Upgradation Status Receipt.\n• **Relieving Letter**: If your seat is upgraded in a subsequent round, your previous college MUST immediately hand over all your original documents and issue an official online **Relieving Letter** and refund tuition fees (after deduction of prescribed nominal administrative fee). You then submit this Relieving Letter to your newly upgraded college."
+    }
+  ]
+}

@@ -24,6 +24,7 @@ import confetti from 'canvas-confetti';
 import { BrandLogo } from './BrandLogo';
 import { CollegeApprovalsDashboard } from './CollegeApprovalsDashboard';
 import { StudentSuggestionsDashboard } from './StudentSuggestionsDashboard';
+import { AdminKnowledgeBaseEditor } from './AdminKnowledgeBaseEditor';
 
 interface AdminPortalProps {
   onBackToPredictor: () => void;
@@ -61,7 +62,7 @@ const STATES = [
 ];
 
 export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToPredictor }) => {
-  const [activeAdminTab, setActiveAdminTab] = useState<'students' | 'colleges' | 'suggestions'>('colleges');
+  const [activeAdminTab, setActiveAdminTab] = useState<'students' | 'colleges' | 'suggestions' | 'knowledge-base'>('colleges');
   const [students, setStudents] = useState<StudentProfile[]>(() => getStoredStudents());
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedState, setSelectedState] = useState('All');
@@ -278,6 +279,8 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToPredictor }) =
                     ? 'College Administrator Submissions & Live Approval Workflow (Supabase)'
                     : activeAdminTab === 'suggestions'
                     ? 'Student-Suggested Missing Colleges & Crowdsourced Verification Queue'
+                    : activeAdminTab === 'knowledge-base'
+                    ? 'AI Counselor Central AACCC, State Rules & Circulars Knowledge Base'
                     : 'Registered BAMS Student Directory & Live Lead Database'}
                 </span>
               </div>
@@ -308,6 +311,18 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToPredictor }) =
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>Student-Suggested Colleges</span>
+            </button>
+
+            <button
+              onClick={() => setActiveAdminTab('knowledge-base')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeAdminTab === 'knowledge-base'
+                  ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.4)]'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <BookOpen className="w-3.5 h-3.5" />
+              <span>AI Knowledge Base</span>
             </button>
 
             <button
@@ -362,6 +377,8 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToPredictor }) =
           <CollegeApprovalsDashboard />
         ) : activeAdminTab === 'suggestions' ? (
           <StudentSuggestionsDashboard />
+        ) : activeAdminTab === 'knowledge-base' ? (
+          <AdminKnowledgeBaseEditor />
         ) : (
           <>
             {/* Analytics Highlights Bar */}

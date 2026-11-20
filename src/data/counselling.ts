@@ -101,7 +101,7 @@ export function mergeCounsellingFeeds(
   return {
     ...scrapedFeed,
     urgent_ticker: tickerList.length > 0 ? tickerList : [
-      "🔴 AACCC / All India: AIAPGET 2026 Counselling Currently On Hold (Administrative Reasons) — Check official updates on aaccc.gov.in"
+      "🔴 AACCC / All India: AACCC PG Round 2 Registration & Choice Filling LIVE (Nov 20–22, 2026) — Check official updates on aaccc.gov.in"
     ],
     updates: mergedUpdates,
   };
