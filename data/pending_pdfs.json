@@ -1,5 +1,86 @@
 [
   {
+    "id": "pdf-the-third-round-option-registr-1795184424",
+    "state": "Kerala",
+    "title": "The third round option registration facility for PG Medical/DNB courses will be resumed after the publication of the revised allotment schedule by MCC.",
+    "detected_at": "2026-11-20T14:20:24.758112Z",
+    "status": "pending_review",
+    "source_url": "https://cee.kerala.gov.in/otherlinks/MCC_2025.pdf",
+    "notes": "Automatically detected by scraper. Ready for cutoff extraction."
+  },
+  {
+    "id": "pdf-public-notice-for-eligibility--1795184359",
+    "state": "Central (AACCC)",
+    "title": "Public Notice for eligibility of NRI candidates for Academic Year 2026-27",
+    "detected_at": "2026-11-20T14:19:19.517517Z",
+    "status": "pending_review",
+    "source_url": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/08/20260828692407761.pdf",
+    "notes": "Automatically detected by scraper. Ready for cutoff extraction."
+  },
+  {
+    "id": "pdf-must-read-advisory-on-the-matt-1795184359",
+    "state": "Central (AACCC)",
+    "title": "Must Read Advisory on the Matter of Counseling and admission of UG and PG in ASU & H stream for the A.Y 2026-27-reg.",
+    "detected_at": "2026-11-20T14:19:19.481748Z",
+    "status": "pending_review",
+    "source_url": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/08/20260828354007085.pdf",
+    "notes": "Automatically detected by scraper. Ready for cutoff extraction."
+  },
+  {
+    "id": "pdf-advisory-against-fraudulent-re-1795184359",
+    "state": "Central (AACCC)",
+    "title": "Advisory Against Fraudulent Registrations in AACCC UG/PG -2026",
+    "detected_at": "2026-11-20T14:19:19.461330Z",
+    "status": "pending_review",
+    "source_url": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/09/2026090725868276.pdf",
+    "notes": "Automatically detected by scraper. Ready for cutoff extraction."
+  },
+  {
+    "id": "pdf-list-of-appellate-and-pwbd-ass-1795184359",
+    "state": "Central (AACCC)",
+    "title": "List of appellate and PWBD assessment centers",
+    "detected_at": "2026-11-20T14:19:19.440935Z",
+    "status": "pending_review",
+    "source_url": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/10/202610262006843241.pdf",
+    "notes": "Automatically detected by scraper. Ready for cutoff extraction."
+  },
+  {
+    "id": "pdf-notice-regarding-withdrawal-fa-1795184359",
+    "state": "Central (AACCC)",
+    "title": "Notice regarding Withdrawal Facility in AACCC PG 2026-27",
+    "detected_at": "2026-11-20T14:19:19.417838Z",
+    "status": "pending_review",
+    "source_url": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/11/202611201057077458.pdf",
+    "notes": "Automatically detected by scraper. Ready for cutoff extraction."
+  },
+  {
+    "id": "pdf-important-notice-regarding-aac-1795184359",
+    "state": "Central (AACCC)",
+    "title": "Important Notice Regarding AACCC PG Ayurveda Counselling 2026-27",
+    "detected_at": "2026-11-20T14:19:19.394401Z",
+    "status": "pending_review",
+    "source_url": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/11/20261120589059434.pdf",
+    "notes": "Automatically detected by scraper. Ready for cutoff extraction."
+  },
+  {
+    "id": "pdf-regsitration-unlocking-facilit-1795184359",
+    "state": "Central (AACCC)",
+    "title": "Regsitration Unlocking facility in AACCC PG R-2 2026-27",
+    "detected_at": "2026-11-20T14:19:19.374279Z",
+    "status": "pending_review",
+    "source_url": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/11/20261120346531004.pdf",
+    "notes": "Automatically detected by scraper. Ready for cutoff extraction."
+  },
+  {
+    "id": "pdf-addition-of-new-seats-in-aaccc-1795184359",
+    "state": "Central (AACCC)",
+    "title": "Addition of new seats in AACCC PG-R-2 2026-27",
+    "detected_at": "2026-11-20T14:19:19.354408Z",
+    "status": "pending_review",
+    "source_url": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/11/20261120450917305.pdf",
+    "notes": "Automatically detected by scraper. Ready for cutoff extraction."
+  },
+  {
     "id": "pdf-admission-notice-pg-md-ms-ayur-1795098252",
     "state": "Haryana",
     "title": "ADMISSION NOTICE PG (MD/MS AYURVEDA) COURSE ACADEMIC SESSION 2026 -27",

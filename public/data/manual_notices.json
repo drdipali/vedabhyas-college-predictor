@@ -1,14 +1,14 @@
 [
   {
-    "id": "manual-aaccc-hold-2026",
+    "id": "manual-aaccc-round2-live-2026",
     "state": "AACCC / All India",
-    "category": "Schedule Change",
-    "title": "AIAPGET 2026 Counselling Currently On Hold (Administrative Reasons)",
-    "description": "Counselling activities have been temporarily paused due to administrative reasons. Students are advised to wait for the revised official schedule on aaccc.gov.in.",
-    "summary": "Counselling activities have been temporarily paused due to administrative reasons. Students are advised to wait for the revised official schedule on aaccc.gov.in.",
+    "category": "Registration",
+    "title": "AACCC PG Round 2 Registration & Choice Filling LIVE (Nov 20–22, 2026)",
+    "description": "Round 2 counselling has resumed. Registration closes Nov 22 (2:00 PM), Fee Payment till 5:00 PM, and Choice Filling/Locking till 11:55 PM. Reporting: Nov 25–29, 2026.",
+    "summary": "Round 2 counselling has resumed. Registration closes Nov 22 (2:00 PM), Fee Payment till 5:00 PM, and Choice Filling/Locking till 11:55 PM. Reporting: Nov 25–29, 2026.",
     "is_urgent": true,
     "is_pinned": true,
-    "date": "2026-11-19",
+    "date": "2026-11-20",
     "official_link": "https://aaccc.gov.in/pg-counselling/"
   }
 ]

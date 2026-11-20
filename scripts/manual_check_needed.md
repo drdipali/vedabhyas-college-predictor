@@ -17,3 +17,7 @@ Whenever a state counselling portal blocks automated scrapers (e.g. Cloudflare, 
 1. Open the target official state portal in a standard browser.
 2. If a new allotment or seat matrix PDF is published, download it and place in `.user_uploaded/` or upload via the admin portal.
 3. Run `python scripts/update_counselling.py` or trigger GitHub Actions to synchronize `counselling_updates.json`.
+| 2026-11-20 19:49:51 | Karnataka | https://cetonline.karnataka.gov.in/kea/ | Network / Connection Failure: _ssl.c:1129: The handshake operation timed out | Manual verification required |
+| 2026-11-20 19:50:18 | Madhya Pradesh | https://ayush.mponline.gov.in/ | Network / Connection Failure: _ssl.c:1129: The handshake operation timed out | Manual verification required |
+| 2026-11-20 19:55:59 | Karnataka | https://cetonline.karnataka.gov.in/kea/ | Network / Connection Failure: _ssl.c:1129: The handshake operation timed out | Manual verification required |
+| 2026-11-20 19:56:26 | Madhya Pradesh | https://ayush.mponline.gov.in/ | Network / Connection Failure: _ssl.c:1129: The handshake operation timed out | Manual verification required |
