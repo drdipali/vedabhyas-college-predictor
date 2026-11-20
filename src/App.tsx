@@ -225,7 +225,7 @@ export const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#07090e] text-slate-100 flex flex-col relative selection:bg-emerald-500 selection:text-white">
+    <div className="min-h-screen w-full overflow-x-hidden bg-[#07090e] text-slate-100 flex flex-col relative selection:bg-emerald-500 selection:text-white">
       
       {/* Background Spatial Grid & Glowing Mesh */}
       <div className="fixed inset-0 pointer-events-none -z-20 overflow-hidden">
@@ -253,7 +253,7 @@ export const App: React.FC = () => {
       />
 
       {/* Main Content Area */}
-      <main className="flex-grow">
+      <main className="flex-grow w-full overflow-x-hidden">
         
         {/* Student Welcome Banner if logged in */}
         {currentStudent && (

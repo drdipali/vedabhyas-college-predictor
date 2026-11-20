@@ -17,48 +17,48 @@ export const LiveAlertTicker: React.FC<LiveAlertTickerProps> = ({ feed, onOpenUp
         "🔴 AACCC / All India: AIAPGET 2026 Counselling Currently On Hold (Administrative Reasons) — Check official updates on aaccc.gov.in"
       ];
 
-  // Auto rotate ticker message every 5.5 seconds
+  // Auto rotate ticker message every 6 seconds
   useEffect(() => {
     if (tickerItems.length <= 1) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % tickerItems.length);
-    }, 5500);
+    }, 6000);
     return () => clearInterval(interval);
   }, [tickerItems.length]);
 
   if (isDismissed) return null;
 
   return (
-    <div className="w-full bg-gradient-to-r from-red-950/90 via-slate-900/95 to-amber-950/90 border-b border-red-500/30 backdrop-blur-md text-white text-xs py-2 px-3 sm:px-6 relative z-30 transition-all">
-      <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+    <div className="w-full bg-[#1e131d]/90 border-b border-red-500/25 backdrop-blur-md text-white text-xs py-1.5 px-3 sm:px-6 relative z-30 transition-all overflow-hidden">
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-3">
         
-        {/* Left Badge: Live Status */}
-        <div className="flex items-center gap-2 shrink-0">
+        {/* Left Indicator: Live Status */}
+        <div className="flex items-center gap-1.5 shrink-0 select-none">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
           </span>
-          <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-red-500/20 text-red-300 font-extrabold text-[10px] tracking-wider uppercase border border-red-500/30">
-            Live Alert
+          <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase bg-red-500/20 text-red-300 border border-red-500/30">
+            Alert
           </span>
         </div>
 
-        {/* Center: Dynamic Cycling Ticker Message */}
+        {/* Center: Truncated Message Line */}
         <div className="flex-1 overflow-hidden min-w-0">
           <div 
             onClick={onOpenUpdates}
-            className="cursor-pointer truncate hover:text-emerald-300 transition-colors font-medium flex items-center gap-2"
+            className="cursor-pointer truncate hover:text-emerald-300 transition-colors font-medium text-slate-200"
             title="Click to view full AIAPGET 2026 counselling updates"
           >
             <span className="truncate">{tickerItems[currentIndex]}</span>
           </div>
         </div>
 
-        {/* Right Actions */}
-        <div className="flex items-center gap-2 shrink-0">
+        {/* Right Actions: Live Feed Button & Dismiss */}
+        <div className="flex items-center gap-1.5 shrink-0">
           <button
             onClick={onOpenUpdates}
-            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 border border-white/15 text-[11px] font-semibold text-emerald-300 transition-all cursor-pointer shadow-sm hover:scale-105 active:scale-95"
+            className="inline-flex items-center gap-1 px-2 py-1 rounded bg-white/10 hover:bg-white/20 border border-white/15 text-[11px] font-semibold text-emerald-300 transition-colors cursor-pointer whitespace-nowrap min-h-[30px]"
           >
             <span>Live Feed ({feed.updates?.length || 0})</span>
             <ChevronRight className="w-3.5 h-3.5" />
@@ -66,7 +66,7 @@ export const LiveAlertTicker: React.FC<LiveAlertTickerProps> = ({ feed, onOpenUp
 
           <button
             onClick={() => setIsDismissed(true)}
-            className="p-1 rounded-md hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
+            className="p-1 rounded hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
             aria-label="Dismiss Alert Ticker"
           >
             <X className="w-3.5 h-3.5" />
