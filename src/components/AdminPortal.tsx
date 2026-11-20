@@ -23,6 +23,7 @@ import {
 import confetti from 'canvas-confetti';
 import { BrandLogo } from './BrandLogo';
 import { CollegeApprovalsDashboard } from './CollegeApprovalsDashboard';
+import { StudentSuggestionsDashboard } from './StudentSuggestionsDashboard';
 
 interface AdminPortalProps {
   onBackToPredictor: () => void;
@@ -60,7 +61,7 @@ const STATES = [
 ];
 
 export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToPredictor }) => {
-  const [activeAdminTab, setActiveAdminTab] = useState<'students' | 'colleges'>('colleges');
+  const [activeAdminTab, setActiveAdminTab] = useState<'students' | 'colleges' | 'suggestions'>('colleges');
   const [students, setStudents] = useState<StudentProfile[]>(() => getStoredStudents());
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedState, setSelectedState] = useState('All');
@@ -275,6 +276,8 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToPredictor }) =
                 <span className="text-[11px] text-slate-400">
                   {activeAdminTab === 'colleges'
                     ? 'College Administrator Submissions & Live Approval Workflow (Supabase)'
+                    : activeAdminTab === 'suggestions'
+                    ? 'Student-Suggested Missing Colleges & Crowdsourced Verification Queue'
                     : 'Registered BAMS Student Directory & Live Lead Database'}
                 </span>
               </div>
@@ -282,21 +285,34 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToPredictor }) =
           </div>
 
           {/* Section Navigation Tabs */}
-          <div className="flex items-center rounded-2xl bg-white/5 p-1 border border-white/10">
+          <div className="flex flex-wrap items-center rounded-2xl bg-white/5 p-1 border border-white/10 gap-1">
             <button
               onClick={() => setActiveAdminTab('colleges')}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 activeAdminTab === 'colleges'
                   ? 'bg-gradient-to-r from-indigo-600 to-indigo-500 text-white shadow-[0_0_15px_rgba(99,102,241,0.4)]'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
               <Building2 className="w-3.5 h-3.5" />
-              <span>College Approvals</span>
+              <span>College Submissions</span>
             </button>
+
+            <button
+              onClick={() => setActiveAdminTab('suggestions')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                activeAdminTab === 'suggestions'
+                  ? 'bg-gradient-to-r from-amber-500 to-teal-400 text-slate-950 shadow-[0_0_15px_rgba(245,158,11,0.4)]'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Student-Suggested Colleges</span>
+            </button>
+
             <button
               onClick={() => setActiveAdminTab('students')}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 activeAdminTab === 'students'
                   ? 'bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 shadow-[0_0_15px_rgba(16,185,129,0.4)]'
                   : 'text-slate-400 hover:text-white'
@@ -344,6 +360,8 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ onBackToPredictor }) =
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow">
         {activeAdminTab === 'colleges' ? (
           <CollegeApprovalsDashboard />
+        ) : activeAdminTab === 'suggestions' ? (
+          <StudentSuggestionsDashboard />
         ) : (
           <>
             {/* Analytics Highlights Bar */}

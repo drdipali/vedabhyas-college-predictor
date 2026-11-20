@@ -159,3 +159,48 @@ export interface CollegeAdminProfile {
   designation?: string;
   phone?: string;
 }
+
+export interface StudentPreference {
+  id: string;
+  user_id: string;
+  college_id?: string | null;
+  suggestion_id?: string | null;
+  branch: string;
+  priority_order: number;
+  notes?: string;
+  created_at: string;
+  // Joined or resolved fields for UI rendering:
+  college_name?: string;
+  college_code?: string;
+  state?: string;
+  college_type?: string;
+  quota_type?: string;
+  is_verified?: boolean; // true if approved live college, false if pending suggestion
+  status?: 'verified' | 'pending' | 'approved' | 'rejected';
+}
+
+export interface StudentSuggestionPayload {
+  user_id: string;
+  student_name?: string;
+  student_rank?: number;
+  branch?: string;
+  notes?: string;
+  submitted_at: string;
+}
+
+export interface StudentCollegeSuggestion {
+  id: string;
+  college_code: string;
+  college_name: string;
+  state: string;
+  college_type: string;
+  quota_type: string;
+  branches: string[];
+  submitted_by_user_ids: string[];
+  verification_count: number;
+  submitted_payloads: StudentSuggestionPayload[];
+  status: 'pending' | 'approved' | 'rejected';
+  admin_notes?: string;
+  created_at: string;
+  updated_at?: string;
+}

@@ -7,15 +7,24 @@ import {
   HelpCircle, 
   ArrowUpRight,
   Shield,
-  GraduationCap
+  GraduationCap,
+  Plus,
+  Check
 } from 'lucide-react';
 
 interface CollegeCardProps {
   prediction: PredictionResult;
   onSelect: (prediction: PredictionResult) => void;
+  onAddToPreference?: (prediction: PredictionResult) => void;
+  isInPreferenceList?: boolean;
 }
 
-export const CollegeCard: React.FC<CollegeCardProps> = ({ prediction, onSelect }) => {
+export const CollegeCard: React.FC<CollegeCardProps> = ({ 
+  prediction, 
+  onSelect,
+  onAddToPreference,
+  isInPreferenceList = false,
+}) => {
   const { college, closingRank, userRank, rankDelta, chance } = prediction;
 
   // Simple rank comparison styling configuration (High Chance, Moderate, Borderline, Very Low)
@@ -205,18 +214,44 @@ export const CollegeCard: React.FC<CollegeCardProps> = ({ prediction, onSelect }
         </div>
       </div>
 
-      {/* Card Footer Button */}
-      <div className="pt-3 border-t border-white/10">
+      {/* Card Footer Buttons */}
+      <div className="pt-3 border-t border-white/10 flex items-center gap-2">
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            if (onAddToPreference) onAddToPreference(prediction);
+          }}
+          className={`flex-1 py-2 px-2.5 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition-all min-h-[38px] ${
+            isInPreferenceList
+              ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 cursor-default'
+              : 'bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-bold shadow-sm cursor-pointer'
+          }`}
+          title="Add this college to your personal counselling choice list"
+        >
+          {isInPreferenceList ? (
+            <>
+              <Check className="w-3.5 h-3.5 stroke-[2.5]" />
+              <span>In My List</span>
+            </>
+          ) : (
+            <>
+              <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
+              <span>+ Add to Preference List</span>
+            </>
+          )}
+        </button>
+
         <button
           type="button"
           onClick={(e) => {
             e.stopPropagation();
             onSelect(prediction);
           }}
-          className="w-full py-2.5 px-3 rounded-xl bg-white/5 hover:bg-emerald-500/20 hover:text-emerald-300 border border-white/10 hover:border-emerald-500/40 text-xs font-semibold text-slate-200 flex items-center justify-center gap-1.5 transition-all group-hover:bg-emerald-500/15"
+          className="p-2 rounded-xl bg-white/5 hover:bg-emerald-500/20 text-slate-300 hover:text-white border border-white/10 hover:border-emerald-500/40 transition-colors cursor-pointer min-h-[38px] min-w-[38px] flex items-center justify-center"
+          title="View reference cutoffs & details"
         >
-          <span>View Reference Cutoffs & Details</span>
-          <ArrowUpRight className="w-3.5 h-3.5" />
+          <ArrowUpRight className="w-4 h-4 text-emerald-400" />
         </button>
       </div>
 

@@ -157,6 +157,160 @@ CREATE TRIGGER set_college_submissions_updated_at
     FOR EACH ROW
     EXECUTE FUNCTION public.handle_updated_at();
 
+-- ------------------------------------------------------------------------------
+-- 6. CREATE TABLE: student_profiles
+-- ------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.student_profiles (
+    user_id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+    full_name TEXT NOT NULL,
+    aiapget_rank INTEGER NOT NULL,
+    category TEXT NOT NULL DEFAULT 'General',
+    domicile_state TEXT NOT NULL DEFAULT 'Maharashtra',
+    mobile_number TEXT,
+    bams_college TEXT,
+    target_specialty TEXT,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now()),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now())
+);
+
+CREATE INDEX IF NOT EXISTS idx_student_profiles_rank ON public.student_profiles(aiapget_rank);
+
+-- ------------------------------------------------------------------------------
+-- 7. CREATE TABLE: student_college_suggestions (Crowdsourced Missing Colleges)
+-- ------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.student_college_suggestions (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    college_code TEXT NOT NULL UNIQUE,                -- e.g. 'AYU0014', uppercase trimmed
+    college_name TEXT NOT NULL,
+    state TEXT NOT NULL,
+    college_type TEXT NOT NULL DEFAULT 'Government', -- 'Government', 'Govt-Aided', 'Private', 'Deemed'
+    quota_type TEXT NOT NULL DEFAULT 'State Quota',  -- 'All India Quota (AIQ)', 'State Quota', 'Deemed / Management'
+    branches JSONB NOT NULL DEFAULT '[]'::jsonb,     -- Array of departments/branches
+    submitted_by_user_ids UUID[] NOT NULL DEFAULT '{}'::uuid[], -- List of student user IDs who submitted/confirmed
+    verification_count INTEGER NOT NULL DEFAULT 1,    -- Incremented when multiple students request the same college
+    submitted_payloads JSONB NOT NULL DEFAULT '[]'::jsonb, -- Array storing each student's submission metadata for cross-checking
+    status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected')),
+    admin_notes TEXT,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now()),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now())
+);
+
+CREATE INDEX IF NOT EXISTS idx_suggestions_code ON public.student_college_suggestions(college_code);
+CREATE INDEX IF NOT EXISTS idx_suggestions_status ON public.student_college_suggestions(status);
+CREATE INDEX IF NOT EXISTS idx_suggestions_verification_count ON public.student_college_suggestions(verification_count DESC);
+
+-- ------------------------------------------------------------------------------
+-- 8. CREATE TABLE: student_preferences (Ordered Counselling Choice List)
+-- ------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS public.student_preferences (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    college_id TEXT,                                 -- Nullable, links to live public.colleges(id)
+    suggestion_id UUID REFERENCES public.student_college_suggestions(id) ON DELETE SET NULL, -- Nullable, links to crowdsourced suggestions
+    branch TEXT NOT NULL,
+    priority_order INTEGER NOT NULL DEFAULT 1,
+    notes TEXT,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now()),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now())
+);
+
+CREATE INDEX IF NOT EXISTS idx_preferences_user_id ON public.student_preferences(user_id);
+CREATE INDEX IF NOT EXISTS idx_preferences_priority ON public.student_preferences(user_id, priority_order ASC);
+CREATE INDEX IF NOT EXISTS idx_preferences_college_id ON public.student_preferences(college_id);
+CREATE INDEX IF NOT EXISTS idx_preferences_suggestion_id ON public.student_preferences(suggestion_id);
+
+-- ------------------------------------------------------------------------------
+-- 9. ROW LEVEL SECURITY (RLS) FOR NEW TABLES
+-- ------------------------------------------------------------------------------
+ALTER TABLE public.student_profiles ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.student_college_suggestions ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.student_preferences ENABLE ROW LEVEL SECURITY;
+
+-- 9.1 student_profiles RLS:
+DROP POLICY IF EXISTS "Students manage own profile" ON public.student_profiles;
+CREATE POLICY "Students manage own profile"
+    ON public.student_profiles
+    FOR ALL
+    TO authenticated
+    USING (
+        auth.uid() = user_id 
+        OR auth.jwt() ->> 'email' IN ('dipalichaudhari929@gmail.com')
+        OR (auth.jwt() -> 'user_metadata' ->> 'role') = 'super_admin'
+    )
+    WITH CHECK (
+        auth.uid() = user_id 
+        OR auth.jwt() ->> 'email' IN ('dipalichaudhari929@gmail.com')
+        OR (auth.jwt() -> 'user_metadata' ->> 'role') = 'super_admin'
+    );
+
+-- 9.2 student_preferences RLS:
+DROP POLICY IF EXISTS "Students manage own preferences" ON public.student_preferences;
+CREATE POLICY "Students manage own preferences"
+    ON public.student_preferences
+    FOR ALL
+    TO authenticated
+    USING (
+        auth.uid() = user_id 
+        OR auth.jwt() ->> 'email' IN ('dipalichaudhari929@gmail.com')
+        OR (auth.jwt() -> 'user_metadata' ->> 'role') = 'super_admin'
+    )
+    WITH CHECK (
+        auth.uid() = user_id 
+        OR auth.jwt() ->> 'email' IN ('dipalichaudhari929@gmail.com')
+        OR (auth.jwt() -> 'user_metadata' ->> 'role') = 'super_admin'
+    );
+
+-- 9.3 student_college_suggestions RLS:
+-- Public / authenticated students can view all suggestions to check existing college codes
+DROP POLICY IF EXISTS "Anyone can view college suggestions" ON public.student_college_suggestions;
+CREATE POLICY "Anyone can view college suggestions"
+    ON public.student_college_suggestions
+    FOR SELECT
+    USING (true);
+
+-- Authenticated students can insert new suggestions
+DROP POLICY IF EXISTS "Students can insert suggestions" ON public.student_college_suggestions;
+CREATE POLICY "Students can insert suggestions"
+    ON public.student_college_suggestions
+    FOR INSERT
+    TO authenticated
+    WITH CHECK (true);
+
+-- Students can confirm/increment suggestions; Super Admin can edit & approve/reject
+DROP POLICY IF EXISTS "Users update or super admin manages suggestions" ON public.student_college_suggestions;
+CREATE POLICY "Users update or super admin manages suggestions"
+    ON public.student_college_suggestions
+    FOR UPDATE
+    TO authenticated
+    USING (true)
+    WITH CHECK (
+        -- If status is changing, must be super admin
+        (status IS NOT DISTINCT FROM status)
+        OR auth.jwt() ->> 'email' IN ('dipalichaudhari929@gmail.com')
+        OR (auth.jwt() -> 'user_metadata' ->> 'role') = 'super_admin'
+    );
+
+-- ------------------------------------------------------------------------------
+-- 10. UPDATE TRIGGERS FOR NEW TABLES
+-- ------------------------------------------------------------------------------
+DROP TRIGGER IF EXISTS set_student_profiles_updated_at ON public.student_profiles;
+CREATE TRIGGER set_student_profiles_updated_at
+    BEFORE UPDATE ON public.student_profiles
+    FOR EACH ROW
+    EXECUTE FUNCTION public.handle_updated_at();
+
+DROP TRIGGER IF EXISTS set_suggestions_updated_at ON public.student_college_suggestions;
+CREATE TRIGGER set_suggestions_updated_at
+    BEFORE UPDATE ON public.student_college_suggestions
+    FOR EACH ROW
+    EXECUTE FUNCTION public.handle_updated_at();
+
+DROP TRIGGER IF EXISTS set_preferences_updated_at ON public.student_preferences;
+CREATE TRIGGER set_preferences_updated_at
+    BEFORE UPDATE ON public.student_preferences
+    FOR EACH ROW
+    EXECUTE FUNCTION public.handle_updated_at();
+
 -- ==============================================================================
 -- Schema creation complete!
 -- ==============================================================================

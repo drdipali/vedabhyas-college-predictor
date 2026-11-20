@@ -19,9 +19,11 @@ import { LiveAlertTicker } from './components/LiveAlertTicker';
 import { LiveCounsellingModal } from './components/LiveCounsellingModal';
 import { CollegePortalModal } from './components/CollegePortalModal';
 import { SetNewPasswordModal } from './components/SetNewPasswordModal';
+import { StudentPreferenceListModal } from './components/StudentPreferenceListModal';
+import { AddMissingCollegeModal } from './components/AddMissingCollegeModal';
 import { Footer } from './components/Footer';
-import { getLiveApprovedColleges, supabase } from './lib/supabase';
-import type { College } from './types';
+import { getLiveApprovedColleges, supabase, fetchStudentPreferences, addStudentPreference } from './lib/supabase';
+import type { College, StudentPreference } from './types';
 
 export const App: React.FC = () => {
   // Student authentication profile state
@@ -43,6 +45,60 @@ export const App: React.FC = () => {
 
   // Password Recovery state
   const [isSetNewPasswordOpen, setIsSetNewPasswordOpen] = useState(false);
+
+  // Student Preference List & Missing College Crowdsourcing state
+  const [isPreferencesOpen, setIsPreferencesOpen] = useState(false);
+  const [isAddMissingOpen, setIsAddMissingOpen] = useState(false);
+  const [studentPreferences, setStudentPreferences] = useState<StudentPreference[]>([]);
+
+  const loadPreferences = async () => {
+    if (!currentStudent) {
+      setStudentPreferences([]);
+      return;
+    }
+    try {
+      const list = await fetchStudentPreferences(currentStudent.id);
+      setStudentPreferences(list);
+    } catch (err) {
+      console.warn('Failed to load student preferences:', err);
+    }
+  };
+
+  useEffect(() => {
+    loadPreferences();
+  }, [currentStudent?.id]);
+
+  const handleAddToPreference = async (prediction: PredictionResult) => {
+    if (!currentStudent) {
+      setIsAuthModalOpen(true);
+      return;
+    }
+
+    const collegeId = prediction.college.id;
+    const exists = studentPreferences.some((p) => p.college_id === collegeId);
+    if (exists) {
+      setIsPreferencesOpen(true);
+      return;
+    }
+
+    const defaultBranch = prediction.college.topBranches?.[0] || 'Kayachikitsa';
+    await addStudentPreference({
+      user_id: currentStudent.id,
+      college_id: collegeId,
+      college_code: prediction.college.ncism_code || prediction.college.id,
+      college_name: prediction.college.name,
+      state: prediction.college.state,
+      quota_type: prediction.college.quota_type || prediction.college.quota,
+      college_type: prediction.college.institutionType || prediction.college.college_type,
+      branch: defaultBranch,
+      priority_order: studentPreferences.length + 1,
+      is_verified: true,
+      notes: `${prediction.chance} chance (Closing #${prediction.closingRank})`,
+    });
+
+    await loadPreferences();
+    setIsPreferencesOpen(true);
+  };
 
   // Listen for Supabase PASSWORD_RECOVERY auth event
   useEffect(() => {
@@ -267,6 +323,8 @@ export const App: React.FC = () => {
         onOpenAdminLogin={handleOpenAdmin}
         onOpenLiveAlerts={() => setIsLiveAlertsOpen(true)}
         onOpenCollegePortal={() => setIsCollegePortalOpen(true)}
+        onOpenPreferences={() => setIsPreferencesOpen(true)}
+        preferenceCount={studentPreferences.length}
         currentStudent={currentStudent}
         onLogout={handleLogout}
         activeAlertCount={counsellingFeed.updates.length}
@@ -343,6 +401,9 @@ export const App: React.FC = () => {
                 onSelectCollege={(p) => setSelectedCollege(p)}
                 userRank={rank}
                 category={category}
+                onAddToPreference={handleAddToPreference}
+                preferenceCollegeIds={studentPreferences.map((p) => p.college_id).filter(Boolean) as string[]}
+                onOpenAddMissing={() => setIsAddMissingOpen(true)}
               />
             </div>
           </>
@@ -371,6 +432,28 @@ export const App: React.FC = () => {
         isOpen={isCollegePortalOpen}
         onClose={() => setIsCollegePortalOpen(false)}
         onSubmissionSuccess={loadApprovedColleges}
+      />
+
+      {/* Student Preference List Modal */}
+      <StudentPreferenceListModal
+        isOpen={isPreferencesOpen}
+        onClose={() => setIsPreferencesOpen(false)}
+        currentStudent={currentStudent}
+        onOpenAddMissing={() => setIsAddMissingOpen(true)}
+        onOpenAuth={() => setIsAuthModalOpen(true)}
+        onPreferencesUpdated={loadPreferences}
+      />
+
+      {/* Add Missing College Modal (Crowdsourced Verification) */}
+      <AddMissingCollegeModal
+        isOpen={isAddMissingOpen}
+        onClose={() => setIsAddMissingOpen(false)}
+        currentStudent={currentStudent}
+        onSuccess={() => {
+          loadPreferences();
+          loadApprovedColleges();
+        }}
+        onOpenAuth={() => setIsAuthModalOpen(true)}
       />
 
       {/* Password Recovery: Set New Password Modal */}

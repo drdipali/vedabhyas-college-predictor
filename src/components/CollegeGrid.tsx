@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import type { PredictionResult, ChanceLevel } from '../types';
 import { CollegeCard } from './CollegeCard';
-import { Sparkles, CheckCircle2, AlertCircle, HelpCircle, Frown } from 'lucide-react';
+import { Sparkles, CheckCircle2, AlertCircle, HelpCircle, Frown, Plus } from 'lucide-react';
 import gsap from 'gsap';
 
 interface CollegeGridProps {
@@ -9,6 +9,9 @@ interface CollegeGridProps {
   onSelectCollege: (pred: PredictionResult) => void;
   userRank: number | '';
   category: string;
+  onAddToPreference?: (pred: PredictionResult) => void;
+  preferenceCollegeIds?: string[];
+  onOpenAddMissing?: () => void;
 }
 
 export const CollegeGrid: React.FC<CollegeGridProps> = ({
@@ -16,6 +19,9 @@ export const CollegeGrid: React.FC<CollegeGridProps> = ({
   onSelectCollege,
   userRank,
   category,
+  onAddToPreference,
+  preferenceCollegeIds = [],
+  onOpenAddMissing,
 }) => {
   const gridRef = useRef<HTMLDivElement>(null);
   const [selectedChanceFilter, setSelectedChanceFilter] = useState<'All' | ChanceLevel>('All');
@@ -96,9 +102,21 @@ export const CollegeGrid: React.FC<CollegeGridProps> = ({
               Rank: <strong className="text-white">AIR #{userRank}</strong> ({category})
             </span>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-white font-['Outfit']">
-            {predictions.length} Institutes Evaluated
-          </h3>
+          <div className="flex items-center gap-3 mt-0.5">
+            <h3 className="text-lg sm:text-xl font-bold text-white font-['Outfit']">
+              {predictions.length} Institutes Evaluated
+            </h3>
+            {onOpenAddMissing && (
+              <button
+                onClick={onOpenAddMissing}
+                className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold text-emerald-300 bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 transition-colors cursor-pointer"
+                title="Can't find a college? Add it here"
+              >
+                <Plus className="w-3 h-3" />
+                <span>+ Can't find a college? Add it here</span>
+              </button>
+            )}
+          </div>
         </div>
 
         {/* Center / Right: Chance Category Filter Badges */}
@@ -191,6 +209,8 @@ export const CollegeGrid: React.FC<CollegeGridProps> = ({
               key={pred.college.id}
               prediction={pred}
               onSelect={onSelectCollege}
+              onAddToPreference={onAddToPreference}
+              isInPreferenceList={preferenceCollegeIds.includes(pred.college.id)}
             />
           ))}
         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { StudentProfile } from '../types';
-import { BookOpen, ExternalLink, Menu, X, User, LogOut, Lock, MessageCircle, BellRing, Building2 } from 'lucide-react';
+import { BookOpen, ExternalLink, Menu, X, User, LogOut, Lock, MessageCircle, BellRing, Building2, ListChecks } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 
 interface NavbarProps {
@@ -9,6 +9,8 @@ interface NavbarProps {
   onOpenAdminLogin: () => void;
   onOpenLiveAlerts: () => void;
   onOpenCollegePortal: () => void;
+  onOpenPreferences?: () => void;
+  preferenceCount?: number;
   currentStudent: StudentProfile | null;
   onLogout: () => void;
   activeAlertCount?: number;
@@ -23,6 +25,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenAdminLogin,
   onOpenLiveAlerts,
   onOpenCollegePortal,
+  onOpenPreferences,
+  preferenceCount = 0,
   currentStudent,
   onLogout,
   activeAlertCount = 0
@@ -77,7 +81,24 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span>College Portal</span>
             </button>
 
-            {/* 3. Primary Student Login */}
+            {/* 3. My Choices / Preference List */}
+            {onOpenPreferences && (
+              <button
+                onClick={onOpenPreferences}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-colors cursor-pointer relative"
+                title="View & Reorder Your Preference Choice List"
+              >
+                <ListChecks className="w-4 h-4 text-emerald-400" />
+                <span>My Choices</span>
+                {preferenceCount > 0 && (
+                  <span className="px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-[10px] border border-emerald-500/40">
+                    {preferenceCount}
+                  </span>
+                )}
+              </button>
+            )}
+
+            {/* 4. Primary Student Login */}
             {currentStudent ? (
               <div className="flex items-center gap-2 ml-1">
                 <button
@@ -203,6 +224,27 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span>College Administrator Portal</span>
             </div>
           </button>
+
+          {/* My Preference List */}
+          {onOpenPreferences && (
+            <button
+              onClick={() => {
+                onOpenPreferences();
+                setMobileMenuOpen(false);
+              }}
+              className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-200 bg-white/5 border border-white/10 hover:bg-white/10 min-h-[44px]"
+            >
+              <div className="flex items-center gap-2.5">
+                <ListChecks className="w-4 h-4 text-emerald-400" />
+                <span>My Preference List</span>
+              </div>
+              {preferenceCount > 0 && (
+                <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  {preferenceCount}
+                </span>
+              )}
+            </button>
+          )}
 
           {/* Live Alerts */}
           <button
