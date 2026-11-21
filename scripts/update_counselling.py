@@ -33,6 +33,9 @@ import urllib.error
 import urllib.parse
 import html as html_parser
 
+# Indian Standard Time (UTC+5:30)
+IST = datetime.timezone(datetime.timedelta(hours=5, minutes=30))
+
 # Path configuration
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 UPDATES_FILE = os.path.join(BASE_DIR, 'public', 'data', 'counselling_updates.json')
@@ -460,7 +463,7 @@ def push_telegram_alert(event):
 def run_scraper():
     print("=" * 70)
     print("Starting AIAPGET 2026 Live Counselling Scraper Engine")
-    print("Timestamp:", datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    print("Timestamp (IST):", datetime.datetime.now(IST).strftime('%Y-%m-%d %H:%M:%S'))
     print("=" * 70)
 
     # 1. Read-Only load of manual pinned notices
@@ -475,7 +478,7 @@ def run_scraper():
 
     # 2. Load existing scraped updates
     existing_data = {
-        "last_updated": datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S+05:30'),
+        "last_updated": datetime.datetime.now(IST).strftime('%Y-%m-%dT%H:%M:%S+05:30'),
         "active_session": "AIAPGET 2026–2027",
         "monitoring_status": "Active (9 Verified Live Portals + Central AACCC)",
         "active_portals_count": 0,
@@ -602,7 +605,8 @@ def run_scraper():
     # -------------------------------------------------------------------------
     # 5. METADATA & URGENT TICKER SYNCHRONIZATION
     # -------------------------------------------------------------------------
-    now_str = datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S+05:30')
+    now_ist = datetime.datetime.now(IST)
+    now_str = now_ist.strftime('%Y-%m-%dT%H:%M:%S+05:30')
     existing_data['last_updated'] = now_str
     existing_data['active_portals_count'] = live_active_portals
     total_portals = len(STATE_PORTALS) + 1

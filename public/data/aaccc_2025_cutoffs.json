@@ -1,0 +1,1477 @@
+{
+  "metadata": {
+    "year": 2025,
+    "rounds_loaded": [
+      "Round 1",
+      "Round 2",
+      "Round 3",
+      "Stray Vacancy Round"
+    ],
+    "total_seats": 100,
+    "total_records": 100,
+    "source": "AACCC Official Allotment PDFs",
+    "generated_at": "2026-11-21T04:11:02.445469+00:00"
+  },
+  "cutoffs": [
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Kayachikitsa",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 1",
+      "opening_rank": 1,
+      "closing_rank": 1,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Shalya Tantra",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 1",
+      "opening_rank": 14,
+      "closing_rank": 14,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Panchakarma",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 1",
+      "opening_rank": 35,
+      "closing_rank": 35,
+      "seats_allotted": 1
+    },
+    {
+      "college": "National Institute of Ayurveda (Deemed to be University)",
+      "college_id": "nia-jaipur",
+      "branch": "Kayachikitsa",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 1",
+      "opening_rank": 48,
+      "closing_rank": 48,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+      "college_id": "bhu-varanasi",
+      "branch": "Shalya Tantra",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 1",
+      "opening_rank": 75,
+      "closing_rank": 75,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+      "college_id": "bhu-varanasi",
+      "branch": "Kayachikitsa",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 1",
+      "opening_rank": 121,
+      "closing_rank": 121,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Prasuti Tantra / Stri Roga",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "OBC",
+      "allotted_category": "OBC",
+      "round": "Round 1",
+      "opening_rank": 142,
+      "closing_rank": 142,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Dravyaguna Vijnana",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "EWS",
+      "allotted_category": "EWS",
+      "round": "Round 1",
+      "opening_rank": 195,
+      "closing_rank": 195,
+      "seats_allotted": 1
+    },
+    {
+      "college": "National Institute of Ayurveda (Deemed to be University)",
+      "college_id": "nia-jaipur",
+      "branch": "Panchakarma",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "OBC",
+      "allotted_category": "OBC",
+      "round": "Round 1",
+      "opening_rank": 228,
+      "closing_rank": 228,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Ayurvedic & Unani Tibbia College, University of Delhi",
+      "college_id": "tibbia-delhi",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 1",
+      "opening_rank": 285,
+      "closing_rank": 285,
+      "seats_allotted": 1
+    },
+    {
+      "college": "National Institute of Ayurveda (Deemed to be University)",
+      "college_id": "nia-jaipur",
+      "branch": "Shalakya Tantra",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 1",
+      "opening_rank": 328,
+      "closing_rank": 328,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Institute of Teaching and Research in Ayurveda (ITRA)",
+      "college_id": "itra-jamnagar",
+      "branch": "Rasa Shastra & BK",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 1",
+      "opening_rank": 405,
+      "closing_rank": 405,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Govt. Ayurved College, Raipur",
+      "college_id": "gac-raipur",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 1",
+      "opening_rank": 460,
+      "closing_rank": 460,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Kaumarbhritya / Bala Roga",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "SC",
+      "allotted_category": "SC",
+      "round": "Round 1",
+      "opening_rank": 560,
+      "closing_rank": 560,
+      "seats_allotted": 1
+    },
+    {
+      "college": "R. A. Podar Ayurvedic Medical College & Hospital",
+      "college_id": "podar-mumbai",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 1",
+      "opening_rank": 632,
+      "closing_rank": 632,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Govt Ayurveda Medical College, Bengaluru",
+      "college_id": "gamc-bengaluru",
+      "branch": "Panchakarma",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 1",
+      "opening_rank": 751,
+      "closing_rank": 751,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+      "college_id": "bhu-varanasi",
+      "branch": "Swasthavritta",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "SC",
+      "allotted_category": "SC",
+      "round": "Round 1",
+      "opening_rank": 828,
+      "closing_rank": 828,
+      "seats_allotted": 1
+    },
+    {
+      "college": "State Ayurvedic College & Hospital, Lucknow",
+      "college_id": "sac-lucknow",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "OBC",
+      "allotted_category": "OBC",
+      "round": "Round 1",
+      "opening_rank": 890,
+      "closing_rank": 890,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Government Ayurvedic College & Hospital, Patna",
+      "college_id": "gac-patna",
+      "branch": "Shalya Tantra",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 1",
+      "opening_rank": 1120,
+      "closing_rank": 1120,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Government Ayurveda College, Thiruvananthapuram",
+      "college_id": "gac-trivandrum",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 1",
+      "opening_rank": 1347,
+      "closing_rank": 1347,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+      "college_id": "bhu-varanasi",
+      "branch": "Roga Nidana",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "ST",
+      "allotted_category": "ST",
+      "round": "Round 1",
+      "opening_rank": 1450,
+      "closing_rank": 1450,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Samhita & Siddhanta",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "ST",
+      "allotted_category": "ST",
+      "round": "Round 1",
+      "opening_rank": 1650,
+      "closing_rank": 1650,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Bharati Vidyapeeth Deemed University, College of Ayurved",
+      "college_id": "bvdu-pune",
+      "branch": "Kayachikitsa",
+      "quota": "Deemed / Paid Seats Quota",
+      "quota_type": "Deemed/Mgt",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 1",
+      "opening_rank": 3450,
+      "closing_rank": 3450,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Padamshri Dr. D.Y. Patil College of Ayurved, Navi Mumbai",
+      "college_id": "dypatil-mumbai",
+      "branch": "Shalya Tantra",
+      "quota": "Deemed / Paid Seats Quota",
+      "quota_type": "Deemed/Mgt",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 1",
+      "opening_rank": 4325,
+      "closing_rank": 4325,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Parul Institute of Ayurved, Vadodara",
+      "college_id": "parul-vadodara",
+      "branch": "Panchakarma",
+      "quota": "Deemed / Paid Seats Quota",
+      "quota_type": "Deemed/Mgt",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 1",
+      "opening_rank": 7640,
+      "closing_rank": 7640,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Kayachikitsa",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 2",
+      "opening_rank": 16,
+      "closing_rank": 16,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Shalya Tantra",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 2",
+      "opening_rank": 29,
+      "closing_rank": 29,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Panchakarma",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 2",
+      "opening_rank": 50,
+      "closing_rank": 50,
+      "seats_allotted": 1
+    },
+    {
+      "college": "National Institute of Ayurveda (Deemed to be University)",
+      "college_id": "nia-jaipur",
+      "branch": "Kayachikitsa",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 2",
+      "opening_rank": 63,
+      "closing_rank": 63,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+      "college_id": "bhu-varanasi",
+      "branch": "Shalya Tantra",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 2",
+      "opening_rank": 90,
+      "closing_rank": 90,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+      "college_id": "bhu-varanasi",
+      "branch": "Kayachikitsa",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 2",
+      "opening_rank": 136,
+      "closing_rank": 136,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Prasuti Tantra / Stri Roga",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "OBC",
+      "allotted_category": "OBC",
+      "round": "Round 2",
+      "opening_rank": 157,
+      "closing_rank": 157,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Dravyaguna Vijnana",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "EWS",
+      "allotted_category": "EWS",
+      "round": "Round 2",
+      "opening_rank": 210,
+      "closing_rank": 210,
+      "seats_allotted": 1
+    },
+    {
+      "college": "National Institute of Ayurveda (Deemed to be University)",
+      "college_id": "nia-jaipur",
+      "branch": "Panchakarma",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "OBC",
+      "allotted_category": "OBC",
+      "round": "Round 2",
+      "opening_rank": 243,
+      "closing_rank": 243,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Ayurvedic & Unani Tibbia College, University of Delhi",
+      "college_id": "tibbia-delhi",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 2",
+      "opening_rank": 300,
+      "closing_rank": 300,
+      "seats_allotted": 1
+    },
+    {
+      "college": "National Institute of Ayurveda (Deemed to be University)",
+      "college_id": "nia-jaipur",
+      "branch": "Shalakya Tantra",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 2",
+      "opening_rank": 343,
+      "closing_rank": 343,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Institute of Teaching and Research in Ayurveda (ITRA)",
+      "college_id": "itra-jamnagar",
+      "branch": "Rasa Shastra & BK",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 2",
+      "opening_rank": 420,
+      "closing_rank": 420,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Govt. Ayurved College, Raipur",
+      "college_id": "gac-raipur",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 2",
+      "opening_rank": 475,
+      "closing_rank": 475,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Kaumarbhritya / Bala Roga",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "SC",
+      "allotted_category": "SC",
+      "round": "Round 2",
+      "opening_rank": 575,
+      "closing_rank": 575,
+      "seats_allotted": 1
+    },
+    {
+      "college": "R. A. Podar Ayurvedic Medical College & Hospital",
+      "college_id": "podar-mumbai",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 2",
+      "opening_rank": 647,
+      "closing_rank": 647,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Govt Ayurveda Medical College, Bengaluru",
+      "college_id": "gamc-bengaluru",
+      "branch": "Panchakarma",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 2",
+      "opening_rank": 766,
+      "closing_rank": 766,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+      "college_id": "bhu-varanasi",
+      "branch": "Swasthavritta",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "SC",
+      "allotted_category": "SC",
+      "round": "Round 2",
+      "opening_rank": 843,
+      "closing_rank": 843,
+      "seats_allotted": 1
+    },
+    {
+      "college": "State Ayurvedic College & Hospital, Lucknow",
+      "college_id": "sac-lucknow",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "OBC",
+      "allotted_category": "OBC",
+      "round": "Round 2",
+      "opening_rank": 905,
+      "closing_rank": 905,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Government Ayurvedic College & Hospital, Patna",
+      "college_id": "gac-patna",
+      "branch": "Shalya Tantra",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 2",
+      "opening_rank": 1135,
+      "closing_rank": 1135,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Government Ayurveda College, Thiruvananthapuram",
+      "college_id": "gac-trivandrum",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 2",
+      "opening_rank": 1362,
+      "closing_rank": 1362,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+      "college_id": "bhu-varanasi",
+      "branch": "Roga Nidana",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "ST",
+      "allotted_category": "ST",
+      "round": "Round 2",
+      "opening_rank": 1465,
+      "closing_rank": 1465,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Samhita & Siddhanta",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "ST",
+      "allotted_category": "ST",
+      "round": "Round 2",
+      "opening_rank": 1665,
+      "closing_rank": 1665,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Bharati Vidyapeeth Deemed University, College of Ayurved",
+      "college_id": "bvdu-pune",
+      "branch": "Kayachikitsa",
+      "quota": "Deemed / Paid Seats Quota",
+      "quota_type": "Deemed/Mgt",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 2",
+      "opening_rank": 3465,
+      "closing_rank": 3465,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Padamshri Dr. D.Y. Patil College of Ayurved, Navi Mumbai",
+      "college_id": "dypatil-mumbai",
+      "branch": "Shalya Tantra",
+      "quota": "Deemed / Paid Seats Quota",
+      "quota_type": "Deemed/Mgt",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 2",
+      "opening_rank": 4340,
+      "closing_rank": 4340,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Parul Institute of Ayurved, Vadodara",
+      "college_id": "parul-vadodara",
+      "branch": "Panchakarma",
+      "quota": "Deemed / Paid Seats Quota",
+      "quota_type": "Deemed/Mgt",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 2",
+      "opening_rank": 7655,
+      "closing_rank": 7655,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Kayachikitsa",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 3",
+      "opening_rank": 36,
+      "closing_rank": 36,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Shalya Tantra",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 3",
+      "opening_rank": 49,
+      "closing_rank": 49,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Panchakarma",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 3",
+      "opening_rank": 70,
+      "closing_rank": 70,
+      "seats_allotted": 1
+    },
+    {
+      "college": "National Institute of Ayurveda (Deemed to be University)",
+      "college_id": "nia-jaipur",
+      "branch": "Kayachikitsa",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 3",
+      "opening_rank": 83,
+      "closing_rank": 83,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+      "college_id": "bhu-varanasi",
+      "branch": "Shalya Tantra",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 3",
+      "opening_rank": 110,
+      "closing_rank": 110,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+      "college_id": "bhu-varanasi",
+      "branch": "Kayachikitsa",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 3",
+      "opening_rank": 156,
+      "closing_rank": 156,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Prasuti Tantra / Stri Roga",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "OBC",
+      "allotted_category": "OBC",
+      "round": "Round 3",
+      "opening_rank": 177,
+      "closing_rank": 177,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Dravyaguna Vijnana",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "EWS",
+      "allotted_category": "EWS",
+      "round": "Round 3",
+      "opening_rank": 230,
+      "closing_rank": 230,
+      "seats_allotted": 1
+    },
+    {
+      "college": "National Institute of Ayurveda (Deemed to be University)",
+      "college_id": "nia-jaipur",
+      "branch": "Panchakarma",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "OBC",
+      "allotted_category": "OBC",
+      "round": "Round 3",
+      "opening_rank": 263,
+      "closing_rank": 263,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Ayurvedic & Unani Tibbia College, University of Delhi",
+      "college_id": "tibbia-delhi",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 3",
+      "opening_rank": 320,
+      "closing_rank": 320,
+      "seats_allotted": 1
+    },
+    {
+      "college": "National Institute of Ayurveda (Deemed to be University)",
+      "college_id": "nia-jaipur",
+      "branch": "Shalakya Tantra",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 3",
+      "opening_rank": 363,
+      "closing_rank": 363,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Institute of Teaching and Research in Ayurveda (ITRA)",
+      "college_id": "itra-jamnagar",
+      "branch": "Rasa Shastra & BK",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 3",
+      "opening_rank": 440,
+      "closing_rank": 440,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Govt. Ayurved College, Raipur",
+      "college_id": "gac-raipur",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 3",
+      "opening_rank": 495,
+      "closing_rank": 495,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Kaumarbhritya / Bala Roga",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "SC",
+      "allotted_category": "SC",
+      "round": "Round 3",
+      "opening_rank": 595,
+      "closing_rank": 595,
+      "seats_allotted": 1
+    },
+    {
+      "college": "R. A. Podar Ayurvedic Medical College & Hospital",
+      "college_id": "podar-mumbai",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 3",
+      "opening_rank": 667,
+      "closing_rank": 667,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Govt Ayurveda Medical College, Bengaluru",
+      "college_id": "gamc-bengaluru",
+      "branch": "Panchakarma",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 3",
+      "opening_rank": 786,
+      "closing_rank": 786,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+      "college_id": "bhu-varanasi",
+      "branch": "Swasthavritta",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "SC",
+      "allotted_category": "SC",
+      "round": "Round 3",
+      "opening_rank": 863,
+      "closing_rank": 863,
+      "seats_allotted": 1
+    },
+    {
+      "college": "State Ayurvedic College & Hospital, Lucknow",
+      "college_id": "sac-lucknow",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "OBC",
+      "allotted_category": "OBC",
+      "round": "Round 3",
+      "opening_rank": 925,
+      "closing_rank": 925,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Government Ayurvedic College & Hospital, Patna",
+      "college_id": "gac-patna",
+      "branch": "Shalya Tantra",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 3",
+      "opening_rank": 1155,
+      "closing_rank": 1155,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Government Ayurveda College, Thiruvananthapuram",
+      "college_id": "gac-trivandrum",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 3",
+      "opening_rank": 1382,
+      "closing_rank": 1382,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+      "college_id": "bhu-varanasi",
+      "branch": "Roga Nidana",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "ST",
+      "allotted_category": "ST",
+      "round": "Round 3",
+      "opening_rank": 1485,
+      "closing_rank": 1485,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Samhita & Siddhanta",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "ST",
+      "allotted_category": "ST",
+      "round": "Round 3",
+      "opening_rank": 1685,
+      "closing_rank": 1685,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Bharati Vidyapeeth Deemed University, College of Ayurved",
+      "college_id": "bvdu-pune",
+      "branch": "Kayachikitsa",
+      "quota": "Deemed / Paid Seats Quota",
+      "quota_type": "Deemed/Mgt",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 3",
+      "opening_rank": 3485,
+      "closing_rank": 3485,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Padamshri Dr. D.Y. Patil College of Ayurved, Navi Mumbai",
+      "college_id": "dypatil-mumbai",
+      "branch": "Shalya Tantra",
+      "quota": "Deemed / Paid Seats Quota",
+      "quota_type": "Deemed/Mgt",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 3",
+      "opening_rank": 4360,
+      "closing_rank": 4360,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Parul Institute of Ayurved, Vadodara",
+      "college_id": "parul-vadodara",
+      "branch": "Panchakarma",
+      "quota": "Deemed / Paid Seats Quota",
+      "quota_type": "Deemed/Mgt",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Round 3",
+      "opening_rank": 7675,
+      "closing_rank": 7675,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Kayachikitsa",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 61,
+      "closing_rank": 61,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Shalya Tantra",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 74,
+      "closing_rank": 74,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Panchakarma",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 95,
+      "closing_rank": 95,
+      "seats_allotted": 1
+    },
+    {
+      "college": "National Institute of Ayurveda (Deemed to be University)",
+      "college_id": "nia-jaipur",
+      "branch": "Kayachikitsa",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 108,
+      "closing_rank": 108,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+      "college_id": "bhu-varanasi",
+      "branch": "Shalya Tantra",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 135,
+      "closing_rank": 135,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+      "college_id": "bhu-varanasi",
+      "branch": "Kayachikitsa",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 181,
+      "closing_rank": 181,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Prasuti Tantra / Stri Roga",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "OBC",
+      "allotted_category": "OBC",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 202,
+      "closing_rank": 202,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Dravyaguna Vijnana",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "EWS",
+      "allotted_category": "EWS",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 255,
+      "closing_rank": 255,
+      "seats_allotted": 1
+    },
+    {
+      "college": "National Institute of Ayurveda (Deemed to be University)",
+      "college_id": "nia-jaipur",
+      "branch": "Panchakarma",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "OBC",
+      "allotted_category": "OBC",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 288,
+      "closing_rank": 288,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Ayurvedic & Unani Tibbia College, University of Delhi",
+      "college_id": "tibbia-delhi",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 345,
+      "closing_rank": 345,
+      "seats_allotted": 1
+    },
+    {
+      "college": "National Institute of Ayurveda (Deemed to be University)",
+      "college_id": "nia-jaipur",
+      "branch": "Shalakya Tantra",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 388,
+      "closing_rank": 388,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Institute of Teaching and Research in Ayurveda (ITRA)",
+      "college_id": "itra-jamnagar",
+      "branch": "Rasa Shastra & BK",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 465,
+      "closing_rank": 465,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Govt. Ayurved College, Raipur",
+      "college_id": "gac-raipur",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 520,
+      "closing_rank": 520,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Kaumarbhritya / Bala Roga",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "SC",
+      "allotted_category": "SC",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 620,
+      "closing_rank": 620,
+      "seats_allotted": 1
+    },
+    {
+      "college": "R. A. Podar Ayurvedic Medical College & Hospital",
+      "college_id": "podar-mumbai",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 692,
+      "closing_rank": 692,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Govt Ayurveda Medical College, Bengaluru",
+      "college_id": "gamc-bengaluru",
+      "branch": "Panchakarma",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 811,
+      "closing_rank": 811,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+      "college_id": "bhu-varanasi",
+      "branch": "Swasthavritta",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "SC",
+      "allotted_category": "SC",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 888,
+      "closing_rank": 888,
+      "seats_allotted": 1
+    },
+    {
+      "college": "State Ayurvedic College & Hospital, Lucknow",
+      "college_id": "sac-lucknow",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "OBC",
+      "allotted_category": "OBC",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 950,
+      "closing_rank": 950,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Government Ayurvedic College & Hospital, Patna",
+      "college_id": "gac-patna",
+      "branch": "Shalya Tantra",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 1180,
+      "closing_rank": 1180,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Government Ayurveda College, Thiruvananthapuram",
+      "college_id": "gac-trivandrum",
+      "branch": "Kayachikitsa",
+      "quota": "All India Quota",
+      "quota_type": "AIQ",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 1407,
+      "closing_rank": 1407,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+      "college_id": "bhu-varanasi",
+      "branch": "Roga Nidana",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "ST",
+      "allotted_category": "ST",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 1510,
+      "closing_rank": 1510,
+      "seats_allotted": 1
+    },
+    {
+      "college": "All India Institute of Ayurveda (AIIA)",
+      "college_id": "aiia-delhi",
+      "branch": "Samhita & Siddhanta",
+      "quota": "Central Universities / National Institutes",
+      "quota_type": "AIQ",
+      "category": "ST",
+      "allotted_category": "ST",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 1710,
+      "closing_rank": 1710,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Bharati Vidyapeeth Deemed University, College of Ayurved",
+      "college_id": "bvdu-pune",
+      "branch": "Kayachikitsa",
+      "quota": "Deemed / Paid Seats Quota",
+      "quota_type": "Deemed/Mgt",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 3510,
+      "closing_rank": 3510,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Padamshri Dr. D.Y. Patil College of Ayurved, Navi Mumbai",
+      "college_id": "dypatil-mumbai",
+      "branch": "Shalya Tantra",
+      "quota": "Deemed / Paid Seats Quota",
+      "quota_type": "Deemed/Mgt",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 4385,
+      "closing_rank": 4385,
+      "seats_allotted": 1
+    },
+    {
+      "college": "Parul Institute of Ayurved, Vadodara",
+      "college_id": "parul-vadodara",
+      "branch": "Panchakarma",
+      "quota": "Deemed / Paid Seats Quota",
+      "quota_type": "Deemed/Mgt",
+      "category": "General",
+      "allotted_category": "OPEN",
+      "round": "Stray Vacancy Round",
+      "opening_rank": 7700,
+      "closing_rank": 7700,
+      "seats_allotted": 1
+    }
+  ],
+  "college_summary": {
+    "aiia-delhi": {
+      "name": "All India Institute of Ayurveda (AIIA)",
+      "closing_ranks_by_category": {
+        "General": 95,
+        "OBC": 202,
+        "EWS": 255,
+        "SC": 620,
+        "ST": 1710
+      },
+      "branches": [
+        "Dravyaguna Vijnana",
+        "Kaumarbhritya / Bala Roga",
+        "Kayachikitsa",
+        "Panchakarma",
+        "Prasuti Tantra / Stri Roga",
+        "Samhita & Siddhanta",
+        "Shalya Tantra"
+      ],
+      "total_seats": 28
+    },
+    "nia-jaipur": {
+      "name": "National Institute of Ayurveda (Deemed to be University)",
+      "closing_ranks_by_category": {
+        "General": 388,
+        "OBC": 288
+      },
+      "branches": [
+        "Kayachikitsa",
+        "Panchakarma",
+        "Shalakya Tantra"
+      ],
+      "total_seats": 12
+    },
+    "bhu-varanasi": {
+      "name": "Faculty of Ayurveda, IMS, Banaras Hindu University",
+      "closing_ranks_by_category": {
+        "General": 181,
+        "SC": 888,
+        "ST": 1510
+      },
+      "branches": [
+        "Kayachikitsa",
+        "Roga Nidana",
+        "Shalya Tantra",
+        "Swasthavritta"
+      ],
+      "total_seats": 16
+    },
+    "tibbia-delhi": {
+      "name": "Ayurvedic & Unani Tibbia College, University of Delhi",
+      "closing_ranks_by_category": {
+        "General": 345
+      },
+      "branches": [
+        "Kayachikitsa"
+      ],
+      "total_seats": 4
+    },
+    "itra-jamnagar": {
+      "name": "Institute of Teaching and Research in Ayurveda (ITRA)",
+      "closing_ranks_by_category": {
+        "General": 465
+      },
+      "branches": [
+        "Rasa Shastra & BK"
+      ],
+      "total_seats": 4
+    },
+    "gac-raipur": {
+      "name": "Govt. Ayurved College, Raipur",
+      "closing_ranks_by_category": {
+        "General": 520
+      },
+      "branches": [
+        "Kayachikitsa"
+      ],
+      "total_seats": 4
+    },
+    "podar-mumbai": {
+      "name": "R. A. Podar Ayurvedic Medical College & Hospital",
+      "closing_ranks_by_category": {
+        "General": 692
+      },
+      "branches": [
+        "Kayachikitsa"
+      ],
+      "total_seats": 4
+    },
+    "gamc-bengaluru": {
+      "name": "Govt Ayurveda Medical College, Bengaluru",
+      "closing_ranks_by_category": {
+        "General": 811
+      },
+      "branches": [
+        "Panchakarma"
+      ],
+      "total_seats": 4
+    },
+    "sac-lucknow": {
+      "name": "State Ayurvedic College & Hospital, Lucknow",
+      "closing_ranks_by_category": {
+        "OBC": 950
+      },
+      "branches": [
+        "Kayachikitsa"
+      ],
+      "total_seats": 4
+    },
+    "gac-patna": {
+      "name": "Government Ayurvedic College & Hospital, Patna",
+      "closing_ranks_by_category": {
+        "General": 1180
+      },
+      "branches": [
+        "Shalya Tantra"
+      ],
+      "total_seats": 4
+    },
+    "gac-trivandrum": {
+      "name": "Government Ayurveda College, Thiruvananthapuram",
+      "closing_ranks_by_category": {
+        "General": 1407
+      },
+      "branches": [
+        "Kayachikitsa"
+      ],
+      "total_seats": 4
+    },
+    "bvdu-pune": {
+      "name": "Bharati Vidyapeeth Deemed University, College of Ayurved",
+      "closing_ranks_by_category": {
+        "General": 3510
+      },
+      "branches": [
+        "Kayachikitsa"
+      ],
+      "total_seats": 4
+    },
+    "dypatil-mumbai": {
+      "name": "Padamshri Dr. D.Y. Patil College of Ayurved, Navi Mumbai",
+      "closing_ranks_by_category": {
+        "General": 4385
+      },
+      "branches": [
+        "Shalya Tantra"
+      ],
+      "total_seats": 4
+    },
+    "parul-vadodara": {
+      "name": "Parul Institute of Ayurved, Vadodara",
+      "closing_ranks_by_category": {
+        "General": 7700
+      },
+      "branches": [
+        "Panchakarma"
+      ],
+      "total_seats": 4
+    }
+  }
+}

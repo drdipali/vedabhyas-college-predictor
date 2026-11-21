@@ -18,6 +18,7 @@ interface LiveCounsellingModalProps {
   onClose: () => void;
   feed: CounsellingAlertsFeed;
   onRefresh?: () => void;
+  isRefreshing?: boolean;
 }
 
 const CATEGORIES: ('All' | UpdateCategory)[] = [
@@ -51,7 +52,8 @@ export const LiveCounsellingModal: React.FC<LiveCounsellingModalProps> = ({
   isOpen,
   onClose,
   feed,
-  onRefresh
+  onRefresh,
+  isRefreshing = false
 }) => {
   const [selectedState, setSelectedState] = useState<string>('All');
   const [selectedCategory, setSelectedCategory] = useState<'All' | UpdateCategory>('All');
@@ -178,24 +180,27 @@ export const LiveCounsellingModal: React.FC<LiveCounsellingModalProps> = ({
               Live AYUSH PG Counselling Alerts & Official Notices
             </h3>
             
-            {/* Last Updated Timestamp Badge */}
-            <div className="flex items-center gap-3 mt-1 text-xs text-slate-400 flex-wrap">
+            {/* Last Updated Timestamp Badge & Manual Refresh Button */}
+            <div className="flex items-center gap-2.5 sm:gap-3 mt-1.5 text-xs text-slate-400 flex-wrap">
               <span className="flex items-center gap-1.5 text-amber-300 font-medium">
                 <Clock className="w-3.5 h-3.5" />
                 <span>Last Updated: {formatTimeAgo(feed.last_updated)}</span>
               </span>
-              <span>•</span>
-              <span>9 Verified Live State Portals + Central AACCC</span>
+
               {onRefresh && (
                 <button
                   onClick={onRefresh}
-                  className="hover:text-emerald-400 flex items-center gap-1 cursor-pointer"
-                  title="Check for fresh updates"
+                  disabled={isRefreshing}
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-emerald-300 hover:text-emerald-200 text-xs font-semibold transition-all cursor-pointer disabled:opacity-50 shadow-sm active:scale-95"
+                  title="Re-fetch latest official notices"
                 >
-                  <RefreshCw className="w-3 h-3" />
-                  <span>Refresh</span>
+                  <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin' : ''}`} />
+                  <span>{isRefreshing ? 'Refreshing...' : 'Refresh Feed'}</span>
                 </button>
               )}
+
+              <span className="hidden sm:inline text-slate-600">•</span>
+              <span className="hidden sm:inline">9 Verified Live State Portals + Central AACCC</span>
             </div>
           </div>
         </div>

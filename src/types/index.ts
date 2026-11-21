@@ -204,3 +204,37 @@ export interface StudentCollegeSuggestion {
   created_at: string;
   updated_at?: string;
 }
+
+export interface AACCCCutoffRecord {
+  college: string;
+  college_id?: string;
+  branch: string;
+  quota: string;
+  quota_type: 'AIQ' | 'State' | 'Deemed/Mgt';
+  category: Category;
+  allotted_category: string;
+  round: string;
+  opening_rank: number;
+  closing_rank: number;
+  seats_allotted: number;
+}
+
+export interface AACCCCCutoffsMetadata {
+  year: number;
+  rounds_loaded: string[];
+  total_seats: number;
+  total_records: number;
+  source: string;
+  generated_at: string;
+}
+
+export interface AACCCCutoffsDataset {
+  metadata: AACCCCCutoffsMetadata;
+  cutoffs: AACCCCutoffRecord[];
+  college_summary?: Record<string, {
+    name: string;
+    closing_ranks_by_category: Record<string, number>;
+    branches: string[];
+    total_seats: number;
+  }>;
+}

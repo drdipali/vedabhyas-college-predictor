@@ -1,5 +1,14 @@
 [
   {
+    "id": "pdf-regarding-provisionally-allott-1795232610",
+    "state": "Haryana",
+    "title": "Regarding Provisionally allotted list of 3rd Round PATCC",
+    "detected_at": "2026-11-21T03:43:30.915678+00:00",
+    "status": "pending_review",
+    "source_url": "https://skau.ac.in/downloads/files/n6b00215ae5aa9.pdf",
+    "notes": "Automatically detected by scraper. Ready for cutoff extraction."
+  },
+  {
     "id": "pdf-the-third-round-option-registr-1795184424",
     "state": "Kerala",
     "title": "The third round option registration facility for PG Medical/DNB courses will be resumed after the publication of the revised allotment schedule by MCC.",

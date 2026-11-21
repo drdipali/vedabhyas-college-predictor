@@ -51,12 +51,14 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git add public/data/ data/ scripts/manual_check_needed.md src/data/ || true
           if git diff --staged --quiet; then
-            echo "No new counselling events or cutoff updates detected. Working tree clean."
+            echo "Working tree clean."
           else
             echo "New updates detected! Committing changes..."
             git commit -m "[Auto-Update] AIAPGET 2026 live counselling notices & seat cutoffs"
+            git pull --rebase origin main || true
             git push origin main
           fi
 
@@ -77,6 +79,7 @@ jobs:
 
       - name: Deploy to gh-pages Branch
         run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           npx gh-pages -d dist --user "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

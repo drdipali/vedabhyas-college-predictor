@@ -1,20 +1,30 @@
 {
-  "last_updated": "2026-11-20T19:56:36+05:30",
+  "last_updated": "2026-11-21T09:13:30+05:30",
   "active_session": "AIAPGET 2026\u20132027",
-  "monitoring_status": "Active (7 Verified Live Portals + Central AACCC)",
-  "active_portals_count": 7,
+  "monitoring_status": "Active (6 Verified Live Portals + Central AACCC)",
+  "active_portals_count": 6,
   "total_portals_monitored": 9,
   "urgent_ticker": [
     "\ud83d\udd34 AACCC / All India: AACCC PG Round 2 Registration & Choice Filling LIVE (Nov 20\u201322, 2026)",
+    "\ud83d\udd34 Central (AACCC): Public Notice for eligibility of NRI candidates for Academic Year 2026-27",
+    "\ud83d\udd34 Central (AACCC): Advisory Against Fraudulent Registrations in AACCC UG/PG -2026",
     "\ud83d\udd34 Kerala: LLM 2026 -First Phase Allotment Published",
     "\ud83d\udd34 Kerala: PG Dental 2026 - Candidate Portal",
     "\ud83d\udd34 Kerala: PG Homoeopathy 2026 - Candidate Portal",
     "\ud83d\udd34 Kerala: PG Nursing 2026 - Candidate Portal",
-    "\ud83d\udd34 Kerala: PG Ayurveda 2026 - Candidate Portal",
-    "\ud83d\udd34 Kerala: The third round option registration facility for PG Medical/DNB courses will be resumed after the publication of the revised allotment schedule by MCC.",
-    "\ud83d\udd34 Central (AACCC): Revised Schedule and Information Bulletin for AACCC PG 2026-27 is uploaded."
+    "\ud83d\udd34 Kerala: PG Ayurveda 2026 - Candidate Portal"
   ],
   "updates": [
+    {
+      "id": "hary-regarding-provisionally-allotted-list-of",
+      "state": "Haryana",
+      "title": "Regarding Provisionally allotted list of 3rd Round PATCC",
+      "date": "2026-11-21",
+      "category": "Notice",
+      "is_urgent": false,
+      "official_link": "https://skau.ac.in/downloads/files/n6b00215ae5aa9.pdf",
+      "summary": "Official notice update released for Haryana AIAPGET counseling."
+    },
     {
       "id": "kera-llm-2026-first-phase-allotment-published",
       "state": "Kerala",
@@ -614,17 +624,6 @@
       "is_urgent": true,
       "official_link": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/10/202610301622568787.pdf",
       "summary": "Official choice filling update released on AACCC PG portal."
-    },
-    {
-      "id": "aaccc-list-of-appellate-and-pwbd-assessment-ce",
-      "state": "Central (AACCC)",
-      "title": "List of appellate and PWBD assessment centers",
-      "year": "2026",
-      "date": "2026-10-26",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/10/202610262006843241.pdf",
-      "summary": "Official notice update released on AACCC PG portal."
     }
   ]
 }

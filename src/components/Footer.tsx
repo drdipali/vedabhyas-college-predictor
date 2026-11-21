@@ -1,16 +1,18 @@
 import React from 'react';
-import { Heart, BookOpen, ExternalLink, Lock, MessageCircle } from 'lucide-react';
+import { Heart, BookOpen, ExternalLink, Lock, MessageCircle, ShieldCheck } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
+import type { AACCCCCutoffsMetadata } from '../types';
 
 interface FooterProps {
   onOpenGuide: () => void;
   onOpenAdminLogin: () => void;
+  cutoffsMetadata?: AACCCCCutoffsMetadata | null;
 }
 
 const WHATSAPP_NUMBER = '8208506052';
 const WHATSAPP_URL = `https://wa.me/91${WHATSAPP_NUMBER}?text=Hello%20Vedabhyas,%20I%20need%20expert%20AIAPGET%20counseling%20help.`;
 
-export const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenAdminLogin }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenAdminLogin, cutoffsMetadata }) => {
   return (
     <footer className="mt-20 border-t border-white/10 bg-[#06080d]/90 backdrop-blur-xl relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -108,14 +110,36 @@ export const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenAdminLogin })
             </ul>
           </div>
 
-          {/* Technology & Principles */}
-          <div className="md:col-span-3 space-y-2">
-            <h5 className="text-xs uppercase tracking-wider font-semibold text-slate-300">
-              Candidate Security & Roadmap
+          {/* Data Source & Coverage */}
+          <div className="md:col-span-3 space-y-2.5">
+            <h5 className="text-xs uppercase tracking-wider font-semibold text-slate-300 flex items-center gap-1.5">
+              <span>Data Source & Coverage</span>
+              <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">
+                {cutoffsMetadata?.year ?? 2025}
+              </span>
             </h5>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Featuring 60+ top Government, Private, and Deemed colleges across 22 Indian states calibrated with official AACCC Round 3 & State Quota allotment data.
-            </p>
+
+            {cutoffsMetadata ? (
+              <div className="space-y-2">
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Calibrated directly from <strong>{cutoffsMetadata.source}</strong> ({cutoffsMetadata.total_seats}+ seats across {cutoffsMetadata.rounds_loaded.length} rounds).
+                </p>
+                <div className="flex flex-wrap gap-1.5 pt-0.5">
+                  <span className="text-[10px] px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-slate-300">
+                    {cutoffsMetadata.rounds_loaded.join(', ')}
+                  </span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 flex items-center gap-1">
+                    <ShieldCheck className="w-3 h-3 text-emerald-400" />
+                    <span>{cutoffsMetadata.total_records} Verified Rules</span>
+                  </span>
+                </div>
+              </div>
+            ) : (
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Featuring 60+ top Government, Private, and Deemed colleges across 22 Indian states calibrated with official AACCC Round 3 & State Quota allotment data.
+              </p>
+            )}
+
             <div className="pt-2 flex flex-wrap gap-2">
               <button
                 onClick={onOpenGuide}

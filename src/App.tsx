@@ -1,5 +1,5 @@
-import React, { useState, useMemo, useEffect } from 'react';
-import type { Category, QuotaFilter, InstitutionTypeFilter, PredictionResult, StudentProfile, CounsellingAlertsFeed } from './types';
+import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import type { Category, QuotaFilter, InstitutionTypeFilter, PredictionResult, StudentProfile, CounsellingAlertsFeed, AACCCCutoffsDataset } from './types';
 import { collegesData, getAllStates, getAllBranches } from './data/colleges';
 import { predictCollegeChances } from './utils/predictor';
 import { getCurrentStudent, clearCurrentStudent } from './data/mockStudents';
@@ -152,30 +152,54 @@ export const App: React.FC = () => {
   const availableStates = useMemo(() => getAllStates(), []);
   const availableBranches = useMemo(() => getAllBranches(), []);
 
-  // Fetch dynamic counselling updates and merge with manual_notices.json
-  useEffect(() => {
+  // Live AACCC 2025 Cutoffs Dataset
+  const [cutoffsDataset, setCutoffsDataset] = useState<AACCCCutoffsDataset | null>(null);
+  const [isRefreshingFeed, setIsRefreshingFeed] = useState(false);
+
+  // Fetch dynamic counselling updates, manual notices, and official AACCC cutoffs with cache-busting
+  const refreshFeed = useCallback(async () => {
+    setIsRefreshingFeed(true);
     const cacheBuster = `?t=${Date.now()}`;
     const scrapedUrl = `${import.meta.env.BASE_URL}data/counselling_updates.json${cacheBuster}`;
     const manualUrl = `${import.meta.env.BASE_URL}data/manual_notices.json${cacheBuster}`;
+    const cutoffsUrl = `${import.meta.env.BASE_URL}data/aaccc_2025_cutoffs.json${cacheBuster}`;
 
-    Promise.all([
-      fetch(scrapedUrl, { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)).catch(() => null),
-      fetch(manualUrl, { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)).catch(() => null),
-    ])
-      .then(([scrapedData, manualData]) => {
-        const liveManual = Array.isArray(manualData) && manualData.length > 0 
-          ? manualData 
-          : manualNotices;
-        const targetScraped = (scrapedData && typeof scrapedData === 'object')
-          ? (scrapedData as CounsellingAlertsFeed)
-          : defaultCounsellingFeed;
-        const merged = mergeCounsellingFeeds(targetScraped, liveManual);
-        setCounsellingFeed(merged);
-      })
-      .catch(() => {
-        // Fall back gracefully to bundled defaultCounsellingFeed
-      });
+    try {
+      const [scrapedData, manualData, cutoffsData] = await Promise.all([
+        fetch(scrapedUrl, { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+        fetch(manualUrl, { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+        fetch(cutoffsUrl, { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+      ]);
+
+      const liveManual = Array.isArray(manualData) && manualData.length > 0 
+        ? manualData 
+        : manualNotices;
+      const targetScraped = (scrapedData && typeof scrapedData === 'object')
+        ? (scrapedData as CounsellingAlertsFeed)
+        : defaultCounsellingFeed;
+      const merged = mergeCounsellingFeeds(targetScraped, liveManual);
+      setCounsellingFeed(merged);
+
+      if (cutoffsData && typeof cutoffsData === 'object' && Array.isArray((cutoffsData as AACCCCutoffsDataset).cutoffs)) {
+        setCutoffsDataset(cutoffsData as AACCCCutoffsDataset);
+      }
+    } catch {
+      // Fall back gracefully to bundled defaultCounsellingFeed
+    } finally {
+      setIsRefreshingFeed(false);
+    }
   }, []);
+
+  useEffect(() => {
+    refreshFeed();
+  }, [refreshFeed]);
+
+  // Re-fetch automatically whenever Live Alerts modal opens
+  useEffect(() => {
+    if (isLiveAlertsOpen) {
+      refreshFeed();
+    }
+  }, [isLiveAlertsOpen, refreshFeed]);
 
   // Synchronize student session across tabs
   useEffect(() => {
@@ -193,37 +217,63 @@ export const App: React.FC = () => {
     return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
 
-  // Merge verified approved colleges into live list
+  // Merge verified approved colleges and official AACCC cutoffs into live list
   const allColleges = useMemo<College[]>(() => {
-    if (approvedLiveColleges.length === 0) return collegesData;
     const map = new Map<string, College>();
     collegesData.forEach((c) => map.set(c.id, { ...c }));
-    approvedLiveColleges.forEach((ac) => {
-      if (ac.id && map.has(ac.id)) {
-        map.set(ac.id, { ...map.get(ac.id)!, ...ac, is_verified: true } as College);
-      } else if (ac.id && ac.name) {
-        map.set(ac.id, {
-          ...ac,
-          closingRank: ac.closingRank || 3500,
-          categoryClosingRanks: ac.categoryClosingRanks || {
-            General: 3500,
-            OBC: 3900,
-            EWS: 3700,
-            SC: 5200,
-            ST: 6500,
-          },
-          quota: ac.quota || 'AIQ',
-          quota_type: ac.quota_type || 'State Quota',
-          institutionType: ac.institutionType || 'Private',
-          college_type: ac.college_type || 'Private',
-          type: ac.type || 'Private Institute',
-          topBranches: ac.topBranches || ac.branches || ['Kayachikitsa', 'Shalya Tantra'],
-          is_verified: true,
-        } as College);
-      }
-    });
+
+    // Apply official 2025 AACCC cutoff data when available
+    if (cutoffsDataset?.college_summary) {
+      Object.entries(cutoffsDataset.college_summary).forEach(([cid, summary]) => {
+        if (map.has(cid)) {
+          const existing = map.get(cid)!;
+          const officialCats = summary.closing_ranks_by_category || {};
+          const updatedCategoryClosingRanks = {
+            ...existing.categoryClosingRanks,
+            ...(officialCats.General ? { General: officialCats.General } : {}),
+            ...(officialCats.OBC ? { OBC: officialCats.OBC } : {}),
+            ...(officialCats.EWS ? { EWS: officialCats.EWS } : {}),
+            ...(officialCats.SC ? { SC: officialCats.SC } : {}),
+            ...(officialCats.ST ? { ST: officialCats.ST } : {}),
+          };
+          map.set(cid, {
+            ...existing,
+            closingRank: officialCats.General || existing.closingRank,
+            categoryClosingRanks: updatedCategoryClosingRanks,
+          });
+        }
+      });
+    }
+
+    if (approvedLiveColleges.length > 0) {
+      approvedLiveColleges.forEach((ac) => {
+        if (ac.id && map.has(ac.id)) {
+          map.set(ac.id, { ...map.get(ac.id)!, ...ac, is_verified: true } as College);
+        } else if (ac.id && ac.name) {
+          map.set(ac.id, {
+            ...ac,
+            closingRank: ac.closingRank || 3500,
+            categoryClosingRanks: ac.categoryClosingRanks || {
+              General: 3500,
+              OBC: 3900,
+              EWS: 3700,
+              SC: 5200,
+              ST: 6500,
+            },
+            quota: ac.quota || 'AIQ',
+            quota_type: ac.quota_type || 'State Quota',
+            institutionType: ac.institutionType || 'Private',
+            college_type: ac.college_type || 'Private',
+            type: ac.type || 'Private Institute',
+            topBranches: ac.topBranches || ac.branches || ['Kayachikitsa', 'Shalya Tantra'],
+            is_verified: true,
+          } as College);
+        }
+      });
+    }
+
     return Array.from(map.values());
-  }, [approvedLiveColleges]);
+  }, [approvedLiveColleges, cutoffsDataset]);
 
   // Compute predictions only if student is authenticated
   const predictions = useMemo(() => {
@@ -421,6 +471,8 @@ export const App: React.FC = () => {
         isOpen={isLiveAlertsOpen}
         onClose={() => setIsLiveAlertsOpen(false)}
         feed={counsellingFeed}
+        onRefresh={refreshFeed}
+        isRefreshing={isRefreshingFeed}
       />
 
       {/* Student Registration / Login Modal */}
@@ -511,6 +563,7 @@ export const App: React.FC = () => {
       <Footer 
         onOpenGuide={() => setIsGuideOpen(true)}
         onOpenAdminLogin={handleOpenAdmin}
+        cutoffsMetadata={cutoffsDataset?.metadata}
       />
 
       {/* Floating 24/7 AI Counselor Chatbot & WhatsApp Helpline Widget */}

@@ -21,3 +21,6 @@ Whenever a state counselling portal blocks automated scrapers (e.g. Cloudflare, 
 | 2026-11-20 19:50:18 | Madhya Pradesh | https://ayush.mponline.gov.in/ | Network / Connection Failure: _ssl.c:1129: The handshake operation timed out | Manual verification required |
 | 2026-11-20 19:55:59 | Karnataka | https://cetonline.karnataka.gov.in/kea/ | Network / Connection Failure: _ssl.c:1129: The handshake operation timed out | Manual verification required |
 | 2026-11-20 19:56:26 | Madhya Pradesh | https://ayush.mponline.gov.in/ | Network / Connection Failure: _ssl.c:1129: The handshake operation timed out | Manual verification required |
+| 2026-11-21 09:12:28 | Karnataka | https://cetonline.karnataka.gov.in/kea/ | Network / Connection Failure: _ssl.c:1129: The handshake operation timed out | Manual verification required |
+| 2026-11-21 09:12:56 | Madhya Pradesh | https://ayush.mponline.gov.in/ | Network / Connection Failure: _ssl.c:1129: The handshake operation timed out | Manual verification required |
+| 2026-11-21 09:13:21 | Rajasthan | https://rajayushcounselling.com/ | Network / Connection Failure: _ssl.c:1129: The handshake operation timed out | Manual verification required |
