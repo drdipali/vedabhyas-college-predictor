@@ -54,63 +54,79 @@ HEADERS = {
     'Pragma': 'no-cache',
 }
 
-# Target state portals configuration
+# Target state portals configuration with strict AYUSH PG filters
 STATE_PORTALS = [
     {
         'state': 'Maharashtra',
         'name': 'Maharashtra State CET Cell',
         'url': 'https://cetcell.mahacet.org/',
         'selector_hint': 'ayush',
-        'keywords': ['ayush', 'pg', 'aiapget', 'selection', 'cap', 'ayurveda', 'merit']
+        'is_dedicated_ayush': False,
+        'ayush_keywords': ['ayush', 'aiapget', 'ayurved', 'bams', 'pgac', 'pg-ayush', 'md/ms(ayu'],
+        'action_keywords': ['selection', 'cap', 'merit', 'list', 'round', 'allotment', 'seat', 'matrix', 'schedule', 'notice']
     },
     {
         'state': 'Karnataka',
         'name': 'Karnataka Examination Authority (KEA)',
         'url': 'https://cetonline.karnataka.gov.in/kea/',
         'selector_hint': 'pget',
-        'keywords': ['pget', 'ayush', 'ayurveda', 'option', 'round', 'allotment']
+        'is_dedicated_ayush': False,
+        'ayush_keywords': ['ayush', 'ayurved', 'aiapget', 'pget-ayush', 'pget ayush', 'bams', 'md ayurveda'],
+        'action_keywords': ['option', 'round', 'allotment', 'seat', 'matrix', 'schedule', 'verification', 'cutoff']
     },
     {
         'state': 'Gujarat',
         'name': 'ACPUGMEC Gujarat',
         'url': 'https://www.medadmgujarat.org/',
         'selector_hint': 'ayurveda',
-        'keywords': ['ayush', 'pg', 'ayurveda', 'pin', 'round', 'merit', 'seat']
+        'is_dedicated_ayush': False,
+        'ayush_keywords': ['ayush', 'pgayus', 'ayurved', 'md-ms (ayurved)', 'md/ms ayurved', 'bams', 'homoeopathy'],
+        'action_keywords': ['pin', 'round', 'merit', 'seat', 'allotment', 'choice', 'schedule']
     },
     {
         'state': 'Madhya Pradesh',
         'name': 'MP Online Ayush Counselling',
         'url': 'https://ayush.mponline.gov.in/',
         'selector_hint': 'notice',
-        'keywords': ['pg', 'ayurveda', 'allotment', 'merit', 'round']
+        'is_dedicated_ayush': True,
+        'ayush_keywords': ['ayush', 'pg', 'ayurved', 'aiapget', 'md', 'ms', 'counselling'],
+        'action_keywords': ['allotment', 'merit', 'round', 'seat', 'choice', 'schedule', 'notice', 'guidelines']
     },
     {
         'state': 'Rajasthan',
         'name': 'Rajasthan Ayush Counselling (DSRRAU)',
         'url': 'https://rajayushcounselling.com/',
         'selector_hint': 'schedule',
-        'keywords': ['pg', 'aiapget', 'ayurveda', 'registration', 'round', 'allotment']
+        'is_dedicated_ayush': True,
+        'ayush_keywords': ['ayush', 'pg', 'aiapget', 'ayurved', 'dsrrau', 'homeopathy', 'homoeopathy'],
+        'action_keywords': ['registration', 'round', 'allotment', 'merit', 'seat', 'choice', 'information booklet']
     },
     {
         'state': 'Kerala',
         'name': 'CEE Kerala',
         'url': 'https://cee.kerala.gov.in/',
         'selector_hint': 'ayush',
-        'keywords': ['pg', 'ayurveda', 'category', 'allotment', 'rank']
+        'is_dedicated_ayush': False,
+        'ayush_keywords': ['ayush', 'ayurved', 'aiapget', 'pga2026', 'pga2025', 'pg ayurveda'],
+        'action_keywords': ['allotment', 'rank', 'category', 'option', 'seat', 'portal', 'schedule']
     },
     {
         'state': 'West Bengal',
         'name': 'WBMCC Ayush Counselling',
         'url': 'https://wbmcc.nic.in/',
         'selector_hint': 'ayush',
-        'keywords': ['ayush', 'pg', 'ayurveda', 'seat', 'matrix', 'notice']
+        'is_dedicated_ayush': False,
+        'ayush_keywords': ['ayush', 'ayurved', 'aiapget', 'pg-ayush', 'pg ayush', 'wbmcc'],
+        'action_keywords': ['seat', 'matrix', 'notice', 'allotment', 'merit', 'round']
     },
     {
         'state': 'Haryana',
         'name': 'SKAU Kurukshetra AYUSH',
         'url': 'https://skau.ac.in/',
         'selector_hint': 'allotment',
-        'keywords': ['aiapget', 'pg', 'ayurveda', 'merit', 'round', 'allotment']
+        'is_dedicated_ayush': True,
+        'ayush_keywords': ['ayush', 'aiapget', 'patcc', 'ayurved', 'skau', 'bams', 'pg course', 'pg (md/ms ayurveda)'],
+        'action_keywords': ['merit', 'round', 'allotment', 'list', 'seat', 'counseling', 'notice']
     }
 ]
 
@@ -340,29 +356,92 @@ def scrape_aaccc_pg_counselling_portal(html_content, base_url='https://aaccc.gov
 
     return found_events
 
+NON_AYUSH_DISQUALIFIERS = [
+    'llm', 'll.m', 'llb', 'll.b', 'law', 'keam', 'dental', 'mds', 'bds',
+    'nursing', 'msc nursing', 'b.sc nursing', 'engineering', 'b.tech', 'm.tech',
+    'btech', 'mtech', 'polytechnic', 'mca', 'mba', 'b.arch', 'architecture',
+    'medical/dnb', 'pg medical', 'pg dental', 'pg nursing', 'neet pg', 'neet-pg',
+    'neet ss', 'agriculture', 'pharmacy', 'b.pharm', 'm.pharm', 'b.ed', 'bed',
+    'm.ed', 'hotel management', 'fisheries', 'veterinary', 'non-utilization'
+]
+
+GENERIC_NOISE_TITLES = [
+    'continue', 'ayurveda', 'download', 'click here', 'view more', 'read more',
+    'cap statistics', 'important videos of cet & cap', '2025-2026', '2026-2027',
+    'admission process a.y. 2026-2027', 'cap information brochure', 'past p.g. admission',
+    'faculty of ayurveda', 'ayurveda samhita evum siddhant', 'p.g diploma in yoga therapy',
+    'p.g admission'
+]
+
+def is_valid_ayush_notice(title, url, portal_info=None):
+    """
+    Strict filter to ensure only authentic AYUSH / AIAPGET / PG Ayurveda notices
+    are ingested into Vedabhyas, rejecting LLM, Dental, Nursing, Law, and generic UI noise.
+    """
+    if not title:
+        return False
+    title_clean = title.strip()
+    title_lower = title_clean.lower()
+    url_lower = (url or '').lower()
+
+    # Reject if length is too short or too long
+    if len(title_clean) < 10 or len(title_clean) > 250:
+        return False
+
+    # Reject non-English HTML gibberish or Malayalam/regional mojibake
+    if '&emsp;' in title_lower or '&nbsp;' in title_lower:
+        return False
+
+    # Reject placeholder link "#"
+    if url_lower == '#' or url_lower.endswith('/#'):
+        return False
+
+    # Reject generic button/link texts
+    if title_lower in GENERIC_NOISE_TITLES:
+        return False
+
+    # Check disqualifiers: If any non-ayush discipline is named, reject unless it specifically says ayurveda/ayush
+    for disq in NON_AYUSH_DISQUALIFIERS:
+        if disq in title_lower or disq in url_lower:
+            if 'ayurved' not in title_lower and 'ayush' not in title_lower and 'bams' not in title_lower and 'patcc' not in title_lower:
+                return False
+
+    # For non-dedicated portals (like CEE Kerala, Maharashtra CET Cell, Gujarat, KEA, West Bengal)
+    # the notice MUST mention at least one AYUSH domain keyword
+    if portal_info and not portal_info.get('is_dedicated_ayush', False):
+        ayush_keys = portal_info.get('ayush_keywords', ['ayush', 'ayurved', 'aiapget', 'bams'])
+        has_ayush = any(k in title_lower or k in url_lower for k in ayush_keys)
+        if not has_ayush:
+            return False
+
+    # Must also match at least one relevant counselling action keyword if specified
+    if portal_info:
+        action_keys = portal_info.get('action_keywords', [])
+        if action_keys:
+            has_action = any(k in title_lower or k in url_lower for k in action_keys)
+            if not has_action and not portal_info.get('is_dedicated_ayush', False):
+                return False
+
+    return True
+
 def extract_state_links_and_titles(html_content, base_url, portal_info):
-    """Extract candidate notices from state AYUSH portals."""
+    """Extract candidate notices from state AYUSH portals with strict discipline validation."""
     found_events = []
     pattern = re.compile(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', re.IGNORECASE | re.DOTALL)
     matches = pattern.findall(html_content)
-    keywords = portal_info['keywords']
 
     for href, raw_text in matches:
         title = re.sub(r'<[^>]+>', ' ', raw_text)
         title = html_parser.unescape(title)
         title = re.sub(r'\s+', ' ', title).strip()
 
-        if len(title) < 8 or len(title) > 200:
+        full_url = urllib.parse.urljoin(base_url, href)
+
+        # Apply strict AYUSH PG validation
+        if not is_valid_ayush_notice(title, full_url, portal_info):
             continue
 
         title_lower = title.lower()
-        href_lower = href.lower()
-
-        matches_keyword = any(k in title_lower or k in href_lower for k in keywords)
-        if not matches_keyword:
-            continue
-
-        full_url = urllib.parse.urljoin(base_url, href)
 
         category = 'Notice'
         is_urgent = False
@@ -603,17 +682,33 @@ def run_scraper():
             log_manual_check(state, url, str(err))
 
     # -------------------------------------------------------------------------
-    # 5. METADATA & URGENT TICKER SYNCHRONIZATION
+    # 5. PURGE NON-AYUSH UPDATES, DEDUPLICATE & SYNCHRONIZE TICKER
     # -------------------------------------------------------------------------
-    now_ist = datetime.datetime.now(IST)
-    now_str = now_ist.strftime('%Y-%m-%dT%H:%M:%S+05:30')
-    existing_data['last_updated'] = now_str
-    existing_data['active_portals_count'] = live_active_portals
-    total_portals = len(STATE_PORTALS) + 1
-    existing_data['total_portals_monitored'] = total_portals
-    existing_data['monitoring_status'] = f"Active ({live_active_portals} Verified Live Portals + Central AACCC)"
+    # Strictly purge any non-AYUSH (LLM, Dental, Nursing, Medical, generic CET) items
+    clean_updates = []
+    seen_ids = set()
+    seen_urls = set()
+    for u in existing_data.get('updates', []):
+        uid = u.get('id')
+        link = u.get('official_link', '')
+        title = u.get('title', '')
+        
+        # Check against strict AYUSH notice validator
+        if not is_valid_ayush_notice(title, link):
+            continue
 
-    # Build urgent ticker: Manual pinned urgent items FIRST, then live scraped urgent items
+        if uid in seen_ids or (link and link in seen_urls):
+            continue
+        seen_ids.add(uid)
+        if link:
+            seen_urls.add(link)
+        clean_updates.append(u)
+
+    # Sort all updates: latest date first, then urgent first
+    clean_updates.sort(key=lambda x: (x.get('date', ''), 1 if x.get('is_urgent') else 0), reverse=True)
+    existing_data['updates'] = clean_updates[:60]
+
+    # Build urgent ticker: Manual pinned urgent items FIRST, then verified live scraped urgent items
     ticker_list = []
     for m in manual_pinned_notices:
         if m.get('is_urgent') or m.get('is_pinned'):
@@ -627,28 +722,13 @@ def run_scraper():
 
     existing_data['urgent_ticker'] = ticker_list[:8]
 
-    # Deduplicate updates by ID and official_link, filter generic garbage
-    deduped_updates = []
-    seen_ids = set()
-    seen_urls = set()
-    for u in existing_data['updates']:
-        uid = u.get('id')
-        link = u.get('official_link')
-        title_l = u.get('title', '').strip().lower()
-        if title_l in ['view more', 'click here', 'read more', 'download']:
-            continue
-        if uid in seen_ids or (link and link in seen_urls):
-            continue
-        seen_ids.add(uid)
-        if link:
-            seen_urls.add(link)
-        deduped_updates.append(u)
-
-    # Sort all updates: latest date first, then urgent first
-    deduped_updates.sort(key=lambda x: (x.get('date', ''), 1 if x.get('is_urgent') else 0), reverse=True)
-
-    # Keep list bounded to latest 60 updates
-    existing_data['updates'] = deduped_updates[:60]
+    now_ist = datetime.datetime.now(IST)
+    now_str = now_ist.strftime('%Y-%m-%dT%H:%M:%S+05:30')
+    existing_data['last_updated'] = now_str
+    existing_data['active_portals_count'] = live_active_portals
+    total_portals = len(STATE_PORTALS) + 1
+    existing_data['total_portals_monitored'] = total_portals
+    existing_data['monitoring_status'] = f"Active ({live_active_portals} Verified Live Portals + Central AACCC)"
 
     # Write updates
     with open(UPDATES_FILE, 'w', encoding='utf-8') as f:

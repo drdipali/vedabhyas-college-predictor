@@ -1,110 +1,20 @@
 {
-  "last_updated": "2026-11-21T09:13:30+05:30",
-  "active_session": "AIAPGET 2026\u20132027",
-  "monitoring_status": "Active (6 Verified Live Portals + Central AACCC)",
-  "active_portals_count": 6,
+  "last_updated": "2026-11-21T21:40:00+05:30",
+  "active_session": "AIAPGET 2026–2027",
+  "monitoring_status": "Active (9 Verified Live Portals + Central AACCC)",
+  "active_portals_count": 8,
   "total_portals_monitored": 9,
   "urgent_ticker": [
-    "\ud83d\udd34 AACCC / All India: AACCC PG Round 2 Registration & Choice Filling LIVE (Nov 20\u201322, 2026)",
-    "\ud83d\udd34 Central (AACCC): Public Notice for eligibility of NRI candidates for Academic Year 2026-27",
-    "\ud83d\udd34 Central (AACCC): Advisory Against Fraudulent Registrations in AACCC UG/PG -2026",
-    "\ud83d\udd34 Kerala: LLM 2026 -First Phase Allotment Published",
-    "\ud83d\udd34 Kerala: PG Dental 2026 - Candidate Portal",
-    "\ud83d\udd34 Kerala: PG Homoeopathy 2026 - Candidate Portal",
-    "\ud83d\udd34 Kerala: PG Nursing 2026 - Candidate Portal",
-    "\ud83d\udd34 Kerala: PG Ayurveda 2026 - Candidate Portal"
+    "🔴 AACCC / All India: AACCC PG Round 2 Registration & Choice Filling LIVE (Nov 20–22, 2026)",
+    "🔴 Central (AACCC): Click here for Registration (R-2)",
+    "🔴 Central (AACCC): Regsitration Unlocking facility in AACCC PG R-2 2026-27",
+    "🔴 Central (AACCC): Addition of new seats in AACCC PG-R-2 2026-27",
+    "🔴 Central (AACCC): Revised Schedule and Information Bulletin for AACCC PG 2026-27 is uploaded.",
+    "🔴 Kerala: PG Ayurveda 2026 - Candidate Portal",
+    "🔴 Haryana: Regarding Provisionally allotted list of 3rd Round PATCC",
+    "🔴 Haryana: PG counselling withheld by NCISM, result of AIAPGET will be revised"
   ],
   "updates": [
-    {
-      "id": "hary-regarding-provisionally-allotted-list-of",
-      "state": "Haryana",
-      "title": "Regarding Provisionally allotted list of 3rd Round PATCC",
-      "date": "2026-11-21",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://skau.ac.in/downloads/files/n6b00215ae5aa9.pdf",
-      "summary": "Official notice update released for Haryana AIAPGET counseling."
-    },
-    {
-      "id": "kera-llm-2026-first-phase-allotment-published",
-      "state": "Kerala",
-      "title": "LLM 2026 -First Phase Allotment Published",
-      "date": "2026-11-20",
-      "category": "Result",
-      "is_urgent": true,
-      "official_link": "https://cee.kerala.gov.in/llm2026/",
-      "summary": "Official result update released for Kerala AIAPGET counseling."
-    },
-    {
-      "id": "kera-pg-dental-2026-candidate-portal",
-      "state": "Kerala",
-      "title": "PG Dental 2026 - Candidate Portal",
-      "date": "2026-11-20",
-      "category": "Schedule Change",
-      "is_urgent": true,
-      "official_link": "https://cee.kerala.gov.in/mds2026/",
-      "summary": "Official schedule change update released for Kerala AIAPGET counseling."
-    },
-    {
-      "id": "kera-pg-homoeopathy-2026-candidate-portal",
-      "state": "Kerala",
-      "title": "PG Homoeopathy 2026 - Candidate Portal",
-      "date": "2026-11-20",
-      "category": "Schedule Change",
-      "is_urgent": true,
-      "official_link": "https://cee.kerala.gov.in/mdh2026/",
-      "summary": "Official schedule change update released for Kerala AIAPGET counseling."
-    },
-    {
-      "id": "kera-pg-nursing-2026-candidate-portal",
-      "state": "Kerala",
-      "title": "PG Nursing 2026 - Candidate Portal",
-      "date": "2026-11-20",
-      "category": "Schedule Change",
-      "is_urgent": true,
-      "official_link": "https://cee.kerala.gov.in/pgn2026/",
-      "summary": "Official schedule change update released for Kerala AIAPGET counseling."
-    },
-    {
-      "id": "kera-pg-ayurveda-2026-candidate-portal",
-      "state": "Kerala",
-      "title": "PG Ayurveda 2026 - Candidate Portal",
-      "date": "2026-11-20",
-      "category": "Schedule Change",
-      "is_urgent": true,
-      "official_link": "https://cee.kerala.gov.in/pga2026/",
-      "summary": "Official schedule change update released for Kerala AIAPGET counseling."
-    },
-    {
-      "id": "kera-the-third-round-option-registration-faci",
-      "state": "Kerala",
-      "title": "The third round option registration facility for PG Medical/DNB courses will be resumed after the publication of the revised allotment schedule by MCC.",
-      "date": "2026-11-20",
-      "category": "Result",
-      "is_urgent": true,
-      "official_link": "https://cee.kerala.gov.in/otherlinks/MCC_2025.pdf",
-      "summary": "Official result update released for Kerala AIAPGET counseling."
-    },
-    {
-      "id": "aaccc-revised-schedule-and-information-bulleti",
-      "state": "Central (AACCC)",
-      "title": "Revised Schedule and Information Bulletin for AACCC PG 2026-27 is uploaded.",
-      "date": "2026-11-20",
-      "category": "Schedule Change",
-      "is_urgent": true,
-      "official_link": "https://aaccc.gov.in/revised-schedule-and-information-bulletin-for-aaccc-pg-2026-27-is-uploaded/",
-      "summary": "Official schedule change update released on AACCC PG portal."
-    },
-    {
-      "id": "aaccc-result-of-aaccc-pg-r-1-is-uploaded",
-      "state": "Central (AACCC)",
-      "title": "Result of AACCC PG R-1 is uploaded.",
-      "date": "2026-11-20",
-      "category": "Result",
-      "is_urgent": true,
-      "official_link": "https://aaccc.gov.in/result-of-aaccc-pg-r-1-is-uploaded/",
-      "summary": "Official result update released on AACCC PG portal."
-    },
     {
       "id": "aaccc-click-here-for-registration-r-2",
       "state": "Central (AACCC)",
@@ -113,18 +23,18 @@
       "category": "Registration",
       "is_urgent": true,
       "official_link": "https://aaccc.admissions.nic.in/applicant/root/Home.aspx?enc=b3y6S6rqn323+Rrps4aJmVABZTgAyC6qjlj0XUL8VLmTv0Ak/8+eDyPEk/0m+QkPRiQ+6v/fVEWBpBTeR6a19A==",
-      "summary": "Official registration update released on AACCC PG portal."
+      "summary": "Official registration link active for AACCC PG Round 2 counselling."
     },
     {
       "id": "aaccc-regsitration-unlocking-facility-in-aaccc",
       "state": "Central (AACCC)",
-      "title": "Regsitration Unlocking facility in AACCC PG R-2 2026-27",
+      "title": "Registration Unlocking facility in AACCC PG R-2 2026-27",
       "year": "2026",
       "date": "2026-11-20",
       "category": "Choice Filling",
       "is_urgent": true,
       "official_link": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/11/20261120346531004.pdf",
-      "summary": "Official choice filling update released on AACCC PG portal."
+      "summary": "Official notice regarding unlocking of choice filling & registration facility."
     },
     {
       "id": "aaccc-addition-of-new-seats-in-aaccc-pg-r-2-20",
@@ -135,27 +45,47 @@
       "category": "Seat Matrix",
       "is_urgent": true,
       "official_link": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/11/20261120450917305.pdf",
-      "summary": "Official seat matrix update released on AACCC PG portal."
+      "summary": "Official seat matrix update with addition of new PG Ayurveda seats."
     },
     {
-      "id": "guja-archive-2020-for-15-aiq-seats-of-bams-bh",
-      "state": "Gujarat",
-      "title": "Archive 2020 For 15% AIQ Seats of BAMS & BHMS Self-Financed Colleges, Gujarat state",
+      "id": "aaccc-revised-schedule-and-information-bulleti",
+      "state": "Central (AACCC)",
+      "title": "Revised Schedule and Information Bulletin for AACCC PG 2026-27 is uploaded.",
       "date": "2026-11-20",
-      "category": "Seat Matrix",
-      "is_urgent": false,
-      "official_link": "https://www.medadmgujarat.org/ug/UGAYUS_Home.aspx",
-      "summary": "Official seat matrix update released for Gujarat AIAPGET counseling."
+      "category": "Schedule Change",
+      "is_urgent": true,
+      "official_link": "https://aaccc.gov.in/revised-schedule-and-information-bulletin-for-aaccc-pg-2026-27-is-uploaded/",
+      "summary": "Revised schedule published for Round 2, Round 3, and Stray Vacancy rounds."
     },
     {
-      "id": "guja-pg-ug-nursing-pending-fee-refund-list-up",
-      "state": "Gujarat",
-      "title": "PG/UG/NURSING Pending Fee Refund List ( Upto 2025)",
+      "id": "aaccc-result-of-aaccc-pg-r-1-is-uploaded",
+      "state": "Central (AACCC)",
+      "title": "Result of AACCC PG R-1 is uploaded.",
       "date": "2026-11-20",
+      "category": "Result",
+      "is_urgent": true,
+      "official_link": "https://aaccc.gov.in/result-of-aaccc-pg-r-1-is-uploaded/",
+      "summary": "Official Round 1 PG Allotment list available on AACCC portal."
+    },
+    {
+      "id": "kera-pg-ayurveda-2026-candidate-portal",
+      "state": "Kerala",
+      "title": "PG Ayurveda 2026 - Candidate Portal Active",
+      "date": "2026-11-20",
+      "category": "Registration",
+      "is_urgent": true,
+      "official_link": "https://cee.kerala.gov.in/pga2026/",
+      "summary": "Official candidate login portal for Kerala CEE PG Ayurveda 2026 admissions."
+    },
+    {
+      "id": "hary-regarding-provisionally-allotted-list-of",
+      "state": "Haryana",
+      "title": "Regarding Provisionally allotted list of 3rd Round PATCC",
+      "date": "2026-11-21",
       "category": "Notice",
       "is_urgent": false,
-      "official_link": "https://www.medadmgujarat.org/ug/Refund_Home.aspx",
-      "summary": "Official notice update released for Gujarat AIAPGET counseling."
+      "official_link": "https://skau.ac.in/downloads/files/n6b00215ae5aa9.pdf",
+      "summary": "Official notice update released for Haryana SKAU AYUSH PG counselling."
     },
     {
       "id": "guja-15-sfi-aiq-md-ms-ayurved-md-homoeopathy",
@@ -165,87 +95,17 @@
       "category": "Notice",
       "is_urgent": false,
       "official_link": "https://www.medadmgujarat.org/pgayus/PGAYUSAIQHome.aspx",
-      "summary": "Official notice update released for Gujarat AIAPGET counseling."
+      "summary": "Official ACPUGMEC notification for 15% All India Quota in Gujarat Self-Financed Institutes."
     },
     {
       "id": "guja-md-ms-ayurved-md-homoeopathy",
       "state": "Gujarat",
-      "title": "MD-MS (Ayurved)/MD(Homoeopathy)",
+      "title": "MD-MS (Ayurved) / MD (Homoeopathy) State Quota Portal",
       "date": "2026-11-20",
       "category": "Notice",
       "is_urgent": false,
       "official_link": "https://www.medadmgujarat.org/pgayus/home.aspx",
-      "summary": "Official notice update released for Gujarat AIAPGET counseling."
-    },
-    {
-      "id": "guja-pg-md-ms-diploma",
-      "state": "Gujarat",
-      "title": "PG MD/MS/DIPLOMA",
-      "date": "2026-11-20",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://www.medadmgujarat.org/pg/home.aspx",
-      "summary": "Official notice update released for Gujarat AIAPGET counseling."
-    },
-    {
-      "id": "maha-cap-statistics",
-      "state": "Maharashtra",
-      "title": "CAP Statistics",
-      "date": "2026-11-20",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://cetcell.mahacet.org/cap/",
-      "summary": "Official notice update released for Maharashtra AIAPGET counseling."
-    },
-    {
-      "id": "maha-admission-process-a-y-2026-2027",
-      "state": "Maharashtra",
-      "title": "Admission Process A.Y. 2026-2027",
-      "date": "2026-11-20",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://cetcell.mahacet.org/cap-_2026-27/",
-      "summary": "Official notice update released for Maharashtra AIAPGET counseling."
-    },
-    {
-      "id": "kera-keam-pgm-non-utilization-certificate-chi",
-      "state": "Kerala",
-      "title": "KEAM/PGM - Non-Utilization Certificate (Children of Ex-servicemen, Defence Personnel Killed, etc.)",
-      "date": "2026-11-20",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://cee.kerala.gov.in/non-avail-certificate/main/index.php",
-      "summary": "Official notice update released for Kerala AIAPGET counseling."
-    },
-    {
-      "id": "maha-cap-information-brochure",
-      "state": "Maharashtra",
-      "title": "CAP Information Brochure",
-      "date": "2026-11-20",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://cetcell.mahacet.org/cap-2/",
-      "summary": "Official notice update released for Maharashtra AIAPGET counseling."
-    },
-    {
-      "id": "maha-2025-2026",
-      "state": "Maharashtra",
-      "title": "2025-2026",
-      "date": "2026-11-20",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://cetcell.mahacet.org/cap-_2025-26/",
-      "summary": "Official notice update released for Maharashtra AIAPGET counseling."
-    },
-    {
-      "id": "maha-important-videos-of-cet-cap",
-      "state": "Maharashtra",
-      "title": "Important Videos of CET & CAP",
-      "date": "2026-11-20",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://cetcell.mahacet.org/videos/",
-      "summary": "Official notice update released for Maharashtra AIAPGET counseling."
+      "summary": "Official PG Ayush admission portal update for Gujarat State quota seats."
     },
     {
       "id": "aaccc-notice-regarding-withdrawal-facility-in",
@@ -256,7 +116,7 @@
       "category": "Notice",
       "is_urgent": false,
       "official_link": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/11/202611201057077458.pdf",
-      "summary": "Official notice update released on AACCC PG portal."
+      "summary": "Official notice regarding candidate withdrawal options before Round 3."
     },
     {
       "id": "aaccc-important-notice-regarding-aaccc-pg-ayur",
@@ -267,7 +127,7 @@
       "category": "Notice",
       "is_urgent": false,
       "official_link": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/11/20261120589059434.pdf",
-      "summary": "Official notice update released on AACCC PG portal."
+      "summary": "Official instructions and advisory for AYUSH PG candidates."
     },
     {
       "id": "hary-pg-counselling-withheld-by-ncism-result",
@@ -277,107 +137,27 @@
       "category": "Result",
       "is_urgent": true,
       "official_link": "https://skau.ac.in/pg-counselling-withheld-by-ncism-result-of-aiapget-will-be-revised-so-revised-schedule-of-pg-counselling-will-be-display-later-on",
-      "summary": "Official result update released for Haryana AIAPGET counseling."
-    },
-    {
-      "id": "madh-admission-rule-book-for-mp-state-ayush-n",
-      "state": "Madhya Pradesh",
-      "title": "Admission Rule Book for MP State AYUSH NEET UG Counselling - 2026 (BAMS, BHMS, BUMS) (Dated: 21.08.2026)",
-      "date": "2026-11-19",
-      "category": "Schedule Change",
-      "is_urgent": true,
-      "official_link": "https://ayush.mponline.gov.in/Quick Links/AyushPubImages/AyushLive/UG/2026/UGSTATE/1_MP_Ayurveda_Homeopathy_Unani_UG_Pravesh_Niyam_1.pdf",
-      "summary": "Official schedule change update released for Madhya Pradesh AIAPGET counseling."
-    },
-    {
-      "id": "madh-first-round-time-schedule-of-mp-state-ay",
-      "state": "Madhya Pradesh",
-      "title": "First Round Time Schedule of MP State AYUSH NEET-UG Counselling - 2026 (BAMS, BHMS, BUMS and BNYS) (Date: 10.09.2026)",
-      "date": "2026-11-19",
-      "category": "Schedule Change",
-      "is_urgent": true,
-      "official_link": "https://ayush.mponline.gov.in/Quick Links/AyushPubImages/AyushLive/UG/2026/UGSTATE/State UG First Round Counselling Schedule-compressed_41.pdf",
-      "summary": "Official schedule change update released for Madhya Pradesh AIAPGET counseling."
-    },
-    {
-      "id": "madh-important-notice-regarding-the-mp-state",
-      "state": "Madhya Pradesh",
-      "title": "Important Notice regarding the MP State Ayush UG/PG Counselling 2026 (For Not sharing the Candidate credentials, Registered Mobile No, OTP and Email with anyone ) (Date 09.09.2026)",
-      "date": "2026-11-19",
-      "category": "Schedule Change",
-      "is_urgent": true,
-      "official_link": "https://ayush.mponline.gov.in/Quick Links/AyushPubImages/AyushLive/UG/2026/UGSTATE/Important Instructions for 2026-27 OTP_42.pdf",
-      "summary": "Official schedule change update released for Madhya Pradesh AIAPGET counseling."
-    },
-    {
-      "id": "madh-guidelines-for-mp-state-ayush-neet-ug-pg",
-      "state": "Madhya Pradesh",
-      "title": "Guidelines for MP State Ayush NEET-UG/PG Counselling - 2026 (BAMS, BHMS, BUMS and BNYS Course) (Dated 09.09.2026)",
-      "date": "2026-11-19",
-      "category": "Schedule Change",
-      "is_urgent": true,
-      "official_link": "https://ayush.mponline.gov.in/Quick Links/AyushPubImages/AyushLive/UG/2026/UGSTATE/State Quota UG and PG Guidelines 2026_43.pdf",
-      "summary": "Official schedule change update released for Madhya Pradesh AIAPGET counseling."
+      "summary": "Official notice from SKAU Kurukshetra regarding PG Counselling schedule revision."
     },
     {
       "id": "madh-guidelines-for-all-india-aiapget-pg-coun",
       "state": "Madhya Pradesh",
-      "title": "Guidelines for All India AIAPGET - PG Counselling - 2026 (Ayurved and Homoeopathy course) (Dated 09.09.2026)",
+      "title": "Guidelines for All India AIAPGET - PG Counselling - 2026 (Ayurved and Homoeopathy course)",
       "date": "2026-11-19",
       "category": "Schedule Change",
       "is_urgent": true,
       "official_link": "https://ayush.mponline.gov.in/Quick Links/AyushPubImages/AyushLive/UG/2026/UGALLINDIA/AIQ PG 2026 Guidelines_45.pdf",
-      "summary": "Official schedule change update released for Madhya Pradesh AIAPGET counseling."
+      "summary": "Official MP Online Ayush rulebook and guidelines for AIAPGET PG candidates."
     },
     {
-      "id": "madh-first-round-time-schedule-of-all-india-q",
+      "id": "madh-important-notice-regarding-the-mp-state",
       "state": "Madhya Pradesh",
-      "title": "First Round Time Schedule of All India Quota AYUSH NEET-UG Counselling - 2026 (BAMS, BHMS, BUMS) (Date: 10.09.2026)",
-      "date": "2026-11-19",
-      "category": "Schedule Change",
-      "is_urgent": true,
-      "official_link": "https://ayush.mponline.gov.in/Quick Links/AyushPubImages/AyushLive/UG/2026/UGALLINDIA/AIQ UG First Round Counselling Schedule_40.pdf",
-      "summary": "Official schedule change update released for Madhya Pradesh AIAPGET counseling."
-    },
-    {
-      "id": "madh-second-round-time-schedule-of-all-india",
-      "state": "Madhya Pradesh",
-      "title": "Second Round Time Schedule of All India Quota AYUSH NEET-UG Counselling - 2026 (BAMS, BHMS, BUMS) (Date: 22.09.2026)",
-      "date": "2026-11-19",
-      "category": "Schedule Change",
-      "is_urgent": true,
-      "official_link": "https://ayush.mponline.gov.in/Quick Links/AyushPubImages/AyushLive/UG/2026/UGALLINDIA/UG Round 2 AIQ Counselling 2026_54.pdf",
-      "summary": "Official schedule change update released for Madhya Pradesh AIAPGET counseling."
-    },
-    {
-      "id": "madh-second-round-time-schedule-of-mp-state-a",
-      "state": "Madhya Pradesh",
-      "title": "Second Round Time Schedule of MP State AYUSH NEET-UG Counselling - 2026 (BAMS, BHMS, BUMS and BNYS) (Date: 22.09.2026)",
-      "date": "2026-11-19",
-      "category": "Schedule Change",
-      "is_urgent": true,
-      "official_link": "https://ayush.mponline.gov.in/Quick Links/AyushPubImages/AyushLive/UG/2026/UGBNYS/UG Second Round Counselling Schedule State Quota 2026_51.pdf",
-      "summary": "Official schedule change update released for Madhya Pradesh AIAPGET counseling."
-    },
-    {
-      "id": "madh-third-round-time-schedule-of-all-india-q",
-      "state": "Madhya Pradesh",
-      "title": "Third Round Time Schedule of All India Quota AYUSH NEET-UG Counselling - 2026 (BAMS, BHMS, BUMS) (Date: 09.10.2026)",
-      "date": "2026-11-19",
-      "category": "Schedule Change",
-      "is_urgent": true,
-      "official_link": "https://ayush.mponline.gov.in/Quick Links/AyushPubImages/AyushLive/UG/2026/UGALLINDIA/AIQ TR Schedule_97.pdf",
-      "summary": "Official schedule change update released for Madhya Pradesh AIAPGET counseling."
-    },
-    {
-      "id": "hary-pg-course",
-      "state": "Haryana",
-      "title": "PG Course",
+      "title": "Important Notice regarding MP State Ayush UG/PG Counselling 2026 (Credential Security)",
       "date": "2026-11-19",
       "category": "Notice",
       "is_urgent": false,
-      "official_link": "https://skau.online-counselling.co.in/login",
-      "summary": "Official notice update released for Haryana AIAPGET counseling."
+      "official_link": "https://ayush.mponline.gov.in/Quick Links/AyushPubImages/AyushLive/UG/2026/UGSTATE/Important Instructions for 2026-27 OTP_42.pdf",
+      "summary": "Advisory against sharing candidate credentials, OTPs, or passwords with third parties."
     },
     {
       "id": "hary-admission-notice-pg-md-ms-ayurveda-cours",
@@ -387,177 +167,37 @@
       "category": "Notice",
       "is_urgent": false,
       "official_link": "https://skau.ac.in/downloads/files/n6aeb1496902fe.pdf",
-      "summary": "Official notice update released for Haryana AIAPGET counseling."
-    },
-    {
-      "id": "hary-ayurveda",
-      "state": "Haryana",
-      "title": "Ayurveda",
-      "date": "2026-11-19",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://skau.ac.in/ayurveda.html",
-      "summary": "Official notice update released for Haryana AIAPGET counseling."
-    },
-    {
-      "id": "hary-p-g-diploma-in-yoga-therapy",
-      "state": "Haryana",
-      "title": "P.G. Diploma in Yoga Therapy",
-      "date": "2026-11-19",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://skau.ac.in/pg-diploma-in-yoga-therapy.html",
-      "summary": "Official notice update released for Haryana AIAPGET counseling."
-    },
-    {
-      "id": "hary-past-p-g-admission-2025-26",
-      "state": "Haryana",
-      "title": "Past P.G. Admission 2025-26",
-      "date": "2026-11-19",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://skau.ac.in/past-pg-admission-2025-26.html",
-      "summary": "Official notice update released for Haryana AIAPGET counseling."
-    },
-    {
-      "id": "hary-p-g-admission-2026-27",
-      "state": "Haryana",
-      "title": "P.G Admission 2026-27",
-      "date": "2026-11-19",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://skau.ac.in/pg-admission-2026-27.html",
-      "summary": "Official notice update released for Haryana AIAPGET counseling."
-    },
-    {
-      "id": "hary-p-g-admission",
-      "state": "Haryana",
-      "title": "P.G Admission",
-      "date": "2026-11-19",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://skau.ac.in/pg-admission.html",
-      "summary": "Official notice update released for Haryana AIAPGET counseling."
-    },
-    {
-      "id": "hary-faculty-of-ayurveda",
-      "state": "Haryana",
-      "title": "Faculty of Ayurveda",
-      "date": "2026-11-19",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://skau.ac.in/faculty-of-ayurveda.html",
-      "summary": "Official notice update released for Haryana AIAPGET counseling."
-    },
-    {
-      "id": "hary-ayurveda-samhita-evum-siddhant",
-      "state": "Haryana",
-      "title": "Ayurveda Samhita Evum Siddhant",
-      "date": "2026-11-19",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://skau.ac.in/ayurveda-samhita-evum-siddhant.html",
-      "summary": "Official notice update released for Haryana AIAPGET counseling."
-    },
-    {
-      "id": "west-pg-ayush",
-      "state": "West Bengal",
-      "title": "PG AYUSH",
-      "date": "2026-11-19",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://wbmcc.nic.in/pg-ayush-counselling/",
-      "summary": "Official notice update released for West Bengal AIAPGET counseling."
-    },
-    {
-      "id": "west-ug-ayush",
-      "state": "West Bengal",
-      "title": "UG AYUSH",
-      "date": "2026-11-19",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://wbmcc.nic.in/ug-ayush-counselling/",
-      "summary": "Official notice update released for West Bengal AIAPGET counseling."
-    },
-    {
-      "id": "west-pg-dental",
-      "state": "West Bengal",
-      "title": "PG Dental",
-      "date": "2026-11-19",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://wbmcc.nic.in/pg-dental-counselling/",
-      "summary": "Official notice update released for West Bengal AIAPGET counseling."
-    },
-    {
-      "id": "west-pg-medical",
-      "state": "West Bengal",
-      "title": "PG Medical",
-      "date": "2026-11-19",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://wbmcc.nic.in/pg-medical-counselling/",
-      "summary": "Official notice update released for West Bengal AIAPGET counseling."
-    },
-    {
-      "id": "kera-emsp-nbsp-nbsp-2026",
-      "state": "Kerala",
-      "title": "&emsp; &nbsp;&nbsp; \u0d2a\u0d3f\u0d1c\u0d3f \u0d2e\u0d46\u0d21\u0d3f\u0d15\u0d4d\u0d15\u0d7d 2026 - \u0d15\u0d3e\u0d7b\u0d21\u0d3f\u0d21\u0d47\u0d31\u0d4d\u0d31\u0d4d \u0d2a\u0d4b\u0d7c\u0d1f\u0d4d\u0d1f\u0d7d",
-      "date": "2026-11-19",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://cee.kerala.gov.in/pgm2026/",
-      "summary": "Official notice update released for Kerala AIAPGET counseling."
-    },
-    {
-      "id": "kera-2025",
-      "state": "Kerala",
-      "title": "\u0d2a\u0d3f\u0d1c\u0d3f \u0d28\u0d34\u0d4d\u0d38\u0d3f\u0d02\u0d17\u0d4d 2025 - \u0d35\u0d3f\u0d35\u0d3f\u0d27 \u0d38\u0d02\u0d35\u0d30\u0d23 \u0d06\u0d28\u0d41\u0d15\u0d42\u0d32\u0d4d\u0d2f \u0d38\u0d7c\u0d1f\u0d4d\u0d1f\u0d3f\u0d2b\u0d3f\u0d15\u0d4d\u0d15\u0d31\u0d4d\u0d31\u0d41\u0d15\u0d7e \u0d2e\u0d41\u0d7b\u0d15\u0d42\u0d7c \u0d35\u0d3e\u0d19\u0d4d\u0d19\u0d3f \u0d35\u0d2f\u0d4d\u0d15\u0d4d\u0d15\u0d41\u0d28\u0d4d\u0d28\u0d24\u0d4d \u0d38\u0d02\u0d2c\u0d28\u0d4d\u0d27\u0d3f\u0d1a\u0d4d\u0d1a\u0d4d",
-      "date": "2026-11-19",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://cee.kerala.gov.in/cee/PGN_AdvanceCertificate.pdf",
-      "summary": "Official notice update released for Kerala AIAPGET counseling."
-    },
-    {
-      "id": "kera-ayurveda",
-      "state": "Kerala",
-      "title": "Ayurveda",
-      "date": "2026-11-19",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://cee.kerala.gov.in/#",
-      "summary": "Official notice update released for Kerala AIAPGET counseling."
-    },
-    {
-      "id": "raja-continue",
-      "state": "Rajasthan",
-      "title": "Continue",
-      "date": "2026-11-19",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://rajayushcounselling.com/NewRegistration",
-      "summary": "Official notice update released for Rajasthan AIAPGET counseling."
-    },
-    {
-      "id": "raja-information-booklet-pg-homeopathy",
-      "state": "Rajasthan",
-      "title": "Information Booklet (PG - HOMEOPATHY)",
-      "date": "2026-11-19",
-      "category": "Notice",
-      "is_urgent": false,
-      "official_link": "https://rajayushcounselling.com/Images/Notifications/1002/Information-Booklet-PG-HOMEOPATHY-2026-27.pdf?a=2",
-      "summary": "Official notice update released for Rajasthan AIAPGET counseling."
+      "summary": "Official admission announcement for MD/MS Ayurveda programmes at SKAU Kurukshetra."
     },
     {
       "id": "raja-information-booklet-pg-ayurveda",
       "state": "Rajasthan",
-      "title": "Information Booklet (PG - AYURVEDA)",
+      "title": "Information Booklet (PG - AYURVEDA) 2026-27",
       "date": "2026-11-19",
       "category": "Notice",
       "is_urgent": false,
       "official_link": "https://rajayushcounselling.com/Images/Notifications/1002/Information-Booklet-PG-AYURVEDA-2026-27.pdf?a=21",
-      "summary": "Official notice update released for Rajasthan AIAPGET counseling."
+      "summary": "Official Rajasthan DSRRAU Information Booklet for PG Ayurveda Counselling."
+    },
+    {
+      "id": "raja-information-booklet-pg-homeopathy",
+      "state": "Rajasthan",
+      "title": "Information Booklet (PG - HOMEOPATHY) 2026-27",
+      "date": "2026-11-19",
+      "category": "Notice",
+      "is_urgent": false,
+      "official_link": "https://rajayushcounselling.com/Images/Notifications/1002/Information-Booklet-PG-HOMEOPATHY-2026-27.pdf?a=2",
+      "summary": "Official Rajasthan DSRRAU Information Booklet for PG Homoeopathy Counselling."
+    },
+    {
+      "id": "west-pg-ayush",
+      "state": "West Bengal",
+      "title": "WBMCC PG AYUSH Counselling Portal",
+      "date": "2026-11-19",
+      "category": "Notice",
+      "is_urgent": false,
+      "official_link": "https://wbmcc.nic.in/pg-ayush-counselling/",
+      "summary": "Official portal for West Bengal PG AYUSH seat allotment and state quota rounds."
     },
     {
       "id": "aaccc-kind-attention-to-candidates-participati",
@@ -568,7 +208,7 @@
       "category": "Schedule Change",
       "is_urgent": true,
       "official_link": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/11/20261116206010839.pdf",
-      "summary": "Official schedule change update released on AACCC PG portal."
+      "summary": "Official advisory regarding Round 2 choice filling and document verification."
     },
     {
       "id": "aaccc-kind-attention-to-all-candidates-partici",
@@ -579,7 +219,7 @@
       "category": "Schedule Change",
       "is_urgent": true,
       "official_link": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/11/202611061894449375.pdf",
-      "summary": "Official schedule change update released on AACCC PG portal."
+      "summary": "Guidelines and seat vacancy updates for PG Ayurveda counselling."
     },
     {
       "id": "aaccc-reporting-rules-aaccc-pg-r-1-2026-27",
@@ -590,7 +230,7 @@
       "category": "Notice",
       "is_urgent": false,
       "official_link": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/11/20261106276513124.pdf",
-      "summary": "Official notice update released on AACCC PG portal."
+      "summary": "Mandatory reporting documents, fee submission, and physical verification rules."
     },
     {
       "id": "aaccc-notice-regarding-provisional-result-aacc",
@@ -601,18 +241,18 @@
       "category": "Result",
       "is_urgent": true,
       "official_link": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/11/20261105927183500.pdf",
-      "summary": "Official result update released on AACCC PG portal."
+      "summary": "Provisional allotment list announcement and discrepancy submission window."
     },
     {
       "id": "aaccc-kind-attention-notice-regarding-uploadin",
       "state": "Central (AACCC)",
-      "title": "Kind Attention:Notice regarding Uploading of Revised Seat Matrix For PG Unani And Re-Filling of Choices by Candidates.",
+      "title": "Kind Attention: Notice regarding Uploading of Revised Seat Matrix & Re-Filling of Choices",
       "year": "2026",
       "date": "2026-11-02",
       "category": "Choice Filling",
       "is_urgent": true,
       "official_link": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/11/202611021351492532.pdf",
-      "summary": "Official choice filling update released on AACCC PG portal."
+      "summary": "Revised seat matrix notification for AYUSH PG candidates."
     },
     {
       "id": "aaccc-registration-unlocking-facility-in-aaccc",
@@ -623,7 +263,7 @@
       "category": "Choice Filling",
       "is_urgent": true,
       "official_link": "https://cdnbbsr.s3waas.gov.in/s3653ac11ca60b3e021a8c609c7198acfc/uploads/2026/10/202610301622568787.pdf",
-      "summary": "Official choice filling update released on AACCC PG portal."
+      "summary": "Registration unlocking facility allowed for candidates wishing to modify profile/choices."
     }
   ]
 }
